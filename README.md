@@ -4,5 +4,6 @@ Sport extrême -> Escalade,Randonnée, Rafting, Canyoning, Parapente, slackline,
 Nom de l'agence : Keep Yourself Safe [KYS]
 Contrat pour ne pas etre responsable d'accidend ( chartre à signée)
 Paneaux d'entré 18+ pour acceder au site + floutage de l'arrière plan
+meilleur réduction -> 1centime
 
 Gris: #5A5A5A
