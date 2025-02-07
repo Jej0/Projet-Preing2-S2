@@ -9,10 +9,25 @@
 
         <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
         <meta name="description" content="Connecter vous pour acceder a votre profile.">
-        <title>KYS - Admin</title> 
+        <title>KYS - Connexion</title> 
 
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
     </head>
+    <body>
+        <div>
+		<img alt="Logo KYS" loading="lazy" width="98" height="98" src="https://www.cyu.fr/jsp/images/favicon.png">
+        <h2>Keep Yourself Safe</h2>
+		<p>Acceder à votre compte</p>
+        <form action="?" method="POST">
+            <label for="username">Nom d'utilisateur ou email</label><br>
+            <input type="text" id="username" name="username" required><br><br>
 
-
+            <label for="password">Mot de passe</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            
+			<a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+            <button type="submit">Se connecter</button>
+        </form>
+		</div>
+    </body>
 </html>
