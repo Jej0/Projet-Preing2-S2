@@ -307,22 +307,92 @@ input[type="range"] {
 }
 
 
-.center-div {
 
 
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    width: 300px;
-    height: 200px;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    padding: 20px;
-    flex-direction: column;
-    transform: translate(-50%,-50%);
+/* Formulaire */
 
+/* Style du conteneur pour le formulaire */
+.form-container {
+    background: var(--snow-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 600px; /* Limite la largeur maximale du formulaire pour éviter qu'il ne devienne trop large */
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 76px ;
 }
+
+/* Taille du logo */
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* Format du text en haut du formulaire */
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Style général du formulaire */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Style des champs de texte */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin: 0px 0px 25px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Placer le lien de modifier password a droit */
+.password-reset {
+    align-self: flex-end;
+    margin-top: -10px;
+    text-align: right;
+}
+
+.password-reset a {
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-size: 14px;
+}
+
+.password-reset a:hover {
+    text-decoration: underline;
+}
+
+/* Style du bouton d'inscription */
+button {
+    padding: 10px;
+    background-color:var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--text-dark);
+}
+
 /* Media Queries */
 @media (max-width: 600px) {
     body {
@@ -351,64 +421,4 @@ input[type="range"] {
     .conteneur {
         grid-template-columns: 1fr;
     }
-}
-
-
-
-
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/api/placeholder/1920/1080');
-    background-size: cover;
-    background-position: center;
-    color: var(--snow-white);
-    padding: 2rem;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--snow-white);
-}
-
-
-.nav1 ul {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav1 {
-    background: var(--snow-white);
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-.h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--text-dark);
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav1 a {
-    color: var(--text-dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav1 a:hover {
-    color: var(--accent-blue);
 }

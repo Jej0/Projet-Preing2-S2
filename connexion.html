@@ -29,5 +29,73 @@
             <button type="submit">Se connecter</button>
         </form>
 		</div>
-    </body>
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <!--Information de la page web-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimisation pour les appareils mobiles -->
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
+        <meta name="description" content="Connecter vous pour acceder a votre profile.">
+        <title>KYS - Connexion</title> 
+
+        <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
+    </head>
+    <body>
+        <!-- Navigation -->
+    <nav>
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="main.html" class="nav-brand">
+                <img src="img/logo.png" alt="Logo">
+                <span>Keep Yourself Safe</span>
+            </a>
+        </div>
+  
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="recherche.html">Rechercher</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+  
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+            <a href="connexion.html" class="nav-btn">Se connecter</a>
+            <a href="inscription.html" class="nav-btn">S'inscrire</a>
+            <a href="profile.html" class="profile-icon">
+                <img src="img/profile-icon.png" alt="Profil">
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Formulaire de connexion-->
+	<div class="form-container">
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <h2 class="h2">Acceder à votre compte</h2>
+
+        <form action="?" method="POST">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="password-reset">
+                <a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+            </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+</body>
 </html>

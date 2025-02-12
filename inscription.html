@@ -14,21 +14,60 @@
         <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
     </head>
 	<body>
-		<div class="container">
-			<h2>Inscription</h2>
+		<!-- Navigation -->
+		<nav>
+			<!-- Logo et nom (gauche)-->
+			<div class="nav-left">
+				<a href="main.html" class="nav-brand">
+					<img src="img/logo.png" alt="Logo">
+					<span>Keep Yourself Safe</span>
+				</a>
+			</div>
+	  
+			<!-- Liens (centre)-->
+			<ul class="nav-links">
+				<li><a href="presentation.html">Présentation</a></li>
+				<li><a href="recherche.html">Rechercher</a></li>
+				<li><a href="destinations.html">Destinations</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+	  
+			<!-- Profil et connexion(droite)-->
+			<div class="nav-right">
+				<a href="connexion.html" class="nav-btn">Se connecter</a>
+				<a href="inscription.html" class="nav-btn">S'inscrire</a>
+				<a href="profile.html" class="profile-icon">
+					<img src="img/profile-icon.png" alt="Profil">
+				</a>
+			</div>
+		</nav>
+
+		<!-- Formulaire d'inscription-->
+		<div class="form-container">
+      		<img src="img/logo.png" alt="Logo" class="logo">
+			<h2 class="h2">Inscription</h2>
+
 			<form action="?" method="POST">
-				<label for="username">Nom d'utilisateur :</label><br>
-				<input type="text" id="username" name="username" required><br><br>
+				<div class="form-group">
+					<label for="username">Nom d'utilisateur :</label>
+					<input type="text" id="username" name="username" required>
+				</div>
 
-				<label for="email">Email :</label><br>
-				<input type="email" id="email" name="email" required><br><br>
+				<div class="form-group">
+					<label for="email">Email :</label>
+					<input type="email" id="email" name="email" required>
+				</div>
 
-				<label for="password">Mot de passe :</label><br>
-				<input type="password" id="password" name="password" required><br><br>
+				<div class="form-group">
+					<label for="password">Mot de passe :</label>
+					<input type="password" id="password" name="password" required>
+				</div>
 
-				<label for="confirm-password">Confirmer le mot de passe :</label><br>
-				<input type="password" id="confirm-password" name="confirm-password" required><br><br>
-				
+				<div class="form-group">
+					<label for="confirm-password">Confirmer le mot de passe :</label>
+					<input type="password" id="confirm-password" name="confirm-password" required>
+				</div>
+
 				<button type="submit">S'inscrire</button>
 			</form>
 		</div>
