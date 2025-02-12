@@ -1,3 +1,5 @@
+/* Global */
+
 :root {
     --sky-blue: #e6f3ff;
     --mountain-grey: #f5f5f5;
@@ -17,65 +19,134 @@ body {
     background: linear-gradient(135deg, var(--sky-blue) 0%, var(--snow-white) 100%);
     min-height: 100vh;
     color: var(--text-dark);
+    height: 200vh;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--text-dark);
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-/* Navigation */
-.nav {
-    background: var(--snow-white);
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-.nav ul {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav a {
-    color: var(--text-dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav a:hover {
-    color: var(--accent-blue);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
+/* Header */
+header {
+    height: 500px;
+    background-image: url('img/background.jpg'); /* Image de fond */
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/api/placeholder/1920/1080');
-    background-size: cover;
-    background-position: center;
-    color: var(--snow-white);
-    padding: 2rem;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--snow-white);
+/* Filtre sombre */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
 }
+
+/* Contenu du header */
+.header-content {
+    font-size: 24px;
+    z-index: 1;
+}
+
+/* Gros titre */
+h1.header-title {
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 48px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+}
+
+/* Barre de navigation */
+nav {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo + Nom de l'agence */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Taille image */
+.nav-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Menu des liens */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent-blue);
+    border-radius: 5px;
+}
+
+/* Icône et boutons à droite */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-icon img {
+    height: 32px;
+}
+
+.nav-btn {
+    background: var(--accent-blue);
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--text-dark);
+    color: var(--accent-blue);
+}
+
+
+
+
 
 /* Filtres */
 .filtre {
@@ -263,4 +334,64 @@ input[type="range"] {
     .conteneur {
         grid-template-columns: 1fr;
     }
+}
+
+
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    color: var(--snow-white);
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--snow-white);
+}
+
+
+.nav1 ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav1 {
+    background: var(--snow-white);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav1 a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav1 a:hover {
+    color: var(--accent-blue);
 }
