@@ -9,10 +9,84 @@
 
         <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
         <meta name="description" content="Votre profile d'utilisateur avec vos planification de voyage.">
-        <title>KYS - Profile</title> 
+        <title>KYS - Profile</title>
 
         <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
     </head>
+    <body>
+      <!-- Navigation -->
+      <nav>
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="main.html" class="nav-brand">
+                <img src="img/logo.png" alt="Logo">
+                <span>Keep Yourself Safe</span>
+            </a>
+        </div>
+
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="recherche.html">Rechercher</a></li>
+            <li><a href="mailto:strasox@gmail.com">Contact</a></li>
+        </ul>
+
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+            <a href="connexion.html" class="nav-btn">Se connecter</a>
+            <a href="inscription.html" class="nav-btn">S'inscrire</a>
+            <a href="profile.html" class="profile-icon">
+                <img src="img/profile-icon.png" alt="Profil">
+            </a>
+        </div>
+      </nav>
 
 
+      <div class="profile-container">
+          <div class="profile-header">
+              <img src="img/profile.jpg" alt="Photo de profil" class="profile-pic">
+              <h2 id="display-name">John Doe</h2>
+              <p id="display-username">@johndoe</p>
+          </div>
+
+          <form id="profile-form">
+              <div class="profile-info">
+                  <div class="info-group">
+                      <label>Nom :</label>
+                      <input type="text" id="last-name" value="Doe" disabled>
+                  </div>
+
+                  <div class="info-group">
+                      <label>Prénom :</label>
+                      <input type="text" id="first-name" value="John" disabled>
+                  </div>
+
+                  <div class="info-group">
+                      <label>Email :</label>
+                      <input type="email" id="email" value="john.doe@example.com" disabled>
+                  </div>
+
+                  <div class="info-group">
+                      <label>Téléphone :</label>
+                      <input type="tel" id="phone" value="+33 6 12 34 56 78" disabled>
+                  </div>
+
+                  <div class="info-group">
+                      <label>Mot de passe :</label>
+                      <input type="password" id="password" value="********" disabled>
+                  </div>
+
+                  <div class="info-group">
+                      <label>Adresse :</label>
+                      <input type="text" id="address" value="123 Rue de Paris, 75000, Paris" disabled>
+                  </div>
+              </div>
+
+              <button type="button" id="edit-btn" class="edit-btn">Modifier</button>
+              <button type="submit" id="save-btn" class="save-btn" style="display: none;">Enregistrer</button>
+          </form>
+      </div>
+
+
+    </body>
 </html>
