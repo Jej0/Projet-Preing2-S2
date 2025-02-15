@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
@@ -12,106 +13,276 @@
 
     </style>
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav>
-    <!-- Logo et nom (gauche)-->
-    <div class="nav-left">
-        <a href="main.html" class="nav-brand">
-            <img src="img/logo.png" alt="Logo">
-            <span>Keep Yourself Safe</span>
-        </a>
-    </div>
-
-    <!-- Liens (centre)-->
-    <ul class="nav-links">
-        <li><a href="presentation.html">Présentation</a></li>
-        <li><a href="recherche.html">Rechercher</a></li>
-        <li><a href="mailto:strasox@gmail.com">Contact</a></li>
-    </ul>
-
-    <!-- Profil et connexion(droite)-->
-    <div class="nav-right">
-        <a href="connexion.html" class="nav-btn">Se connecter</a>
-        <a href="inscription.html" class="nav-btn">S'inscrire</a>
-        <a href="profile.html" class="profile-icon">
-            <img src="img/profile-icon.png" alt="Profil">
-        </a>
-    </div>
-  </nav>
-
-    <h1 class="h1">Trouvez votre voyage</h1>
-    <div class="filtre">
-        <div class="filtre-groupe">
-            <label class="clickable">
-                <input type="checkbox" name="type" value="alpinisme"> Alpinisme
-            </label>
-            <label class="clickable">
-                <input type="checkbox" name="type" value="wingsuit"> WingSuit
-            </label>
-            <label class="clickable">
-                <input type="checkbox" name="type" value="parpapente"> Parapente
-            </label>
-            <label class="clickable">
-                <input type="checkbox" name="type" value="canyoning"> Canyoning
-            </label>
-            <label class="clickable">
-                <input type="checkbox" name="type" value="slackline"> SlackLine
-            </label>
-            <label class="clickable">
-                <input type="checkbox" name="type" value="reduction"> Reduction
-            </label>
+    <!-- Navigation -->
+    <nav>
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="main.html" class="nav-brand">
+                <img src="img/logo.png" alt="Logo">
+                <span>Keep Yourself Safe</span>
+            </a>
         </div>
-        <div class="filtre-groupe">
-            <h3>Budget</h3>
-            <div class="prix">
-                <input type="range" min="0" max="5000" step="10" value="250">
-                <p class="prix-label">Prix : <strong>0€ - 5000€</strong></p>
-            </div>
+
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="recherche.html">Rechercher</a></li>
+            <li><a href="mailto:strasox@gmail.com">Contact</a></li>
+        </ul>
+
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+            <a href="connexion.html" class="nav-btn">Se connecter</a>
+            <a href="inscription.html" class="nav-btn">S'inscrire</a>
+            <a href="profile.html" class="profile-icon">
+                <img src="img/profile-icon.png" alt="Profil">
+            </a>
         </div>
-    </div>
+    </nav>
 
-    <div class="conteneur">
+    <main class="search-container">
+        <!-- Hero Section avec vidéo de fond -->
+        <section class="search-hero">
+            <div class="hero-content">
+                <h1>Découvrez Votre Prochaine Aventure</h1>
+                <p class="hero-subtitle">Plus de 100 activités extrêmes encadrées par des professionnels</p>
 
-        <div class="carte">
-            <img src="placeholder" alt="Mont Blanc" class="carte-image">
-            <div class="carte-contenu">
-                <h3 class="carte-titre">Aventure au Mont Blanc</h3>
-                <p class="carte-description">Week-end (voir plus) d'alpinisme dans le massif du Mont Blanc sans aucune aide.</p>
-                <div class="carte-activites">
-                    <span class="activite-tag">Alpinisme</span>
-                    <span class="activite-tag">Randonnée</span>
+                <!-- Barre de recherche principale -->
+                <div class="search-box">
+                    <div class="search-tabs">
+                        <button class="tab-btn active">Toutes les Activités</button>
+                        <button class="tab-btn">Sports Aériens</button>
+                        <button class="tab-btn">Sports Nautiques</button>
+                        <button class="tab-btn">Sports de Montagne</button>
+                    </div>
+                    <div class="search-form">
+                        <div class="search-row">
+                            <div class="search-group">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Quelle activité recherchez-vous ?">
+                            </div>
+                            <div class="search-group">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Où ?">
+                            </div>
+                            <div class="search-group">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" placeholder="Quand ?">
+                            </div>
+                            <button class="search-submit">Rechercher</button>
+                        </div>
+                    </div>
                 </div>
-                <p class="carte-prix">54.99€</p>
             </div>
-        </div>
+        </section>
 
-
-        <div class="carte">
-            <img src="placeholder" alt="Chamonix" class="carte-image">
-            <div class="carte-contenu">
-                <h3 class="carte-titre">Vol en Parapente à Chamonix</h3>
-                <p class="carte-description">Découvrez les Alpes vues du ciel avec nos instructeurs inexpérimentés</p>
-                <div class="carte-activites">
-                    <span class="activite-tag">Parapente</span>
+        <!-- Filtres avancés -->
+        <section class="advanced-filters">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label>Niveau</label>
+                    <div class="filter-options">
+                        <button class="filter-option active">Tous</button>
+                        <button class="filter-option">Débutant</button>
+                        <button class="filter-option">Intermédiaire</button>
+                        <button class="filter-option">Expert</button>
+                    </div>
                 </div>
-                <p class="carte-prix">87.18€</p>
-            </div>
-        </div>
-
-        <div class="carte">
-            <img src="placeholder" alt="Verdon" class="carte-image">
-            <div class="carte-contenu">
-                <h3 class="carte-titre">Canyoning dans le Verdon</h3>
-                <p class="carte-description">Mois intense dans les plus profonds canyons du Yarlung Tsangpo.</p>
-                <div class="carte-activites">
-                    <span class="activite-tag">Canyoning</span>
-                    <span class="activite-tag">Réduction</span>
-                    <span class="activite-tag">Assurance vie requise</span>
+                <div class="filter-group">
+                    <label>Prix</label>
+                    <div class="price-range">
+                        <input type="range" min="0" max="1000" value="500">
+                        <div class="price-values">
+                            <span>0€</span>
+                            <span>500€</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="carte-prix">3.99€</p>
+                <div class="filter-group">
+                    <label>Durée</label>
+                    <div class="filter-options">
+                        <button class="filter-option">½ Journée</button>
+                        <button class="filter-option">1 Jour</button>
+                        <button class="filter-option">2+ Jours</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Résultats de recherche -->
+        <section class="search-results">
+            <div class="results-header">
+                <div class="results-info">
+                    <h2>24 Activités trouvées</h2>
+                    <p>dans les Alpes Françaises</p>
+                </div>
+                <div class="results-controls">
+                    <div class="view-options">
+                        <button class="view-btn active"><i class="fas fa-th-large"></i></button>
+                        <button class="view-btn"><i class="fas fa-list"></i></button>
+                    </div>
+                    <select class="sort-select">
+                        <option value="popular">Plus populaires</option>
+                        <option value="price-low">Prix croissant</option>
+                        <option value="price-high">Prix décroissant</option>
+                        <option value="rating">Mieux notés</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <!-- Carte Activité 1 -->
+                <div class="activity-card premium">
+                    <div class="activity-image">
+                        <img src="img/parachute.jpg" alt="Parachutisme">
+                        <div class="activity-badges">
+                            <span class="badge premium">Premium</span>
+                            <span class="badge popular">Top Ventes</span>
+                        </div>
+                        <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-category">Sport Aérien</div>
+                        <h3>Saut en Parachute Tandem</h3>
+                        <div class="activity-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-score">4.8</span>
+                            <span class="rating-count">(256 avis)</span>
+                        </div>
+                        <div class="activity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Annecy, Haute-Savoie</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3 heures</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-friends"></i>
+                                <span>2-8 personnes</span>
+                            </div>
+                        </div>
+                        <div class="activity-highlights">
+                            <span class="highlight"><i class="fas fa-check"></i> Matériel inclus</span>
+                            <span class="highlight"><i class="fas fa-check"></i> Vidéo souvenir</span>
+                            <span class="highlight"><i class="fas fa-check"></i> Assurance incluse</span>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="price-block">
+                                <span class="price">299€</span>
+                                <span class="price-info">/personne</span>
+                            </div>
+                            <a href="details.html" class="btn-book">Réserver maintenant</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte Activité 2 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="img/plongee.jpg" alt="Plongée">
+                        <div class="activity-badges">
+                            <span class="badge new">Nouveau</span>
+                        </div>
+                        <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-category">Sport Nautique</div>
+                        <h3>Plongée Découverte</h3>
+                        <div class="activity-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-score">4.0</span>
+                            <span class="rating-count">(124 avis)</span>
+                        </div>
+                        <div class="activity-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Côte d'Azur</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>4 heures</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-friends"></i>
+                                <span>1-4 personnes</span>
+                            </div>
+                        </div>
+                        <div class="activity-highlights">
+                            <span class="highlight"><i class="fas fa-check"></i> Équipement fourni</span>
+                            <span class="highlight"><i class="fas fa-check"></i> Moniteur certifié</span>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="price-block">
+                                <span class="price">89€</span>
+                                <span class="price-info">/personne</span>
+                            </div>
+                            <a href="details.html" class="btn-book">Réserver maintenant</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajouter plus de cartes d'activités similaires -->
+            </div>
+
+            <!-- Pagination -->
+        </section>
+
+        <!-- Section Newsletter -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Ne Manquez Aucune Aventure</h2>
+                <p>Inscrivez-vous pour recevoir nos meilleures offres et nouveautés</p>
+                <form class="newsletter-form">
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Keep Yourself Safe</h3>
+                <p>L'aventure en toute sécurité</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@kys.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Keep Yourself Safe. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
 </body>
+
+
+
 </html>
