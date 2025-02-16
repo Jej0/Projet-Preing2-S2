@@ -10,40 +10,115 @@
         <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
         <meta name="description" content="⚠️Page Administrateur du site Keep Yourself Safe.⚠️">
         <title>KYS - Admin</title>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
     </head>
+
     <body>
-      <!-- Navigation -->
-      <nav>
-        <!-- Logo et nom (gauche)-->
-        <div class="nav-left">
-            <a href="main.html" class="nav-brand">
-                <img src="img/logo.png" alt="Logo">
-                <span>Keep Yourself Safe</span>
-            </a>
-        </div>
-
-        <!-- Liens (centre)-->
-        <ul class="nav-links">
-            <li><a href="presentation.html">Présentation</a></li>
-            <li><a href="recherche.html">Rechercher</a></li>
-            <li><a href="mailto:strasox@gmail.com">Contact</a></li>
-        </ul>
-
-        <!-- Profil et connexion(droite)-->
-        <div class="nav-right">
-            <a href="connexion.html" class="nav-btn">Se connecter</a>
-            <a href="inscription.html" class="nav-btn">S'inscrire</a>
-            <a href="profile.html" class="profile-icon">
-                <img src="img/profile-icon.png" alt="Profil">
-            </a>
-        </div>
-      </nav>
-
-
-
-
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-left">
+                <a href="accueil.html" class="nav-brand">
+                    <img src="img/logo.png" alt="Logo">
+                    <span>Keep Yourself Safe</span>
+                </a>
+            </div>
+    
+            <div class="nav-right">
+                <a href="profile.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Retour au profil
+                </a>
+            </div>
+        </nav>
+    
+        <main class="admin-container">
+            <!-- En-tête Admin -->
+            <div class="admin-header">
+                <h1>Tableau de bord Administrateur</h1>
+                <div class="admin-badges">
+                    <div class="admin-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        Super Admin
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Statistiques -->
+            <div class="admin-stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>1,234</h3>
+                    <p>Utilisateurs inscrits</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hiking"></i>
+                    <h3>89</h3>
+                    <p>Activités en ligne</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-euro-sign"></i>
+                    <h3>15,230€</h3>
+                    <p>CA ce mois</p>
+                </div>
+            </div>
+    
+            <!-- Gestion utilisateurs -->
+            <section class="admin-section">
+                <h2>Gestion des utilisateurs</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher un utilisateur...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jhonny HALLIDAY</td>
+                            <td>allumerlefeu@mail.com</td>
+                            <td><span class="role-user">Utilisateur</span></td>
+                            <td>
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <!-- Plus de lignes... -->
+                    </tbody>
+                </table>
+            </section>
+    
+            <!-- Panel de contrôle -->
+            <section class="admin-section">
+                <h2>Actions rapides</h2>
+                <div class="quick-actions">
+                    <button class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        Ajouter une activité
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-file-invoice"></i>
+                        Générer rapport
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-bell"></i>
+                        Envoyer notification
+                    </button>
+                </div>
+            </section>
+        </main>
+    
+        <footer>
+            <!-- Footer existant -->
+        </footer>
     </body>
 
 </html>
