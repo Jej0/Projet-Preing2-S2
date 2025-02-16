@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-    <head>
-        <!--Information de la page web-->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimisation pour les appareils mobiles -->
-        <meta name="robots" content="noindex, nofollow">
+<head>
+	<!--Information de la page web-->
+    <meta charset="UTF-8">
+	
+	<!-- Optimisation pour le telephone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+	
+	<!-- Titre du site -->
+    <meta name="title" content="Keep Yourself Safe">
+	
+	<!-- Nom de l'agence et auteur du site -->
+    <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
+	
+	<!-- Description du site -->
+    <meta name="description" content="⚠️Page Administrateur du site Keep Yourself Safe.⚠️">
+	
+	<!-- Titre du navigateur -->
+    <title>KYS - Admin</title>
+	
+	<!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	
+	<!-- Ajout des icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
-        <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
-        <meta name="description" content="⚠️Page Administrateur du site Keep Yourself Safe.⚠️">
-        <title>KYS - Admin</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
-    </head>
+<body>
+	<!-- Haut de page -->
 
-    <body>
-        <!-- Navigation -->
-        <nav>
-            <div class="nav-left">
-                <a href="accueil.html" class="nav-brand">
-                    <img src="img/logo.png" alt="Logo">
-                    <span>Keep Yourself Safe</span>
-                </a>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="accueil.html" class="nav-brand">
+                <img src="img/logo.png" alt="Logo">
+                Keep Yourself Safe
+            </a>
+        </div>
     
-            <div class="nav-right">
-                <a href="profile.html" class="nav-btn">
-                    <i class="fas fa-arrow-left"></i> Retour au profil
-                </a>
-            </div>
-        </nav>
+        <div class="nav-right">
+            <a href="profile.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Retour au profil
+            </a>
+        </div>
+    </nav>
     
-        <main class="admin-container">
-            <!-- En-tête Admin -->
+	<!-- Contenu-->
+    <main class="admin-container">
+        <!-- En-tête Admin -->
             <div class="admin-header">
                 <h1>Tableau de bord Administrateur</h1>
                 <div class="admin-badges">
@@ -116,9 +133,31 @@
             </section>
         </main>
     
-        <footer>
-            <!-- Footer existant -->
-        </footer>
-    </body>
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Keep Yourself Safe</h3>
+                <p>L'aventure en toute sécurité.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@kys.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
+        </div>
+    </footer>
 
+</body>
 </html>
