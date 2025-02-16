@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-    <head>
-        <!--Information de la page web-->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimisation pour les appareils mobiles -->
-        <meta name="robots" content="noindex, nofollow">
+<head>
+	<!--Information de la page web-->
+    <meta charset="UTF-8">
+	
+	<!-- Optimisation pour le telephone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+	
+	<!-- Titre du site -->
+    <meta name="title" content="Keep Yourself Safe">
+	
+	<!-- Nom de l'agence et auteur du site -->
+    <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
+	
+	<!-- Description du site -->
+    <meta name="description" content="Inscrivez-vous pour sauvegarder et planifier votre voyage.">
+	
+	<!-- Titre du navigateur -->
+    <title>KYS - Inscription</title>
+	
+	<!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	
+	<!-- Ajout des icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
-        <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA"> <!-- Nom de l'agence et auteur du site -->
-        <meta name="description" content="Inscrivez vous pour sauvegarder et planifier votre voyage.">
-        <title>KYS - Inscription</title>
+<body>
+	<!-- Haut de page -->
+	
+    <!-- Navigation -->
+    <nav>
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="accueil.html" class="nav-brand">
+                <img src="img/logo.png" alt="Logo">
+                Keep Yourself Safe
+            </a>
+        </div>
 
-        <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS -->
-    </head>
-	<body>
-		<!-- Navigation -->
-		<nav>
-			<!-- Logo et nom (gauche)-->
-			<div class="nav-left">
-				<a href="main.html" class="nav-brand">
-					<img src="img/logo.png" alt="Logo">
-					<span>Keep Yourself Safe</span>
-				</a>
-			</div>
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="recherche.html">Rechercher</a></li>
+            <li><a href="mailto:contact@kys.fr">Contact</a></li>
+        </ul>
 
-			<!-- Liens (centre)-->
-			<ul class="nav-links">
-				<li><a href="presentation.html">Présentation</a></li>
-				<li><a href="recherche.html">Rechercher</a></li>
-				<li><a href="mailto:strasox@gmail.com">Contact</a></li>
-			</ul>
-
-			<!-- Profil et connexion(droite)-->
-			<div class="nav-right">
-				<a href="connexion.html" class="nav-btn">Se connecter</a>
-				<a href="inscription.html" class="nav-btn">S'inscrire</a>
-				<a href="profile.html" class="profile-icon">
-					<img src="img/profile-icon.png" alt="Profil">
-				</a>
-			</div>
-		</nav>
-
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+            <a href="connexion.html" class="nav-btn">Se connecter</a>
+            <a href="inscription.html" class="nav-btn">S'inscrire</a>
+            <a href="profile.html" class="profile-icon">
+            <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </nav>
+	
+	<!-- Contenu-->
+	<main>
 		<!-- Formulaire d'inscription-->
 		<div class="form-container">
       		<img src="img/logo.png" alt="Logo" class="logo">
@@ -70,5 +89,8 @@
 				<button type="submit">S'inscrire</button>
 			</form>
 		</div>
-	</body>
+	</main>
+	
+	<!-- Pas de footer, sinon on peut scroll -->
+</body>
 </html>
