@@ -21,6 +21,7 @@
     --shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
+
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +35,6 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
 }
-
 
 /* Header */
 header {
@@ -141,8 +141,8 @@ nav {
 }
 
 .nav-right i {
-	font-size: 40px;
-	color: var(--white);
+    font-size: 40px;
+    color: var(--white);
 }
 
 .nav-btn {
@@ -158,9 +158,6 @@ nav {
     background: var(--text-dark);
     color: var(--accent-blue);
 }
-
-
-
 
 /* Conteneur principal */
 .profile-container {
@@ -512,68 +509,6 @@ nav {
     animation: fadeIn 0.5s ease;
 }
 
-/* Filtres */
-.filtre {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.filtre-groupe {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: var(--mountain-grey);
-    border-radius: 10px;
-}
-
-.filtre-groupe:last-child {
-    margin-bottom: 0;
-}
-
-label.clickable {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    margin: 0.5rem;
-    background: var(--white);
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-label.clickable:hover {
-    background: var(--accent-blue);
-    color: var(--white);
-}
-
-input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-h3 {
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-/* Prix */
-.prix {
-    padding: 1rem;
-    background: var(--white);
-    border-radius: 10px;
-}
-
-input[type="range"] {
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.prix-label {
-    text-align: center;
-    color: var(--text-dark);
-}
-
 /* CTA Button */
 .cta-button {
     display: inline-block;
@@ -591,87 +526,6 @@ input[type="range"] {
     background: #2980b9;
     transform: translateY(-2px);
 }
-
-/* Layout */
-.conteneur {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-}
-
-/* Cartes */
-.carte {
-    background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.carte:hover {
-    transform: translateY(-5px);
-}
-
-.carte-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.carte-contenu {
-    padding: 1.5rem;
-}
-
-.carte-titre {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
-}
-
-.carte-description {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.carte-prix {
-    font-size: 1.4rem;
-    color: var(--accent-blue);
-    font-weight: bold;
-}
-
-.carte-activites {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.activite-tag {
-    background: var(--mountain-grey);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    color: var(--text-dark);
-}
-
-/* Caractéristiques */
-.caracteristiques {
-    background: var(--mountain-grey);
-    padding: 4rem 0;
-}
-
-.caracteristiques .conteneur {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-
-
 
 /* Formulaire */
 
@@ -1548,7 +1402,7 @@ footer {
 .search-hero {
     position: relative;
     min-height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/background.jpg');
     background-size: cover;
     background-position: center;
     padding: 60px 20px;
