@@ -16,7 +16,10 @@
 	--text-dark: #2c3e50;
 
 	--green: #28a745;
-	--yellow-gold: #ffd700;
+
+	--yellow: #ffd700;
+	--orange: #FFA500;
+
 	--red: #dc3545;
 
 	--transition: all 0.3s ease;
@@ -104,29 +107,8 @@ body {
     animation-fill-mode: forwards;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Working On */
 /* Bouton général (lien)*/
 .btn {
-	border-radius: 30px;
 	text-decoration: none;
 	text-align: center;
 	white-space: nowrap; /* Empêche le retour a la ligne dans un bouton */
@@ -142,90 +124,57 @@ body {
 }
 
 /* Bouton spécifique (lien)*/
-.btn-primary, .btn-secondary {
-    padding: 15px 30px;
-}
-
-.btn-primary {
+.btn-base {
     background: var(--light-blue);
+		padding: 15px 30px;
+		border-radius: 30px;
 }
 
-.btn-secondary {
+.btn-transparent {
     background: transparent;
     border: 2px solid white;
+		padding: 15px 30px;
+		border-radius: 30px;
 }
 
 .nav-btn {
     background: var(--light-blue);
     padding: 8px 12px;
-}
-
-/* Hover bouton spécifique (lien)*/
-.btn-primary:hover, .nav-btn:hover {
-	background: var(--blue);
-}
-
-
-
-
-
-.edit-btn {
-    padding: 8px 15px;
-    background: #f8f9fa;
-    border: none;
-    border-radius: 5px;
-    color: #666;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.edit-btn:hover {
-    background: #e9ecef;
+		border-radius: 15px;
 }
 
 .btn-card {
-    display: inline-block;
-    padding: 10px 20px;
-    background: var(--yellow-gold);
-    color: var(--dark-bg);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.btn-card:hover {
-    background: white;
-    color: var(--blue);
+		background: var(--yellow);
+		color: var(--dark-bg);
+		padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .btn-book {
-    padding: 10px 20px;
-    background: var(--blue);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: var(--transition);
+		background: var(--light-blue);
+		padding: 10px 20px;
+		border-radius: 10px;
 }
 
-.btn-book:hover {
-    background: #0056b3;
+button {
+		background-color:var(--light-blue);
+    padding: 10px;
+		border: none;
+    border-radius: 5px;
+    width: 100%;
 }
 
-.tab-btn {
-    padding: 10px 20px;
-    border: none;
-    background: none;
-    color: var(--light-gray);
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
+/* Hover bouton spécifique (lien)*/
+.btn-base:hover, .nav-btn:hover, .btn-book:hover, button:hover{
+	background: var(--blue);
 }
 
-.tab-btn.active {
-    color: var(--blue);
-    border-bottom: 2px solid var(--blue);
+.btn-card:hover {
+    background: var(--orange);
 }
+
+
+
 
 .btn-edit {
     background: orange;
@@ -238,6 +187,35 @@ body {
 }
 
 
+.edit-btn:hover {
+    background: #e9ecef;
+}
+
+
+
+
+
+
+
+
+
+
+/* Autre spécial */
+		/* Dans recherche */
+		.tab-btn {
+		    padding: 10px 20px;
+		    border: none;
+		    background: none;
+		    color: var(--light-gray);
+		    cursor: pointer;
+		    transition: var(--transition);
+		    font-weight: 500;
+		}
+
+		.tab-btn.active {
+		    color: var(--blue);
+		    border-bottom: 2px solid var(--blue);
+		}
 
 
 
@@ -548,7 +526,7 @@ nav {
 }
 
 .activity-rating {
-    color: var(--yellow-gold);
+    color: var(--yellow);
     margin: 10px 0;
 }
 
@@ -705,23 +683,6 @@ input[type="password"] {
     text-decoration: underline;
 }
 
-/* Style du bouton d'inscription */
-button {
-    padding: 10px;
-    background-color:var(--light-blue);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: var(--text-dark);
-}
-
 /* Styles pour la page de présentation */
 .presentation-container {
     max-width: 1200px;
@@ -867,7 +828,7 @@ footer {
 }
 
 .destination-rating {
-    color: var(--yellow-gold);
+    color: var(--yellow);
 }
 
 /* Activities Detail Section */
@@ -1190,7 +1151,7 @@ footer {
 }
 
 .countdown span {
-    background: var(--yellow-gold);
+    background: var(--yellow);
     color: var(--dark-bg);
     padding: 10px;
     border-radius: 5px;
@@ -1209,7 +1170,7 @@ footer {
 
 .new-price {
     font-size: 2rem;
-    color: var(--yellow-gold);
+    color: var(--yellow);
     font-weight: bold;
 }
 
@@ -1283,23 +1244,14 @@ footer {
     font-size: 1rem;
 }
 
-.newsletter-form button {
-    background: var(--blue);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: var(--transition);
-}
+
 
 /* Hover Effects */
 .benefit-item:hover {
     transform: translateY(-5px);
 }
 
-.newsletter-form button:hover {
-    background: var(--dark-bg);
-}
+
 
 /* Styles pour la page de recherche */
 .search-container {
@@ -1477,7 +1429,7 @@ footer {
 }
 
 .badge.premium {
-    background: var(--yellow-gold);
+    background: var(--yellow);
     color: var(--text-dark); /* Obligatoir pour lire le texte */
 }
 
@@ -1507,7 +1459,7 @@ footer {
 }
 
 .stars {
-    color: var(--yellow-gold);
+    color: var(--yellow);
 }
 
 .rating-count {
@@ -1585,15 +1537,7 @@ footer {
     border-radius: 8px;
 }
 
-.newsletter-form button {
-    padding: 15px 30px;
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-}
+
 
 /* Page Admin */
 .admin-container {
