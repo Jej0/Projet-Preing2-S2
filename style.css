@@ -20,7 +20,8 @@
 	--yellow: #ffd700;
 	--orange: #FFA500;
 
-	--red: #dc3545;
+	--red: #E63946;
+	--bred: #B22222;
 
 	--transition: all 0.3s ease;
 	--shadow: 0 2px 15px rgba(0,0,0,0.1);
@@ -40,7 +41,7 @@ body {
     line-height: 1.6;
 }
 
-/* Section Hero */
+/* =========================== Section Hero =========================== */
 
 /* Propriétés général */
 .accueil-hero, .recherche-hero, .presentation-hero {
@@ -107,7 +108,75 @@ body {
     animation-fill-mode: forwards;
 }
 
-/* Bouton général (lien)*/
+/* =========================== Barre de navigation =========================== */
+nav {
+    background: rgba(0, 0, 0, 0.5);
+		height: 80px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo + Nom de l'agence (gauche)*/
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Taille image */
+.nav-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Menu des liens (milieu)*/
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--light-blue);
+    border-radius: 5px;
+}
+
+/* Icône et boutons (droite) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-right i {
+    font-size: 40px;
+    color: var(--white);
+}
+
+/* =========================== Bouton général (lien) =========================== */
 .btn {
 	text-decoration: none;
 	text-align: center;
@@ -143,14 +212,14 @@ body {
 		border-radius: 15px;
 }
 
-.btn-card {
+.btn-card { /* Accueil */
 		background: var(--yellow);
 		color: var(--dark-bg);
 		padding: 10px 20px;
     border-radius: 10px;
 }
 
-.btn-book {
+.btn-book { /* Recherche */
 		background: var(--light-blue);
 		padding: 10px 20px;
 		border-radius: 10px;
@@ -164,37 +233,28 @@ button {
     width: 100%;
 }
 
+.btn-edit { /* Admin */
+    background: var(--yellow);
+		color: var(--dark-bg);
+}
+
+.btn-supprimer { /* Admin */
+	background: var(--red);
+	color: var(--dark-bg);
+}
+
 /* Hover bouton spécifique (lien)*/
 .btn-base:hover, .nav-btn:hover, .btn-book:hover, button:hover{
 	background: var(--blue);
 }
 
-.btn-card:hover {
+.btn-card:hover, .btn-edit:hover {
     background: var(--orange);
 }
 
-
-
-
-.btn-edit {
-    background: orange;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
+.btn-supprimer:hover {
+	background: var(--bred);
 }
-
-
-.edit-btn:hover {
-    background: #e9ecef;
-}
-
-
-
-
-
 
 
 
@@ -238,73 +298,16 @@ button {
 
 
 
-/* Barre de navigation */
-nav {
-    background: rgba(0, 0, 0, 0.5);
-		height: 80px;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
-/* Logo + Nom de l'agence */
-.nav-left {
-    display: flex;
-    align-items: center;
-}
 
-.nav-brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-}
 
-/* Taille image */
-.nav-brand img {
-    height: 40px;
-    margin-right: 10px;
-}
 
-/* Menu des liens */
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-}
 
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 8px 12px;
-    transition: 0.3s;
-}
 
-.nav-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--light-blue);
-    border-radius: 5px;
-}
 
-/* Icône et boutons à droite */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
 
-.nav-right i {
-    font-size: 40px;
-    color: var(--white);
-}
+
+
 
 /* Conteneur principal */
 .profile-container {
