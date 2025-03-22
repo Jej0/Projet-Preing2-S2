@@ -90,7 +90,7 @@ session_start();
 					<a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a>
 				</div>
 
-				<button type="submit"  class="btn">S'inscrire</button>
+				<button type="submit"  class="btn">Se connecter</button>
 			</form>
 		</div>
 	</main>

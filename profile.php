@@ -91,7 +91,7 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
         <div class="nav-right">
                 <a href="scripts_php/logout.php" class="btn nav-btn">Se déconnecter</a>
                 <i class="fas fa-user-circle"></i>
-                
+                </a>
         </div>
     </nav>
 
