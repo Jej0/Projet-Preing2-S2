@@ -1,0 +1,28 @@
+[
+    {
+        "id_user": 1,
+        "username": "Strasox",
+        "mot_de_passe": "",
+        "admin": true,
+        "newsletter": true,
+        "information personnelles": {
+            "nom": "Miko",
+            "prenom": "Strasox",
+            "naissance": "20",
+            "mail": "strasox@gmail.com",
+            "adresse": "9 Av. du Parc, 95000 Cergy",
+            "telephone": "09 87 65 43 21",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2024-05-30",
+            "connexion": "2024-05-30"
+        },
+        "id_historique_voyages": [
+            101
+        ],
+        "id_reservation": [
+            101
+        ]
+    }
+]

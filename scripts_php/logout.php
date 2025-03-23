@@ -12,7 +12,6 @@ if (isset($_COOKIE[session_name()])) {
 
 session_destroy();
 
-unset($_SESSION);
 
 header("Location: ../accueil.php");
 exit;

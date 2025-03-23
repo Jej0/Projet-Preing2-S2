@@ -52,21 +52,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Ajouter le nouvel utilisateur
-        $users[] = [
-            'username' => $username, 
-            'email' => $email, 
-            'admin' => false, 
-            'password' => password_hash(password: $password, algo: PASSWORD_DEFAULT)
-        ];
+        $users[] = ['username' => $username, 'email' => $email, 'admin' => False, 'password' => password_hash(password: $password, algo: PASSWORD_DEFAULT)];
         saveUsers(users: $users);
-        
 
         $_SESSION['user'] = [
-            'username' => $username,
-            'email' => $email,
-            'admin' => false
+            'username' => $user['username'],
+            'email' => $user['email'],
+            'admin' => $user['admin']
         ];
-
+        
         // Rediriger vers la page d'accueil ou le tableau de bord
         header(header: 'Location: ../accueil.php');
         exit;

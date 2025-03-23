@@ -60,63 +60,15 @@
         "password": "$2y$10$y7Wlv3MxcvJxLSb7G700YO0..T9DRdvtq6mdCsASXBMQhJ5eB8JAK"
     },
     {
-        "username": "amp",
-        "email": "amp@gmail.com",
+        "username": "strasox",
+        "email": "strasox@gmail.com",
         "admin": false,
-        "password": "$2y$10$bn9uD7eMXWclpf4xea2QW.aW7ySFAph7H7ZaU67ixYSb1myznlxYW"
+        "password": "$2y$12$lcYGyB.mBON3DXrKMh9iTecggd1KGEzRXFsqIbRdGhFjKL2K\/qXJy"
     },
     {
-        "username": "ggg",
-        "email": "ggg@gmail.com",
+        "username": "abb",
+        "email": "a@gmail.com",
         "admin": false,
-        "password": "$2y$10$pNkRe6GhaZGN4wFwXU9PDu275z46vXW6zfhNnvsiEaSgeksf1dS56"
-    },
-    {
-        "username": "ogo",
-        "email": "ogo@gmail.com",
-        "admin": false,
-        "password": "$2y$10$1q8Ah4VybTGew97H.snNZ.5dm7MnitwA\/tDPWV.JVMky3KFXTyE5q"
-    },
-    {
-        "username": "gogo",
-        "email": "gogo@gmail.com",
-        "admin": false,
-        "password": "$2y$10$0V\/gJmI8vFwPlcmhfIFnMu2yJO.OmUANLjcM93One8y2Jjeee.XZG"
-    },
-    {
-        "username": "pop",
-        "email": "pop@gmail.com",
-        "admin": false,
-        "password": "$2y$10$if\/OsUszo.mJHmL1jwEmOOVuEB4\/ysNRRlcqY3VWIxZhTAwZSJ92K"
-    },
-    {
-        "username": "fff",
-        "email": "fffq@gmail.com",
-        "admin": false,
-        "password": "$2y$10$vK2hezYnwdoEb6AruMy3EeSnG.y7q6ThJx950e\/Ndhqbc80p64\/2S"
-    },
-    {
-        "username": "bb",
-        "email": "b@gmail.com",
-        "admin": false,
-        "password": "$2y$10$1preD97TwOk61IL5Ow6fqu48u8cx68qsbcj\/lI.4PX2WcbOlmShP."
-    },
-    {
-        "username": "vv",
-        "email": "vv@gmail.com",
-        "admin": false,
-        "password": "$2y$10$D01W3ExIFIuZVCvvDr60UuB6wj0\/Jh9S7k5SjwjlW.KENppA1shpO"
-    },
-    {
-        "username": "ji",
-        "email": "ji@gmail.com",
-        "admin": false,
-        "password": "$2y$10$lOZGSK2w8pnl1GafqA5HVu\/u4ZxkuuSDEVkKLAtHrGwiQpwFz38d."
-    },
-    {
-        "username": "bobo",
-        "email": "bobo@gmail.com",
-        "admin": false,
-        "password": "$2y$10$CUREKMx9RUXrvP9LhEhAd.FOUmqSeZRkiCT4ai97LKOfBl09vZGEm"
+        "password": "$2y$12$sVX8VRCD.LAtpscLzKi8i.1XnU.Anz8VLxsS0M21u7Mmcp42yv\/Rq"
     }
 ]

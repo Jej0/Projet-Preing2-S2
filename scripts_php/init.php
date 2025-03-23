@@ -14,7 +14,6 @@ $username = htmlspecialchars($user['username']);
 $email = htmlspecialchars($user['email']);
 $admin = $user['admin'];
 
-
 // Chemin du fichier JSON des utilisateurs
 define(constant_name: 'USERS_FILE', value: 'users.json');
 ?>

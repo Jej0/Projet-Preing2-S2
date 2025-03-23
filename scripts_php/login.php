@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user['username'] === $username && password_verify(password: $password, hash: $user['password'])) {
                 $user_found = true;
                 // Créer une session pour l'utilisateur connecté
-                
                 $_SESSION['user'] = [
                     'username' => $user['username'],
                     'email' => $user['email'],

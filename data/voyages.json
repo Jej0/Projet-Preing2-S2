@@ -1,0 +1,3924 @@
+[
+    {
+        "id_voyage": 1,
+        "titre": "Ascension de l'Everest",
+        "description": "L'ascension ultime pour les amateurs de défis extrêmes. Atteignez le toit du monde avec des guides expérimentés.",
+        "note_moyenne": 4.9,
+        "nb_avis": 10,
+        "nb_etape": 5,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-04-01",
+            "fin": "2024-04-21",
+            "duree": "21 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Katmandou",
+                "dates": {
+                    "arrivee": "2024-04-01",
+                    "depart": "2024-04-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "27.7172, 85.3240",
+                    "ville": "Katmandou"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Katmandou",
+                            "description": "Découverte des temples et de la culture népalaise",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 2,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 3,
+                            "nom": "Dîner népalais",
+                            "description": "Dîner avec des spécialités locales",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 4,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Lukla",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Acclimatation à Namche Bazaar",
+                "dates": {
+                    "arrivee": "2024-04-03",
+                    "depart": "2024-04-05",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.8050, 86.7100",
+                    "ville": "Namche Bazaar"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 5,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée pour s'acclimater à l'altitude",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 6,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 7,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert à pied",
+                            "description": "Randonnée vers Namche Bazaar",
+                            "prix_par_personne": 0,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Ascension vers le camp de base de l'Everest",
+                "dates": {
+                    "arrivee": "2024-04-06",
+                    "depart": "2024-04-10",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9881, 86.9250",
+                    "ville": "Camp de base de l'Everest"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension vers le camp 4 (Col Sud)",
+                "dates": {
+                    "arrivee": "2024-04-11",
+                    "depart": "2024-04-15",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9800, 86.9200",
+                    "ville": "Col Sud"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Sommet de l'Everest et retour",
+                "dates": {
+                    "arrivee": "2024-04-16",
+                    "depart": "2024-04-21",
+                    "duree": "6 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9881, 86.9253",
+                    "ville": "Sommet de l'Everest"
+                },
+                "options": {}
+            }
+        ],
+        "specificites": [
+            "Neige",
+            "Haute altitude"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": [
+                101
+            ]
+        },
+        "prix_total": 10000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 2,
+        "titre": "Traversée des Alpes en parapente",
+        "description": "Parcourez les Alpes en parapente, avec des décollages depuis les plus hauts sommets.",
+        "note_moyenne": 4.8,
+        "nb_avis": 10,
+        "nb_etape": 3,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-07-01",
+            "fin": "2024-07-05",
+            "duree": "5 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Chamonix",
+                "dates": {
+                    "arrivee": "2024-07-01",
+                    "depart": "2024-07-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.9237, 6.8694",
+                    "ville": "Chamonix"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Vol d'initiation en parapente",
+                            "description": "Découverte du parapente avec un instructeur",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les Aiguilles Rouges",
+                            "description": "Randonnée facile avec vue sur le Mont Blanc",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 3,
+                            "nom": "Visite de Chamonix",
+                            "description": "Découverte de la ville et de ses boutiques",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 4,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 5,
+                            "nom": "Chalet de montagne",
+                            "description": "Chalet traditionnel avec cheminée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 6
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Auberge de jeunesse",
+                            "description": "Auberge conviviale pour les voyageurs",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 15
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 7,
+                            "nom": "Dîner savoyard",
+                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 9,
+                            "nom": "Buffet international",
+                            "description": "Buffet avec des plats du monde entier",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 10,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 11,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Location de vélo électrique",
+                            "description": "Location pour explorer les environs",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Vol en parapente au-dessus du Mont Blanc",
+                "dates": {
+                    "arrivee": "2024-07-03",
+                    "depart": "2024-07-04",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "45.8326, 6.8652",
+                    "ville": "Saint-Gervais-les-Bains"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Vol en parapente au lever du soleil",
+                            "description": "Vol matinal avec vue spectaculaire sur le Mont Blanc",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Randonnée glaciaire",
+                            "description": "Randonnée sur le glacier du Mont Blanc",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 15,
+                            "nom": "Cours de photographie en vol",
+                            "description": "Apprenez à capturer les meilleurs clichés en parapente",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 16,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les glaciers",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 17,
+                            "nom": "Tente de luxe",
+                            "description": "Tente spacieuse avec lit confortable",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 4
+                        },
+                        {
+                            "id_option": 18,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel économique avec petit-déjeuner inclus",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 20,
+                            "nom": "Pique-nique en altitude",
+                            "description": "Pique-nique avec vue sur les montagnes",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 21,
+                            "nom": "Buffet de montagne",
+                            "description": "Buffet avec des plats chauds et froids",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 22,
+                            "nom": "Transfert en téléphérique",
+                            "description": "Transfert vers le site de décollage",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 23,
+                            "nom": "Transfert en hélicoptère",
+                            "description": "Transfert rapide en hélicoptère",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 4
+                        },
+                        {
+                            "id_option": 24,
+                            "nom": "Location de VTT",
+                            "description": "Location pour explorer les environs",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Descente en parapente vers Annecy",
+                "dates": {
+                    "arrivee": "2024-07-05",
+                    "depart": "2024-07-05",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.8992, 6.1294",
+                    "ville": "Annecy"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 25,
+                            "nom": "Vol en parapente au-dessus du lac d'Annecy",
+                            "description": "Vol avec vue imprenable sur le lac et les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 26,
+                            "nom": "Visite d'Annecy",
+                            "description": "Découverte de la Venise des Alpes",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 27,
+                            "nom": "Croisière sur le lac d'Annecy",
+                            "description": "Balade en bateau sur le lac",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 28,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur le lac",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 29,
+                            "nom": "Chambre d'hôtes",
+                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 6
+                        },
+                        {
+                            "id_option": 30,
+                            "nom": "Auberge de jeunesse",
+                            "description": "Auberge conviviale pour les voyageurs",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 15
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 31,
+                            "nom": "Repas au bord du lac",
+                            "description": "Dîner avec vue sur le lac d'Annecy",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 32,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 33,
+                            "nom": "Buffet international",
+                            "description": "Buffet avec des plats du monde entier",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 34,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 35,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        },
+                        {
+                            "id_option": 36,
+                            "nom": "Location de vélo électrique",
+                            "description": "Location pour explorer les environs",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Parapente"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 2500,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 3,
+        "titre": "Expédition au Mont Blanc",
+        "description": "Gravissez le plus haut sommet d'Europe avec des guides certifiés. Une aventure inoubliable dans les Alpes.",
+        "note_moyenne": 4.7,
+        "nb_avis": 10,
+        "nb_etape": 4,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-08-01",
+            "fin": "2024-08-07",
+            "duree": "7 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Chamonix",
+                "dates": {
+                    "arrivee": "2024-08-01",
+                    "depart": "2024-08-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.9237, 6.8694",
+                    "ville": "Chamonix"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Chamonix",
+                            "description": "Découverte de la ville et de ses boutiques",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chalet de montagne",
+                            "description": "Chalet traditionnel avec cheminée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner savoyard",
+                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Ascension vers le refuge du Goûter",
+                "dates": {
+                    "arrivee": "2024-08-03",
+                    "depart": "2024-08-04",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "45.8556, 6.8275",
+                    "ville": "Refuge du Goûter"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Randonnée glaciaire",
+                            "description": "Randonnée sur le glacier du Mont Blanc",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 10,
+                            "nom": "Refuge du Goûter",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 11,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 12,
+                            "nom": "Transfert à pied",
+                            "description": "Randonnée vers le refuge",
+                            "prix_par_personne": 0,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Ascension finale vers le sommet du Mont Blanc",
+                "dates": {
+                    "arrivee": "2024-08-05",
+                    "depart": "2024-08-06",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "45.8326, 6.8652",
+                    "ville": "Sommet du Mont Blanc"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 4,
+                "titre": "Retour à Chamonix",
+                "dates": {
+                    "arrivee": "2024-08-07",
+                    "depart": "2024-08-07",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.9237, 6.8694",
+                    "ville": "Chamonix"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 14,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 15,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 16,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Glacier"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 3000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 4,
+        "titre": "Ski extrême en Alaska",
+        "description": "Skiez sur les pentes les plus raides et les plus sauvages de l'Alaska. Une aventure inoubliable pour les amateurs de ski extrême.",
+        "note_moyenne": 4.6,
+        "nb_avis": 10,
+        "nb_etape": 4,
+        "contrat": true,
+        "dates": {
+            "debut": "2025-03-10",
+            "fin": "2025-03-17",
+            "duree": "7 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Anchorage",
+                "dates": {
+                    "arrivee": "2025-03-10",
+                    "depart": "2025-03-11",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite d'Anchorage",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée en raquettes",
+                            "description": "Randonnée facile pour s'acclimater au froid",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge rustique avec ambiance chaleureuse",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner alaskien",
+                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Ski hors-piste dans les montagnes de Chugach",
+                "dates": {
+                    "arrivee": "2025-03-12",
+                    "depart": "2025-03-14",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "61.1678, -149.0934",
+                    "ville": "Montagnes de Chugach"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Ski hors-piste",
+                            "description": "Ski sur des pentes raides et sauvages",
+                            "prix_par_personne": 200,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Héliski",
+                            "description": "Ski après un largage en hélicoptère",
+                            "prix_par_personne": 500,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Tente de luxe",
+                            "description": "Tente spacieuse avec lit confortable",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 4
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les montagnes",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en hélicoptère",
+                            "description": "Transfert vers les sites de ski",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 6
+                        },
+                        {
+                            "id_option": 16,
+                            "nom": "Transfert en motoneige",
+                            "description": "Transfert rapide en motoneige",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Exploration des glaciers",
+                "dates": {
+                    "arrivee": "2025-03-15",
+                    "depart": "2025-03-16",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "61.0450, -147.0934",
+                    "ville": "Glacier de Matanuska"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 17,
+                            "nom": "Randonnée sur glacier",
+                            "description": "Randonnée guidée sur le glacier de Matanuska",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 18,
+                            "nom": "Exploration en motoneige",
+                            "description": "Exploration des glaciers en motoneige",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 19,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les glaciers",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 20,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 21,
+                            "nom": "Transfert en motoneige",
+                            "description": "Transfert vers les glaciers",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Retour à Anchorage",
+                "dates": {
+                    "arrivee": "2025-03-17",
+                    "depart": "2025-03-17",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 22,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 23,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 24,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 25,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Neige",
+            "Glacier",
+            "Ski extrême"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 5000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 5,
+        "titre": "Expédition au Denali",
+        "description": "Gravissez le plus haut sommet d'Amérique du Nord dans des conditions extrêmes. Une aventure inoubliable pour les alpinistes expérimentés.",
+        "note_moyenne": 4.8,
+        "nb_avis": 10,
+        "nb_etape": 6,
+        "contrat": true,
+        "dates": {
+            "debut": "2025-06-01",
+            "fin": "2025-06-15",
+            "duree": "15 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Anchorage",
+                "dates": {
+                    "arrivee": "2025-06-01",
+                    "depart": "2025-06-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite d'Anchorage",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée en forêt",
+                            "description": "Randonnée facile pour s'acclimater au climat",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge rustique avec ambiance chaleureuse",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner alaskien",
+                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Transfert vers Talkeetna",
+                "dates": {
+                    "arrivee": "2025-06-03",
+                    "depart": "2025-06-03",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "62.3236, -150.1094",
+                    "ville": "Talkeetna"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Visite de Talkeetna",
+                            "description": "Découverte de ce village pittoresque",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 10,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 11,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 12,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers Talkeetna",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Vol vers le glacier de Kahiltna",
+                "dates": {
+                    "arrivee": "2025-06-04",
+                    "depart": "2025-06-04",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "62.5000, -151.2000",
+                    "ville": "Glacier de Kahiltna"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Vol en avion de brousse",
+                            "description": "Vol spectaculaire vers le glacier de Kahiltna",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 14,
+                            "nom": "Camp de base",
+                            "description": "Tentes sur le glacier",
+                            "prix_par_personne": 0,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 15,
+                            "nom": "Repas lyophilisés",
+                            "description": "Repas légers pour l'expédition",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 16,
+                            "nom": "Vol en avion de brousse",
+                            "description": "Transfert vers le glacier de Kahiltna",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension vers le camp 3",
+                "dates": {
+                    "arrivee": "2025-06-05",
+                    "depart": "2025-06-08",
+                    "duree": "4 jours"
+                },
+                "position_geographique": {
+                    "gps": "63.0694, -151.0072",
+                    "ville": "Camp 3"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Ascension finale vers le sommet du Denali",
+                "dates": {
+                    "arrivee": "2025-06-09",
+                    "depart": "2025-06-12",
+                    "duree": "4 jours"
+                },
+                "position_geographique": {
+                    "gps": "63.0694, -151.0072",
+                    "ville": "Sommet du Denali"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 6,
+                "titre": "Retour à Anchorage",
+                "dates": {
+                    "arrivee": "2025-06-13",
+                    "depart": "2025-06-15",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 17,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Neige",
+            "Glacier",
+            "Haute altitude"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 8000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 6,
+        "titre": "Via Ferrata dans les Dolomites",
+        "description": "Explorez les via ferrata spectaculaires des Dolomites italiennes. Une aventure inoubliable pour les amateurs d'escalade et de randonnée.",
+        "note_moyenne": 4.7,
+        "nb_avis": 10,
+        "nb_etape": 4,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-09-01",
+            "fin": "2024-09-07",
+            "duree": "7 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Cortina d'Ampezzo",
+                "dates": {
+                    "arrivee": "2024-09-01",
+                    "depart": "2024-09-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "46.5367, 12.1386",
+                    "ville": "Cortina d'Ampezzo"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Cortina d'Ampezzo",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chalet de montagne",
+                            "description": "Chalet traditionnel avec cheminée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner italien",
+                            "description": "Dîner avec des spécialités locales (pâtes, pizza)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Venise",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Via Ferrata sur le Tre Cime di Lavaredo",
+                "dates": {
+                    "arrivee": "2024-09-03",
+                    "depart": "2024-09-04",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "46.6189, 12.3025",
+                    "ville": "Tre Cime di Lavaredo"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Via Ferrata",
+                            "description": "Escalade sur les célèbres Tre Cime di Lavaredo",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Randonnée autour des Tre Cime",
+                            "description": "Randonnée avec vue sur les célèbres pics",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Tente de luxe",
+                            "description": "Tente spacieuse avec lit confortable",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 4
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les montagnes",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en téléphérique",
+                            "description": "Transfert vers le site de via ferrata",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Via Ferrata sur le Sentiero delle Bocchette",
+                "dates": {
+                    "arrivee": "2024-09-05",
+                    "depart": "2024-09-06",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "46.2000, 10.8500",
+                    "ville": "Sentiero delle Bocchette"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "Via Ferrata",
+                            "description": "Escalade sur le Sentiero delle Bocchette",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 17,
+                            "nom": "Randonnée dans les Dolomites",
+                            "description": "Randonnée avec vue sur les montagnes",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en téléphérique",
+                            "description": "Transfert vers le site de via ferrata",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Retour à Cortina d'Ampezzo",
+                "dates": {
+                    "arrivee": "2024-09-07",
+                    "depart": "2024-09-07",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "46.5367, 12.1386",
+                    "ville": "Cortina d'Ampezzo"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 21,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 22,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 23,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 24,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Venise",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Via Ferrata",
+            "Escalade"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 3500,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 7,
+        "titre": "Canyoning dans les Pyrénées",
+        "description": "Explorez les gorges et cascades des Pyrénées en canyoning. Une aventure aquatique et sportive dans des paysages époustouflants.",
+        "note_moyenne": 4.6,
+        "nb_avis": 10,
+        "nb_etape": 3,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-07-10",
+            "fin": "2024-07-14",
+            "duree": "5 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Luchon",
+                "dates": {
+                    "arrivee": "2024-07-10",
+                    "depart": "2024-07-11",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "42.7900, 0.5931",
+                    "ville": "Bagnères-de-Luchon"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Luchon",
+                            "description": "Découverte de la ville et de ses thermes",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chalet de montagne",
+                            "description": "Chalet traditionnel avec cheminée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner local",
+                            "description": "Dîner avec des spécialités régionales",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Toulouse",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Canyoning dans le canyon de la Frau",
+                "dates": {
+                    "arrivee": "2024-07-12",
+                    "depart": "2024-07-13",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "42.8500, 0.7000",
+                    "ville": "Canyon de la Frau"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Canyoning",
+                            "description": "Descente du canyon de la Frau avec cascades et toboggans naturels",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Randonnée autour du canyon",
+                            "description": "Randonnée avec vue sur les gorges",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Bivouac sous tente",
+                            "description": "Bivouac en pleine nature",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les gorges",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers le site de canyoning",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Retour à Luchon",
+                "dates": {
+                    "arrivee": "2024-07-14",
+                    "depart": "2024-07-14",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "42.7900, 0.5931",
+                    "ville": "Bagnères-de-Luchon"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 17,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 18,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 19,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Toulouse",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Canyoning",
+            "Eau vive"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 2000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 8,
+        "titre": "Traversée des Andes à VTT",
+        "description": "Parcourez les Andes en VTT, des hauts plateaux aux vallées profondes. Une aventure sportive et culturelle dans des paysages à couper le souffle.",
+        "note_moyenne": 4.5,
+        "nb_avis": 10,
+        "nb_etape": 5,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-10-01",
+            "fin": "2024-10-10",
+            "duree": "10 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Mendoza",
+                "dates": {
+                    "arrivee": "2024-10-01",
+                    "depart": "2024-10-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-32.8908, -68.8272",
+                    "ville": "Mendoza"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Mendoza",
+                            "description": "Découverte de la ville et de ses vignobles",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chambre d'hôtes",
+                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner argentin",
+                            "description": "Dîner avec des spécialités locales (asado, empanadas)",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Traversée des hauts plateaux",
+                "dates": {
+                    "arrivee": "2024-10-03",
+                    "depart": "2024-10-05",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "-33.0000, -69.5000",
+                    "ville": "Hauts plateaux des Andes"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "VTT sur les hauts plateaux",
+                            "description": "Traversée des paysages désertiques des Andes",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Randonnée pédestre",
+                            "description": "Randonnée pour explorer les environs",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Camping en montagne",
+                            "description": "Camping sous tente avec vue sur les montagnes",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les montagnes",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers les hauts plateaux",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Descente vers le Chili",
+                "dates": {
+                    "arrivee": "2024-10-06",
+                    "depart": "2024-10-07",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-33.5000, -70.0000",
+                    "ville": "Vallées chiliennes"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "VTT dans les vallées chiliennes",
+                            "description": "Descente à travers les vallées verdoyantes",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 17,
+                            "nom": "Visite de villages locaux",
+                            "description": "Découverte de la culture chilienne",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les vallées",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas local",
+                            "description": "Repas avec des spécialités chiliennes",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers les vallées chiliennes",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Arrivée à Santiago",
+                "dates": {
+                    "arrivee": "2024-10-08",
+                    "depart": "2024-10-09",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-33.4489, -70.6693",
+                    "ville": "Santiago"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 21,
+                            "nom": "Visite de Santiago",
+                            "description": "Découverte de la capitale chilienne",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 22,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 23,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 24,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 25,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "VTT",
+            "Traversée internationale"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 3000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 9,
+        "titre": "Rafting extrême dans les gorges du Verdon",
+        "description": "Affrontez les rapides des gorges du Verdon en rafting. Une aventure aquatique et sportive dans l'un des plus beaux canyons d'Europe.",
+        "note_moyenne": 4.7,
+        "nb_avis": 10,
+        "nb_etape": 3,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-08-01",
+            "fin": "2024-08-05",
+            "duree": "5 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Castellane",
+                "dates": {
+                    "arrivee": "2024-08-01",
+                    "depart": "2024-08-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "43.8467, 6.5131",
+                    "ville": "Castellane"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Castellane",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les gorges",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chambre d'hôtes",
+                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner provençal",
+                            "description": "Dîner avec des spécialités locales (ratatouille, tapenade)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Nice",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Rafting dans les gorges du Verdon",
+                "dates": {
+                    "arrivee": "2024-08-03",
+                    "depart": "2024-08-04",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "43.7500, 6.3667",
+                    "ville": "Gorges du Verdon"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Rafting",
+                            "description": "Descente des rapides des gorges du Verdon",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Canyoning",
+                            "description": "Exploration des cascades et toboggans naturels",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 8
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Camping en bord de rivière",
+                            "description": "Camping sous tente avec vue sur les gorges",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les gorges",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers les sites de rafting",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Retour à Castellane",
+                "dates": {
+                    "arrivee": "2024-08-05",
+                    "depart": "2024-08-05",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "43.8467, 6.5131",
+                    "ville": "Castellane"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 17,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 18,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 19,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Nice",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Eau vive",
+            "Rafting"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 1800,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 10,
+        "titre": "Expédition au Kilimandjaro",
+        "description": "Gravissez le plus haut sommet d'Afrique à travers la voie Machame. Une aventure inoubliable pour les amateurs de trekking et de défis en haute altitude.",
+        "note_moyenne": 4.8,
+        "nb_avis": 10,
+        "nb_etape": 6,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-11-01",
+            "fin": "2024-11-10",
+            "duree": "10 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Arusha",
+                "dates": {
+                    "arrivee": "2024-11-01",
+                    "depart": "2024-11-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-3.3675, 36.6831",
+                    "ville": "Arusha"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite d'Arusha",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge rustique avec ambiance chaleureuse",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner tanzanien",
+                            "description": "Dîner avec des spécialités locales (nyama choma, ugali)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Départ vers le camp de base de Machame",
+                "dates": {
+                    "arrivee": "2024-11-03",
+                    "depart": "2024-11-03",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-3.0667, 37.3500",
+                    "ville": "Camp de base de Machame"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 10,
+                            "nom": "Tentes de base",
+                            "description": "Tentes confortables avec vue sur les montagnes",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 11,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 12,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers le camp de base",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Ascension vers le camp Shira",
+                "dates": {
+                    "arrivee": "2024-11-04",
+                    "depart": "2024-11-05",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-3.0500, 37.3000",
+                    "ville": "Camp Shira"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension vers le camp Barranco",
+                "dates": {
+                    "arrivee": "2024-11-06",
+                    "depart": "2024-11-07",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-3.0333, 37.3167",
+                    "ville": "Camp Barranco"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Ascension finale vers le sommet du Kilimandjaro",
+                "dates": {
+                    "arrivee": "2024-11-08",
+                    "depart": "2024-11-09",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-3.0758, 37.3533",
+                    "ville": "Sommet du Kilimandjaro"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 6,
+                "titre": "Retour à Arusha",
+                "dates": {
+                    "arrivee": "2024-11-10",
+                    "depart": "2024-11-10",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-3.3675, 36.6831",
+                    "ville": "Arusha"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 14,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 15,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 16,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Haute altitude",
+            "Trekking"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 4000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 11,
+        "titre": "Expédition au Aconcagua",
+        "description": "Gravissez le plus haut sommet d'Amérique du Sud, l'Aconcagua, dans les Andes argentines. Une aventure extrême pour les alpinistes chevronnés.",
+        "note_moyenne": 4.7,
+        "nb_avis": 10,
+        "nb_etape": 5,
+        "contrat": true,
+        "dates": {
+            "debut": "2025-01-10",
+            "fin": "2025-01-25",
+            "duree": "16 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Mendoza",
+                "dates": {
+                    "arrivee": "2025-01-10",
+                    "depart": "2025-01-11",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-32.8908, -68.8272",
+                    "ville": "Mendoza"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Mendoza",
+                            "description": "Découverte de la ville et de ses vignobles",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chambre d'hôtes",
+                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner argentin",
+                            "description": "Dîner avec des spécialités locales (asado, empanadas)",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Transfert vers le camp de base de Plaza de Mulas",
+                "dates": {
+                    "arrivee": "2025-01-12",
+                    "depart": "2025-01-13",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-32.6531, -70.0114",
+                    "ville": "Plaza de Mulas"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 10,
+                            "nom": "Tentes de base",
+                            "description": "Tentes confortables avec vue sur les montagnes",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 11,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 12,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers le camp de base",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Ascension vers le camp Canada",
+                "dates": {
+                    "arrivee": "2025-01-14",
+                    "depart": "2025-01-16",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "-32.6500, -70.0100",
+                    "ville": "Camp Canada"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension finale vers le sommet de l'Aconcagua",
+                "dates": {
+                    "arrivee": "2025-01-17",
+                    "depart": "2025-01-20",
+                    "duree": "4 jours"
+                },
+                "position_geographique": {
+                    "gps": "-32.6536, -70.0114",
+                    "ville": "Sommet de l'Aconcagua"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Retour à Mendoza",
+                "dates": {
+                    "arrivee": "2025-01-21",
+                    "depart": "2025-01-25",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "-32.8908, -68.8272",
+                    "ville": "Mendoza"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 14,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 15,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 16,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Haute altitude",
+            "Alpinisme"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 5000,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 12,
+        "titre": "Ski de randonnée en Norvège",
+        "description": "Explorez les fjords norvégiens en ski de randonnée. Une aventure inoubliable dans des paysages enneigés et sauvages.",
+        "note_moyenne": 4.6,
+        "nb_avis": 10,
+        "nb_etape": 4,
+        "contrat": true,
+        "dates": {
+            "debut": "2025-02-15",
+            "fin": "2025-02-22",
+            "duree": "8 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Bergen",
+                "dates": {
+                    "arrivee": "2025-02-15",
+                    "depart": "2025-02-16",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "60.3913, 5.3221",
+                    "ville": "Bergen"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Bergen",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chambre d'hôtes",
+                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner norvégien",
+                            "description": "Dîner avec des spécialités locales (saumon, poisson séché)",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Ski de randonnée dans les fjords",
+                "dates": {
+                    "arrivee": "2025-02-17",
+                    "depart": "2025-02-19",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "60.5000, 6.0000",
+                    "ville": "Fjords norvégiens"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Ski de randonnée",
+                            "description": "Exploration des fjords en ski de randonnée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Randonnée en raquettes",
+                            "description": "Randonnée dans les environs des fjords",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les fjords",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Bivouac sous tente",
+                            "description": "Bivouac en pleine nature",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas énergétique",
+                            "description": "Repas riche en calories pour l'effort",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique en montagne",
+                            "description": "Pique-nique avec vue sur les fjords",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en motoneige",
+                            "description": "Transfert vers les sites de ski",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Exploration des glaciers",
+                "dates": {
+                    "arrivee": "2025-02-20",
+                    "depart": "2025-02-21",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "60.8000, 6.5000",
+                    "ville": "Glaciers norvégiens"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "Randonnée sur glacier",
+                            "description": "Randonnée guidée sur les glaciers",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 17,
+                            "nom": "Exploration en motoneige",
+                            "description": "Exploration des glaciers en motoneige",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les glaciers",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en motoneige",
+                            "description": "Transfert vers les glaciers",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Retour à Bergen",
+                "dates": {
+                    "arrivee": "2025-02-22",
+                    "depart": "2025-02-22",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "60.3913, 5.3221",
+                    "ville": "Bergen"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 21,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 22,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 23,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 24,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Glacier",
+            "Ski de randonnée"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 3500,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 13,
+        "titre": "Escalade des Drus (Mont Blanc)",
+        "description": "Défi technique sur l'une des faces les plus célèbres des Alpes. Une aventure extrême pour les alpinistes chevronnés.",
+        "note_moyenne": 4.8,
+        "nb_avis": 10,
+        "nb_etape": 3,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-07-15",
+            "fin": "2024-07-20",
+            "duree": "6 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Chamonix",
+                "dates": {
+                    "arrivee": "2024-07-15",
+                    "depart": "2024-07-16",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.9237, 6.8694",
+                    "ville": "Chamonix"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Chamonix",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Chalet de montagne",
+                            "description": "Chalet traditionnel avec cheminée",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner savoyard",
+                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "prix_par_personne": 35,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Ascension des Drus",
+                "dates": {
+                    "arrivee": "2024-07-17",
+                    "depart": "2024-07-19",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "45.9333, 6.9500",
+                    "ville": "Les Drus"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Escalade des Drus",
+                            "description": "Ascension technique de la face ouest des Drus",
+                            "prix_par_personne": 200,
+                            "nombre_personnes_max": 6
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Bivouac en paroi",
+                            "description": "Nuit en paroi avec vue imprenable sur les Alpes",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Bivouac en paroi",
+                            "description": "Nuit en paroi avec équipement technique",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 12,
+                            "nom": "Repas lyophilisés",
+                            "description": "Repas légers pour l'ascension",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 13,
+                            "nom": "Transfert en téléphérique",
+                            "description": "Transfert vers le site d'escalade",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Retour à Chamonix",
+                "dates": {
+                    "arrivee": "2024-07-20",
+                    "depart": "2024-07-20",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "45.9237, 6.8694",
+                    "ville": "Chamonix"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 14,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 15,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "prix_par_personne": 120,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 16,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 17,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Genève",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Escalade technique",
+            "Bivouac en paroi"
+        ],
+        "liste_personnes": {
+            "max": 6,
+            "id_reservation": []
+        },
+        "prix_total": 2500,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 14,
+        "titre": "Traversée du désert de sel en Bolivie",
+        "description": "Parcourez le désert de sel d'Uyuni et les montagnes environnantes en VTT. Une aventure inoubliable dans un paysage lunaire.",
+        "note_moyenne": 4.6,
+        "nb_avis": 10,
+        "nb_etape": 4,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-09-10",
+            "fin": "2024-09-17",
+            "duree": "8 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Uyuni",
+                "dates": {
+                    "arrivee": "2024-09-10",
+                    "depart": "2024-09-11",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-20.4607, -66.8250",
+                    "ville": "Uyuni"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite d'Uyuni",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Auberge de jeunesse",
+                            "description": "Auberge conviviale pour les voyageurs",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 15
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner bolivien",
+                            "description": "Dîner avec des spécialités locales (salteñas, quinoa)",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 15,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Traversée du désert de sel d'Uyuni",
+                "dates": {
+                    "arrivee": "2024-09-12",
+                    "depart": "2024-09-14",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "-20.1333, -67.5167",
+                    "ville": "Désert de sel d'Uyuni"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "VTT dans le désert de sel",
+                            "description": "Traversée du désert de sel en VTT",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 10,
+                            "nom": "Visite de l'île Incahuasi",
+                            "description": "Découverte de l'île et de ses cactus géants",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 11,
+                            "nom": "Hôtel de sel",
+                            "description": "Hôtel construit en sel avec vue sur le désert",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 12,
+                            "nom": "Camping sous tente",
+                            "description": "Camping avec vue sur le désert de sel",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 13,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 14,
+                            "nom": "Pique-nique dans le désert",
+                            "description": "Pique-nique avec vue sur le désert de sel",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 15,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers les sites de VTT",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Exploration des lagunes colorées",
+                "dates": {
+                    "arrivee": "2024-09-15",
+                    "depart": "2024-09-16",
+                    "duree": "2 jours"
+                },
+                "position_geographique": {
+                    "gps": "-22.5000, -67.5000",
+                    "ville": "Lagunes colorées"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 16,
+                            "nom": "VTT autour des lagunes",
+                            "description": "Exploration des lagunes colorées en VTT",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 17,
+                            "nom": "Observation des flamants roses",
+                            "description": "Découverte des flamants roses dans leur habitat naturel",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Refuge de montagne",
+                            "description": "Refuge confortable avec vue sur les lagunes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en 4x4",
+                            "description": "Transfert vers les lagunes",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 8
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Retour à Uyuni",
+                "dates": {
+                    "arrivee": "2024-09-17",
+                    "depart": "2024-09-17",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "-20.4607, -66.8250",
+                    "ville": "Uyuni"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 21,
+                            "nom": "Célébration de l'aventure",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 22,
+                            "nom": "Hôtel 3 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 23,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 24,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 15,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Désert de sel",
+            "VTT",
+            "Lagunes colorées"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 2200,
+        "statut": "disponible"
+    },
+    {
+        "id_voyage": 15,
+        "titre": "Expédition au Denali (Alaska)",
+        "description": "Gravissez le plus haut sommet d'Amérique du Nord dans des conditions extrêmes. Une aventure inoubliable pour les alpinistes chevronnés.",
+        "note_moyenne": 4.9,
+        "nb_avis": 10,
+        "nb_etape": 6,
+        "contrat": true,
+        "dates": {
+            "debut": "2025-05-01",
+            "fin": "2025-05-20",
+            "duree": "20 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Anchorage",
+                "dates": {
+                    "arrivee": "2025-05-01",
+                    "depart": "2025-05-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite d'Anchorage",
+                            "description": "Découverte de la ville et de ses environs",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 2,
+                            "nom": "Randonnée dans les environs",
+                            "description": "Randonnée facile pour s'acclimater",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 3,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 4,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge rustique avec ambiance chaleureuse",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 8
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 5,
+                            "nom": "Dîner alaskien",
+                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 6,
+                            "nom": "Repas léger",
+                            "description": "Repas léger avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 7,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert depuis l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        },
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert privé en voiture",
+                            "description": "Transfert confortable en voiture privée",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Transfert vers Talkeetna",
+                "dates": {
+                    "arrivee": "2025-05-03",
+                    "depart": "2025-05-03",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "62.3236, -150.1094",
+                    "ville": "Talkeetna"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 9,
+                            "nom": "Visite de Talkeetna",
+                            "description": "Découverte de ce village pittoresque",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 10,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 100,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 11,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 12,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers Talkeetna",
+                            "prix_par_personne": 40,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Vol vers le glacier de Kahiltna",
+                "dates": {
+                    "arrivee": "2025-05-04",
+                    "depart": "2025-05-04",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "62.5000, -151.2000",
+                    "ville": "Glacier de Kahiltna"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 13,
+                            "nom": "Vol en avion de brousse",
+                            "description": "Vol spectaculaire vers le glacier de Kahiltna",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 6
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 14,
+                            "nom": "Camp de base",
+                            "description": "Tentes sur le glacier",
+                            "prix_par_personne": 0,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 15,
+                            "nom": "Repas lyophilisés",
+                            "description": "Repas légers pour l'expédition",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 16,
+                            "nom": "Vol en avion de brousse",
+                            "description": "Transfert vers le glacier de Kahiltna",
+                            "prix_par_personne": 300,
+                            "nombre_personnes_max": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension vers le camp 3",
+                "dates": {
+                    "arrivee": "2025-05-05",
+                    "depart": "2025-05-10",
+                    "duree": "6 jours"
+                },
+                "position_geographique": {
+                    "gps": "63.0694, -151.0072",
+                    "ville": "Camp 3"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Ascension finale vers le sommet du Denali",
+                "dates": {
+                    "arrivee": "2025-05-11",
+                    "depart": "2025-05-15",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "63.0694, -151.0072",
+                    "ville": "Sommet du Denali"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 6,
+                "titre": "Retour à Anchorage",
+                "dates": {
+                    "arrivee": "2025-05-16",
+                    "depart": "2025-05-20",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "61.2181, -149.9003",
+                    "ville": "Anchorage"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 17,
+                            "nom": "Célébration de l'ascension",
+                            "description": "Dîner de célébration avec l'équipe",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 18,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "prix_par_personne": 150,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 19,
+                            "nom": "Repas gastronomique",
+                            "description": "Repas de célébration avec des spécialités locales",
+                            "prix_par_personne": 70,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 20,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "specificites": [
+            "Montagne",
+            "Glacier",
+            "Haute altitude"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": []
+        },
+        "prix_total": 8000,
+        "statut": "disponible"
+    }
+]
