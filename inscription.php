@@ -1,10 +1,46 @@
 <?php
 session_start();
+require_once 'config/config.php';
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
+
+// Redirection si déjà connecté
+if (isset($_SESSION['user'])) {
+    header('Location: accueil.php');
+    exit();
+}
+
+// Traitement du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        $user = new User();
+        
+        // Debug pour voir les données reçues
+        error_log("Données reçues : " . print_r($_POST, true));
+        
+        $userId = $user->register([
+            'login' => $_POST['username'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'firstname' => $_POST['firstname'],
+            'lastname' => $_POST['lastname'],
+            'role' => 'user'  // Par défaut
+        ]);
+
+        if ($userId) {
+            // Connexion automatique
+            $user->login($_POST['username'], $_POST['password']);
+            header('Location: accueil.php');
+            exit();
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
+        error_log("Erreur d'inscription : " . $e->getMessage());
+    }
+}
 ?>
 
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 	<!--Information de la page web-->
@@ -37,52 +73,38 @@ session_start();
 	<!-- Haut de page -->
 
     <!-- Navigation -->
-    <nav>
-        <!-- Logo et nom (gauche)-->
-        <div class="nav-left">
-            <a href="accueil.php" class="nav-brand">
-                <img src="img/logo.png" alt="Logo">
-                Keep Yourself Safe
-            </a>
-        </div>
-
-        <!-- Liens (centre)-->
-        <ul class="nav-links">
-            <li><a href="presentation.php">Présentation</a></li>
-            <li><a href="recherche.php">Rechercher</a></li>
-            <li><a href="mailto:contact@kys.fr">Contact</a></li>
-        </ul>
-
-        <!-- Profil et connexion(droite)-->
-        <div class="nav-right">
-			<?php if (!isset($_SESSION['user'])) { ?>
-            	<a href="connexion.php" class="btn nav-btn">Se connecter</a>
-            	<a href="connexion.php" class="btn nav-btn">S'inscrire</a>
-			<?php } ?>
-			<?php if (isset($_SESSION['user'])) { ?>
-            <a href="profile.php" class="profile-icon">
-            <i class="fas fa-user-circle"></i>
-            </a>
-			<?php } ?>
-        </div>
-    </nav>
+    <?php include('includes/nav.php'); ?>
 
 	<!-- Contenu-->
 	<main>
 		<!-- Formulaire d'inscription-->
 		<div class="form-container">
-      		<img src="img/logo.png" alt="Logo" class="logo">
-			<h2 class="h2">Inscription</h2>
+      		<img src="img/mountain-logo.png" alt="Logo Montagne" class="mountain-logo">
+			<h1>Inscription</h1>
 
-			<form action="scripts_php/register.php" method="POST">
+			<?php if (isset($error)): ?>
+				<div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+			<?php endif; ?>
+
+			<form action="" method="POST" onsubmit="return validateForm()">
 				<div class="form-group">
-					<label for="username">Nom d'utilisateur :</label>
-					<input type="text" id="username" name="username" required>
+					<label for="firstname">Prénom :</label>
+					<input type="text" id="firstname" name="firstname" required>
+				</div>
+
+				<div class="form-group">
+					<label for="lastname">Nom :</label>
+					<input type="text" id="lastname" name="lastname" required>
 				</div>
 
 				<div class="form-group">
 					<label for="email">Email :</label>
 					<input type="email" id="email" name="email" required>
+				</div>
+
+				<div class="form-group">
+					<label for="username">Nom d'utilisateur :</label>
+					<input type="text" id="username" name="username" required>
 				</div>
 
 				<div class="form-group">
@@ -95,11 +117,45 @@ session_start();
 					<input type="password" id="confirm-password" name="confirm-password" required>
 				</div>
 
-				<button type="submit" class="btn">S'inscrire</button>
+				<button type="submit" class="btn-submit">S'inscrire</button>
 			</form>
 		</div>
 	</main>
 
 	<!-- Pas de footer, sinon on peut scroll -->
+
+	<script>
+	function validateForm() {
+		const password = document.getElementById('password').value;
+		const confirmPassword = document.getElementById('confirm-password').value;
+		const username = document.getElementById('username').value;
+		const email = document.getElementById('email').value;
+		
+		// Validation du mot de passe
+		if (password !== confirmPassword) {
+			alert('Les mots de passe ne correspondent pas');
+			return false;
+		}
+		
+		if (password.length < 8) {
+			alert('Le mot de passe doit contenir au moins 8 caractères');
+			return false;
+		}
+
+		// Validation du nom d'utilisateur
+		if (username.length < 3) {
+			alert('Le nom d\'utilisateur doit contenir au moins 3 caractères');
+			return false;
+		}
+
+		// Validation basique de l'email
+		if (!email.includes('@')) {
+			alert('Veuillez entrer une adresse email valide');
+			return false;
+		}
+		
+		return true;
+	}
+	</script>
 </body>
 </html>

@@ -1,90 +1,105 @@
 <?php
 // Démarrer la session pour vérifier si l'utilisateur est connecté et admin
-session_start();
+require_once 'config/config.php';
 
+// Charger les classes nécessaires
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
+
+// Charger l'initialisation qui utilise ces classes
+require_once 'scripts_php/init.php';
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
+    exit;
+}
+
+// Vérifier si l'utilisateur est connecté et est un administrateur
+if (!$isAdmin) {
+    header('Location: connexion.php');
+    exit();
+}
+
+// Utilisation de la connexion à la base de données via la classe Database
+$db = Database::getInstance();
+$pdo = $db->getConnection();
 
 // Pagination
 $usersPerPage = 5; // Nombre d'utilisateurs par page
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $page = max(1, $page); // S'assurer que la page est toujours >= 1
 
-// Charger les utilisateurs depuis le fichier JSON
-$usersJson = file_get_contents('scripts_php/users.json');
-$users = json_decode($usersJson, true);
-
 // Recherche d'utilisateurs
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+
+// Requête de base pour compter les utilisateurs
+$countQuery = "SELECT COUNT(*) FROM users WHERE 1=1";
+$userQuery = "SELECT * FROM users WHERE 1=1";
+$params = [];
+
+// Ajouter la condition de recherche si un terme est présent
 if (!empty($searchTerm)) {
-    $filteredUsers = array_filter($users, function($user) use ($searchTerm) {
-        return (stripos($user['username'], $searchTerm) !== false || 
-                stripos($user['email'], $searchTerm) !== false);
-    });
-    $users = $filteredUsers;
+    $countQuery .= " AND (login LIKE :search OR firstname LIKE :search OR lastname LIKE :search OR email LIKE :search)";
+    $userQuery .= " AND (login LIKE :search OR firstname LIKE :search OR lastname LIKE :search OR email LIKE :search)";
+    $params[':search'] = "%$searchTerm%";
 }
 
+// Compter le nombre total d'utilisateurs
+$countStmt = $pdo->prepare($countQuery);
+$countStmt->execute($params);
+$totalUsers = $countStmt->fetchColumn();
+
 // Calculer le nombre total de pages
-$totalUsers = count($users);
 $totalPages = ceil($totalUsers / $usersPerPage);
 
 // S'assurer que la page demandée existe
 $page = min($page, max(1, $totalPages));
 
-// Obtenir les utilisateurs pour la page actuelle
-$startIndex = ($page - 1) * $usersPerPage;
-$currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
+// Ajouter la pagination à la requête
+$userQuery .= " LIMIT :offset, :limit";
+$params[':offset'] = ($page - 1) * $usersPerPage;
+$params[':limit'] = $usersPerPage;
+
+// Récupérer les utilisateurs pour la page actuelle
+$userStmt = $pdo->prepare($userQuery);
+foreach ($params as $key => $value) {
+    if (is_int($value)) {
+        $userStmt->bindValue($key, $value, PDO::PARAM_INT);
+    } else {
+        $userStmt->bindValue($key, $value, PDO::PARAM_STR);
+    }
+}
+$userStmt->execute();
+$currentPageUsers = $userStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!--Information de la page web-->
     <meta charset="UTF-8">
-
-    <!-- Optimisation pour le telephone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-
-    <!-- Titre du site -->
     <meta name="title" content="Keep Yourself Safe">
-
-    <!-- Nom de l'agence et auteur du site -->
     <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
-
-    <!-- Description du site -->
     <meta name="description" content="⚠️Page Administrateur du site Keep Yourself Safe.⚠️">
-
-    <!-- Titre du navigateur -->
     <title>KYS - Admin</title>
-
-    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
-
 <body>
-    <!-- Haut de page -->
-
-    <!-- Navigation -->
     <nav>
-        <!-- Logo et nom (gauche)-->
         <div class="nav-left">
             <a href="accueil.php" class="nav-brand">
                 <img src="img/logo.png" alt="Logo">
                 Keep Yourself Safe
             </a>
         </div>
-
-        <!-- Liens (centre)-->
         <ul class="nav-links">
             <li><a href="presentation.php">Présentation</a></li>
             <li><a href="recherche.php">Rechercher</a></li>
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
-
-        <!-- Profil et connexion(droite)-->
         <div class="nav-right">
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
@@ -92,20 +107,17 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
                 <a href="profile.php" class="profile-icon">
-                <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-user-circle"></i>
                 </a>
             <?php } ?>
         </div>
     </nav>
 
-    <!-- Contenu-->
     <main class="admin-container">
-        <!-- En-tête Admin -->
         <div class="admin-header">
             <h1>Tableau de bord Administrateur</h1>
         </div>
 
-        <!-- Statistiques -->
         <div class="admin-stats-grid">
             <div class="stat-card">
                 <i class="fas fa-users"></i>
@@ -114,17 +126,27 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
             </div>
             <div class="stat-card">
                 <i class="fas fa-hiking"></i>
-                <h3>89</h3>
+                <h3>
+                    <?php 
+                    $activitiesStmt = $pdo->query("SELECT COUNT(*) FROM activities");
+                    echo $activitiesStmt->fetchColumn(); 
+                    ?>
+                </h3>
                 <p>Activités en ligne</p>
             </div>
             <div class="stat-card">
                 <i class="fas fa-euro-sign"></i>
-                <h3>15,230€</h3>
-                <p>CA ce mois</p>
+                <h3>
+                    <?php 
+                    $revenueStmt = $pdo->query("SELECT SUM(total_price) FROM trips");
+                    $revenue = $revenueStmt->fetchColumn();
+                    echo number_format($revenue, 2); 
+                    ?>€
+                </h3>
+                <p>CA total</p>
             </div>
         </div>
 
-        <!-- Gestion utilisateurs -->
         <section class="admin-section">
             <h2>Gestion des utilisateurs</h2>
             <form method="GET" action="admin.php" class="search-bar">
@@ -137,7 +159,8 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
             <table class="admin-table">
                 <thead>
                     <tr>
-                        <th>Nom d'utilisateur</th>
+                        <th>Login</th>
+                        <th>Nom</th>
                         <th>Email</th>
                         <th>Rôle</th>
                         <th>Actions</th>
@@ -146,18 +169,19 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
                 <tbody>
                     <?php foreach ($currentPageUsers as $user): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($user['username']); ?></td>
+                        <td><?php echo htmlspecialchars($user['login']); ?></td>
+                        <td><?php echo htmlspecialchars($user['firstname'] . ' ' . $user['lastname']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
                         <td>
-                            <span class="role-<?php echo $user['admin'] ? 'admin' : 'user'; ?>">
-                                <?php echo $user['admin'] ? 'Administrateur' : 'Utilisateur'; ?>
+                            <span class="role-<?php echo $user['role'] === 'admin' ? 'admin' : 'user'; ?>">
+                                <?php echo $user['role'] === 'admin' ? 'Administrateur' : 'Utilisateur'; ?>
                             </span>
                         </td>
                         <td>
-                            <button class="btn btn-edit" data-username="<?php echo htmlspecialchars($user['username']); ?>">
+                            <button class="btn btn-edit" data-userid="<?php echo $user['id']; ?>">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-supprimer" data-username="<?php echo htmlspecialchars($user['username']); ?>">
+                            <button class="btn btn-supprimer" data-userid="<?php echo $user['id']; ?>">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>
@@ -166,7 +190,6 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
                 </tbody>
             </table>
             
-            <!-- Pagination -->
             <?php if ($totalPages > 1) { ?>
             <ul class="pagination">
                 <?php if ($page > 1) { ?>
@@ -176,7 +199,6 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
                 <?php } ?>
                 
                 <?php
-                // Afficher un nombre limité de liens de page
                 $startPage = max(1, $page - 2);
                 $endPage = min($totalPages, $page + 2);
                 
@@ -209,7 +231,6 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
             <?php } ?>
         </section>
 
-        <!-- Panel de contrôle -->
         <section class="admin-section">
             <h2>Actions rapides</h2>
             <div class="quick-actions">
@@ -229,7 +250,6 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
         </section>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -254,7 +274,5 @@ $currentPageUsers = array_slice($users, $startIndex, $usersPerPage);
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
-
-
 </body>
 </html>

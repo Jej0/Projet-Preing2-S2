@@ -1,11 +1,32 @@
 <?php
 session_start();
+require_once 'config/config.php';
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
+
+// Redirection si déjà connecté
+if (isset($_SESSION['user'])) {
+    header('Location: accueil.php');
+    exit();
+}
+
+// Traitement du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        $user = new User();
+        if ($user->login($_POST['username'], $_POST['password'])) {
+            header('Location: accueil.php');
+            exit();
+        } else {
+            $error = "Identifiants incorrects";
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
+    }
+}
 ?>
 
-
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 	<!--Information de la page web-->
@@ -73,9 +94,13 @@ session_start();
 		<!-- Formulaire de connexion-->
 		<div class="form-container">
 			<img src="img/logo.png" alt="Logo" class="logo">
-			<h2 class="h2">Acceder à votre compte</h2>
+			<h2 class="h2">Accéder à votre compte</h2>
 
-			<form action="scripts_php/login.php" method="POST">
+			<?php if (isset($error)): ?>
+				<div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+			<?php endif; ?>
+
+			<form action="" method="POST">
 				<div class="form-group">
 					<label for="username">Nom d'utilisateur :</label>
 					<input type="text" id="username" name="username" required>
@@ -87,10 +112,10 @@ session_start();
 				</div>
 
 				<div class="password-reset">
-					<a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+					<a href="mot-de-passe-oublie.php">Mot de passe oublié ?</a>
 				</div>
 
-				<button type="submit"  class="btn">Se connecter</button>
+				<button type="submit" class="btn">Se connecter</button>
 			</form>
 		</div>
 	</main>

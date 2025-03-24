@@ -206,7 +206,14 @@ session_start();
                                 <span class="price">299€</span>
                                 <span class="price-info">/personne</span>
                             </div>
-                            <a href="details.html" class="btn btn-book">Réserver maintenant</a>
+                            <?php if (isset($_SESSION['user'])) { ?>
+                                <form action="process-payment.php" method="GET">
+                                    <input type="hidden" name="trip_id" value="parachute"> <!-- Remplacer 1 par l'ID réel du voyage -->
+                                    <button type="submit" class="btn btn-book">Réserver maintenant</button>
+                                </form>
+                            <?php } else { ?>
+                                <a href="connexion.php" class="btn btn-book">Connectez-vous pour réserver</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -257,7 +264,14 @@ session_start();
                                 <span class="price">89€</span>
                                 <span class="price-info">/personne</span>
                             </div>
-                            <a href="details.html" class="btn btn-book">Réserver maintenant</a>
+                            <?php if (isset($_SESSION['user'])) { ?>
+                                <form action="process-payment.php" method="GET">
+                                    <input type="hidden" name="trip_id" value="Plonge"> <!-- Remplacer 1 par l'ID réel du voyage -->
+                                    <button type="submit" class="btn btn-book">Réserver maintenant</button>
+                                </form>
+                            <?php } else { ?>
+                                <a href="connexion.php" class="btn btn-book">Connectez-vous pour réserver</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

@@ -118,5 +118,17 @@
         "email": "bobo@gmail.com",
         "admin": false,
         "password": "$2y$10$CUREKMx9RUXrvP9LhEhAd.FOUmqSeZRkiCT4ai97LKOfBl09vZGEm"
+    },
+    {
+        "username": "kahil78",
+        "email": "kahil.smurf@gmail.com",
+        "admin": false,
+        "password": "$2y$10$oKw7zws7cPzNozTDuJidrOY6ej0lPL\/CiXQERese6C.WEdaoB4ymq"
+    },
+    {
+        "username": "Hakkai",
+        "email": "dja@gamil.com",
+        "admin": false,
+        "password": "$2y$10$pY9AisozK9h9G1lUn\/L1a.2UQYYNzNY7JUXvhrtSSDTPH5adP4aY."
     }
 ]

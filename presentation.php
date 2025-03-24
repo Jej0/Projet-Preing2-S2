@@ -282,7 +282,14 @@ session_start();
         <section class="cta">
             <h2>Prêt à Vivre l'Aventure ?</h2>
             <p>Rejoignez-nous pour une expérience qui changera votre vie</p>
-            <a href="recherche.php" class="cta-button">Découvrir nos Activités</a>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <form action="process-payment.php" method="GET">
+                    <input type="hidden" name="trip_id" value="default">
+                    <button type="submit" class="cta-button btn-book">Réserver maintenant</button>
+                </form>
+            <?php } else { ?>
+                <a href="connexion.php" class="cta-button">Connectez-vous pour réserver</a>
+            <?php } ?>
         </section>
     </main>
 

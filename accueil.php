@@ -114,7 +114,15 @@ session_start();
 							<span class="price">À partir de 299€</span>
 							<span class="duration"><i class="far fa-clock"></i> 3h</span>
 						</div>
-						<a href="details.html" class="btn btn-card">Réserver</a>
+						<?php if (isset($_SESSION['user'])) { ?>
+							<form action="process-payment.php" method="GET" class="booking-form">
+								<input type="hidden" name="trip_id" value="parachute_premium">
+								<input type="hidden" name="price" value="299">
+								<button type="submit" class="btn btn-card">Réserver</button>
+							</form>
+						<?php } else { ?>
+							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="featured-card">
@@ -126,7 +134,15 @@ session_start();
 							<span class="price">À partir de 149€</span>
 							<span class="duration"><i class="far fa-clock"></i> 4h</span>
 						</div>
-						<a href="details.html" class="btn btn-card">Réserver</a>
+						<?php if (isset($_SESSION['user'])) { ?>
+							<form action="process-payment.php" method="GET" class="booking-form">
+								<input type="hidden" name="trip_id" value="plongee_pro">
+								<input type="hidden" name="price" value="149">
+								<button type="submit" class="btn btn-card">Réserver</button>
+							</form>
+						<?php } else { ?>
+							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="featured-card">
@@ -138,7 +154,15 @@ session_start();
 							<span class="price">À partir de 199€</span>
 							<span class="duration"><i class="far fa-clock"></i> 6h</span>
 						</div>
-						<a href="details.html" class="btn btn-card">Réserver</a>
+						<?php if (isset($_SESSION['user'])) { ?>
+							<form action="process-payment.php" method="GET" class="booking-form">
+								<input type="hidden" name="trip_id" value="escalade_alpine">
+								<input type="hidden" name="price" value="199">
+								<button type="submit" class="btn btn-card">Réserver</button>
+							</form>
+						<?php } else { ?>
+							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -230,6 +254,18 @@ session_start();
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
+
+	<!-- Ajouter ce script JavaScript avant la fermeture de </body> -->
+	<script>
+	document.querySelectorAll('.booking-form').forEach(form => {
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			if (confirm('Êtes-vous sûr de vouloir réserver cette activité ?')) {
+				this.submit();
+			}
+		});
+	});
+	</script>
 
 </body>
 </html>

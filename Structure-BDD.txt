@@ -1,0 +1,65 @@
+-- Users table
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'user') DEFAULT 'user',
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    nickname VARCHAR(50),
+    birth_date DATE,
+    address TEXT,
+    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_login DATETIME
+);
+
+-- Trips table
+CREATE TABLE trips (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    duration INT,
+    total_price DECIMAL(10,2),
+    status ENUM('pending', 'paid', 'modified') DEFAULT 'pending'
+);
+
+-- Steps table
+CREATE TABLE steps (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    trip_id INT,
+    title VARCHAR(255),
+    arrival_date DATETIME,
+    departure_date DATETIME,
+    duration INT,
+    latitude DECIMAL(10,8),
+    longitude DECIMAL(11,8),
+    location_name VARCHAR(255),
+    FOREIGN KEY (trip_id) REFERENCES trips(id)
+);
+
+-- Options table
+CREATE TABLE options (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    step_id INT,
+    type ENUM('activity', 'accommodation', 'food', 'transport', 'childcare', 'laundry'),
+    title VARCHAR(255),
+    default_value VARCHAR(255),
+    price_per_person DECIMAL(10,2),
+    child_price DECIMAL(10,2),
+    min_persons INT DEFAULT 1,
+    FOREIGN KEY (step_id) REFERENCES steps(id)
+);
+
+-- Payments table
+CREATE TABLE payments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    trip_id INT,
+    amount DECIMAL(10,2),
+    card_number VARCHAR(255),
+    card_expiry DATE,
+    transaction_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (trip_id) REFERENCES trips(id)
+);

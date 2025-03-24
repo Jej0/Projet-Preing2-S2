@@ -1,7 +1,49 @@
 <?php
+// D'abord charger la configuration
+require_once 'config/config.php';
 
+// Ensuite charger les classes qui en dépendent
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
+
+// Puis charger l'initialisation qui utilise ces classes
 require_once 'scripts_php/init.php';
 
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
+    header('Location: connexion.php');
+    exit;
+}
+
+// Initialiser la classe User
+$userObj = new User();
+
+// Récupérer les informations de l'utilisateur depuis la session
+$user = $_SESSION['user'];
+$userId = $user['id'];
+$username = htmlspecialchars($user['login']);
+$email = htmlspecialchars($user['email']);
+$firstname = htmlspecialchars($user['firstname']);
+$lastname = htmlspecialchars($user['lastname']);
+$isAdmin = $user['role'] === 'admin';
+
+// Récupérer les statistiques
+$stats = $userObj->getStats($userId);
+$activities = $stats['activities'];
+$badges = $stats['badges'];
+$points = $stats['points'];
+
+// Récupérer les activités, réservations et badges
+$userActivities = $userObj->getActivities($userId);
+$userReservations = $userObj->getReservations($userId);
+$userBadges = $userObj->getBadges($userId);
+
+// Définir des valeurs par défaut pour les autres informations
+$phone = "Non renseigné";
+$language = "Français";
+$notifications = "Activées";
+$status = $points >= 1000 ? "Aventurier Expert" : "Aventurier Débutant";
+$avatar = "img/default-avatar.jpg";
 
 // Fonction pour récupérer les informations supplémentaires de l'utilisateur si disponibles
 function getUserDetails($username) {
@@ -23,18 +65,6 @@ function getUserDetails($username) {
 
 // Récupérer les informations détaillées si disponibles
 $userDetails = getUserDetails($username);
-
-// Définir des valeurs par défaut pour les informations supplémentaires
-$phone = isset($userDetails['phone']) ? htmlspecialchars($userDetails['phone']) : "Non renseigné";
-$language = isset($userDetails['language']) ? htmlspecialchars($userDetails['language']) : "Français";
-$notifications = isset($userDetails['notifications']) ? $userDetails['notifications'] ? "Activées" : "Désactivées" : "Activées";
-$status = isset($userDetails['status']) ? htmlspecialchars($userDetails['status']) : "Aventurier Débutant";
-$activities = isset($userDetails['activities']) ? intval($userDetails['activities']) : 0;
-$badges = isset($userDetails['badges']) ? intval($userDetails['badges']) : 0;
-$points = isset($userDetails['points']) ? intval($userDetails['points']) : 0;
-$avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar']) : "img/default-avatar.jpg";
-
-
 
 ?>
 
@@ -130,13 +160,13 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
         <!-- Menu de navigation du profil -->
         <nav class="profile-nav">
             <ul>
-                <a href="#informations">Informations</a></li>
+                <li><a href="#informations">Informations</a></li>
                 <li><a href="#activites">Mes Activités</a></li>
                 <li><a href="#reservations">Réservations</a></li>
                 <li><a href="#badges">Badges</a></li>
-                <?php if ($admin === true) { ?>
+                <?php if ($isAdmin): ?>
                     <li><a href="admin.php">Administrateur</a></li>
-                <?php } ?>
+                <?php endif; ?>
             </ul>
         </nav>
 
@@ -191,8 +221,8 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                 <a href="recherche.php" class="btn btn-base">Découvrir plus</a>
             </div>
             <div class="activities-grid">
-                <?php if (isset($userDetails['recentActivities']) && !empty($userDetails['recentActivities'])): ?>
-                    <?php foreach ($userDetails['recentActivities'] as $activity): ?>
+                <?php if (!empty($userActivities)): ?>
+                    <?php foreach ($userActivities as $activity): ?>
                         <div class="activity-card">
                             <div class="activity-image">
                                 <img src="<?php echo htmlspecialchars($activity['image']); ?>" alt="<?php echo htmlspecialchars($activity['title']); ?>">
@@ -224,20 +254,18 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                 <h2>Mes Réservations</h2>
             </div>
             <div class="reservations-list">
-                <?php if (isset($userDetails['reservations']) && !empty($userDetails['reservations'])): ?>
-                    <?php foreach ($userDetails['reservations'] as $reservation): ?>
+                <?php if (!empty($userReservations)): ?>
+                    <?php foreach ($userReservations as $reservation): ?>
                         <div class="reservation-card <?php echo htmlspecialchars($reservation['status']); ?>">
                             <div class="reservation-status">
                                 <span class="status-badge">
                                     <?php 
-                                    $statusText = "Planifié";
-                                    if ($reservation['status'] == 'upcoming') {
-                                        $statusText = "À venir";
-                                    } elseif ($reservation['status'] == 'completed') {
-                                        $statusText = "Complété";
-                                    } elseif ($reservation['status'] == 'cancelled') {
-                                        $statusText = "Annulé";
-                                    }
+                                    $statusText = match($reservation['status']) {
+                                        'upcoming' => 'À venir',
+                                        'completed' => 'Complété',
+                                        'cancelled' => 'Annulé',
+                                        default => 'Planifié'
+                                    };
                                     echo $statusText;
                                     ?>
                                 </span>
@@ -249,11 +277,11 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                                 <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($reservation['location']); ?></p>
                             </div>
                             <div class="reservation-actions">
-                                <?php if ($reservation['status'] == 'upcoming'): ?>
-                                    <button class="btn btn-base">Modifier</button>
-                                    <button class="btn btn-transparent">Annuler</button>
-                                <?php elseif ($reservation['status'] == 'completed'): ?>
-                                    <button class="btn btn-base">Avis</button>
+                                <?php if ($reservation['status'] === 'upcoming'): ?>
+                                    <button class="btn btn-base" onclick="modifyReservation(<?php echo $reservation['id']; ?>)">Modifier</button>
+                                    <button class="btn btn-transparent" onclick="cancelReservation(<?php echo $reservation['id']; ?>)">Annuler</button>
+                                <?php elseif ($reservation['status'] === 'completed'): ?>
+                                    <button class="btn btn-base" onclick="addReview(<?php echo $reservation['id']; ?>)">Avis</button>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -270,14 +298,15 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                 <h2>Mes Badges</h2>
             </div>
             <div class="badges-grid">
-                <?php if (isset($userDetails['userBadges']) && !empty($userDetails['userBadges'])): ?>
-                    <?php foreach ($userDetails['userBadges'] as $badge): ?>
-                        <div class="badge-card <?php echo isset($badge['locked']) && $badge['locked'] ? 'locked' : ''; ?>">
+                <?php if (!empty($userBadges)): ?>
+                    <?php foreach ($userBadges as $badge): ?>
+                        <div class="badge-card">
                             <div class="badge-icon">
                                 <i class="fas <?php echo htmlspecialchars($badge['icon']); ?>"></i>
                             </div>
                             <h3><?php echo htmlspecialchars($badge['title']); ?></h3>
                             <p><?php echo htmlspecialchars($badge['description']); ?></p>
+                            <small>Obtenu le <?php echo date('d/m/Y', strtotime($badge['date_obtained'])); ?></small>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -313,5 +342,37 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
         </div>
     </footer>
 
+    <!-- Ajout du JavaScript pour les actions -->
+    <script>
+    function modifyReservation(id) {
+        // À implémenter : redirection vers la page de modification
+        window.location.href = `modifier-reservation.php?id=${id}`;
+    }
+
+    function cancelReservation(id) {
+        if (confirm('Êtes-vous sûr de vouloir annuler cette réservation ?')) {
+            // À implémenter : appel AJAX pour annuler la réservation
+            fetch(`api/cancel-reservation.php?id=${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Erreur lors de l\'annulation de la réservation');
+                }
+            });
+        }
+    }
+
+    function addReview(id) {
+        // À implémenter : redirection vers la page d'avis
+        window.location.href = `ajouter-avis.php?id=${id}`;
+    }
+    </script>
 </body>
 </html>
