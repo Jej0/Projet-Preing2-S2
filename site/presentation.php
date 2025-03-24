@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+// Lire le fichier JSON des voyages
+$voyages = json_decode(file_get_contents('../data/voyages.json'), true);
+
+// Trier les voyages par note moyenne (du plus élevé au plus bas)
+usort($voyages, function ($a, $b) {
+    return $b['note_moyenne'] <=> $a['note_moyenne'];
+});
+
+// Sélectionner les 3 meilleurs voyages
+$meilleursVoyages = array_slice($voyages, 0, 3);
 ?>
 
 
@@ -78,156 +89,106 @@ session_start();
             </div>
         </section>
 
-        <!-- Nos services -->
-        <section class="services">
-            <h2>Nos Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="img/parachute.jpg" alt="Parachutisme">
-                    <h3>Parachutisme</h3>
-                    <p>Découvrez la liberté absolue en chute libre avec nos instructeurs certifiés.</p>
+        <!-- Fondateur -->
+        <section class="fondateur">
+            <h2>Les Fondateur</h2>
+            <div class="fondateur-grid">
+                <div class="fondateur-card">
+                    <img src="assets/img/fondateur1.jpeg" alt="image fondateur">
+                    <h3>Alex MIKOLAJEWSKI</h3>
                 </div>
-                <div class="service-card">
-                    <img src="img/escalade.jpg" alt="Escalade">
-                    <h3>Escalade</h3>
-                    <p>Repoussez vos limites sur les plus belles parois naturelles.</p>
+                <div class="fondateur-card">
+                    <img src="assets/img/testimonial2.jpg" alt="image fondateur">
+                    <h3>Axel ATAGAN</h3>
                 </div>
-                <div class="service-card">
-                    <img src="img/plongee.jpg" alt="Plongée">
-                    <h3>Plongée</h3>
-                    <p>Explorez les profondeurs marines en toute sécurité.</p>
+                <div class="fondateur-card">
+                    <img src="assets/img/testimonial2.jpg" alt="image fondateur">
+                    <h3>Naïm LACHGAR-BOUACHRA</h3>
                 </div>
             </div>
         </section>
 
-        <!-- Destinations Populaires -->
-        <section class="destinations">
-            <h2>Nos Destinations d'Exception</h2>
-            <div class="destinations-slider">
-                <div class="destination-card">
-                    <img src="img/alpes.jpg" alt="Les Alpes">
-                    <div class="destination-info">
-                        <h3>Les Alpes Françaises</h3>
-                        <p>Escalade, ski extrême et parapente</p>
-                        <span class="destination-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="img/corse.jpg" alt="Corse">
-                    <div class="destination-info">
-                        <h3>Les Calanques Corses</h3>
-                        <p>Plongée, canyoning et escalade</p>
-                        <span class="destination-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="img/pyrenees.jpg" alt="Pyrénées">
-                    <div class="destination-info">
-                        <h3>Pyrénées Sauvages</h3>
-                        <p>Randonnée extrême et alpinisme</p>
-                        <span class="destination-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Section Destinations Populaires -->
+        <section class="fondateur">
+            <h2>Nos Meilleures Destinations</h2>
+            <div class="fondateur-grid">
+                <?php foreach ($meilleursVoyages as $voyage): ?>
+                    <div class="destination-card">
+                        <img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" alt="<?php echo $voyage['titre']; ?>">
+                        <div class="destination-info">
+                            <h3><?php echo $voyage['titre']; ?></h3>
+                            <p><?php echo $voyage['description']; ?></p>
+                            <p class="price">À partir de <?php echo $voyage['prix_total']; ?>€</p>
 
-        <!-- Activités Détaillées -->
-        <section class="activities-detail">
-            <h2>Nos Activités en Détail</h2>
-            <div class="activities-grid">
-                <div class="activity-detail-card">
-                    <div class="activity-header">
-                        <i class="fas fa-parachute-box"></i>
-                        <h3>Sports Aériens</h3>
+                            <div class="rating-container">
+                                <div class="rating">
+                                    <?php
+                                    $note = $voyage['note_moyenne'];
+                                    $etoilesPleines = floor($note);
+                                    $etoilesDemi = ($note - $etoilesPleines) >= 0.5 ? 1 : 0;
+
+                                    // Étoiles pleines
+                                    for ($i = 0; $i < $etoilesPleines; $i++) {
+                                        echo '<i class="fas fa-star"></i>';
+                                    }
+                                    // Demi-étoile
+                                    if ($etoilesDemi) {
+                                        echo '<i class="fas fa-star-half-alt"></i>';
+                                    }
+                                    // Étoiles vides (calcul corrigé)
+                                    $etoilesVides = 5 - $etoilesPleines - $etoilesDemi;
+                                    for ($i = 0; $i < $etoilesVides; $i++) {
+                                        echo '<i class="far fa-star"></i>';
+                                    }
+                                    ?>
+                                </div>
+                                <span class="nb-avis"><?php echo number_format($note, 1); ?> (<?php echo $voyage['nb_avis']; ?> avis)</span>
+                                <span class="duration"><i class="far fa-clock"></i> <?php echo $voyage['dates']['duree']; ?></span>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="activity-list">
-                        <li>Parachutisme (à partir de 3000m)</li>
-                        <li>Parapente biplace</li>
-                        <li>Wingsuit</li>
-                        <li>Saut en tandem</li>
-                        <li>Formation PAC</li>
-                    </ul>
-                    <a href="recherche.php?category=aerien" class="activity-link">Découvrir</a>
-                </div>
-                <div class="activity-detail-card">
-                    <div class="activity-header">
-                        <i class="fas fa-mountain"></i>
-                        <h3>Sports de Montagne</h3>
-                    </div>
-                    <ul class="activity-list">
-                        <li>Escalade haute montagne</li>
-                        <li>Alpinisme</li>
-                        <li>Via ferrata</li>
-                        <li>Ski hors-piste</li>
-                        <li>Cascade de glace</li>
-                    </ul>
-                    <a href="recherche.php?category=montagne" class="activity-link">Découvrir</a>
-                </div>
-                <div class="activity-detail-card">
-                    <div class="activity-header">
-                        <i class="fas fa-water"></i>
-                        <h3>Sports Aquatiques</h3>
-                    </div>
-                    <ul class="activity-list">
-                        <li>Plongée profonde</li>
-                        <li>Canyoning</li>
-                        <li>Rafting extrême</li>
-                        <li>Hydrospeed</li>
-                        <li>Kitesurf</li>
-                    </ul>
-                    <a href="recherche.php?category=aquatique" class="activity-link">Découvrir</a>
-                </div>
+                <?php endforeach; ?>
             </div>
         </section>
 
         <!-- Témoignages -->
-        <section class="testimonials">
-            <h2>Ce que disent nos Aventuriers</h2>
-            <div class="testimonials-carousel">
-                <div class="testimonial-card">
-                    <img src="img/testimonial1.jpg" alt="Sophie" class="testimonial-img">
-                    <blockquote>
-                        "Une expérience incroyable ! L'équipe de KYS a su me mettre en confiance pour mon premier saut en parachute. Je recommande à 100% !"
-                    </blockquote>
-                    <p class="testimonial-author">Sophie D. - Parachutisme</p>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+        <section class="temoignage">
+                <h2>Ce que disent nos Aventuriers</h2>
+                <div class="fondateur-grid">
+                    <div class="temoignage-card">
+                        <div class="client-info">
+                            <img src="assets/img/avis1.jpg" alt="Inoxtag" class="client-avatar">
+                            <div class="client-details">
+                                <strong class="client-name">Inoxtag</strong>
+                                <span class="client-expedition">Ascension de l'Everest</span>
+                            </div>
+                        </div>
+                        <p>"J'ai atteint le Kaizen ! L'équipe KYS a su m'accompagner et m'a permis de gravir l'Everest. Je recommande à 100 % !"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <img src="img/testimonial2.jpg" alt="Marc" class="testimonial-img">
-                    <blockquote>
-                        "Guides professionnels et passionnés. Une ascension du Mont Blanc inoubliable en toute sécurité."
-                    </blockquote>
-                    <p class="testimonial-author">Marc L. - Alpinisme</p>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+
+                    <div class="temoignage-card">
+                        <div class="client-info">
+                            <img src="assets/img/avis2.jpg" alt="Kim Jong-un" class="client-avatar">
+                            <div class="client-details">
+                                <strong class="client-name">Kim Jong-un</strong>
+                                <span class="client-expedition">Rafting extrême dans les gorges du Verdon</span>
+                            </div>
+                        </div>
+                        <p>"Vous pensiez m'avoir eu, mais je suis encore en vie ! 10/10, expérience inoubliable. 🔥💯"</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -263,27 +224,27 @@ session_start();
         <!-- FAQ -->
         <section class="faq">
             <h2>Questions Fréquentes</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
+            <div class="fondateur-grid">
+                <div class="faq-card">
                     <h3><i class="fas fa-question-circle"></i> Faut-il être sportif ?</h3>
                     <p>Nos activités sont adaptées à tous les niveaux. Une bonne condition physique est recommandée pour certaines activités, mais nous proposons des alternatives pour chaque profil.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-card">
                     <h3><i class="fas fa-question-circle"></i> Les activités sont-elles assurées ?</h3>
                     <p>Oui, toutes nos activités sont couvertes par une assurance complète. Nous travaillons avec les meilleures compagnies d'assurance spécialisées.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-card">
                     <h3><i class="fas fa-question-circle"></i> Quel équipement fournissez-vous ?</h3>
                     <p>Tout l'équipement technique et de sécurité est fourni. Une liste détaillée des effets personnels à prévoir vous sera communiquée avant chaque activité.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action -->
+        <!-- CTA -->
         <section class="cta">
             <h2>Prêt à Vivre l'Aventure ?</h2>
-            <p>Rejoignez-nous pour une expérience qui changera votre vie</p>
-            <a href="recherche.php" class="cta-button">Découvrir nos Activités</a>
+            <p>Rejoignez-nous pour une expérience qui changera votre vie</p> <br>
+            <a href="recherche.php" class="btn btn-base">Découvrir nos Activités</a>
         </section>
     </main>
 

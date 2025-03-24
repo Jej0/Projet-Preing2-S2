@@ -281,9 +281,192 @@ button:hover {
     background: var(--bred);
 }
 
+/* =========================== Section Fondateur =========================== */
+.fondateur {
+    padding: 80px 20px 40px;
+}
 
+.fondateur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px auto;
+}
 
+.fondateur-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
 
+.fondateur-card:hover, .destination-card:hover, .temoignage-card:hover, .faq-card:hover{
+    transform: translateY(-10px);
+}
+
+.fondateur-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.fondateur-card h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* =========================== CTA =========================== */
+.cta {
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+/* =========================== Meilleur Destination =========================== */
+.destinations {
+    padding: 80px 20px 40px;
+}
+
+.destination-card {
+    background: white;
+    min-width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.rating{
+    color: var(--yellow);
+}
+
+.destination-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.rating-container {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nb-avis {
+    font-size: 12px;
+    color: var(--light-gray);
+}
+
+.price {
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.duration {
+    margin-left: auto;
+}
+
+/* =========================== Avis =========================== */
+.temoignage {
+    padding: 80px 20px 40px;
+}
+
+.temoignage-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow:var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.client-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--light-blue);
+    margin-right: 20px;
+}
+
+.client-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.client-expedition {
+    font-size: 12px;
+    color: var(--light-gray);
+}
+
+/* =========================== Stats Section =========================== */
+.stats {
+    padding: 40px 20px;
+    border: 5px solid var(--dark-bg);
+    border-radius: 25px
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    display: block;
+    color: var(--blue);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+/* =========================== FAQ =========================== */
+.faq {
+    padding: 80px 20px 40px;
+}
+
+.faq-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.faq-card h3 {
+    margin-bottom: 15px;
+    color: var(--blue);
+}
 
 /* Autre spécial */
 /* Dans recherche */
@@ -374,17 +557,6 @@ button:hover {
 .profile-stats {
     display: flex;
     gap: 30px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--blue);
 }
 
 .stat-label {
@@ -595,24 +767,6 @@ button:hover {
     animation: fadeInUp 0.5s ease;
 }
 
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--light-blue);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-}
-
-.cta-button:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-}
-
 /* Formulaire */
 
 /* Style du conteneur pour le formulaire */
@@ -688,52 +842,12 @@ input[type="password"] {
     padding: 20px;
 }
 
-
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.service-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
 .engagement-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     text-align: center;
     margin: 40px 0;
-}
-
-.cta {
-    text-align: center;
-    padding: 80px 0;
-    background-color: #f5f5f5;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: var(--blue);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #0056b3;
 }
 
 /* Style du footer */
@@ -750,83 +864,6 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-/* Services Section */
-.services {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-}
-
-.service-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
-.service-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.service-card h3 {
-    padding: 20px;
-    font-size: 1.5rem;
-}
-
-.service-card p {
-    padding: 0 20px 20px;
-    color: #666;
-}
-
-/* Destinations Section */
-.destinations {
-    padding: 80px 20px;
-}
-
-.destinations-slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 30px;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
-}
-
-.destination-card {
-    min-width: 300px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: start;
-}
-
-.destination-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.destination-info {
-    padding: 20px;
-}
-
-.destination-rating {
-    color: var(--yellow);
 }
 
 /* Activities Detail Section */
@@ -883,113 +920,6 @@ footer {
 }
 
 .activity-link:hover {
-    background: #0056b3;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 80px 20px;
-}
-
-.testimonials-carousel {
-    display: flex;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    overflow-x: auto;
-}
-
-.testimonial-card {
-    min-width: 300px;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* Stats Section */
-.stats {
-    padding: 80px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/stats-bg.jpg');
-    background-size: cover;
-    color: white;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 10px 0;
-    display: block;
-}
-
-/* FAQ Section */
-.faq {
-    padding: 80px 20px;
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-}
-
-.faq-item {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    color: var(--blue);
-}
-
-/* CTA Section */
-.cta {
-    padding: 100px 20px;
-    text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/parachute.jpg');
-    background-size: cover;
-    color: white;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 40px;
-    background: var(--blue);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    margin-top: 30px;
-    transition: transform 0.3s ease;
-    background: 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: scale(1.05);
     background: #0056b3;
 }
 
@@ -1643,7 +1573,7 @@ footer {
         gap: 15px;
     }
 
-    .services-grid,
+    .fondateur-grid,
     .activities-grid,
     .stats-grid,
     .faq-grid {
