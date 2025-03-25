@@ -72,7 +72,7 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
-                <a href="scripte_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+                <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
                 </a>
@@ -154,44 +154,44 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
 
         <!-- Témoignages -->
         <section class="temoignage">
-                <h2>Ce que disent nos Aventuriers</h2>
-                <div class="fondateur-grid">
-                    <div class="temoignage-card">
-                        <div class="client-info">
-                            <img src="assets/img/avis1.jpg" alt="Inoxtag" class="client-avatar">
-                            <div class="client-details">
-                                <strong class="client-name">Inoxtag</strong>
-                                <span class="client-expedition">Ascension de l'Everest</span>
-                            </div>
-                        </div>
-                        <p>"J'ai atteint le Kaizen ! L'équipe KYS a su m'accompagner et m'a permis de gravir l'Everest. Je recommande à 100 % !"</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+            <h2>Ce que disent nos Aventuriers</h2>
+            <div class="fondateur-grid">
+                <div class="temoignage-card">
+                    <div class="client-info">
+                        <img src="assets/img/avis1.jpg" alt="Inoxtag" class="client-avatar">
+                        <div class="client-details">
+                            <strong class="client-name">Inoxtag</strong>
+                            <span class="client-expedition">Ascension de l'Everest</span>
                         </div>
                     </div>
-
-                    <div class="temoignage-card">
-                        <div class="client-info">
-                            <img src="assets/img/avis2.jpg" alt="Kim Jong-un" class="client-avatar">
-                            <div class="client-details">
-                                <strong class="client-name">Kim Jong-un</strong>
-                                <span class="client-expedition">Rafting extrême dans les gorges du Verdon</span>
-                            </div>
-                        </div>
-                        <p>"Vous pensiez m'avoir eu, mais je suis encore en vie ! 10/10, expérience inoubliable. 🔥💯"</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                    <p>"J'ai atteint le Kaizen ! L'équipe KYS a su m'accompagner et m'a permis de gravir l'Everest. Je recommande à 100 % !"</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
+
+                <div class="temoignage-card">
+                    <div class="client-info">
+                        <img src="assets/img/avis2.jpg" alt="Kim Jong-un" class="client-avatar">
+                        <div class="client-details">
+                            <strong class="client-name">Kim Jong-un</strong>
+                            <span class="client-expedition">Rafting extrême dans les gorges du Verdon</span>
+                        </div>
+                    </div>
+                    <p>"Vous pensiez m'avoir eu, mais je suis encore en vie ! 10/10, expérience inoubliable. 🔥💯"</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 

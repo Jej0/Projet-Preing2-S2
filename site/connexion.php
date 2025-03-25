@@ -15,9 +15,9 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'profile.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    
+
     $error = '';
-    
+
     // Rechercher l'utilisateur
     $foundUser = null;
     foreach ($users as $user) {
@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         }
     }
-    
+
     if ($foundUser && password_verify($password, $foundUser['mot_de_passe'])) {
         // Mettre à jour la date de connexion
         $foundUser['date']['connexion'] = date('Y-m-d');
-        
+
         // Mettre à jour le fichier users.json
         foreach ($users as &$u) {
             if ($u['id_user'] === $foundUser['id_user']) {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
-        
+
         // Connecter l'utilisateur
         $_SESSION['user'] = $foundUser;
         header('Location: ' . $redirect);
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <nav>
         <div class="nav-left">
@@ -82,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
-				<a href="scripte_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+                <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
                 </a>
@@ -121,4 +123,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 </body>
+
 </html>

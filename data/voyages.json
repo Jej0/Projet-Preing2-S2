@@ -2,7 +2,7 @@
     {
         "id_voyage": 1,
         "titre": "Ascension de l'Everest",
-        "description": "L'ascension ultime pour les amateurs de défis extrêmes. Atteignez le toit du monde avec des guides expérimentés.",
+        "description": "L'ascension ultime pour les amateurs de d\u00e9fis extr\u00eames. Atteignez le toit du monde avec des guides exp\u00e9riment\u00e9s.",
         "note_moyenne": 4.9,
         "nb_avis": 10,
         "nb_etape": 5,
@@ -15,7 +15,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Katmandou",
+                "titre": "Arriv\u00e9e \u00e0 Katmandou",
                 "dates": {
                     "arrivee": "2024-04-01",
                     "depart": "2024-04-02",
@@ -30,7 +30,7 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Katmandou",
-                            "description": "Découverte des temples et de la culture népalaise",
+                            "description": "D\u00e9couverte des temples et de la culture n\u00e9palaise",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -38,8 +38,8 @@
                     "hebergements": [
                         {
                             "id_option": 2,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         }
@@ -47,8 +47,8 @@
                     "restaurations": [
                         {
                             "id_option": 3,
-                            "nom": "Dîner népalais",
-                            "description": "Dîner avec des spécialités locales",
+                            "nom": "D\u00eener n\u00e9palais",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -57,7 +57,7 @@
                         {
                             "id_option": 4,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Lukla",
+                            "description": "Transfert vers l'a\u00e9roport de Lukla",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -66,7 +66,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Acclimatation à Namche Bazaar",
+                "titre": "Acclimatation \u00e0 Namche Bazaar",
                 "dates": {
                     "arrivee": "2024-04-03",
                     "depart": "2024-04-05",
@@ -80,8 +80,8 @@
                     "activites": [
                         {
                             "id_option": 5,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -107,8 +107,8 @@
                     "transports": [
                         {
                             "id_option": 8,
-                            "nom": "Transfert à pied",
-                            "description": "Randonnée vers Namche Bazaar",
+                            "nom": "Transfert \u00e0 pied",
+                            "description": "Randonn\u00e9e vers Namche Bazaar",
                             "prix_par_personne": 0,
                             "nombre_personnes_max": 10
                         }
@@ -127,7 +127,7 @@
                     "gps": "27.9881, 86.9250",
                     "ville": "Camp de base de l'Everest"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 4,
@@ -141,7 +141,7 @@
                     "gps": "27.9800, 86.9200",
                     "ville": "Col Sud"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 5,
@@ -155,7 +155,7 @@
                     "gps": "27.9881, 86.9253",
                     "ville": "Sommet de l'Everest"
                 },
-                "options": {}
+                "options": []
             }
         ],
         "specificites": [
@@ -164,17 +164,15 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": [
-                101
-            ]
+            "id_reservation": []
         },
         "prix_total": 10000,
         "statut": "disponible"
     },
     {
         "id_voyage": 2,
-        "titre": "Traversée des Alpes en parapente",
-        "description": "Parcourez les Alpes en parapente, avec des décollages depuis les plus hauts sommets.",
+        "titre": "Travers\u00e9e des Alpes en parapente",
+        "description": "Parcourez les Alpes en parapente, avec des d\u00e9collages depuis les plus hauts sommets.",
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 3,
@@ -187,7 +185,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Chamonix",
+                "titre": "Arriv\u00e9e \u00e0 Chamonix",
                 "dates": {
                     "arrivee": "2024-07-01",
                     "depart": "2024-07-02",
@@ -202,21 +200,21 @@
                         {
                             "id_option": 1,
                             "nom": "Vol d'initiation en parapente",
-                            "description": "Découverte du parapente avec un instructeur",
+                            "description": "D\u00e9couverte du parapente avec un instructeur",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 8
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les Aiguilles Rouges",
-                            "description": "Randonnée facile avec vue sur le Mont Blanc",
+                            "nom": "Randonn\u00e9e dans les Aiguilles Rouges",
+                            "description": "Randonn\u00e9e facile avec vue sur le Mont Blanc",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 3,
                             "nom": "Visite de Chamonix",
-                            "description": "Découverte de la ville et de ses boutiques",
+                            "description": "D\u00e9couverte de la ville et de ses boutiques",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -224,15 +222,15 @@
                     "hebergements": [
                         {
                             "id_option": 4,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 5,
                             "nom": "Chalet de montagne",
-                            "description": "Chalet traditionnel avec cheminée",
+                            "description": "Chalet traditionnel avec chemin\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 6
                         },
@@ -247,15 +245,15 @@
                     "restaurations": [
                         {
                             "id_option": 7,
-                            "nom": "Dîner savoyard",
-                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "nom": "D\u00eener savoyard",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (fondue, raclette)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         },
@@ -271,20 +269,20 @@
                         {
                             "id_option": 10,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Genève",
+                            "description": "Transfert depuis l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 11,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         },
                         {
                             "id_option": 12,
-                            "nom": "Location de vélo électrique",
+                            "nom": "Location de v\u00e9lo \u00e9lectrique",
                             "description": "Location pour explorer les environs",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
@@ -315,15 +313,15 @@
                         },
                         {
                             "id_option": 14,
-                            "nom": "Randonnée glaciaire",
-                            "description": "Randonnée sur le glacier du Mont Blanc",
+                            "nom": "Randonn\u00e9e glaciaire",
+                            "description": "Randonn\u00e9e sur le glacier du Mont Blanc",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 15,
                             "nom": "Cours de photographie en vol",
-                            "description": "Apprenez à capturer les meilleurs clichés en parapente",
+                            "description": "Apprenez \u00e0 capturer les meilleurs clich\u00e9s en parapente",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 6
                         }
@@ -345,8 +343,8 @@
                         },
                         {
                             "id_option": 18,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel économique avec petit-déjeuner inclus",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel \u00e9conomique avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -354,7 +352,7 @@
                     "restaurations": [
                         {
                             "id_option": 19,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -377,15 +375,15 @@
                     "transports": [
                         {
                             "id_option": 22,
-                            "nom": "Transfert en téléphérique",
-                            "description": "Transfert vers le site de décollage",
+                            "nom": "Transfert en t\u00e9l\u00e9ph\u00e9rique",
+                            "description": "Transfert vers le site de d\u00e9collage",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 23,
-                            "nom": "Transfert en hélicoptère",
-                            "description": "Transfert rapide en hélicoptère",
+                            "nom": "Transfert en h\u00e9licopt\u00e8re",
+                            "description": "Transfert rapide en h\u00e9licopt\u00e8re",
                             "prix_par_personne": 300,
                             "nombre_personnes_max": 4
                         },
@@ -423,13 +421,13 @@
                         {
                             "id_option": 26,
                             "nom": "Visite d'Annecy",
-                            "description": "Découverte de la Venise des Alpes",
+                            "description": "D\u00e9couverte de la Venise des Alpes",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 27,
-                            "nom": "Croisière sur le lac d'Annecy",
+                            "nom": "Croisi\u00e8re sur le lac d'Annecy",
                             "description": "Balade en bateau sur le lac",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -438,15 +436,15 @@
                     "hebergements": [
                         {
                             "id_option": 28,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur le lac",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur le lac",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 29,
-                            "nom": "Chambre d'hôtes",
-                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "nom": "Chambre d'h\u00f4tes",
+                            "description": "Chambre confortable avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 6
                         },
@@ -462,14 +460,14 @@
                         {
                             "id_option": 31,
                             "nom": "Repas au bord du lac",
-                            "description": "Dîner avec vue sur le lac d'Annecy",
+                            "description": "D\u00eener avec vue sur le lac d'Annecy",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 32,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         },
@@ -485,20 +483,20 @@
                         {
                             "id_option": 34,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Genève",
+                            "description": "Transfert vers l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 35,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         },
                         {
                             "id_option": 36,
-                            "nom": "Location de vélo électrique",
+                            "nom": "Location de v\u00e9lo \u00e9lectrique",
                             "description": "Location pour explorer les environs",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
@@ -513,15 +511,17 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": []
+            "id_reservation": [
+                101
+            ]
         },
         "prix_total": 2500,
         "statut": "disponible"
     },
     {
         "id_voyage": 3,
-        "titre": "Expédition au Mont Blanc",
-        "description": "Gravissez le plus haut sommet d'Europe avec des guides certifiés. Une aventure inoubliable dans les Alpes.",
+        "titre": "Exp\u00e9dition au Mont Blanc",
+        "description": "Gravissez le plus haut sommet d'Europe avec des guides certifi\u00e9s. Une aventure inoubliable dans les Alpes.",
         "note_moyenne": 4.7,
         "nb_avis": 10,
         "nb_etape": 4,
@@ -534,7 +534,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Chamonix",
+                "titre": "Arriv\u00e9e \u00e0 Chamonix",
                 "dates": {
                     "arrivee": "2024-08-01",
                     "depart": "2024-08-02",
@@ -549,14 +549,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Chamonix",
-                            "description": "Découverte de la ville et de ses boutiques",
+                            "description": "D\u00e9couverte de la ville et de ses boutiques",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e facile pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -564,15 +564,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
                             "nom": "Chalet de montagne",
-                            "description": "Chalet traditionnel avec cheminée",
+                            "description": "Chalet traditionnel avec chemin\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 6
                         }
@@ -580,15 +580,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner savoyard",
-                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "nom": "D\u00eener savoyard",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (fondue, raclette)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -597,14 +597,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Genève",
+                            "description": "Transfert depuis l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -613,7 +613,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Ascension vers le refuge du Goûter",
+                "titre": "Ascension vers le refuge du Go\u00fbter",
                 "dates": {
                     "arrivee": "2024-08-03",
                     "depart": "2024-08-04",
@@ -621,14 +621,14 @@
                 },
                 "position_geographique": {
                     "gps": "45.8556, 6.8275",
-                    "ville": "Refuge du Goûter"
+                    "ville": "Refuge du Go\u00fbter"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 9,
-                            "nom": "Randonnée glaciaire",
-                            "description": "Randonnée sur le glacier du Mont Blanc",
+                            "nom": "Randonn\u00e9e glaciaire",
+                            "description": "Randonn\u00e9e sur le glacier du Mont Blanc",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -636,7 +636,7 @@
                     "hebergements": [
                         {
                             "id_option": 10,
-                            "nom": "Refuge du Goûter",
+                            "nom": "Refuge du Go\u00fbter",
                             "description": "Refuge confortable avec vue sur les montagnes",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
@@ -645,7 +645,7 @@
                     "restaurations": [
                         {
                             "id_option": 11,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -654,8 +654,8 @@
                     "transports": [
                         {
                             "id_option": 12,
-                            "nom": "Transfert à pied",
-                            "description": "Randonnée vers le refuge",
+                            "nom": "Transfert \u00e0 pied",
+                            "description": "Randonn\u00e9e vers le refuge",
                             "prix_par_personne": 0,
                             "nombre_personnes_max": 10
                         }
@@ -674,11 +674,11 @@
                     "gps": "45.8326, 6.8652",
                     "ville": "Sommet du Mont Blanc"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 4,
-                "titre": "Retour à Chamonix",
+                "titre": "Retour \u00e0 Chamonix",
                 "dates": {
                     "arrivee": "2024-08-07",
                     "depart": "2024-08-07",
@@ -692,8 +692,8 @@
                     "activites": [
                         {
                             "id_option": 13,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -701,8 +701,8 @@
                     "hebergements": [
                         {
                             "id_option": 14,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         }
@@ -711,7 +711,7 @@
                         {
                             "id_option": 15,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -720,7 +720,7 @@
                         {
                             "id_option": 16,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Genève",
+                            "description": "Transfert vers l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -741,8 +741,8 @@
     },
     {
         "id_voyage": 4,
-        "titre": "Ski extrême en Alaska",
-        "description": "Skiez sur les pentes les plus raides et les plus sauvages de l'Alaska. Une aventure inoubliable pour les amateurs de ski extrême.",
+        "titre": "Ski extr\u00eame en Alaska",
+        "description": "Skiez sur les pentes les plus raides et les plus sauvages de l'Alaska. Une aventure inoubliable pour les amateurs de ski extr\u00eame.",
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 4,
@@ -755,7 +755,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Anchorage",
+                "titre": "Arriv\u00e9e \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-03-10",
                     "depart": "2025-03-11",
@@ -770,14 +770,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite d'Anchorage",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée en raquettes",
-                            "description": "Randonnée facile pour s'acclimater au froid",
+                            "nom": "Randonn\u00e9e en raquettes",
+                            "description": "Randonn\u00e9e facile pour s'acclimater au froid",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -785,8 +785,8 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
@@ -801,15 +801,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner alaskien",
-                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "nom": "D\u00eener alaskien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (saumon, gibier)",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -818,14 +818,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -855,8 +855,8 @@
                         },
                         {
                             "id_option": 10,
-                            "nom": "Héliski",
-                            "description": "Ski après un largage en hélicoptère",
+                            "nom": "H\u00e9liski",
+                            "description": "Ski apr\u00e8s un largage en h\u00e9licopt\u00e8re",
                             "prix_par_personne": 500,
                             "nombre_personnes_max": 6
                         }
@@ -880,7 +880,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
@@ -896,7 +896,7 @@
                     "transports": [
                         {
                             "id_option": 15,
-                            "nom": "Transfert en hélicoptère",
+                            "nom": "Transfert en h\u00e9licopt\u00e8re",
                             "description": "Transfert vers les sites de ski",
                             "prix_par_personne": 300,
                             "nombre_personnes_max": 6
@@ -927,8 +927,8 @@
                     "activites": [
                         {
                             "id_option": 17,
-                            "nom": "Randonnée sur glacier",
-                            "description": "Randonnée guidée sur le glacier de Matanuska",
+                            "nom": "Randonn\u00e9e sur glacier",
+                            "description": "Randonn\u00e9e guid\u00e9e sur le glacier de Matanuska",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
@@ -971,7 +971,7 @@
             },
             {
                 "id_etape": 4,
-                "titre": "Retour à Anchorage",
+                "titre": "Retour \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-03-17",
                     "depart": "2025-03-17",
@@ -985,8 +985,8 @@
                     "activites": [
                         {
                             "id_option": 22,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -994,8 +994,8 @@
                     "hebergements": [
                         {
                             "id_option": 23,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         }
@@ -1004,7 +1004,7 @@
                         {
                             "id_option": 24,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -1013,7 +1013,7 @@
                         {
                             "id_option": 25,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -1024,7 +1024,7 @@
         "specificites": [
             "Neige",
             "Glacier",
-            "Ski extrême"
+            "Ski extr\u00eame"
         ],
         "liste_personnes": {
             "max": 10,
@@ -1035,8 +1035,8 @@
     },
     {
         "id_voyage": 5,
-        "titre": "Expédition au Denali",
-        "description": "Gravissez le plus haut sommet d'Amérique du Nord dans des conditions extrêmes. Une aventure inoubliable pour les alpinistes expérimentés.",
+        "titre": "Exp\u00e9dition au Denali",
+        "description": "Gravissez le plus haut sommet d'Am\u00e9rique du Nord dans des conditions extr\u00eames. Une aventure inoubliable pour les alpinistes exp\u00e9riment\u00e9s.",
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 6,
@@ -1049,7 +1049,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Anchorage",
+                "titre": "Arriv\u00e9e \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-06-01",
                     "depart": "2025-06-02",
@@ -1064,14 +1064,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite d'Anchorage",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée en forêt",
-                            "description": "Randonnée facile pour s'acclimater au climat",
+                            "nom": "Randonn\u00e9e en for\u00eat",
+                            "description": "Randonn\u00e9e facile pour s'acclimater au climat",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1079,8 +1079,8 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
@@ -1095,15 +1095,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner alaskien",
-                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "nom": "D\u00eener alaskien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (saumon, gibier)",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -1112,14 +1112,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -1143,7 +1143,7 @@
                         {
                             "id_option": 9,
                             "nom": "Visite de Talkeetna",
-                            "description": "Découverte de ce village pittoresque",
+                            "description": "D\u00e9couverte de ce village pittoresque",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -1211,8 +1211,8 @@
                     "restaurations": [
                         {
                             "id_option": 15,
-                            "nom": "Repas lyophilisés",
-                            "description": "Repas légers pour l'expédition",
+                            "nom": "Repas lyophilis\u00e9s",
+                            "description": "Repas l\u00e9gers pour l'exp\u00e9dition",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -1240,7 +1240,7 @@
                     "gps": "63.0694, -151.0072",
                     "ville": "Camp 3"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 5,
@@ -1254,11 +1254,11 @@
                     "gps": "63.0694, -151.0072",
                     "ville": "Sommet du Denali"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 6,
-                "titre": "Retour à Anchorage",
+                "titre": "Retour \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-06-13",
                     "depart": "2025-06-15",
@@ -1272,8 +1272,8 @@
                     "activites": [
                         {
                             "id_option": 17,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -1281,8 +1281,8 @@
                     "hebergements": [
                         {
                             "id_option": 18,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         }
@@ -1291,7 +1291,7 @@
                         {
                             "id_option": 19,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -1300,7 +1300,7 @@
                         {
                             "id_option": 20,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -1323,7 +1323,7 @@
     {
         "id_voyage": 6,
         "titre": "Via Ferrata dans les Dolomites",
-        "description": "Explorez les via ferrata spectaculaires des Dolomites italiennes. Une aventure inoubliable pour les amateurs d'escalade et de randonnée.",
+        "description": "Explorez les via ferrata spectaculaires des Dolomites italiennes. Une aventure inoubliable pour les amateurs d'escalade et de randonn\u00e9e.",
         "note_moyenne": 4.7,
         "nb_avis": 10,
         "nb_etape": 4,
@@ -1336,7 +1336,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Cortina d'Ampezzo",
+                "titre": "Arriv\u00e9e \u00e0 Cortina d'Ampezzo",
                 "dates": {
                     "arrivee": "2024-09-01",
                     "depart": "2024-09-02",
@@ -1351,14 +1351,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Cortina d'Ampezzo",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e facile pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1366,15 +1366,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
                             "nom": "Chalet de montagne",
-                            "description": "Chalet traditionnel avec cheminée",
+                            "description": "Chalet traditionnel avec chemin\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 6
                         }
@@ -1382,15 +1382,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner italien",
-                            "description": "Dîner avec des spécialités locales (pâtes, pizza)",
+                            "nom": "D\u00eener italien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (p\u00e2tes, pizza)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -1399,14 +1399,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Venise",
+                            "description": "Transfert depuis l'a\u00e9roport de Venise",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 4
                         }
@@ -1430,14 +1430,14 @@
                         {
                             "id_option": 9,
                             "nom": "Via Ferrata",
-                            "description": "Escalade sur les célèbres Tre Cime di Lavaredo",
+                            "description": "Escalade sur les c\u00e9l\u00e8bres Tre Cime di Lavaredo",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 8
                         },
                         {
                             "id_option": 10,
-                            "nom": "Randonnée autour des Tre Cime",
-                            "description": "Randonnée avec vue sur les célèbres pics",
+                            "nom": "Randonn\u00e9e autour des Tre Cime",
+                            "description": "Randonn\u00e9e avec vue sur les c\u00e9l\u00e8bres pics",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1461,7 +1461,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -1477,7 +1477,7 @@
                     "transports": [
                         {
                             "id_option": 15,
-                            "nom": "Transfert en téléphérique",
+                            "nom": "Transfert en t\u00e9l\u00e9ph\u00e9rique",
                             "description": "Transfert vers le site de via ferrata",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
@@ -1508,8 +1508,8 @@
                         },
                         {
                             "id_option": 17,
-                            "nom": "Randonnée dans les Dolomites",
-                            "description": "Randonnée avec vue sur les montagnes",
+                            "nom": "Randonn\u00e9e dans les Dolomites",
+                            "description": "Randonn\u00e9e avec vue sur les montagnes",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1535,7 +1535,7 @@
                     "transports": [
                         {
                             "id_option": 20,
-                            "nom": "Transfert en téléphérique",
+                            "nom": "Transfert en t\u00e9l\u00e9ph\u00e9rique",
                             "description": "Transfert vers le site de via ferrata",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
@@ -1545,7 +1545,7 @@
             },
             {
                 "id_etape": 4,
-                "titre": "Retour à Cortina d'Ampezzo",
+                "titre": "Retour \u00e0 Cortina d'Ampezzo",
                 "dates": {
                     "arrivee": "2024-09-07",
                     "depart": "2024-09-07",
@@ -1559,8 +1559,8 @@
                     "activites": [
                         {
                             "id_option": 21,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -1568,8 +1568,8 @@
                     "hebergements": [
                         {
                             "id_option": 22,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur les montagnes",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         }
@@ -1578,7 +1578,7 @@
                         {
                             "id_option": 23,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -1587,7 +1587,7 @@
                         {
                             "id_option": 24,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Venise",
+                            "description": "Transfert vers l'a\u00e9roport de Venise",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -1609,8 +1609,8 @@
     },
     {
         "id_voyage": 7,
-        "titre": "Canyoning dans les Pyrénées",
-        "description": "Explorez les gorges et cascades des Pyrénées en canyoning. Une aventure aquatique et sportive dans des paysages époustouflants.",
+        "titre": "Canyoning dans les Pyr\u00e9n\u00e9es",
+        "description": "Explorez les gorges et cascades des Pyr\u00e9n\u00e9es en canyoning. Une aventure aquatique et sportive dans des paysages \u00e9poustouflants.",
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 3,
@@ -1623,7 +1623,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Luchon",
+                "titre": "Arriv\u00e9e \u00e0 Luchon",
                 "dates": {
                     "arrivee": "2024-07-10",
                     "depart": "2024-07-11",
@@ -1631,21 +1631,21 @@
                 },
                 "position_geographique": {
                     "gps": "42.7900, 0.5931",
-                    "ville": "Bagnères-de-Luchon"
+                    "ville": "Bagn\u00e8res-de-Luchon"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 1,
                             "nom": "Visite de Luchon",
-                            "description": "Découverte de la ville et de ses thermes",
+                            "description": "D\u00e9couverte de la ville et de ses thermes",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -1653,15 +1653,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
                             "nom": "Chalet de montagne",
-                            "description": "Chalet traditionnel avec cheminée",
+                            "description": "Chalet traditionnel avec chemin\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 6
                         }
@@ -1669,15 +1669,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner local",
-                            "description": "Dîner avec des spécialités régionales",
+                            "nom": "D\u00eener local",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s r\u00e9gionales",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -1686,14 +1686,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Toulouse",
+                            "description": "Transfert depuis l'a\u00e9roport de Toulouse",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 4
                         }
@@ -1723,8 +1723,8 @@
                         },
                         {
                             "id_option": 10,
-                            "nom": "Randonnée autour du canyon",
-                            "description": "Randonnée avec vue sur les gorges",
+                            "nom": "Randonn\u00e9e autour du canyon",
+                            "description": "Randonn\u00e9e avec vue sur les gorges",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -1748,7 +1748,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -1774,7 +1774,7 @@
             },
             {
                 "id_etape": 3,
-                "titre": "Retour à Luchon",
+                "titre": "Retour \u00e0 Luchon",
                 "dates": {
                     "arrivee": "2024-07-14",
                     "depart": "2024-07-14",
@@ -1782,14 +1782,14 @@
                 },
                 "position_geographique": {
                     "gps": "42.7900, 0.5931",
-                    "ville": "Bagnères-de-Luchon"
+                    "ville": "Bagn\u00e8res-de-Luchon"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 16,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -1797,8 +1797,8 @@
                     "hebergements": [
                         {
                             "id_option": 17,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         }
@@ -1807,7 +1807,7 @@
                         {
                             "id_option": 18,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -1816,7 +1816,7 @@
                         {
                             "id_option": 19,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Toulouse",
+                            "description": "Transfert vers l'a\u00e9roport de Toulouse",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1838,8 +1838,8 @@
     },
     {
         "id_voyage": 8,
-        "titre": "Traversée des Andes à VTT",
-        "description": "Parcourez les Andes en VTT, des hauts plateaux aux vallées profondes. Une aventure sportive et culturelle dans des paysages à couper le souffle.",
+        "titre": "Travers\u00e9e des Andes \u00e0 VTT",
+        "description": "Parcourez les Andes en VTT, des hauts plateaux aux vall\u00e9es profondes. Une aventure sportive et culturelle dans des paysages \u00e0 couper le souffle.",
         "note_moyenne": 4.5,
         "nb_avis": 10,
         "nb_etape": 5,
@@ -1852,7 +1852,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Mendoza",
+                "titre": "Arriv\u00e9e \u00e0 Mendoza",
                 "dates": {
                     "arrivee": "2024-10-01",
                     "depart": "2024-10-02",
@@ -1867,14 +1867,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Mendoza",
-                            "description": "Découverte de la ville et de ses vignobles",
+                            "description": "D\u00e9couverte de la ville et de ses vignobles",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1882,15 +1882,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
-                            "nom": "Chambre d'hôtes",
-                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "nom": "Chambre d'h\u00f4tes",
+                            "description": "Chambre confortable avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 6
                         }
@@ -1898,15 +1898,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner argentin",
-                            "description": "Dîner avec des spécialités locales (asado, empanadas)",
+                            "nom": "D\u00eener argentin",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (asado, empanadas)",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -1915,14 +1915,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -1931,7 +1931,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Traversée des hauts plateaux",
+                "titre": "Travers\u00e9e des hauts plateaux",
                 "dates": {
                     "arrivee": "2024-10-03",
                     "depart": "2024-10-05",
@@ -1946,14 +1946,14 @@
                         {
                             "id_option": 9,
                             "nom": "VTT sur les hauts plateaux",
-                            "description": "Traversée des paysages désertiques des Andes",
+                            "description": "Travers\u00e9e des paysages d\u00e9sertiques des Andes",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 10,
-                            "nom": "Randonnée pédestre",
-                            "description": "Randonnée pour explorer les environs",
+                            "nom": "Randonn\u00e9e p\u00e9destre",
+                            "description": "Randonn\u00e9e pour explorer les environs",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -1977,7 +1977,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -2011,21 +2011,21 @@
                 },
                 "position_geographique": {
                     "gps": "-33.5000, -70.0000",
-                    "ville": "Vallées chiliennes"
+                    "ville": "Vall\u00e9es chiliennes"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 16,
-                            "nom": "VTT dans les vallées chiliennes",
-                            "description": "Descente à travers les vallées verdoyantes",
+                            "nom": "VTT dans les vall\u00e9es chiliennes",
+                            "description": "Descente \u00e0 travers les vall\u00e9es verdoyantes",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 17,
                             "nom": "Visite de villages locaux",
-                            "description": "Découverte de la culture chilienne",
+                            "description": "D\u00e9couverte de la culture chilienne",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -2034,7 +2034,7 @@
                         {
                             "id_option": 18,
                             "nom": "Lodge de montagne",
-                            "description": "Lodge confortable avec vue sur les vallées",
+                            "description": "Lodge confortable avec vue sur les vall\u00e9es",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         }
@@ -2043,7 +2043,7 @@
                         {
                             "id_option": 19,
                             "nom": "Repas local",
-                            "description": "Repas avec des spécialités chiliennes",
+                            "description": "Repas avec des sp\u00e9cialit\u00e9s chiliennes",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         }
@@ -2052,7 +2052,7 @@
                         {
                             "id_option": 20,
                             "nom": "Transfert en 4x4",
-                            "description": "Transfert vers les vallées chiliennes",
+                            "description": "Transfert vers les vall\u00e9es chiliennes",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 8
                         }
@@ -2061,7 +2061,7 @@
             },
             {
                 "id_etape": 4,
-                "titre": "Arrivée à Santiago",
+                "titre": "Arriv\u00e9e \u00e0 Santiago",
                 "dates": {
                     "arrivee": "2024-10-08",
                     "depart": "2024-10-09",
@@ -2076,14 +2076,14 @@
                         {
                             "id_option": 21,
                             "nom": "Visite de Santiago",
-                            "description": "Découverte de la capitale chilienne",
+                            "description": "D\u00e9couverte de la capitale chilienne",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 22,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -2091,8 +2091,8 @@
                     "hebergements": [
                         {
                             "id_option": 23,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         }
@@ -2101,7 +2101,7 @@
                         {
                             "id_option": 24,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -2110,7 +2110,7 @@
                         {
                             "id_option": 25,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -2121,7 +2121,7 @@
         "specificites": [
             "Montagne",
             "VTT",
-            "Traversée internationale"
+            "Travers\u00e9e internationale"
         ],
         "liste_personnes": {
             "max": 10,
@@ -2132,7 +2132,7 @@
     },
     {
         "id_voyage": 9,
-        "titre": "Rafting extrême dans les gorges du Verdon",
+        "titre": "Rafting extr\u00eame dans les gorges du Verdon",
         "description": "Affrontez les rapides des gorges du Verdon en rafting. Une aventure aquatique et sportive dans l'un des plus beaux canyons d'Europe.",
         "note_moyenne": 4.7,
         "nb_avis": 10,
@@ -2146,7 +2146,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Castellane",
+                "titre": "Arriv\u00e9e \u00e0 Castellane",
                 "dates": {
                     "arrivee": "2024-08-01",
                     "depart": "2024-08-02",
@@ -2161,14 +2161,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Castellane",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les gorges",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les gorges",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -2176,15 +2176,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
-                            "nom": "Chambre d'hôtes",
-                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "nom": "Chambre d'h\u00f4tes",
+                            "description": "Chambre confortable avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 6
                         }
@@ -2192,15 +2192,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner provençal",
-                            "description": "Dîner avec des spécialités locales (ratatouille, tapenade)",
+                            "nom": "D\u00eener proven\u00e7al",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (ratatouille, tapenade)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -2209,14 +2209,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Nice",
+                            "description": "Transfert depuis l'a\u00e9roport de Nice",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 4
                         }
@@ -2255,7 +2255,7 @@
                     "hebergements": [
                         {
                             "id_option": 11,
-                            "nom": "Camping en bord de rivière",
+                            "nom": "Camping en bord de rivi\u00e8re",
                             "description": "Camping sous tente avec vue sur les gorges",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -2271,7 +2271,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -2297,7 +2297,7 @@
             },
             {
                 "id_etape": 3,
-                "titre": "Retour à Castellane",
+                "titre": "Retour \u00e0 Castellane",
                 "dates": {
                     "arrivee": "2024-08-05",
                     "depart": "2024-08-05",
@@ -2311,8 +2311,8 @@
                     "activites": [
                         {
                             "id_option": 16,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -2320,8 +2320,8 @@
                     "hebergements": [
                         {
                             "id_option": 17,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         }
@@ -2330,7 +2330,7 @@
                         {
                             "id_option": 18,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -2339,7 +2339,7 @@
                         {
                             "id_option": 19,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Nice",
+                            "description": "Transfert vers l'a\u00e9roport de Nice",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2361,8 +2361,8 @@
     },
     {
         "id_voyage": 10,
-        "titre": "Expédition au Kilimandjaro",
-        "description": "Gravissez le plus haut sommet d'Afrique à travers la voie Machame. Une aventure inoubliable pour les amateurs de trekking et de défis en haute altitude.",
+        "titre": "Exp\u00e9dition au Kilimandjaro",
+        "description": "Gravissez le plus haut sommet d'Afrique \u00e0 travers la voie Machame. Une aventure inoubliable pour les amateurs de trekking et de d\u00e9fis en haute altitude.",
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 6,
@@ -2375,7 +2375,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Arusha",
+                "titre": "Arriv\u00e9e \u00e0 Arusha",
                 "dates": {
                     "arrivee": "2024-11-01",
                     "depart": "2024-11-02",
@@ -2390,14 +2390,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite d'Arusha",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2405,8 +2405,8 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
@@ -2421,15 +2421,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner tanzanien",
-                            "description": "Dîner avec des spécialités locales (nyama choma, ugali)",
+                            "nom": "D\u00eener tanzanien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (nyama choma, ugali)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -2438,14 +2438,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -2454,7 +2454,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Départ vers le camp de base de Machame",
+                "titre": "D\u00e9part vers le camp de base de Machame",
                 "dates": {
                     "arrivee": "2024-11-03",
                     "depart": "2024-11-03",
@@ -2468,8 +2468,8 @@
                     "activites": [
                         {
                             "id_option": 9,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e facile pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2486,7 +2486,7 @@
                     "restaurations": [
                         {
                             "id_option": 11,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -2515,7 +2515,7 @@
                     "gps": "-3.0500, 37.3000",
                     "ville": "Camp Shira"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 4,
@@ -2529,7 +2529,7 @@
                     "gps": "-3.0333, 37.3167",
                     "ville": "Camp Barranco"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 5,
@@ -2543,11 +2543,11 @@
                     "gps": "-3.0758, 37.3533",
                     "ville": "Sommet du Kilimandjaro"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 6,
-                "titre": "Retour à Arusha",
+                "titre": "Retour \u00e0 Arusha",
                 "dates": {
                     "arrivee": "2024-11-10",
                     "depart": "2024-11-10",
@@ -2561,8 +2561,8 @@
                     "activites": [
                         {
                             "id_option": 13,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -2570,8 +2570,8 @@
                     "hebergements": [
                         {
                             "id_option": 14,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         }
@@ -2580,7 +2580,7 @@
                         {
                             "id_option": 15,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -2589,7 +2589,7 @@
                         {
                             "id_option": 16,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -2611,8 +2611,8 @@
     },
     {
         "id_voyage": 11,
-        "titre": "Expédition au Aconcagua",
-        "description": "Gravissez le plus haut sommet d'Amérique du Sud, l'Aconcagua, dans les Andes argentines. Une aventure extrême pour les alpinistes chevronnés.",
+        "titre": "Exp\u00e9dition au Aconcagua",
+        "description": "Gravissez le plus haut sommet d'Am\u00e9rique du Sud, l'Aconcagua, dans les Andes argentines. Une aventure extr\u00eame pour les alpinistes chevronn\u00e9s.",
         "note_moyenne": 4.7,
         "nb_avis": 10,
         "nb_etape": 5,
@@ -2625,7 +2625,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Mendoza",
+                "titre": "Arriv\u00e9e \u00e0 Mendoza",
                 "dates": {
                     "arrivee": "2025-01-10",
                     "depart": "2025-01-11",
@@ -2640,14 +2640,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Mendoza",
-                            "description": "Découverte de la ville et de ses vignobles",
+                            "description": "D\u00e9couverte de la ville et de ses vignobles",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2655,15 +2655,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
-                            "nom": "Chambre d'hôtes",
-                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "nom": "Chambre d'h\u00f4tes",
+                            "description": "Chambre confortable avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 6
                         }
@@ -2671,15 +2671,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner argentin",
-                            "description": "Dîner avec des spécialités locales (asado, empanadas)",
+                            "nom": "D\u00eener argentin",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (asado, empanadas)",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -2688,14 +2688,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -2718,8 +2718,8 @@
                     "activites": [
                         {
                             "id_option": 9,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e facile pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2736,7 +2736,7 @@
                     "restaurations": [
                         {
                             "id_option": 11,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
@@ -2765,7 +2765,7 @@
                     "gps": "-32.6500, -70.0100",
                     "ville": "Camp Canada"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 4,
@@ -2779,11 +2779,11 @@
                     "gps": "-32.6536, -70.0114",
                     "ville": "Sommet de l'Aconcagua"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 5,
-                "titre": "Retour à Mendoza",
+                "titre": "Retour \u00e0 Mendoza",
                 "dates": {
                     "arrivee": "2025-01-21",
                     "depart": "2025-01-25",
@@ -2797,8 +2797,8 @@
                     "activites": [
                         {
                             "id_option": 13,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -2806,8 +2806,8 @@
                     "hebergements": [
                         {
                             "id_option": 14,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         }
@@ -2816,7 +2816,7 @@
                         {
                             "id_option": 15,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -2825,7 +2825,7 @@
                         {
                             "id_option": 16,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -2847,8 +2847,8 @@
     },
     {
         "id_voyage": 12,
-        "titre": "Ski de randonnée en Norvège",
-        "description": "Explorez les fjords norvégiens en ski de randonnée. Une aventure inoubliable dans des paysages enneigés et sauvages.",
+        "titre": "Ski de randonn\u00e9e en Norv\u00e8ge",
+        "description": "Explorez les fjords norv\u00e9giens en ski de randonn\u00e9e. Une aventure inoubliable dans des paysages enneig\u00e9s et sauvages.",
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 4,
@@ -2861,7 +2861,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Bergen",
+                "titre": "Arriv\u00e9e \u00e0 Bergen",
                 "dates": {
                     "arrivee": "2025-02-15",
                     "depart": "2025-02-16",
@@ -2876,14 +2876,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Bergen",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2891,15 +2891,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
-                            "nom": "Chambre d'hôtes",
-                            "description": "Chambre confortable avec petit-déjeuner inclus",
+                            "nom": "Chambre d'h\u00f4tes",
+                            "description": "Chambre confortable avec petit-d\u00e9jeuner inclus",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 6
                         }
@@ -2907,15 +2907,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner norvégien",
-                            "description": "Dîner avec des spécialités locales (saumon, poisson séché)",
+                            "nom": "D\u00eener norv\u00e9gien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (saumon, poisson s\u00e9ch\u00e9)",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -2924,14 +2924,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -2940,7 +2940,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Ski de randonnée dans les fjords",
+                "titre": "Ski de randonn\u00e9e dans les fjords",
                 "dates": {
                     "arrivee": "2025-02-17",
                     "depart": "2025-02-19",
@@ -2948,21 +2948,21 @@
                 },
                 "position_geographique": {
                     "gps": "60.5000, 6.0000",
-                    "ville": "Fjords norvégiens"
+                    "ville": "Fjords norv\u00e9giens"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 9,
-                            "nom": "Ski de randonnée",
-                            "description": "Exploration des fjords en ski de randonnée",
+                            "nom": "Ski de randonn\u00e9e",
+                            "description": "Exploration des fjords en ski de randonn\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 8
                         },
                         {
                             "id_option": 10,
-                            "nom": "Randonnée en raquettes",
-                            "description": "Randonnée dans les environs des fjords",
+                            "nom": "Randonn\u00e9e en raquettes",
+                            "description": "Randonn\u00e9e dans les environs des fjords",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -2986,7 +2986,7 @@
                     "restaurations": [
                         {
                             "id_option": 13,
-                            "nom": "Repas énergétique",
+                            "nom": "Repas \u00e9nerg\u00e9tique",
                             "description": "Repas riche en calories pour l'effort",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
@@ -3020,14 +3020,14 @@
                 },
                 "position_geographique": {
                     "gps": "60.8000, 6.5000",
-                    "ville": "Glaciers norvégiens"
+                    "ville": "Glaciers norv\u00e9giens"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 16,
-                            "nom": "Randonnée sur glacier",
-                            "description": "Randonnée guidée sur les glaciers",
+                            "nom": "Randonn\u00e9e sur glacier",
+                            "description": "Randonn\u00e9e guid\u00e9e sur les glaciers",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
@@ -3070,7 +3070,7 @@
             },
             {
                 "id_etape": 4,
-                "titre": "Retour à Bergen",
+                "titre": "Retour \u00e0 Bergen",
                 "dates": {
                     "arrivee": "2025-02-22",
                     "depart": "2025-02-22",
@@ -3084,8 +3084,8 @@
                     "activites": [
                         {
                             "id_option": 21,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -3093,8 +3093,8 @@
                     "hebergements": [
                         {
                             "id_option": 22,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         }
@@ -3103,7 +3103,7 @@
                         {
                             "id_option": 23,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -3112,7 +3112,7 @@
                         {
                             "id_option": 24,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -3123,7 +3123,7 @@
         "specificites": [
             "Montagne",
             "Glacier",
-            "Ski de randonnée"
+            "Ski de randonn\u00e9e"
         ],
         "liste_personnes": {
             "max": 10,
@@ -3135,7 +3135,7 @@
     {
         "id_voyage": 13,
         "titre": "Escalade des Drus (Mont Blanc)",
-        "description": "Défi technique sur l'une des faces les plus célèbres des Alpes. Une aventure extrême pour les alpinistes chevronnés.",
+        "description": "D\u00e9fi technique sur l'une des faces les plus c\u00e9l\u00e8bres des Alpes. Une aventure extr\u00eame pour les alpinistes chevronn\u00e9s.",
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 3,
@@ -3148,7 +3148,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Chamonix",
+                "titre": "Arriv\u00e9e \u00e0 Chamonix",
                 "dates": {
                     "arrivee": "2024-07-15",
                     "depart": "2024-07-16",
@@ -3163,14 +3163,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite de Chamonix",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée d'acclimatation",
-                            "description": "Randonnée facile pour s'acclimater à l'altitude",
+                            "nom": "Randonn\u00e9e d'acclimatation",
+                            "description": "Randonn\u00e9e facile pour s'acclimater \u00e0 l'altitude",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3178,15 +3178,15 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 4,
                             "nom": "Chalet de montagne",
-                            "description": "Chalet traditionnel avec cheminée",
+                            "description": "Chalet traditionnel avec chemin\u00e9e",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 6
                         }
@@ -3194,15 +3194,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner savoyard",
-                            "description": "Dîner avec des spécialités locales (fondue, raclette)",
+                            "nom": "D\u00eener savoyard",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (fondue, raclette)",
                             "prix_par_personne": 35,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         }
@@ -3211,14 +3211,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport de Genève",
+                            "description": "Transfert depuis l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -3258,7 +3258,7 @@
                         {
                             "id_option": 11,
                             "nom": "Bivouac en paroi",
-                            "description": "Nuit en paroi avec équipement technique",
+                            "description": "Nuit en paroi avec \u00e9quipement technique",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 6
                         }
@@ -3266,8 +3266,8 @@
                     "restaurations": [
                         {
                             "id_option": 12,
-                            "nom": "Repas lyophilisés",
-                            "description": "Repas légers pour l'ascension",
+                            "nom": "Repas lyophilis\u00e9s",
+                            "description": "Repas l\u00e9gers pour l'ascension",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 6
                         }
@@ -3275,7 +3275,7 @@
                     "transports": [
                         {
                             "id_option": 13,
-                            "nom": "Transfert en téléphérique",
+                            "nom": "Transfert en t\u00e9l\u00e9ph\u00e9rique",
                             "description": "Transfert vers le site d'escalade",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
@@ -3285,7 +3285,7 @@
             },
             {
                 "id_etape": 3,
-                "titre": "Retour à Chamonix",
+                "titre": "Retour \u00e0 Chamonix",
                 "dates": {
                     "arrivee": "2024-07-20",
                     "depart": "2024-07-20",
@@ -3299,8 +3299,8 @@
                     "activites": [
                         {
                             "id_option": 14,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -3308,8 +3308,8 @@
                     "hebergements": [
                         {
                             "id_option": 15,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur les montagnes",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur les montagnes",
                             "prix_par_personne": 120,
                             "nombre_personnes_max": 10
                         }
@@ -3318,7 +3318,7 @@
                         {
                             "id_option": 16,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -3327,7 +3327,7 @@
                         {
                             "id_option": 17,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport de Genève",
+                            "description": "Transfert vers l'a\u00e9roport de Gen\u00e8ve",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3349,8 +3349,8 @@
     },
     {
         "id_voyage": 14,
-        "titre": "Traversée du désert de sel en Bolivie",
-        "description": "Parcourez le désert de sel d'Uyuni et les montagnes environnantes en VTT. Une aventure inoubliable dans un paysage lunaire.",
+        "titre": "Travers\u00e9e du d\u00e9sert de sel en Bolivie",
+        "description": "Parcourez le d\u00e9sert de sel d'Uyuni et les montagnes environnantes en VTT. Une aventure inoubliable dans un paysage lunaire.",
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 4,
@@ -3363,7 +3363,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Uyuni",
+                "titre": "Arriv\u00e9e \u00e0 Uyuni",
                 "dates": {
                     "arrivee": "2024-09-10",
                     "depart": "2024-09-11",
@@ -3378,14 +3378,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite d'Uyuni",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3393,8 +3393,8 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
@@ -3409,15 +3409,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner bolivien",
-                            "description": "Dîner avec des spécialités locales (salteñas, quinoa)",
+                            "nom": "D\u00eener bolivien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (salte\u00f1as, quinoa)",
                             "prix_par_personne": 25,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -3426,14 +3426,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 15,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 4
                         }
@@ -3442,7 +3442,7 @@
             },
             {
                 "id_etape": 2,
-                "titre": "Traversée du désert de sel d'Uyuni",
+                "titre": "Travers\u00e9e du d\u00e9sert de sel d'Uyuni",
                 "dates": {
                     "arrivee": "2024-09-12",
                     "depart": "2024-09-14",
@@ -3450,21 +3450,21 @@
                 },
                 "position_geographique": {
                     "gps": "-20.1333, -67.5167",
-                    "ville": "Désert de sel d'Uyuni"
+                    "ville": "D\u00e9sert de sel d'Uyuni"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 9,
-                            "nom": "VTT dans le désert de sel",
-                            "description": "Traversée du désert de sel en VTT",
+                            "nom": "VTT dans le d\u00e9sert de sel",
+                            "description": "Travers\u00e9e du d\u00e9sert de sel en VTT",
                             "prix_par_personne": 100,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 10,
-                            "nom": "Visite de l'île Incahuasi",
-                            "description": "Découverte de l'île et de ses cactus géants",
+                            "nom": "Visite de l'\u00eele Incahuasi",
+                            "description": "D\u00e9couverte de l'\u00eele et de ses cactus g\u00e9ants",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3472,15 +3472,15 @@
                     "hebergements": [
                         {
                             "id_option": 11,
-                            "nom": "Hôtel de sel",
-                            "description": "Hôtel construit en sel avec vue sur le désert",
+                            "nom": "H\u00f4tel de sel",
+                            "description": "H\u00f4tel construit en sel avec vue sur le d\u00e9sert",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 12,
                             "nom": "Camping sous tente",
-                            "description": "Camping avec vue sur le désert de sel",
+                            "description": "Camping avec vue sur le d\u00e9sert de sel",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3495,8 +3495,8 @@
                         },
                         {
                             "id_option": 14,
-                            "nom": "Pique-nique dans le désert",
-                            "description": "Pique-nique avec vue sur le désert de sel",
+                            "nom": "Pique-nique dans le d\u00e9sert",
+                            "description": "Pique-nique avec vue sur le d\u00e9sert de sel",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -3514,7 +3514,7 @@
             },
             {
                 "id_etape": 3,
-                "titre": "Exploration des lagunes colorées",
+                "titre": "Exploration des lagunes color\u00e9es",
                 "dates": {
                     "arrivee": "2024-09-15",
                     "depart": "2024-09-16",
@@ -3522,21 +3522,21 @@
                 },
                 "position_geographique": {
                     "gps": "-22.5000, -67.5000",
-                    "ville": "Lagunes colorées"
+                    "ville": "Lagunes color\u00e9es"
                 },
                 "options": {
                     "activites": [
                         {
                             "id_option": 16,
                             "nom": "VTT autour des lagunes",
-                            "description": "Exploration des lagunes colorées en VTT",
+                            "description": "Exploration des lagunes color\u00e9es en VTT",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 17,
                             "nom": "Observation des flamants roses",
-                            "description": "Découverte des flamants roses dans leur habitat naturel",
+                            "description": "D\u00e9couverte des flamants roses dans leur habitat naturel",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3572,7 +3572,7 @@
             },
             {
                 "id_etape": 4,
-                "titre": "Retour à Uyuni",
+                "titre": "Retour \u00e0 Uyuni",
                 "dates": {
                     "arrivee": "2024-09-17",
                     "depart": "2024-09-17",
@@ -3586,8 +3586,8 @@
                     "activites": [
                         {
                             "id_option": 21,
-                            "nom": "Célébration de l'aventure",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'aventure",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         }
@@ -3595,8 +3595,8 @@
                     "hebergements": [
                         {
                             "id_option": 22,
-                            "nom": "Hôtel 3 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 3 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 10
                         }
@@ -3605,7 +3605,7 @@
                         {
                             "id_option": 23,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -3614,7 +3614,7 @@
                         {
                             "id_option": 24,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 15,
                             "nombre_personnes_max": 10
                         }
@@ -3623,9 +3623,9 @@
             }
         ],
         "specificites": [
-            "Désert de sel",
+            "D\u00e9sert de sel",
             "VTT",
-            "Lagunes colorées"
+            "Lagunes color\u00e9es"
         ],
         "liste_personnes": {
             "max": 10,
@@ -3636,8 +3636,8 @@
     },
     {
         "id_voyage": 15,
-        "titre": "Expédition au Denali (Alaska)",
-        "description": "Gravissez le plus haut sommet d'Amérique du Nord dans des conditions extrêmes. Une aventure inoubliable pour les alpinistes chevronnés.",
+        "titre": "Exp\u00e9dition au Denali (Alaska)",
+        "description": "Gravissez le plus haut sommet d'Am\u00e9rique du Nord dans des conditions extr\u00eames. Une aventure inoubliable pour les alpinistes chevronn\u00e9s.",
         "note_moyenne": 4.9,
         "nb_avis": 10,
         "nb_etape": 6,
@@ -3650,7 +3650,7 @@
         "etapes": [
             {
                 "id_etape": 1,
-                "titre": "Arrivée à Anchorage",
+                "titre": "Arriv\u00e9e \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-05-01",
                     "depart": "2025-05-02",
@@ -3665,14 +3665,14 @@
                         {
                             "id_option": 1,
                             "nom": "Visite d'Anchorage",
-                            "description": "Découverte de la ville et de ses environs",
+                            "description": "D\u00e9couverte de la ville et de ses environs",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 2,
-                            "nom": "Randonnée dans les environs",
-                            "description": "Randonnée facile pour s'acclimater",
+                            "nom": "Randonn\u00e9e dans les environs",
+                            "description": "Randonn\u00e9e facile pour s'acclimater",
                             "prix_par_personne": 40,
                             "nombre_personnes_max": 10
                         }
@@ -3680,8 +3680,8 @@
                     "hebergements": [
                         {
                             "id_option": 3,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel confortable avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel confortable avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         },
@@ -3696,15 +3696,15 @@
                     "restaurations": [
                         {
                             "id_option": 5,
-                            "nom": "Dîner alaskien",
-                            "description": "Dîner avec des spécialités locales (saumon, gibier)",
+                            "nom": "D\u00eener alaskien",
+                            "description": "D\u00eener avec des sp\u00e9cialit\u00e9s locales (saumon, gibier)",
                             "prix_par_personne": 50,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 6,
-                            "nom": "Repas léger",
-                            "description": "Repas léger avec des produits locaux",
+                            "nom": "Repas l\u00e9ger",
+                            "description": "Repas l\u00e9ger avec des produits locaux",
                             "prix_par_personne": 30,
                             "nombre_personnes_max": 10
                         }
@@ -3713,14 +3713,14 @@
                         {
                             "id_option": 7,
                             "nom": "Transfert en bus",
-                            "description": "Transfert depuis l'aéroport",
+                            "description": "Transfert depuis l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         },
                         {
                             "id_option": 8,
-                            "nom": "Transfert privé en voiture",
-                            "description": "Transfert confortable en voiture privée",
+                            "nom": "Transfert priv\u00e9 en voiture",
+                            "description": "Transfert confortable en voiture priv\u00e9e",
                             "prix_par_personne": 80,
                             "nombre_personnes_max": 4
                         }
@@ -3744,7 +3744,7 @@
                         {
                             "id_option": 9,
                             "nom": "Visite de Talkeetna",
-                            "description": "Découverte de ce village pittoresque",
+                            "description": "D\u00e9couverte de ce village pittoresque",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -3812,8 +3812,8 @@
                     "restaurations": [
                         {
                             "id_option": 15,
-                            "nom": "Repas lyophilisés",
-                            "description": "Repas légers pour l'expédition",
+                            "nom": "Repas lyophilis\u00e9s",
+                            "description": "Repas l\u00e9gers pour l'exp\u00e9dition",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }
@@ -3841,7 +3841,7 @@
                     "gps": "63.0694, -151.0072",
                     "ville": "Camp 3"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 5,
@@ -3855,11 +3855,11 @@
                     "gps": "63.0694, -151.0072",
                     "ville": "Sommet du Denali"
                 },
-                "options": {}
+                "options": []
             },
             {
                 "id_etape": 6,
-                "titre": "Retour à Anchorage",
+                "titre": "Retour \u00e0 Anchorage",
                 "dates": {
                     "arrivee": "2025-05-16",
                     "depart": "2025-05-20",
@@ -3873,8 +3873,8 @@
                     "activites": [
                         {
                             "id_option": 17,
-                            "nom": "Célébration de l'ascension",
-                            "description": "Dîner de célébration avec l'équipe",
+                            "nom": "C\u00e9l\u00e9bration de l'ascension",
+                            "description": "D\u00eener de c\u00e9l\u00e9bration avec l'\u00e9quipe",
                             "prix_par_personne": 60,
                             "nombre_personnes_max": 10
                         }
@@ -3882,8 +3882,8 @@
                     "hebergements": [
                         {
                             "id_option": 18,
-                            "nom": "Hôtel 4 étoiles",
-                            "description": "Hôtel de luxe avec vue sur la ville",
+                            "nom": "H\u00f4tel 4 \u00e9toiles",
+                            "description": "H\u00f4tel de luxe avec vue sur la ville",
                             "prix_par_personne": 150,
                             "nombre_personnes_max": 10
                         }
@@ -3892,7 +3892,7 @@
                         {
                             "id_option": 19,
                             "nom": "Repas gastronomique",
-                            "description": "Repas de célébration avec des spécialités locales",
+                            "description": "Repas de c\u00e9l\u00e9bration avec des sp\u00e9cialit\u00e9s locales",
                             "prix_par_personne": 70,
                             "nombre_personnes_max": 10
                         }
@@ -3901,7 +3901,7 @@
                         {
                             "id_option": 20,
                             "nom": "Transfert en bus",
-                            "description": "Transfert vers l'aéroport",
+                            "description": "Transfert vers l'a\u00e9roport",
                             "prix_par_personne": 20,
                             "nombre_personnes_max": 10
                         }

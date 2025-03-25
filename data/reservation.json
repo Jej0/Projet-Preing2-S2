@@ -1,42 +1,30 @@
 [
     {
         "id_reservation": 101,
-        "id_utilisateur": 1,
-        "id_voyage": 1,
-        "date_reservation": "2024-03-15",
+        "id_utilisateur": 2,
+        "id_voyage": 2,
+        "date_reservation": "2025-03-25",
         "options": {
             "etape_1": {
-                "activite": 1,
-                "hebergement": 2,
-                "restauration": 3,
-                "transport": 4
+                "activite": 3,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
             },
             "etape_2": {
-                "activite": 5,
-                "hebergement": 6,
-                "restauration": 7,
-                "transport": 8
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
             },
             "etape_3": {
                 "activite": null,
                 "hebergement": null,
                 "restauration": null,
                 "transport": null
-            },
-            "etape_4": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
-            },
-            "etape_5": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
             }
         },
-        "prix_total": 10000,
-        "paiement": false
+        "prix_total": 2500,
+        "paiement": true
     }
 ]

@@ -18,17 +18,13 @@
             "inscription": "2024-05-30",
             "connexion": "2024-05-30"
         },
-        "id_historique_voyages": [
-            101
-        ],
-        "id_reservation": [
-            101
-        ]
+        "id_historique_voyages": [],
+        "id_reservation": []
     },
     {
         "id_user": 2,
         "username": "florian",
-        "mot_de_passe": "$2y$10$LdxZHlkQOqzc\/oOPwDutbeiQHDNnsTf.Oo8yjaXlkHVmnE0fWXhf6",
+        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": false,
         "newsletter": true,
         "information personnelles": {
@@ -45,6 +41,8 @@
             "connexion": "2025-03-25"
         },
         "id_historique_voyages": [],
-        "id_reservation": []
+        "id_reservation": [
+            101
+        ]
     }
 ]
