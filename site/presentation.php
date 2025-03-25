@@ -72,6 +72,7 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
+                <a href="scripte_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
                 </a>

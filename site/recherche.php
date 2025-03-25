@@ -94,6 +94,7 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
+                <a href="scripte_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
                 </a>
@@ -256,7 +257,11 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                                         <span class="price"><?php echo number_format($voyage['prix_total'], 0, ',', ' ') ?>€</span>
                                         <span class="price-info">/personne</span>
                                     </div>
-                                    <a href="details.php?id=<?php echo $voyage['id_voyage'] ?>" class="btn btn-book">Réserver maintenant</a>
+                                    <?php if (isset($_SESSION['user'])): ?>
+                                        <a href="details.php?id=<?php echo $voyage['id_voyage'] ?>" class="btn btn-book">Réserver maintenant</a>
+                                    <?php else: ?>
+                                        <a href="connexion.php?redirect=details.php?id=<?php echo $voyage['id_voyage'] ?>" class="btn btn-book">Réserver maintenant</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
