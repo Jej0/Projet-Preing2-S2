@@ -178,7 +178,7 @@
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 3,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-07-01",
             "fin": "2024-07-05",
@@ -1614,7 +1614,7 @@
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 3,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-07-10",
             "fin": "2024-07-14",
@@ -1843,7 +1843,7 @@
         "note_moyenne": 4.5,
         "nb_avis": 10,
         "nb_etape": 5,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-10-01",
             "fin": "2024-10-10",
@@ -2137,7 +2137,7 @@
         "note_moyenne": 4.7,
         "nb_avis": 10,
         "nb_etape": 3,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-08-01",
             "fin": "2024-08-05",
@@ -2366,7 +2366,7 @@
         "note_moyenne": 4.8,
         "nb_avis": 10,
         "nb_etape": 6,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-11-01",
             "fin": "2024-11-10",
@@ -2852,7 +2852,7 @@
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 4,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2025-02-15",
             "fin": "2025-02-22",
@@ -3354,7 +3354,7 @@
         "note_moyenne": 4.6,
         "nb_avis": 10,
         "nb_etape": 4,
-        "contrat": true,
+        "contrat": false,
         "dates": {
             "debut": "2024-09-10",
             "fin": "2024-09-17",

@@ -1,5 +1,39 @@
 <?php
 session_start();
+
+// Charger les données JSON
+$voyages = json_decode(file_get_contents('../data/voyages.json'), true);
+
+// Compter le nombre de voyages disponibles
+$nombreVoyages = count($voyages);
+
+// Initialiser les variables de recherche
+$searchTerm = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
+$location = isset($_GET['location']) ? strtolower(trim($_GET['location'])) : '';
+$date = isset($_GET['date']) ? $_GET['date'] : '';
+
+// Filtrer les voyages
+$filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $location, $date) {
+    // Filtre par terme de recherche (titre ou description)
+    $titleMatch = empty($searchTerm) || strpos(strtolower($voyage['titre']), $searchTerm) !== false;
+    $descMatch = empty($searchTerm) || strpos(strtolower($voyage['description']), $searchTerm) !== false;
+
+    // Filtre par localisation (ville dans les étapes)
+    $locationMatch = empty($location);
+    if (!$locationMatch) {
+        foreach ($voyage['etapes'] as $etape) {
+            if (strpos(strtolower($etape['position_geographique']['ville']), $location) !== false) {
+                $locationMatch = true;
+                break;
+            }
+        }
+    }
+
+    // Filtre par date (date de début avant ou égale à la date sélectionnée)
+    $dateMatch = empty($date) || (strtotime($voyage['dates']['debut']) <= strtotime($date));
+
+    return ($titleMatch || $descMatch) && $locationMatch && $dateMatch;
+});
 ?>
 
 <!DOCTYPE html>
@@ -73,34 +107,29 @@ session_start();
         <section class="recherche-hero">
             <div class="contenu-hero">
                 <h1>Découvrez Votre Prochaine Aventure</h2>
-                    <p>Plus de 100 activités extrêmes encadrées par des professionnels</p>
-
+                    <p>Plus de <?php echo $nombreVoyages; ?> activités extrêmes encadrées par des professionnels</p>
                     <!-- Barre de recherche principale -->
-                    <div class="search-box">
-                        <div class="search-tabs">
-                            <button class="tab-btn active">Toutes les Activités</button>
-                            <button class="tab-btn">Sports Aériens</button>
-                            <button class="tab-btn">Sports Nautiques</button>
-                            <button class="tab-btn">Sports de Montagne</button>
-                        </div>
-                        <div class="search-form">
-                            <div class="search-row">
-                                <div class="search-group">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Quelle activité recherchez-vous ?">
+                    <form method="GET" action="">
+                        <div class="search-box">
+                            <div class="search-form">
+                                <div class="search-row">
+                                    <div class="search-group">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" name="search" placeholder="Rechercher un voyage" value="<?= htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : '') ?>">
+                                    </div>
+                                    <div class="search-group">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <input type="text" name="location" placeholder="Rechercher un endroit" value="<?= htmlspecialchars(isset($_GET['location']) ? $_GET['location'] : '') ?>">
+                                    </div>
+                                    <div class="search-group">
+                                        <i class="fas fa-calendar"></i>
+                                        <input type="date" name="date" value="<?= htmlspecialchars(isset($_GET['date']) ? $_GET['date'] : '') ?>">
+                                    </div>
+                                    <button type="submit" class="btn search-submit">Rechercher</button>
                                 </div>
-                                <div class="search-group">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <input type="text" placeholder="Où ?">
-                                </div>
-                                <div class="search-group">
-                                    <i class="fas fa-calendar"></i>
-                                    <input type="date" placeholder="Quand ?">
-                                </div>
-                                <button class="search-submit">Rechercher</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
             </div>
         </section>
 
@@ -108,165 +137,132 @@ session_start();
         <section class="advanced-filters">
             <div class="filter-container">
                 <div class="filter-group">
-                    <label>Niveau</label>
+                    <label>Contrat</label>
                     <div class="filter-options">
-                        <button class="filter-option active">Tous</button>
-                        <button class="filter-option">Débutant</button>
-                        <button class="filter-option">Intermédiaire</button>
-                        <button class="filter-option">Expert</button>
+                        <button class="btn filter-option active">Tous</button>
+                        <button class="btn filter-option">Oui</button>
+                        <button class="btn filter-option">Non</button>
                     </div>
                 </div>
                 <div class="filter-group">
                     <label>Prix</label>
                     <div class="price-range">
-                        <input type="range" min="0" max="1000" value="500">
+                        <input type="range" min="0" max="10000" value="5000" step="100">
                         <div class="price-values">
                             <span>0€</span>
-                            <span>500€</span>
+                            <span>10000€</span>
                         </div>
                     </div>
                 </div>
                 <div class="filter-group">
                     <label>Durée</label>
                     <div class="filter-options">
-                        <button class="filter-option">½ Journée</button>
-                        <button class="filter-option">1 Jour</button>
-                        <button class="filter-option">2+ Jours</button>
+                        <button class="btn filter-option active">Tous</button>
+                        <button class="btn filter-option">Long</button>
+                        <button class="btn filter-option">Cours</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Résultats de recherche -->
-        <section class="search-results">
+        <section>
             <div class="results-header">
-                <div class="results-info">
-                    <h2>24 Activités trouvées</h2>
-                    <p>dans les Alpes Françaises</p>
+                <div>
+                    <h2><?= count($filteredVoyages) ?> Voyages trouvés</h2>
+                    <p>
+                        <?php
+                        if (!empty($location)) {
+                            echo "dans " . ucfirst($location);
+                        } else {
+                            echo "dans le monde entier";
+                        }
+                        ?>
+                    </p>
                 </div>
-                <div class="results-controls">
-                    <div class="view-options">
-                        <button class="view-btn active"><i class="fas fa-th-large"></i></button>
-                        <button class="view-btn"><i class="fas fa-list"></i></button>
-                    </div>
+                <div>
                     <select class="sort-select">
-                        <option value="popular">Plus populaires</option>
+                        <option value="rating">Mieux notés</option>
                         <option value="price-low">Prix croissant</option>
                         <option value="price-high">Prix décroissant</option>
-                        <option value="rating">Mieux notés</option>
                     </select>
                 </div>
             </div>
 
             <div class="results-grid">
-                <!-- Carte Activité 1 -->
-                <div class="activity-card premium">
-                    <div class="activity-image">
-                        <img src="img/parachute.jpg" alt="Parachutisme">
-                        <div class="activity-badges">
-                            <span class="badge premium">Premium</span>
-                            <span class="badge popular">Top Ventes</span>
-                        </div>
-                        <button class="favorite-btn"><i class="far fa-heart"></i></button>
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-category">Sport Aérien</div>
-                        <h3>Saut en Parachute Tandem</h3>
-                        <div class="activity-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+                <?php foreach ($filteredVoyages as $voyage): ?>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" alt="<?php echo $voyage['titre']; ?>">
+                            <div class="activity-badges">
+                                <?php if ($voyage['contrat'] == true): ?>
+                                    <span class="badge contrat">Contrat</span>
+                                <?php endif; ?>
+                                <?php if ($voyage['note_moyenne'] >= 4.8): ?>
+                                    <span class="badge populaires">Populaires</span>
+                                <?php endif; ?>
                             </div>
-                            <span class="rating-score">4.8</span>
-                            <span class="rating-count">(256 avis)</span>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
                         </div>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Annecy, Haute-Savoie</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>3 heures</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-user-friends"></i>
-                                <span>2-8 personnes</span>
-                            </div>
-                        </div>
-                        <div class="activity-highlights">
-                            <span class="highlight"><i class="fas fa-check"></i> Matériel inclus</span>
-                            <span class="highlight"><i class="fas fa-check"></i> Vidéo souvenir</span>
-                            <span class="highlight"><i class="fas fa-check"></i> Assurance incluse</span>
-                        </div>
-                        <div class="activity-footer">
-                            <div class="price-block">
-                                <span class="price">299€</span>
-                                <span class="price-info">/personne</span>
-                            </div>
-                            <a href="details.html" class="btn btn-book">Réserver maintenant</a>
-                        </div>
-                    </div>
-                </div>
+                        <div class="activity-content">
+                            <h3><?php echo $voyage['titre']; ?></h3>
+                            <div class="activity-rating">
+                                <div class="rating">
+                                    <?php
+                                    $note = $voyage['note_moyenne'];
+                                    $etoilesPleines = floor($note);
+                                    $etoilesDemi = ($note - $etoilesPleines) >= 0.5 ? 1 : 0;
 
-                <!-- Carte Activité 2 -->
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="img/plongee.jpg" alt="Plongée">
-                        <div class="activity-badges">
-                            <span class="badge new">Nouveau</span>
+                                    // Étoiles pleines
+                                    for ($i = 0; $i < $etoilesPleines; $i++) {
+                                        echo '<i class="fas fa-star"></i>';
+                                    }
+                                    // Demi-étoile
+                                    if ($etoilesDemi) {
+                                        echo '<i class="fas fa-star-half-alt"></i>';
+                                    }
+                                    // Étoiles vides (calcul corrigé)
+                                    $etoilesVides = 5 - $etoilesPleines - $etoilesDemi;
+                                    for ($i = 0; $i < $etoilesVides; $i++) {
+                                        echo '<i class="far fa-star"></i>';
+                                    }
+                                    ?>
+                                </div>
+                                <span class="rating-score"><?= number_format($voyage['note_moyenne'], 1) ?></span>
+                                <span class="rating-count">(<?= $voyage['nb_avis'] ?> avis)</span>
+                            </div>
+                            <div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><?php echo $voyage['etapes'][0]['position_geographique']['ville'] ?></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span><?php echo $voyage['dates']['duree'] ?></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user-friends"></i>
+                                    <span><?php echo $voyage['liste_personnes']['max'] ?> personnes max</span>
+                                </div>
+                            </div>
+                            <div class="activity-tags">
+                                <?php foreach (array_slice($voyage['specificites'], 0, 3) as $spec): ?>
+                                    <span class="tags"><i class="fas fa-check"></i> <?php echo $spec ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="activity-bottom">
+                                <div class="activity-footer">
+                                    <div class="price-block">
+                                        <span class="price"><?php echo number_format($voyage['prix_total'], 0, ',', ' ') ?>€</span>
+                                        <span class="price-info">/personne</span>
+                                    </div>
+                                    <a href="details.php?id=<?php echo $voyage['id_voyage'] ?>" class="btn btn-book">Réserver maintenant</a>
+                                </div>
+                            </div>
                         </div>
-                        <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
-                    <div class="activity-content">
-                        <div class="activity-category">Sport Nautique</div>
-                        <h3>Plongée Découverte</h3>
-                        <div class="activity-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-score">4.0</span>
-                            <span class="rating-count">(124 avis)</span>
-                        </div>
-                        <div class="activity-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Côte d'Azur</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>4 heures</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-user-friends"></i>
-                                <span>1-4 personnes</span>
-                            </div>
-                        </div>
-                        <div class="activity-highlights">
-                            <span class="highlight"><i class="fas fa-check"></i> Équipement fourni</span>
-                            <span class="highlight"><i class="fas fa-check"></i> Moniteur certifié</span>
-                        </div>
-                        <div class="activity-footer">
-                            <div class="price-block">
-                                <span class="price">89€</span>
-                                <span class="price-info">/personne</span>
-                            </div>
-                            <a href="details.html" class="btn btn-book">Réserver maintenant</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ajouter plus de cartes d'activités similaires -->
+                <?php endforeach; ?>
             </div>
-
-            <!-- Pagination -->
         </section>
     </main>
 

@@ -264,6 +264,23 @@ button {
     color: var(--dark-bg);
 }
 
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    color: var(--light-gray);
+    transition: var(--transition);
+}
+
+
 /* Hover bouton spécifique (lien)*/
 .btn-base:hover,
 .nav-btn:hover,
@@ -279,6 +296,16 @@ button:hover {
 
 .btn-supprimer:hover {
     background: var(--bred);
+}
+
+.search-submit {
+    padding: 15px 30px;
+    width: auto;
+}
+
+.favorite-btn:hover {
+    color: #FF4081;
+    background: white;
 }
 
 /* =========================== Section Fondateur =========================== */
@@ -301,7 +328,10 @@ button:hover {
     transition: var(--transition);
 }
 
-.fondateur-card:hover, .destination-card:hover, .temoignage-card:hover, .faq-card:hover{
+.fondateur-card:hover,
+.destination-card:hover,
+.temoignage-card:hover,
+.faq-card:hover {
     transform: translateY(-10px);
 }
 
@@ -346,7 +376,7 @@ button:hover {
     object-fit: cover;
 }
 
-.rating{
+.rating {
     color: var(--yellow);
 }
 
@@ -387,7 +417,7 @@ button:hover {
     background: white;
     border-radius: 12px;
     padding: 30px;
-    box-shadow:var(--shadow);
+    box-shadow: var(--shadow);
     transition: var(--transition);
     overflow: hidden;
 }
@@ -467,6 +497,255 @@ button:hover {
     margin-bottom: 15px;
     color: var(--blue);
 }
+
+/* =========================== Page de recherche =========================== */
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================== Barre de recherche =========================== */
+.search-box {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.5s ease 0.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+.search-group {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-group i {
+    position: absolute;
+    left: 15px;
+    color: var(--light-gray);
+}
+
+.search-group input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    margin: 0;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+/* =========================== Recherche avancés =========================== */
+.advanced-filters {
+    background: var(--white);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.filter-container {
+    display: flex;
+    gap: 30px;
+}
+
+.filter-group {
+    flex: 1;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-option.active {
+    background: var(--blue);
+}
+
+.price-range {
+    padding: 10px 0;
+}
+
+.price-range input[type="range"] {
+    width: 100%;
+}
+
+.price-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--light-gray);
+}
+
+/* =========================== Résultats recherche =========================== */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sort-select {
+    padding: 8px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    background: white;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* =========================== Recherche Cartes d'activité =========================== */
+.activity-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-card:hover .activity-image img {
+    transform: scale(1.05);
+}
+
+.activity-image {
+    position: relative;
+    height: 220px;
+}
+
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.activity-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.badge.populaires {
+    background: var(--yellow);
+    color: var(--text-dark);
+}
+
+.badge.contrat {
+    background: var(--red);
+    color: var(--white);
+}
+
+.activity-content {
+    padding: 20px;
+}
+
+.activity-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.rating-score {
+    font-weight: 600;
+}
+
+.rating-count {
+    color: var(--light-gray);
+    font-size: 14px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    color: var(--light-gray);
+}
+
+.activity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.tags {
+    font-size: 14px;
+    color: var(--green);
+}
+
+.activity-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.price-block .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.price-block .price-info {
+    font-size: 14px;
+    color: var(--light-gray);
+}
+
+/* Style des champs de texte */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin: 0px 0px 25px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 
 /* Autre spécial */
 /* Dans recherche */
@@ -668,17 +947,6 @@ button:hover {
     transform: translateY(-5px);
 }
 
-.activity-image {
-    position: relative;
-    height: 200px;
-}
-
-.activity-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .activity-date {
     position: absolute;
     top: 10px;
@@ -688,15 +956,6 @@ button:hover {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.9rem;
-}
-
-.activity-content {
-    padding: 20px;
-}
-
-.activity-rating {
-    color: var(--yellow);
-    margin: 10px 0;
 }
 
 /* Réservations */
@@ -804,18 +1063,6 @@ button:hover {
     width: 100%;
     text-align: left;
     font-weight: bold;
-}
-
-/* Style des champs de texte */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin: 0px 0px 25px 0px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 /* Placer le lien de modifier password a droit */
@@ -1130,264 +1377,13 @@ footer {
 
 
 
-/* Styles pour la page de recherche */
-.search-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
 
-/* Barre de recherche */
-.search-box {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    animation: fadeInUp 0.5s ease 0.4s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
 
-.search-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
 
-.search-form {
-    width: 100%;
-}
 
-.search-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr auto;
-    gap: 15px;
-}
 
-.search-group {
-    position: relative;
-}
 
-.search-group i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--light-gray);
-}
 
-.search-group input {
-    width: 100%;
-    padding: 15px 15px 15px 45px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.search-submit {
-    padding: 15px 30px;
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.search-submit:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Filtres avancés */
-.advanced-filters {
-    background: var(--white);
-    padding: 20px;
-    margin: 30px 0;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-}
-
-.filter-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.filter-group {
-    padding: 10px;
-}
-
-.filter-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.filter-options {
-    color: #0056b3;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-option button {
-
-    padding: 8px 15px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    background: none;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.filter-option.active {
-    background: var(--blue);
-    color: var(--white);
-    border-color: var(--blue);
-}
-
-/* Résultats de recherche */
-.results-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-/* Cartes d'activité */
-.activity-card {
-    background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.activity-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.activity-image {
-    position: relative;
-    height: 220px;
-}
-
-.activity-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.activity-badges {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-.badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--white);
-}
-
-.badge.premium {
-    background: var(--yellow);
-    color: var(--text-dark);
-    /* Obligatoir pour lire le texte */
-}
-
-.badge.popular {
-    background: var(--red);
-}
-
-.badge.new {
-    background: var(--green);
-}
-
-.activity-content {
-    padding: 20px;
-}
-
-.activity-category {
-    color: var(--blue);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.activity-rating {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-.stars {
-    color: var(--yellow);
-}
-
-.rating-count {
-    color: var(--light-gray);
-    font-size: 0.9rem;
-}
-
-.activity-details {
-    margin: 15px 0;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
-    color: var(--light-gray);
-}
-
-.activity-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.highlight {
-    font-size: 0.9rem;
-    color: var(--green);
-}
-
-.activity-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
-}
-
-.price-block .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--blue);
-}
-
-.price-block .price-info {
-    font-size: 0.9rem;
-    color: var(--light-gray);
-}
 
 /* Page Admin */
 .admin-container {
@@ -1589,7 +1585,7 @@ footer {
     }
 
     .search-row {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .filter-container {
