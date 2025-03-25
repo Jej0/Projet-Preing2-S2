@@ -56,16 +56,21 @@ class User {
             $stmt = $this->db->prepare("SELECT * FROM users WHERE login = ?");
             $stmt->execute([$login]);
             $user = $stmt->fetch();
-            
+    
             if ($user && password_verify($password, $user['password'])) {
-                // Création de la session
+                // Vérifier si l'utilisateur est banni
+                if ($user['role'] === 'banned') {
+                    throw new Exception("Accès refusé : votre compte a été banni.");
+                }
+                
+                // Création de la session pour l'utilisateur connecté
                 $_SESSION['user'] = [
-                    'id' => $user['id'],
-                    'login' => $user['login'],
-                    'email' => $user['email'],
+                    'id'        => $user['id'],
+                    'login'     => $user['login'],
+                    'email'     => $user['email'],
                     'firstname' => $user['firstname'],
-                    'lastname' => $user['lastname'],
-                    'role' => $user['role']
+                    'lastname'  => $user['lastname'],
+                    'role'      => $user['role']
                 ];
                 
                 return true;

@@ -2,16 +2,16 @@
 session_start();
 
 // Chemin du fichier JSON où sont enregistrés les utilisateurs
-define(constant_name: 'USERS_FILE', value: 'users.json');
+define('USERS_FILE', 'users.json');
 
 // Fonction pour récupérer les utilisateurs depuis le fichier JSON
 function getUsers(): mixed {
-    if (!file_exists(filename: USERS_FILE)) {
+    if (!file_exists(USERS_FILE)) {
         return [];
     }
     
-    $data = file_get_contents(filename: USERS_FILE);
-    return json_decode(json: $data, associative: true) ?: [];
+    $data = file_get_contents(USERS_FILE);
+    return json_decode($data, true) ?: [];
 }
 
 // Variables pour stocker les messages d'erreur et les valeurs des champs
@@ -20,8 +20,8 @@ $username = '';
 
 // Traitement du formulaire de connexion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim(string: $_POST['username']);
-    $password = trim(string: $_POST['password']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
     if (!empty($username) && !empty($password)) {
         $users = getUsers();
@@ -29,18 +29,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Vérifier les identifiants
         foreach ($users as $user) {
-            if ($user['username'] === $username && password_verify(password: $password, hash: $user['password'])) {
+            if ($user['username'] === $username && password_verify($password, $user['password'])) {
                 $user_found = true;
-                // Créer une session pour l'utilisateur connecté
+                // Vérifier si l'utilisateur est banni
+                if (isset($user['role']) && $user['role'] === 'banned') {
+                    $error = 'Accès refusé : votre compte a été banni.';
+                    break;
+                }
                 
+                // Créer une session pour l'utilisateur connecté
                 $_SESSION['user'] = [
                     'username' => $user['username'],
-                    'email' => $user['email'],
-                    'admin' => $user['admin']
+                    'email'    => $user['email'],
+                    'admin'    => $user['admin']
                 ];
                 
                 // Rediriger vers la page d'accueil ou le tableau de bord
-                header(header: 'Location: ../accueil.php');
+                header('Location: ../accueil.php');
                 exit;
             }
         }

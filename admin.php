@@ -25,10 +25,22 @@ if (!$isAdmin) {
 $db = Database::getInstance();
 $pdo = $db->getConnection();
 
+// Traitement des actions de modification de rôle
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['action']) && $_POST['action'] === 'update_role') {
+        $userId = intval($_POST['user_id']);
+        $newRole = $_POST['role'];
+        $stmt = $pdo->prepare("UPDATE users SET role = :role WHERE id = :id");
+        $stmt->execute([':role' => $newRole, ':id' => $userId]);
+        header("Location: admin.php");
+        exit();
+    }
+}
+
 // Pagination
 $usersPerPage = 5; // Nombre d'utilisateurs par page
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$page = max(1, $page); // S'assurer que la page est toujours >= 1
+$page = max(1, $page);
 
 // Recherche d'utilisateurs
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
@@ -38,30 +50,23 @@ $countQuery = "SELECT COUNT(*) FROM users WHERE 1=1";
 $userQuery = "SELECT * FROM users WHERE 1=1";
 $params = [];
 
-// Ajouter la condition de recherche si un terme est présent
 if (!empty($searchTerm)) {
     $countQuery .= " AND (login LIKE :search OR firstname LIKE :search OR lastname LIKE :search OR email LIKE :search)";
     $userQuery .= " AND (login LIKE :search OR firstname LIKE :search OR lastname LIKE :search OR email LIKE :search)";
     $params[':search'] = "%$searchTerm%";
 }
 
-// Compter le nombre total d'utilisateurs
 $countStmt = $pdo->prepare($countQuery);
 $countStmt->execute($params);
 $totalUsers = $countStmt->fetchColumn();
 
-// Calculer le nombre total de pages
 $totalPages = ceil($totalUsers / $usersPerPage);
-
-// S'assurer que la page demandée existe
 $page = min($page, max(1, $totalPages));
 
-// Ajouter la pagination à la requête
 $userQuery .= " LIMIT :offset, :limit";
 $params[':offset'] = ($page - 1) * $usersPerPage;
 $params[':limit'] = $usersPerPage;
 
-// Récupérer les utilisateurs pour la page actuelle
 $userStmt = $pdo->prepare($userQuery);
 foreach ($params as $key => $value) {
     if (is_int($value)) {
@@ -173,17 +178,30 @@ $currentPageUsers = $userStmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($user['firstname'] . ' ' . $user['lastname']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
                         <td>
-                            <span class="role-<?php echo $user['role'] === 'admin' ? 'admin' : 'user'; ?>">
-                                <?php echo $user['role'] === 'admin' ? 'Administrateur' : 'Utilisateur'; ?>
-                            </span>
+                            <?php 
+                            if ($user['role'] === 'banned') {
+                                echo '<span style="color:red;">Banni</span>';
+                            } elseif ($user['role'] === 'admin') {
+                                echo '<span class="role-admin">Administrateur</span>';
+                            } else {
+                                echo '<span class="role-user">Utilisateur</span>';
+                            }
+                            ?>
                         </td>
                         <td>
-                            <button class="btn btn-edit" data-userid="<?php echo $user['id']; ?>">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-supprimer" data-userid="<?php echo $user['id']; ?>">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                            <!-- Formulaire de modification du rôle avec sélecteur proposant "user", "admin" et "banned" -->
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                <input type="hidden" name="action" value="update_role">
+                                <select name="role" style="width:150px; height:30px;">
+                                    <option value="user" <?php if($user['role'] === 'user') echo 'selected'; ?>>Utilisateur</option>
+                                    <option value="admin" <?php if($user['role'] === 'admin') echo 'selected'; ?>>Administrateur</option>
+                                    <option value="banned" <?php if($user['role'] === 'banned') echo 'selected'; ?>>Banni</option>
+                                </select>
+                                <button type="submit" class="btn btn-edit" style="width:150px; height:30px;">
+                                    Valider
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     <?php endforeach; ?>
