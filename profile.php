@@ -252,38 +252,47 @@ $userDetails = getUserDetails($username);
                             $voyage = $item['voyage'];
                         ?>
                             <div class="col-md-6">
-                                <div class="reservation-card">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
-                                                <p class="card-text text-muted">
-                                                    <small>
-                                                        <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['date_debut']); ?> au <?php echo htmlspecialchars($voyage['date_fin']); ?>
-                                                        (<?php echo htmlspecialchars($voyage['duree']); ?>)
-                                                    </small>
-                                                </p>
-                                                <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
-                                                <div class="reservation-footer">
-                                                    <div>
-                                                        <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
-                                                        <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
-                                                            <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
-                                                        </span>
-                                                    </div>
-                                                    <div>
-                                                        <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier">
-                                                            <i class="fas fa-edit"></i> Modifier
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+
+                            <div class="reservation-card">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
+                <p class="card-text text-muted">
+                    <small>
+                        <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['date_debut']); ?> au <?php echo htmlspecialchars($voyage['date_fin']); ?>
+                        (<?php echo htmlspecialchars($voyage['duree']); ?>)
+                    </small>
+                </p>
+                <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
+                <div class="reservation-footer d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
+                        <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
+                            <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier me-2">
+                            <i class="fas fa-edit"></i> Modifier
+                        </a>
+                        <?php if (!$reservation['paiement']): ?>
+                        <a href="http://localhost/process-payment.php?trip_id=<?php echo urlencode($voyage['id_voyage']); ?>&price=<?php echo urlencode($reservation['prix_total']); ?>" class="btn btn-primary">
+                            Payer la réservation
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                
                             </div>
                         <?php endforeach; ?>
                     </div>
