@@ -65,7 +65,7 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				<a href="connexion.php" class="btn nav-btn">Se connecter</a>
 				<a href="inscription.php" class="btn nav-btn">S'inscrire</a>
 			<?php else: ?>
-				<a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+				<a href="scripts_php/logout.php" class="btn nav-btn">Déconnexion</a>
 				<a href="profile.php" class="profile-icon">
 					<i class="fas fa-user-circle"></i>
 				</a>

@@ -95,7 +95,7 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
             <?php } ?>
             <?php if (isset($_SESSION['user'])) { ?>
-                <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+                <a href="scripts_php/logout.php" class="btn nav-btn">Déconnexion</a>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
                 </a>
