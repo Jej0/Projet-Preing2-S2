@@ -27,25 +27,23 @@ $firstname = htmlspecialchars($user['firstname']);
 $lastname = htmlspecialchars($user['lastname']);
 $isAdmin = $user['role'] === 'admin';
 
-// Récupérer les statistiques
-$stats = $userObj->getStats($userId);
-$activities = $stats['activities'];
-$badges = $stats['badges'];
-$points = $stats['points'];
+// Récupérer les statistiques (en supposant que getStats() est adapté à la nouvelle BD)
 
-// Récupérer les activités, réservations et badges
-$userActivities = $userObj->getActivities($userId);
+
+
+
+// Récupérer les réservations en utilisant la nouvelle BD via une requête JOIN
+// La méthode getReservations doit retourner un tableau d'éléments contenant 'reservation' et 'voyage'
 $userReservations = $userObj->getReservations($userId);
-$userBadges = $userObj->getBadges($userId);
 
 // Définir des valeurs par défaut pour les autres informations
 $phone = "Non renseigné";
 $language = "Français";
 $notifications = "Activées";
-$status = $points >= 1000 ? "Aventurier Expert" : "Aventurier Débutant";
+// $status = $points >= 1000 ? "Aventurier Expert" : "Aventurier Débutant";
 $avatar = "img/default-avatar.jpg";
 
-// Fonction pour récupérer les informations supplémentaires de l'utilisateur si disponibles
+// Fonction pour récupérer les informations supplémentaires de l'utilisateur si disponibles (optionnel)
 function getUserDetails($username) {
     if (!file_exists(USERS_FILE)) {
         return null;
@@ -65,7 +63,6 @@ function getUserDetails($username) {
 
 // Récupérer les informations détaillées si disponibles
 $userDetails = getUserDetails($username);
-
 ?>
 
 <!DOCTYPE html>
@@ -73,59 +70,43 @@ $userDetails = getUserDetails($username);
 <head>
     <!--Information de la page web-->
     <meta charset="UTF-8">
-
-    <!-- Optimisation pour le telephone -->
+    <!-- Optimisation pour le téléphone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-
     <!-- Titre du site -->
     <meta name="title" content="Keep Yourself Safe">
-
     <!-- Nom de l'agence et auteur du site -->
     <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
-
     <!-- Description du site -->
     <meta name="description" content="Votre profil d'utilisateur avec vos planifications de voyage.">
-
     <!-- Titre du navigateur -->
     <title>KYS - Profile de <?php echo $username; ?></title>
-
     <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
     <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
-    <!-- Haut de page -->
-
     <!-- Navigation -->
     <nav>
-        <!-- Logo et nom (gauche)-->
         <div class="nav-left">
             <a href="accueil.php" class="nav-brand">
                 <img src="img/logo.png" alt="Logo">
                 Keep Yourself Safe
             </a>
         </div>
-
-        <!-- Liens (centre)-->
         <ul class="nav-links">
             <li><a href="presentation.php">Présentation</a></li>
             <li><a href="recherche.php">Rechercher</a></li>
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
-
-        <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-                <a href="scripts_php/logout.php" class="btn nav-btn">Se déconnecter</a>
-                <i class="fas fa-user-circle"></i>
-                </a>
+            <a href="scripts_php/logout.php" class="btn nav-btn">Se déconnecter</a>
+            <i class="fas fa-user-circle"></i>
         </div>
     </nav>
 
-    <!-- Contenu-->
+    <!-- Contenu -->
     <main class="profile-container">
         <!-- En-tête du profil -->
         <section class="profile-header">
@@ -139,9 +120,9 @@ $userDetails = getUserDetails($username);
             </div>
             <div class="profile-info">
                 <h1><?php echo $username; ?></h1>
-                <p class="profile-status"><?php echo $status; ?></p>
+                <!-- <p class="profile-status"><?php echo $status; ?></p> -->
                 <div class="profile-stats">
-                    <div class="stat-item">
+                    <!-- <div class="stat-item">
                         <span class="stat-number"><?php echo $activities; ?></span>
                         <span class="stat-label">Activités</span>
                     </div>
@@ -152,7 +133,7 @@ $userDetails = getUserDetails($username);
                     <div class="stat-item">
                         <span class="stat-number"><?php echo $points; ?></span>
                         <span class="stat-label">Points</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -230,7 +211,9 @@ $userDetails = getUserDetails($username);
                             </div>
                             <div class="activity-content">
                                 <h3><?php echo htmlspecialchars($activity['title']); ?></h3>
-                                <p class="activity-location"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($activity['location']); ?></p>
+                                <p class="activity-location">
+                                    <i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($activity['location']); ?>
+                                </p>
                                 <div class="activity-rating">
                                     <?php for ($i = 0; $i < $activity['rating']; $i++): ?>
                                         <i class="fas fa-star"></i>
@@ -253,41 +236,57 @@ $userDetails = getUserDetails($username);
             <div class="section-header">
                 <h2>Mes Réservations</h2>
             </div>
-            <div class="reservations-list">
-                <?php if (!empty($userReservations)): ?>
-                    <?php foreach ($userReservations as $reservation): ?>
-                        <div class="reservation-card <?php echo htmlspecialchars($reservation['status']); ?>">
-                            <div class="reservation-status">
-                                <span class="status-badge">
-                                    <?php 
-                                    $statusText = match($reservation['status']) {
-                                        'upcoming' => 'À venir',
-                                        'completed' => 'Complété',
-                                        'cancelled' => 'Annulé',
-                                        default => 'Planifié'
-                                    };
-                                    echo $statusText;
-                                    ?>
-                                </span>
-                            </div>
-                            <div class="reservation-details">
-                                <h3><?php echo htmlspecialchars($reservation['title']); ?></h3>
-                                <p><i class="fas fa-calendar"></i> <?php echo htmlspecialchars($reservation['date']); ?></p>
-                                <p><i class="fas fa-clock"></i> <?php echo htmlspecialchars($reservation['time']); ?></p>
-                                <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($reservation['location']); ?></p>
-                            </div>
-                            <div class="reservation-actions">
-                                <?php if ($reservation['status'] === 'upcoming'): ?>
-                                    <button class="btn btn-base" onclick="modifyReservation(<?php echo $reservation['id']; ?>)">Modifier</button>
-                                    <button class="btn btn-transparent" onclick="cancelReservation(<?php echo $reservation['id']; ?>)">Annuler</button>
-                                <?php elseif ($reservation['status'] === 'completed'): ?>
-                                    <button class="btn btn-base" onclick="addReview(<?php echo $reservation['id']; ?>)">Avis</button>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+            <div class="reservations-container">
+                <?php if (empty($userReservations)): ?>
+                    <div class="empty-state">
+                        <h2><i class="far fa-calendar-check"></i> Vous n'avez aucune réservation</h2>
+                        <p class="lead">Parcourez nos voyages et réservez votre prochaine aventure !</p>
+                        <a href="recherche.php" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Voir les voyages disponibles
+                        </a>
+                    </div>
                 <?php else: ?>
-                    <p class="no-data-message">Aucune réservation à afficher.</p>
+                    <div class="row">
+                        <?php foreach ($userReservations as $item):
+                            $reservation = $item['reservation'];
+                            $voyage = $item['voyage'];
+                        ?>
+                            <div class="col-md-6">
+                                <div class="reservation-card">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
+                                                <p class="card-text text-muted">
+                                                    <small>
+                                                        <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['date_debut']); ?> au <?php echo htmlspecialchars($voyage['date_fin']); ?>
+                                                        (<?php echo htmlspecialchars($voyage['duree']); ?>)
+                                                    </small>
+                                                </p>
+                                                <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
+                                                <div class="reservation-footer">
+                                                    <div>
+                                                        <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
+                                                        <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
+                                                            <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier">
+                                                            <i class="fas fa-edit"></i> Modifier
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </section>
@@ -342,16 +341,14 @@ $userDetails = getUserDetails($username);
         </div>
     </footer>
 
-    <!-- Ajout du JavaScript pour les actions -->
+    <!-- JavaScript pour les actions -->
     <script>
     function modifyReservation(id) {
-        // À implémenter : redirection vers la page de modification
         window.location.href = `modifier-reservation.php?id=${id}`;
     }
 
     function cancelReservation(id) {
         if (confirm('Êtes-vous sûr de vouloir annuler cette réservation ?')) {
-            // À implémenter : appel AJAX pour annuler la réservation
             fetch(`api/cancel-reservation.php?id=${id}`, {
                 method: 'POST',
                 headers: {
@@ -370,7 +367,6 @@ $userDetails = getUserDetails($username);
     }
 
     function addReview(id) {
-        // À implémenter : redirection vers la page d'avis
         window.location.href = `ajouter-avis.php?id=${id}`;
     }
     </script>

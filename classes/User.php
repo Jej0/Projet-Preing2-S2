@@ -159,58 +159,82 @@ class User {
         return isset($_SESSION['user']) ? $_SESSION['user'] : null;
     }
     
-    public function getActivities($userId) {
-        $stmt = $this->db->prepare("
-            SELECT * FROM activities 
-            WHERE user_id = ? 
-            ORDER BY date DESC 
-            LIMIT 5
-        ");
-        $stmt->execute([$userId]);
-        return $stmt->fetchAll();
-    }
+    // public function getActivities($userId) {
+    //     $stmt = $this->db->prepare("
+    //         SELECT * FROM activities 
+    //         WHERE user_id = ? 
+    //         ORDER BY date DESC 
+    //         LIMIT 5
+    //     ");
+    //     $stmt->execute([$userId]);
+    //     return $stmt->fetchAll();
+    // }
     
     public function getReservations($userId) {
         $stmt = $this->db->prepare("
-            SELECT * FROM reservations 
-            WHERE user_id = ? 
-            ORDER BY date ASC, time ASC
+            SELECT r.*, v.titre, v.description, v.date_debut, v.date_fin, v.duree, v.prix_total AS voyage_prix_total
+            FROM reservations_json r
+            JOIN voyages v ON r.id_voyage = v.id_voyage
+            WHERE r.id_utilisateur = ?
+            ORDER BY r.date_reservation ASC
         ");
         $stmt->execute([$userId]);
-        return $stmt->fetchAll();
+        $results = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Chaque résultat contient une clé 'reservation' et une clé 'voyage'
+            $results[] = [
+                'reservation' => [
+                    'id_reservation' => $row['id_reservation'],
+                    'date_reservation' => $row['date_reservation'],
+                    'options' => $row['options'],
+                    'prix_total' => $row['prix_total'],
+                    'paiement' => $row['paiement']
+                ],
+                'voyage' => [
+                    'id_voyage' => $row['id_voyage'],
+                    'titre' => $row['titre'],
+                    'description' => $row['description'],
+                    'date_debut' => $row['date_debut'],
+                    'date_fin' => $row['date_fin'],
+                    'duree' => $row['duree'],
+                    'prix_total' => $row['voyage_prix_total']
+                ]
+            ];
+        }
+        return $results;
     }
     
-    public function getBadges($userId) {
-        $stmt = $this->db->prepare("
-            SELECT b.* 
-            FROM badges b
-            JOIN user_badges ub ON b.id = ub.badge_id
-            WHERE ub.user_id = ?
-        ");
-        $stmt->execute([$userId]);
-        return $stmt->fetchAll();
-    }
+    // public function getBadges($userId) {
+    //     $stmt = $this->db->prepare("
+    //         SELECT b.* 
+    //         FROM badges b
+    //         JOIN user_badges ub ON b.id = ub.badge_id
+    //         WHERE ub.user_id = ?
+    //     ");
+    //     $stmt->execute([$userId]);
+    //     return $stmt->fetchAll();
+    // }
     
-    public function getStats($userId) {
-        $stats = [
-            'activities' => 0,
-            'badges' => 0,
-            'points' => 0
-        ];
+    // public function getStats($userId) {
+    //     $stats = [
+    //         'activities' => 0,
+    //         'badges' => 0,
+    //         'points' => 0
+    //     ];
         
-        // Compter les activités
-        $stmt = $this->db->prepare("SELECT COUNT(*) FROM activities WHERE user_id = ?");
-        $stmt->execute([$userId]);
-        $stats['activities'] = $stmt->fetchColumn();
+    //     // Compter les activités
+    //     $stmt = $this->db->prepare("SELECT COUNT(*) FROM activities WHERE user_id = ?");
+    //     $stmt->execute([$userId]);
+    //     $stats['activities'] = $stmt->fetchColumn();
         
-        // Compter les badges
-        $stmt = $this->db->prepare("SELECT COUNT(*) FROM user_badges WHERE user_id = ?");
-        $stmt->execute([$userId]);
-        $stats['badges'] = $stmt->fetchColumn();
+    //     // Compter les badges
+    //     $stmt = $this->db->prepare("SELECT COUNT(*) FROM user_badges WHERE user_id = ?");
+    //     $stmt->execute([$userId]);
+    //     $stats['badges'] = $stmt->fetchColumn();
         
-        // Calculer les points (exemple : 10 points par activité + 50 points par badge)
-        $stats['points'] = ($stats['activities'] * 10) + ($stats['badges'] * 50);
+    //     // Calculer les points (exemple : 10 points par activité + 50 points par badge)
+    //     $stats['points'] = ($stats['activities'] * 10) + ($stats['badges'] * 50);
         
-        return $stats;
-    }
+    //     return $stats;
+    // }
 } 
