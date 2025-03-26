@@ -1,73 +1,77 @@
 <?php
 session_start();
+
+// Inclusion des fichiers de configuration et des classes nécessaires
+require_once 'config/config.php';
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
+
+// Utilisation de la connexion à la base de données via la classe Database
+$db = Database::getInstance();
+$pdo = $db->getConnection();
+
+// Récupérer les voyages depuis la table 'voyages'
+$stmt = $pdo->query("SELECT * FROM voyages");
+$voyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les utilisateurs depuis la table 'users'
+$stmt = $pdo->query("SELECT * FROM users");
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Compter le nombre d'utilisateurs inscrits
+$nombreInscrits = count($users);
+
+// Compter le nombre de voyages disponibles
+$nombreVoyages = count($voyages);
+
+// Récupérer les 3 voyages les mieux notés (note_moyenne décroissante)
+$query = "SELECT * FROM voyages ORDER BY note_moyenne DESC LIMIT 3";
+$stmt = $pdo->query($query);
+$meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-
 <html lang="fr">
+
 <head>
-  <!--Information de la page web-->
-    <meta charset="UTF-8">
-
-	<!-- Optimisation pour le telephone -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-
-	<!-- Titre du site -->
-    <meta name="title" content="Keep Yourself Safe">
-
-	<!-- Nom de l'agence et auteur du site -->
-    <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
-
-  <!-- Description du site -->
-    <meta name="description" content="Keep Yourself Safe vous offre des aventures extrêmes et inoubliables en toute sécurité. Nos experts vous trouvent les meilleurs plans et activités pour vous faire sentir vivant. Planifiez dès maintenant !">
-
-	<!-- Référencement -->
-	  <meta name="keywords" content="vacances, sport, extrême, adrénaline, destinations, aventure, sensations fortes, séjour">
-
-	<!-- Titre du navigateur -->
-    <title>KYS - Accueil</title>
-
-	<!-- Lien vers le fichier CSS -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-  <!-- Liens vers icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="title" content="Keep Yourself Safe">
+	<meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
+	<meta name="description" content="Keep Yourself Safe vous offre des aventures extrêmes et inoubliables en toute sécurité. Nos experts vous trouvent les meilleurs plans et activités pour vous faire sentir vivant. Planifiez dès maintenant !">
+	<meta name="keywords" content="vacances, sport, extrême, adrénaline, destinations, aventure, sensations fortes, séjour">
+	<title>KYS - Accueil</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-	<!-- Haut de page -->
-
-    <!-- Navigation -->
-    <nav>
-        <!-- Logo et nom (gauche)-->
-        <div class="nav-left">
-            <a href="accueil.php" class="nav-brand">
-                <img src="img/logo.png" alt="Logo">
-                Keep Yourself Safe
-            </a>
-        </div>
-
-        <!-- Liens (centre)-->
-        <ul class="nav-links">
-            <li><a href="presentation.php">Présentation</a></li>
-            <li><a href="recherche.php">Rechercher</a></li>
-            <li><a href="mailto:contact@kys.fr">Contact</a></li>
-        </ul>
-
-        <!-- Profil et connexion(droite)-->
-        <div class="nav-right">
-			<?php if (!isset($_SESSION['user'])) { ?>
-            	<a href="connexion.php" class="btn nav-btn">Se connecter</a>
-            	<a href="inscription.php" class="btn nav-btn">S'inscrire</a>
-			<?php } ?>
-			<?php if (isset($_SESSION['user'])) { ?>
-            <a href="profile.php" class="profile-icon">
-            <i class="fas fa-user-circle"></i>
-            </a>
-			<?php } ?>
-        </div>
-    </nav>
+	<!-- Navigation -->
+	<nav>
+		<div class="nav-left">
+			<a href="accueil.php" class="nav-brand">
+				<img src="img/logo.png" alt="Logo">
+				Keep Yourself Safe
+			</a>
+		</div>
+		<ul class="nav-links">
+			<li><a href="presentation.php">Présentation</a></li>
+			<li><a href="recherche.php">Rechercher</a></li>
+			<li><a href="mailto:contact@kys.fr">Contact</a></li>
+		</ul>
+		<div class="nav-right">
+			<?php if (!isset($_SESSION['user'])): ?>
+				<a href="connexion.php" class="btn nav-btn">Se connecter</a>
+				<a href="inscription.php" class="btn nav-btn">S'inscrire</a>
+			<?php else: ?>
+				<a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+				<a href="profile.php" class="profile-icon">
+					<i class="fas fa-user-circle"></i>
+				</a>
+			<?php endif; ?>
+		</div>
+	</nav>
 
 	<!-- Section Hero Principale -->
 	<section class="accueil-hero">
@@ -81,90 +85,64 @@ session_start();
 		</div>
 	</section>
 
-	<!-- Contenu-->
+	<!-- Contenu -->
 	<main>
 		<!-- Section Actualités -->
 		<section class="news-banner">
 			<div class="news-slider">
 				<div class="news-item">
-					<i class="fas fa-bolt"></i>
-					<p>Nouvelle activité : Wingsuit dans les Alpes !</p>
+					<i class="fas fa-star"></i>
+					<p>Meilleur voyage : Ascension de l'Everest !</p>
 				</div>
 				<div class="news-item">
-					<i class="fas fa-percentage"></i>
-					<p>-20% sur les activités en groupe ce mois-ci</p>
+					<i class="fas fa-globe"></i>
+					<p>Découvrez nos <strong><?php echo $nombreVoyages; ?></strong> voyages disponibles !</p>
 				</div>
 				<div class="news-item">
-					<i class="fas fa-calendar"></i>
-					<p>Stages d'été : Inscriptions ouvertes</p>
+					<i class="fas fa-users"></i>
+					<p>Déjà <strong><?php echo $nombreInscrits; ?></strong> aventuriers inscrits !</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- Section Activités Vedettes -->
-		<section id="featured" class="featured-activities">
-			<h2>Activités du Moment</h2>
-			<div class="featured-grid">
-				<div class="featured-card large">
-					<img src="img/parachute.jpg" alt="Parachutisme">
-					<div class="card-content">
-						<h3>Saut en Parachute</h3>
-						<p>Vivez l'expérience ultime de liberté à 4000m d'altitude</p>
-						<div class="card-info">
-							<span class="price">À partir de 299€</span>
-							<span class="duration"><i class="far fa-clock"></i> 3h</span>
+		<!-- Section Destinations Populaires -->
+		<section class="fondateur">
+			<h2>Nos Meilleures Destinations</h2>
+			<div class="fondateur-grid">
+				<?php foreach ($meilleursVoyages as $voyage): ?>
+					<div class="destination-card">
+						<img src="img/<?php echo htmlspecialchars($voyage['id_voyage']); ?>.jpg" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+						<div class="destination-info">
+							<h3><?php echo htmlspecialchars($voyage['titre']); ?></h3>
+							<p><?php echo htmlspecialchars($voyage['description']); ?></p>
+							<p class="price">À partir de <?php echo htmlspecialchars($voyage['prix_total']); ?>€</p>
+							<div class="rating-container">
+								<div class="rating">
+									<?php
+									$note = $voyage['note_moyenne'];
+									$etoilesPleines = floor($note);
+									$etoilesDemi = ($note - $etoilesPleines) >= 0.5 ? 1 : 0;
+									// Afficher les étoiles pleines
+									for ($i = 0; $i < $etoilesPleines; $i++) {
+										echo '<i class="fas fa-star"></i>';
+									}
+									// Afficher une demi-étoile si nécessaire
+									if ($etoilesDemi) {
+										echo '<i class="fas fa-star-half-alt"></i>';
+									}
+									// Afficher les étoiles vides
+									$etoilesVides = 5 - $etoilesPleines - $etoilesDemi;
+									for ($i = 0; $i < $etoilesVides; $i++) {
+										echo '<i class="far fa-star"></i>';
+									}
+									?>
+								</div>
+								<span class="nb-avis"><?php echo number_format($note, 1); ?> (<?php echo htmlspecialchars($voyage['nb_avis']); ?> avis)</span>
+								<span class="duration"><i class="far fa-clock"></i> <?php echo htmlspecialchars($voyage['duree']); ?></span>
+							</div>
 						</div>
-						<?php if (isset($_SESSION['user'])) { ?>
-							<form action="process-payment.php" method="GET" class="booking-form">
-								<input type="hidden" name="trip_id" value="parachute_premium">
-								<input type="hidden" name="price" value="299">
-								<button type="submit" class="btn btn-card">Réserver</button>
-							</form>
-						<?php } else { ?>
-							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
-						<?php } ?>
 					</div>
-				</div>
-				<div class="featured-card">
-					<img src="img/plongee.jpg" alt="Plongée">
-					<div class="card-content">
-						<h3>Plongée Profonde</h3>
-						<p>Explorez les fonds marins méditerranéens</p>
-						<div class="card-info">
-							<span class="price">À partir de 149€</span>
-							<span class="duration"><i class="far fa-clock"></i> 4h</span>
-						</div>
-						<?php if (isset($_SESSION['user'])) { ?>
-							<form action="process-payment.php" method="GET" class="booking-form">
-								<input type="hidden" name="trip_id" value="plongee_pro">
-								<input type="hidden" name="price" value="149">
-								<button type="submit" class="btn btn-card">Réserver</button>
-							</form>
-						<?php } else { ?>
-							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
-						<?php } ?>
-					</div>
-				</div>
-				<div class="featured-card">
-					<img src="img/escalade.jpg" alt="Escalade">
-					<div class="card-content">
-						<h3>Escalade Alpine</h3>
-						<p>Défiez les plus beaux sommets des Alpes</p>
-						<div class="card-info">
-							<span class="price">À partir de 199€</span>
-							<span class="duration"><i class="far fa-clock"></i> 6h</span>
-						</div>
-						<?php if (isset($_SESSION['user'])) { ?>
-							<form action="process-payment.php" method="GET" class="booking-form">
-								<input type="hidden" name="trip_id" value="escalade_alpine">
-								<input type="hidden" name="price" value="199">
-								<button type="submit" class="btn btn-card">Réserver</button>
-							</form>
-						<?php } else { ?>
-							<a href="connexion.php" class="btn btn-card">Connectez-vous pour réserver</a>
-						<?php } ?>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</section>
 
@@ -218,54 +196,40 @@ session_start();
 
 		<!-- Section Newsletter -->
 		<section class="newsletter">
-			<div class="newsletter-content">
-				<h2>Restez Informé</h2>
-				<p>Recevez nos meilleures offres et actualités</p>
-				<form class="newsletter-form">
-					<input type="email" placeholder="Votre email" required>
-					<button type="submit" class="btn btn-base">S'inscrire</button>
-				</form>
-			</div>
+			<h2>Restez Informé</h2>
+			<p>Recevez nos meilleures offres et actualités</p>
+			<form class="newsletter-form">
+				<input type="email" placeholder="Votre email" required>
+				<button type="submit" class="btn btn-base">S'inscrire</button>
+			</form>
 		</section>
 	</main>
 
 	<!-- Pied de page -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Keep Yourself Safe</h3>
-                <p>L'aventure en toute sécurité.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@kys.fr</p>
-                <p>Tél: +33 1 23 45 67 89</p>
-            </div>
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-	<!-- Ajouter ce script JavaScript avant la fermeture de </body> -->
-	<script>
-	document.querySelectorAll('.booking-form').forEach(form => {
-		form.addEventListener('submit', function(e) {
-			e.preventDefault();
-			if (confirm('Êtes-vous sûr de vouloir réserver cette activité ?')) {
-				this.submit();
-			}
-		});
-	});
-	</script>
-
+	<footer>
+		<div class="footer-content">
+			<div class="footer-section">
+				<h3>Keep Yourself Safe</h3>
+				<p>L'aventure en toute sécurité.</p>
+			</div>
+			<div class="footer-section">
+				<h3>Contact</h3>
+				<p>Email: contact@kys.fr</p>
+				<p>Tél: +33 1 23 45 67 89</p>
+			</div>
+			<div class="footer-section">
+				<h3>Suivez-nous</h3>
+				<div class="social-links">
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
+		</div>
+	</footer>
 </body>
+
 </html>
