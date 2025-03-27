@@ -599,8 +599,8 @@ INSERT INTO `users` (`id`, `login`, `email`, `password`, `role`, `firstname`, `l
 (15, 'charlie_user', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'user', 'Charlie', 'User', '2025-03-22 15:53:35'),
 (16, 'kahi', 'kaka1@gmail.com', '$2y$10$cy4BbXm9r80MBgSavuKvyugquK8Uo/EEnqhG7w/BuAWxdIQ6.BeVG', 'user', 'brahim', 'mokhtari', '2025-03-22 16:15:30'),
 (17, 'kahil78', 'kahil.mokhtari@gmail.com', '$2y$10$9UR6LUL3uevK7MlUGkJASeUvG49YeW8lfiLvidVs8U/lTHldgLlyO', 'user', 'kahil', 'mokhtari', '2025-03-22 16:18:33'),
-(18, 'press', 'azgg@gmail.com', '$2y$10$vHoLjBE8wf3yZTqckFCuf.1bCrc2jxP1F0mCsK15HIfPuNV85a.Dy', 'banned', 'Ales', 'azffzf', '2025-03-26 20:13:43');
-(18, 'bbb', 'bbb@gmail.com', '$2y$10$L8QopaNKH3lR3Nva/MB6Lu0v51434gVXSwneNzGJk.DuFsUXcfXhW', 'admin', 'bb', 'bbbb', '2025-03-22 16:18:33');
+(18, 'press', 'azgg@gmail.com', '$2y$10$vHoLjBE8wf3yZTqckFCuf.1bCrc2jxP1F0mCsK15HIfPuNV85a.Dy', 'banned', 'Ales', 'azffzf', '2025-03-26 20:13:43'),
+(19, 'bbb', 'bbb@gmail.com', '$2y$10$L8QopaNKH3lR3Nva/MB6Lu0v51434gVXSwneNzGJk.DuFsUXcfXhW', 'admin', 'bb', 'bbbb', '2025-03-22 16:18:33');
 -- --------------------------------------------------------
 
 --
@@ -808,7 +808,7 @@ COMMIT;
 
 
 ALTER TABLE reservations_json 
-MODIFY id_reservation int(11) NOT NULL AUTO_INCREMENT
+MODIFY id_reservation int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1844,6 +1844,7 @@ footer {
     background: var(--blue);
 }
 
+
 .profile-nav a {
     color: var(--light-gray);
     text-decoration: none;
@@ -2128,6 +2129,58 @@ footer {
     grid-column: 1 / -1;
 }
 
+/* Style de la pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.pagination li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination li a.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.pagination li a i {
+    margin: 0 5px;
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 600px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+    
+    .pagination li {
+        margin: 5px;
+    }
+}
 /* -------------------------------- Animations --------------------------------*/
 
 @keyframes fadeInUp {
