@@ -164,7 +164,9 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": []
+            "id_reservation": [
+                104
+            ]
         },
         "prix_total": 10000,
         "statut": "disponible"
@@ -1315,7 +1317,9 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": []
+            "id_reservation": [
+                103
+            ]
         },
         "prix_total": 8000,
         "statut": "disponible"
@@ -2354,7 +2358,9 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": []
+            "id_reservation": [
+                104
+            ]
         },
         "prix_total": 1800,
         "statut": "disponible"

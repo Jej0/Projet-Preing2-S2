@@ -9,7 +9,7 @@ if (file_exists($usersFile)) {
 }
 
 // Gérer la redirection après connexion
-$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'profile.php';
+$redirect = isset($_POST['redirect']) ? $_POST['redirect'] : (isset($_GET['redirect']) ? $_GET['redirect'] : 'profile.php');
 
 // Traitement du formulaire de connexion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -113,6 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="password">Mot de passe :</label>
                     <input type="password" id="password" name="password" required>
                 </div>
+
+                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect); ?>">
 
                 <div class="password-reset">
                     <a href="mot-de-passe-oublie.php">Mot de passe oublié ?</a>

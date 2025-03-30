@@ -1,0 +1,174 @@
+[
+    {
+        "id_voyage": 1,
+        "titre": "Ascension de l'Everest",
+        "description": "L'ascension ultime pour les amateurs de défis extrêmes. Atteignez le toit du monde avec des guides expérimentés.",
+        "note_moyenne": 4.9,
+        "nb_avis": 10,
+        "nb_etape": 5,
+        "contrat": true,
+        "dates": {
+            "debut": "2024-04-01",
+            "fin": "2024-04-21",
+            "duree": "21 jours"
+        },
+        "etapes": [
+            {
+                "id_etape": 1,
+                "titre": "Arrivée à Katmandou",
+                "dates": {
+                    "arrivee": "2024-04-01",
+                    "depart": "2024-04-02",
+                    "duree": "1 jour"
+                },
+                "position_geographique": {
+                    "gps": "27.7172, 85.3240",
+                    "ville": "Katmandou"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 1,
+                            "nom": "Visite de Katmandou",
+                            "description": "Découverte des temples et de la culture népalaise",
+                            "prix_par_personne": 30,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 2,
+                            "nom": "Hôtel 4 étoiles",
+                            "description": "Hôtel confortable avec vue sur la ville",
+                            "prix_par_personne": 80,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 3,
+                            "nom": "Dîner népalais",
+                            "description": "Dîner avec des spécialités locales",
+                            "prix_par_personne": 25,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 4,
+                            "nom": "Transfert en bus",
+                            "description": "Transfert vers l'aéroport de Lukla",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 2,
+                "titre": "Acclimatation à Namche Bazaar",
+                "dates": {
+                    "arrivee": "2024-04-03",
+                    "depart": "2024-04-05",
+                    "duree": "3 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.8050, 86.7100",
+                    "ville": "Namche Bazaar"
+                },
+                "options": {
+                    "activites": [
+                        {
+                            "id_option": 5,
+                            "nom": "Randonnée d'acclimatation",
+                            "description": "Randonnée pour s'acclimater à l'altitude",
+                            "prix_par_personne": 50,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "hebergements": [
+                        {
+                            "id_option": 6,
+                            "nom": "Lodge de montagne",
+                            "description": "Lodge confortable avec vue sur les montagnes",
+                            "prix_par_personne": 60,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "restaurations": [
+                        {
+                            "id_option": 7,
+                            "nom": "Repas local",
+                            "description": "Repas avec des produits locaux",
+                            "prix_par_personne": 20,
+                            "nombre_personnes_max": 10
+                        }
+                    ],
+                    "transports": [
+                        {
+                            "id_option": 8,
+                            "nom": "Transfert à pied",
+                            "description": "Randonnée vers Namche Bazaar",
+                            "prix_par_personne": 0,
+                            "nombre_personnes_max": 10
+                        }
+                    ]
+                }
+            },
+            {
+                "id_etape": 3,
+                "titre": "Ascension vers le camp de base de l'Everest",
+                "dates": {
+                    "arrivee": "2024-04-06",
+                    "depart": "2024-04-10",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9881, 86.9250",
+                    "ville": "Camp de base de l'Everest"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 4,
+                "titre": "Ascension vers le camp 4 (Col Sud)",
+                "dates": {
+                    "arrivee": "2024-04-11",
+                    "depart": "2024-04-15",
+                    "duree": "5 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9800, 86.9200",
+                    "ville": "Col Sud"
+                },
+                "options": {}
+            },
+            {
+                "id_etape": 5,
+                "titre": "Sommet de l'Everest et retour",
+                "dates": {
+                    "arrivee": "2024-04-16",
+                    "depart": "2024-04-21",
+                    "duree": "6 jours"
+                },
+                "position_geographique": {
+                    "gps": "27.9881, 86.9253",
+                    "ville": "Sommet de l'Everest"
+                },
+                "options": {}
+            }
+        ],
+        "specificites": [
+            "Neige",
+            "Haute altitude"
+        ],
+        "liste_personnes": {
+            "max": 10,
+            "id_reservation": [
+                101
+            ]
+        },
+        "prix_total": 10000,
+        "statut": "disponible"
+    }
+]

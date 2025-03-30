@@ -1,148 +1,157 @@
 <?php
+session_start();
 
-require_once 'scripts_php/init.php';
-
-
-// Fonction pour récupérer les informations supplémentaires de l'utilisateur si disponibles
-function getUserDetails($username)
-{
-    if (!file_exists(USERS_FILE)) {
-        return null;
-    }
-
-    $data = file_get_contents(USERS_FILE);
-    $users = json_decode($data, true) ?: [];
-
-    foreach ($users as $user) {
-        if ($user['username'] === $username) {
-            return $user;
-        }
-    }
-
-    return null;
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
+    header("Location: connexion.php?redirect=profile.php");
+    exit();
 }
 
-// Récupérer les informations détaillées si disponibles
-$userDetails = getUserDetails($username);
+// Charger les données utilisateur depuis la session
+$user = $_SESSION['user'];
+$username = $user['prenom'] . ' ' . $user['nom'];
+$email = $user['email'];
+$phone = $user['telephone'] ?? 'Non renseigné';
+$status = 'Membre depuis ' . date('d/m/Y', strtotime($user['date_inscription']));
 
-// Définir des valeurs par défaut pour les informations supplémentaires
-$phone = isset($userDetails['phone']) ? htmlspecialchars($userDetails['phone']) : "Non renseigné";
-$language = isset($userDetails['language']) ? htmlspecialchars($userDetails['language']) : "Français";
-$notifications = isset($userDetails['notifications']) ? $userDetails['notifications'] ? "Activées" : "Désactivées" : "Activées";
-$status = isset($userDetails['status']) ? htmlspecialchars($userDetails['status']) : "Aventurier Débutant";
-$activities = isset($userDetails['activities']) ? intval($userDetails['activities']) : 0;
-$badges = isset($userDetails['badges']) ? intval($userDetails['badges']) : 0;
-$points = isset($userDetails['points']) ? intval($userDetails['points']) : 0;
-$avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar']) : "img/default-avatar.jpg";
+// Données factices pour l'exemple (à remplacer par vos données réelles)
+$activities = $user['nb_activites'] ?? 0;
+$badges = $user['nb_badges'] ?? 0;
+$points = $user['points'] ?? 0;
+$language = 'Français';
+$notifications = 'Activées';
+$isAdmin = $user['role'] === 'admin';
 
+// Données factices pour les activités
+$userActivities = [
+    [
+        'title' => 'Randonnée en montagne',
+        'image' => 'https://source.unsplash.com/random/300x200/?mountain',
+        'location' => 'Alpes, France',
+        'date' => '15/06/2023',
+        'rating' => 4
+    ],
+    [
+        'title' => 'Plongée sous-marine',
+        'image' => 'https://source.unsplash.com/random/300x200/?diving',
+        'location' => 'Méditerranée',
+        'date' => '22/07/2023',
+        'rating' => 5
+    ]
+];
 
+// Données factices pour les réservations
+$userReservations = [
+    [
+        'id' => 1,
+        'title' => 'Expédition Amazonie',
+        'date' => '15/09/2023',
+        'time' => '09:00',
+        'location' => 'Brésil',
+        'status' => 'upcoming'
+    ],
+    [
+        'id' => 2,
+        'title' => 'Safari Tanzanie',
+        'date' => '10/05/2023',
+        'time' => '14:00',
+        'location' => 'Tanzanie',
+        'status' => 'completed'
+    ]
+];
 
+// Données factices pour les badges
+$userBadges = [
+    [
+        'title' => 'Explorateur',
+        'icon' => 'fa-compass',
+        'description' => 'A complété 5 activités',
+        'date_obtained' => '2023-01-15'
+    ],
+    [
+        'title' => 'Aventurier',
+        'icon' => 'fa-mountain',
+        'description' => 'Première randonnée',
+        'date_obtained' => '2023-03-22'
+    ]
+];
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <!--Information de la page web-->
     <meta charset="UTF-8">
-
-    <!-- Optimisation pour le telephone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-
-    <!-- Titre du site -->
     <meta name="title" content="Keep Yourself Safe">
-
-    <!-- Nom de l'agence et auteur du site -->
     <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
-
-    <!-- Description du site -->
-    <meta name="description" content="Votre profil d'utilisateur avec vos planifications de voyage.">
-
-    <!-- Titre du navigateur -->
-    <title>KYS - Profile de <?php echo $username; ?></title>
-
-    <!-- Lien vers le fichier CSS -->
+    <meta name="description" content="Votre profil d'utilisateur">
+    <title>KYS - Profil de <?php echo htmlspecialchars($username); ?></title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <!-- Haut de page -->
-
-    <!-- Navigation -->
     <nav>
-        <!-- Logo et nom (gauche)-->
         <div class="nav-left">
             <a href="accueil.php" class="nav-brand">
-                <img src="img/logo.png" alt="Logo">
+                <img src="assets/img/logo.png" alt="Logo">
                 Keep Yourself Safe
             </a>
         </div>
-
-        <!-- Liens (centre)-->
         <ul class="nav-links">
             <li><a href="presentation.php">Présentation</a></li>
             <li><a href="recherche.php">Rechercher</a></li>
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
-
-        <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-            <a href="scripts_php/logout.php" class="btn nav-btn">Se déconnecter</a>
-            <i class="fas fa-user-circle"></i>
-
+            <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+            <a href="profile.php" class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </a>
         </div>
     </nav>
 
-    <!-- Contenu-->
     <main class="profile-container">
-        <!-- En-tête du profil -->
         <section class="profile-header">
             <div class="profile-cover">
                 <div class="profile-avatar">
-                    <img src="<?php echo $avatar; ?>" alt="Photo de profil" id="profile-image">
-                    <button class="edit-avatar">
-                        <i class="fas fa-camera"></i>
-                    </button>
+                    <img src="assets/img/testimonial2.jpg" alt="Photo de profil">
                 </div>
             </div>
             <div class="profile-info">
-                <h1><?php echo $username; ?></h1>
-                <p class="profile-status"><?php echo $status; ?></p>
+                <h1><?php echo htmlspecialchars($username); ?></h1>
+                <p class="profile-status"><?php echo htmlspecialchars($status); ?></p>
                 <div class="profile-stats">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $activities; ?></span>
+                        <span class="stat-number"><?php echo htmlspecialchars($activities); ?></span>
                         <span class="stat-label">Activités</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $badges; ?></span>
+                        <span class="stat-number"><?php echo htmlspecialchars($badges); ?></span>
                         <span class="stat-label">Badges</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $points; ?></span>
+                        <span class="stat-number"><?php echo htmlspecialchars($points); ?></span>
                         <span class="stat-label">Points</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Menu de navigation du profil -->
         <nav class="profile-nav">
             <ul>
-                <a href="#informations">Informations</a></li>
-                <li><a href="#activites">Mes Activités</a></li>
+                <li class="active"><a href="#informations">Informations</a></li>
+                <li><a href="#activites">Activités</a></li>
                 <li><a href="#reservations">Réservations</a></li>
                 <li><a href="#badges">Badges</a></li>
-                <?php if ($admin === true) { ?>
+                <?php if ($isAdmin): ?>
                     <li><a href="admin.php">Administrateur</a></li>
-                <?php } ?>
+                <?php endif; ?>
             </ul>
         </nav>
 
-        <!-- Section Informations -->
         <section id="informations" class="profile-section">
             <div class="section-header">
                 <h2>Informations Personnelles</h2>
@@ -155,14 +164,14 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                         <i class="fas fa-envelope"></i>
                         <div>
                             <label>Email</label>
-                            <p><?php echo $email; ?></p>
+                            <p><?php echo htmlspecialchars($email); ?></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <label>Téléphone</label>
-                            <p><?php echo $phone; ?></p>
+                            <p><?php echo htmlspecialchars($phone); ?></p>
                         </div>
                     </div>
                 </div>
@@ -172,29 +181,28 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                         <i class="fas fa-language"></i>
                         <div>
                             <label>Langue</label>
-                            <p><?php echo $language; ?></p>
+                            <p><?php echo htmlspecialchars($language); ?></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-bell"></i>
                         <div>
                             <label>Notifications</label>
-                            <p><?php echo $notifications; ?></p>
+                            <p><?php echo htmlspecialchars($notifications); ?></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Activités -->
         <section id="activites" class="profile-section">
             <div class="section-header">
                 <h2>Mes Activités Récentes</h2>
                 <a href="recherche.php" class="btn btn-base">Découvrir plus</a>
             </div>
             <div class="activities-grid">
-                <?php if (isset($userDetails['recentActivities']) && !empty($userDetails['recentActivities'])): ?>
-                    <?php foreach ($userDetails['recentActivities'] as $activity): ?>
+                <?php if (!empty($userActivities)): ?>
+                    <?php foreach ($userActivities as $activity): ?>
                         <div class="activity-card">
                             <div class="activity-image">
                                 <img src="<?php echo htmlspecialchars($activity['image']); ?>" alt="<?php echo htmlspecialchars($activity['title']); ?>">
@@ -215,32 +223,29 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p class="no-data-message">Aucune activité récente à afficher.</p>
+                    <p class="no-data-message"><i class="far fa-calendar-times"></i> Aucune activité récente à afficher.</p>
                 <?php endif; ?>
             </div>
         </section>
 
-        <!-- Section Réservations -->
         <section id="reservations" class="profile-section">
             <div class="section-header">
                 <h2>Mes Réservations</h2>
             </div>
             <div class="reservations-list">
-                <?php if (isset($userDetails['reservations']) && !empty($userDetails['reservations'])): ?>
-                    <?php foreach ($userDetails['reservations'] as $reservation): ?>
-                        <div class="reservation-card <?php echo htmlspecialchars($reservation['status']); ?>">
+                <?php if (!empty($userReservations)): ?>
+                    <?php foreach ($userReservations as $reservation): ?>
+                        <div class="reservation-card">
                             <div class="reservation-status">
-                                <span class="status-badge">
+                                <span class="status-badge <?php echo htmlspecialchars($reservation['status']); ?>">
                                     <?php
-                                    $statusText = "Planifié";
-                                    if ($reservation['status'] == 'upcoming') {
-                                        $statusText = "À venir";
-                                    } elseif ($reservation['status'] == 'completed') {
-                                        $statusText = "Complété";
-                                    } elseif ($reservation['status'] == 'cancelled') {
-                                        $statusText = "Annulé";
-                                    }
-                                    echo $statusText;
+                                    $statusText = match ($reservation['status']) {
+                                        'upcoming' => 'À venir',
+                                        'completed' => 'Complété',
+                                        'cancelled' => 'Annulé',
+                                        default => 'Planifié'
+                                    };
+                                    echo htmlspecialchars($statusText);
                                     ?>
                                 </span>
                             </div>
@@ -251,45 +256,44 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
                                 <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($reservation['location']); ?></p>
                             </div>
                             <div class="reservation-actions">
-                                <?php if ($reservation['status'] == 'upcoming'): ?>
-                                    <button class="btn btn-base">Modifier</button>
-                                    <button class="btn btn-transparent">Annuler</button>
-                                <?php elseif ($reservation['status'] == 'completed'): ?>
-                                    <button class="btn btn-base">Avis</button>
+                                <?php if ($reservation['status'] === 'upcoming'): ?>
+                                    <button class="btn btn-base" onclick="modifyReservation(<?php echo $reservation['id']; ?>)">Modifier</button>
+                                    <button class="btn btn-transparent" onclick="cancelReservation(<?php echo $reservation['id']; ?>)">Annuler</button>
+                                <?php elseif ($reservation['status'] === 'completed'): ?>
+                                    <button class="btn btn-base" onclick="addReview(<?php echo $reservation['id']; ?>)">Avis</button>
                                 <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p class="no-data-message">Aucune réservation à afficher.</p>
+                    <p class="no-data-message"><i class="far fa-calendar-times"></i> Aucune réservation à afficher.</p>
                 <?php endif; ?>
             </div>
         </section>
 
-        <!-- Section Badges -->
         <section id="badges" class="profile-section">
             <div class="section-header">
                 <h2>Mes Badges</h2>
             </div>
             <div class="badges-grid">
-                <?php if (isset($userDetails['userBadges']) && !empty($userDetails['userBadges'])): ?>
-                    <?php foreach ($userDetails['userBadges'] as $badge): ?>
-                        <div class="badge-card <?php echo isset($badge['locked']) && $badge['locked'] ? 'locked' : ''; ?>">
+                <?php if (!empty($userBadges)): ?>
+                    <?php foreach ($userBadges as $badge): ?>
+                        <div class="badge-card">
                             <div class="badge-icon">
                                 <i class="fas <?php echo htmlspecialchars($badge['icon']); ?>"></i>
                             </div>
                             <h3><?php echo htmlspecialchars($badge['title']); ?></h3>
                             <p><?php echo htmlspecialchars($badge['description']); ?></p>
+                            <small>Obtenu le <?php echo date('d/m/Y', strtotime($badge['date_obtained'])); ?></small>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p class="no-data-message">Aucun badge à afficher pour le moment.</p>
+                    <p class="no-data-message"><i class="far fa-star"></i> Aucun badge à afficher pour le moment.</p>
                 <?php endif; ?>
             </div>
         </section>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -314,7 +318,6 @@ $avatar = isset($userDetails['avatar']) ? htmlspecialchars($userDetails['avatar'
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
-
 </body>
 
 </html>

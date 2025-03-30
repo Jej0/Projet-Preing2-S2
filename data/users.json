@@ -38,11 +38,13 @@
         },
         "date": {
             "inscription": "2025-03-25",
-            "connexion": "2025-03-25"
+            "connexion": "2025-03-26"
         },
         "id_historique_voyages": [],
         "id_reservation": [
-            101
+            101,
+            104,
+            103
         ]
     }
 ]

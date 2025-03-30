@@ -50,6 +50,59 @@ foreach ($reservations as $res) {
     }
 }
 
+// Fonction pour calculer le prix total des options
+function calculerPrixOptions($voyage, $options)
+{
+    $prixOptions = 0;
+
+    foreach ($voyage['etapes'] as $etape) {
+        $etapeId = $etape['id_etape'];
+        $etapeOptions = $options["etape_$etapeId"] ?? [];
+
+        // Activité
+        if (isset($etapeOptions['activite'])) {
+            foreach ($etape['options']['activites'] as $activite) {
+                if ($activite['id_option'] == $etapeOptions['activite']) {
+                    $prixOptions += $activite['prix_par_personne'];
+                    break;
+                }
+            }
+        }
+
+        // Hébergement
+        if (isset($etapeOptions['hebergement'])) {
+            foreach ($etape['options']['hebergements'] as $hebergement) {
+                if ($hebergement['id_option'] == $etapeOptions['hebergement']) {
+                    $prixOptions += $hebergement['prix_par_personne'];
+                    break;
+                }
+            }
+        }
+
+        // Restauration
+        if (isset($etapeOptions['restauration'])) {
+            foreach ($etape['options']['restaurations'] as $restauration) {
+                if ($restauration['id_option'] == $etapeOptions['restauration']) {
+                    $prixOptions += $restauration['prix_par_personne'];
+                    break;
+                }
+            }
+        }
+
+        // Transport
+        if (isset($etapeOptions['transport'])) {
+            foreach ($etape['options']['transports'] as $transport) {
+                if ($transport['id_option'] == $etapeOptions['transport']) {
+                    $prixOptions += $transport['prix_par_personne'];
+                    break;
+                }
+            }
+        }
+    }
+
+    return $prixOptions;
+}
+
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['save'])) {
@@ -65,11 +118,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
         }
 
+        // Calculer le nouveau prix total
+        $prixOptions = calculerPrixOptions($voyage, $options);
+        $prixTotal = $voyage['prix_total'] + $prixOptions;
+
         if ($existingReservation) {
             // Mise à jour de la réservation existante
             foreach ($reservations as &$res) {
                 if ($res['id_reservation'] == $existingReservation['id_reservation']) {
                     $res['options'] = $options;
+                    $res['prix_total'] = $prixTotal;
                     break;
                 }
             }
@@ -83,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'id_voyage' => $voyageId,
                 'date_reservation' => date('Y-m-d'),
                 'options' => $options,
-                'prix_total' => $voyage['prix_total'],
+                'prix_total' => $prixTotal,
                 'paiement' => false
             ];
 
@@ -173,6 +231,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+
+// Calculer le prix total actuel pour l'affichage
+$prixTotalAffichage = $voyage['prix_total'];
+if ($existingReservation) {
+    $prixOptions = calculerPrixOptions($voyage, $existingReservation['options']);
+    $prixTotalAffichage += $prixOptions;
+}
 ?>
 
 <!DOCTYPE html>
@@ -238,7 +303,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p><strong>Dates:</strong> Du <?php echo htmlspecialchars($voyage['dates']['debut']); ?> au <?php echo htmlspecialchars($voyage['dates']['fin']); ?> (<?php echo htmlspecialchars($voyage['dates']['duree']); ?>)</p>
                 </div>
                 <div class="col-md-4">
-                    <p><strong>Prix total:</strong> <?php echo number_format($voyage['prix_total'], 0, ',', ' '); ?> €</p>
+                    <p><strong>Prix total:</strong>
+                        <?php echo number_format($voyage['prix_total'], 0, ',', ' '); ?> €
+                        <?php if ($existingReservation): ?>
+                            <br><span style="font-size: 0.9em;">
+                                + <?php echo number_format(calculerPrixOptions($voyage, $existingReservation['options']), 0, ',', ' '); ?> € d'options
+                                = <strong><?php echo number_format($prixTotalAffichage, 0, ',', ' '); ?> €</strong>
+                            </span>
+                        <?php endif; ?>
+                    </p>
                 </div>
             </div>
 
@@ -249,8 +322,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <?php if ($voyage['contrat']): ?>
-                <div class="voyage-alert alert alert-info">
-                    <i class="fas fa-info-circle"></i> Ce voyage nécessite la signature d'un contrat.
+                <div class="voyage-alert alert">
+                    <i class="fas fa-info-circle"></i> Ce voyage nécessite la signature du contrat.
                 </div>
             <?php endif; ?>
         </div>
@@ -364,7 +437,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <?php endif; ?>
                             </div>
                         <?php else: ?>
-                            <div class="voyage-alert alert alert-info">
+                            <div class="voyage-alert">
                                 <i class="fas fa-info-circle"></i> Aucune option disponible pour cette étape.
                             </div>
                         <?php endif; ?>

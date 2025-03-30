@@ -106,7 +106,7 @@ foreach ($reservations as $reservation) {
 
                                         <div class="reservation-footer">
                                             <div>
-                                                <span class="reservation-badge price"><?php echo number_format($voyage['prix_total'], 0, ',', ' '); ?> €</span>
+                                                <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
                                                 <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
                                                     <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
                                                 </span>

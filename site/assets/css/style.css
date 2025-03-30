@@ -1742,6 +1742,392 @@ footer {
     margin: 1rem 0;
 }
 
+.alert {
+    color: var(--bred);
+}
+
+/* Profil Utilisateur */
+.profile-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.profile-cover {
+    height: 300px;
+    background: linear-gradient(45deg, var(--blue), var(--light-blue));
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.profile-avatar {
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+    z-index: 2;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+.profile-info {
+    padding-left: 220px;
+    margin-top: 20px;
+}
+
+.profile-info h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.profile-status {
+    color: var(--light-gray);
+    margin-bottom: 20px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--blue);
+    display: block;
+}
+
+.stat-label {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.profile-nav {
+    background: white;
+    border-radius: 15px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.profile-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-nav li {
+    padding: 15px 20px;
+    position: relative;
+}
+
+.profile-nav li.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: var(--blue);
+}
+
+.profile-nav a {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.profile-nav li.active a,
+.profile-nav a:hover {
+    color: var(--blue);
+}
+
+.profile-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-header h2 {
+    color: var(--text-color);
+    margin: 0;
+}
+
+.edit-btn {
+    background: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.edit-btn:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.info-group h3 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    width: 40px;
+    height: 40px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    flex-shrink: 0;
+}
+
+.info-item label {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    margin: 0;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.activity-image {
+    position: relative;
+    height: 180px;
+}
+
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.activity-content {
+    padding: 20px;
+}
+
+.activity-content h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+}
+
+.activity-location {
+    color: var(--light-gray);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.activity-rating {
+    color: var(--yellow);
+}
+
+.reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reservation-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: var(--transition);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reservation-card:hover {
+    background: #e9ecef;
+}
+
+.reservation-status {
+    flex: 0 0 100px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.upcoming {
+    background: var(--yellow);
+    color: var(--text-dark);
+}
+
+.status-badge.completed {
+    background: var(--green);
+    color: white;
+}
+
+.status-badge.cancelled {
+    background: var(--red);
+    color: white;
+}
+
+.reservation-details {
+    flex: 1;
+    min-width: 200px;
+}
+
+.reservation-details h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+}
+
+.reservation-details p {
+    margin: 5px 0;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reservation-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.badge-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.badge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.badge-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+}
+
+.badge-card h3 {
+    margin: 15px 0 10px;
+    color: var(--text-color);
+}
+
+.badge-card p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.badge-card small {
+    color: var(--light-gray);
+    font-size: 0.8rem;
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 40px;
+    color: var(--light-gray);
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
 /* -------------------------------- Animations --------------------------------*/
 
 @keyframes fadeInUp {
@@ -1891,5 +2277,47 @@ footer {
 
     .empty-state {
         padding: 2rem 1rem;
+    }
+
+    .profile-avatar {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .profile-info {
+        padding-left: 0;
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    .profile-stats {
+        justify-content: center;
+    }
+
+    .profile-nav ul {
+        flex-direction: column;
+    }
+
+    .profile-nav li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .profile-nav li.active::after {
+        left: 30%;
+        right: 30%;
+    }
+
+    .reservation-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reservation-status {
+        flex: 0 0 auto;
+    }
+
+    .reservation-actions {
+        justify-content: center;
     }
 }
