@@ -141,7 +141,11 @@ foreach ($users as $user) {
 		<section class="featured-activities">
 			<h2>Activités du Moment</h2>
 			<div class="featured-grid">
-				<?php foreach ($voyages as $voyage): ?>
+				<?php 
+				shuffle($voyages);
+				$random_voyages = array_slice($voyages, 0, 4);
+				
+				foreach ($random_voyages as $voyage): ?>
 					<div class="featured-card">
 						<img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" alt="<?php echo $voyage['titre']; ?>">
 						<div class="card-content">
@@ -187,23 +191,33 @@ foreach ($users as $user) {
 
 		<!-- Section Promo -->
 		<section class="promo-section">
-			<div class="promo-content">
-				<h2>Offre Spéciale du Moment</h2>
-				<div class="promo-timer">
-					<p>Fin de l'offre dans :</p>
-					<div class="countdown">
-						<span id="days">02</span>j
-						<span id="hours">18</span>h
-						<span id="minutes">45</span>m
-						<span id="seconds">30</span>s
+				<div class="promo-badge">OFFRE LIMITÉE</div>
+				<h2 class="rating">Cadeau Mystère</h2>
+				<p>Votre cadeau sera débloqué dans :</p>
+
+				<div class="countdown">
+					<div class="countdown-segment">
+						<span id="days">02</span>
+						jours
+					</div>
+					<div class="countdown-segment">
+						<span id="hours">18</span>
+						heures
+					</div>
+					<div class="countdown-segment">
+						<span id="minutes">45</span>
+						minutes
+					</div>
+					<div class="countdown-segment">
+						<span id="seconds">30</span>
+						secondes
 					</div>
 				</div>
-				<p class="promo-description">Pack Découverte : 3 activités au choix + Photos/Vidéos</p>
-				<div class="promo-price">
-					<span class="old-price">899€</span>
-					<span class="new-price">699€</span>
+
+				<div class="gift-icon">
+					<i class="fas fa-gift"></i>
 				</div>
-			</div>
+				<p class="gift-hint">Restez connecté pour découvrir votre surprise !</p>
 		</section>
 
 		<!-- Section Newsletter -->
@@ -243,6 +257,35 @@ foreach ($users as $user) {
 		</div>
 	</footer>
 
+	<script>
+	// Timer de 2 jours
+	function startCountdown() {
+		const endDate = new Date();
+		endDate.setDate(endDate.getDate() + 2); // 2 jours à partir de maintenant
+		
+		function updateTimer() {
+			const now = new Date();
+			const diff = endDate - now;
+			
+			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+			
+			document.getElementById('days').textContent = days.toString().padStart(2, '0');
+			document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+			document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+			document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+			
+			requestAnimationFrame(updateTimer);
+		}
+		
+		updateTimer();
+	}
+
+	// Démarrer le timer
+	document.addEventListener('DOMContentLoaded', startCountdown);
+	</script>
 </body>
 
 </html>
