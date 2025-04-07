@@ -72,45 +72,5 @@
         },
         "prix_total": 8120,
         "paiement": false
-    },
-    {
-        "id_reservation": 104,
-        "id_utilisateur": 2,
-        "id_voyage": 1,
-        "date_reservation": "2025-03-26",
-        "options": {
-            "etape_1": {
-                "activite": null,
-                "hebergement": 2,
-                "restauration": null,
-                "transport": 4
-            },
-            "etape_2": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
-            },
-            "etape_3": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
-            },
-            "etape_4": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
-            },
-            "etape_5": {
-                "activite": null,
-                "hebergement": null,
-                "restauration": null,
-                "transport": null
-            }
-        },
-        "prix_total": 10100,
-        "paiement": false
     }
 ]

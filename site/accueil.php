@@ -7,6 +7,13 @@ $voyages = json_decode(file_get_contents('../data/voyages.json'), true);
 // Lire le fichier JSON des utilisateurs
 $users = json_decode(file_get_contents('../data/users.json'), true);
 
+// Lire le fichier JSON des email
+$newsletter = json_decode(file_get_contents('../data/newsletter.json'),true);
+
+// Enregistrer l'email 
+
+
+
 // Compter le nombre d'utilisateurs inscrits
 $nombreInscrits = count($users);
 
@@ -193,7 +200,13 @@ foreach ($users as $user) {
 		<section class="promo-section">
 				<div class="promo-badge">OFFRE LIMITÉE</div>
 				<h2 class="rating">Cadeau Mystère</h2>
-				<p>Votre cadeau sera débloqué dans :</p>
+
+				<div id="timeErreur" class="hidden">
+					<h3>Mince ! Votre cadeau s'est enfui.</h3>
+					<p>Merci de patienter pendant que nous essayons de rattraper votre cadeau:</p>
+				</div>
+				
+				<p id="debloquageText">Votre cadeau sera débloqué dans :</p>
 
 				<div class="countdown">
 					<div class="countdown-segment">
@@ -222,12 +235,16 @@ foreach ($users as $user) {
 
 		<!-- Section Newsletter -->
 		<section class="newsletter">
-			<h2>Restez Informé</h2>
-			<p>Recevez nos meilleures offres et actualités</p>
-			<form class="newsletter-form">
-				<input type="email" placeholder="Votre email" required>
-				<button type="submit" class="btn btn-base">S'inscrire</button>
-			</form>
+			<div id="newsletter">
+				<h2>Restez Informé</h2>
+				<p>Recevez nos meilleures offres et actualités</p>
+				
+				<form id="simpleNewsletterForm" class="newsletter-form">
+					<input type="email" id="simpleEmailInput" placeholder="Votre email" required>
+					<button type="submit" class="btn btn-base">S'inscrire</button>
+				</form>
+				<p id="simpleMessage"></p>
+			</div>
 		</section>
 	</main>
 
@@ -258,34 +275,49 @@ foreach ($users as $user) {
 	</footer>
 
 	<script>
-	// Timer de 2 jours
-	function startCountdown() {
-		const endDate = new Date();
-		endDate.setDate(endDate.getDate() + 2); // 2 jours à partir de maintenant
-		
-		function updateTimer() {
-			const now = new Date();
-			const diff = endDate - now;
-			
-			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-			const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-			const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-			
-			document.getElementById('days').textContent = days.toString().padStart(2, '0');
-			document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-			document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-			document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-			
-			requestAnimationFrame(updateTimer);
-		}
-		
-		updateTimer();
-	}
+		// Timer Cadeau
+        function startCountdown() {
+            let endDate = new Date();
+            endDate.setSeconds(endDate.getSeconds() + 300);
+			let hasSwitched = false;
 
-	// Démarrer le timer
-	document.addEventListener('DOMContentLoaded', startCountdown);
-	</script>
+            function updateTimer() {
+                const now = new Date();
+                let diff = endDate - now;
+
+                if (!hasSwitched && diff <= 3000) { 
+                    endDate = new Date();
+                    endDate.setDate(endDate.getDate() + 2);
+                    endDate.setHours(endDate.getHours() + 8);
+                    endDate.setMinutes(endDate.getMinutes() + 36);
+                    endDate.setSeconds(endDate.getSeconds() + 12);
+					hasSwitched = true;
+                    diff = endDate - now; 
+
+                    document.getElementById('debloquageText').classList.add('hidden');
+                    document.getElementById('timeErreur').classList.remove('hidden');
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                requestAnimationFrame(updateTimer);
+            }
+
+            updateTimer();
+        }
+
+        document.addEventListener('DOMContentLoaded', startCountdown);
+
+    </script>
+	<script src="assets/js/newsletter.js"></script>
 </body>
 
 </html>

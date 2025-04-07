@@ -43,6 +43,10 @@ body {
     line-height: 1.6;
 }
 
+.hidden {
+    display: none;
+}
+
 /* =========================== Section Hero =========================== */
 
 /* Propriétés général */
