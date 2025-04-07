@@ -68,6 +68,21 @@ foreach ($users as $user) {
 </head>
 
 <body>
+	<!-- Pop-up de bienvenue -->
+	<div id="welcomePopup" class="popup-container">
+		<div class="popup-content">
+			<h3>Bienvenue sur notre site !</h3>
+			<p>Ce site propose des voyages avec des activités extrêmes. Il est donc réservé aux personnes majeures.</p>
+			<div class="popup-buttons">
+				<button id="acceptBtn" class="btn btn-base">J'ai +18 ans</button>
+				<button id="rejectBtn" class="btn btn-base">Quitter le site</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Flou d'arrière-plan -->
+	<div id="backgroundBlur" class="background-blur"></div>
+
 	<!-- Haut de page -->
 
 	<!-- Navigation -->
@@ -315,9 +330,9 @@ foreach ($users as $user) {
         }
 
         document.addEventListener('DOMContentLoaded', startCountdown);
-
     </script>
-	<script src="assets/js/newsletter.js"></script>
+	<script src="assets/js/accueil.js"></script>
+	<script src="assets/js/popup.js"></script>
 </body>
 
 </html>
