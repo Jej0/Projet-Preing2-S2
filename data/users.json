@@ -5,7 +5,7 @@
         "mot_de_passe": "",
         "admin": true,
         "newsletter": true,
-        "information personnelles": {
+        "information_personnelles": {
             "nom": "Miko",
             "prenom": "Strasox",
             "naissance": "20",
@@ -27,20 +27,37 @@
         "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": false,
         "newsletter": true,
-        "information personnelles": {
+        "information_personnelles": {
             "nom": "",
             "prenom": "",
             "naissance": "",
             "mail": "florianette@gmail.com",
             "adresse": "",
             "telephone": "",
-            "contrat": false
+            "contrat": true
         },
         "date": {
-            "inscription": "2025-03-25",
-            "connexion": "2025-04-07"
+            "inscription": "2011-03-25",
+            "connexion": "2025-04-28"
         },
-        "id_historique_voyages": [],
+        "id_historique_voyages": [
+            111,
+            221,
+            214,
+            153,
+            544,
+            543,
+            135,
+            164,
+            111,
+            221,
+            214,
+            153,
+            544,
+            543,
+            135,
+            164
+        ],
         "id_reservation": [
             101,
             103

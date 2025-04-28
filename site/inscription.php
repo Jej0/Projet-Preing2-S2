@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors[] = "Ce nom d'utilisateur est déjà pris.";
             break;
         }
-        if ($user['information personnelles']['mail'] === $email) {
+        if ($user['information_personnelles']['mail'] === $email) {
             $errors[] = "Cet email est déjà utilisé.";
             break;
         }
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "mot_de_passe" => password_hash($password, PASSWORD_DEFAULT),
             "admin" => false,
             "newsletter" => true,
-            "information personnelles" => [
+            "information_personnelles" => [
                 "nom" => "",
                 "prenom" => "",
                 "naissance" => "",

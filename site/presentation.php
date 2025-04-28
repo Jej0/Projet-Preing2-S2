@@ -4,6 +4,7 @@ session_start();
 // Lire le fichier JSON des voyages
 $voyages = json_decode(file_get_contents('../data/voyages.json'), true);
 
+$users = json_decode(file_get_contents('../data/users.json'), true);
 // Trier les voyages par note moyenne (du plus élevé au plus bas)
 usort($voyages, function ($a, $b) {
     return $b['note_moyenne'] <=> $a['note_moyenne'];
@@ -11,6 +12,12 @@ usort($voyages, function ($a, $b) {
 
 // Sélectionner les 3 meilleurs voyages
 $meilleursVoyages = array_slice($voyages, 0, 3);
+
+// Compter le nombre d'utilisateurs inscrits
+$nombreInscrits = count($users);
+
+// Compter le nombre de voyages disponibles
+$nombreVoyages = count($voyages);
 ?>
 
 
@@ -95,7 +102,7 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
             <h2>Les Fondateur</h2>
             <div class="fondateur-grid">
                 <div class="fondateur-card">
-                    <img src="assets/img/fondateur1.jpeg" alt="image fondateur">
+                    <img src="assets/img/fondateur1.jpg" alt="image fondateur">
                     <h3>Alex MIKOLAJEWSKI</h3>
                 </div>
                 <div class="fondateur-card">
@@ -201,12 +208,12 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
             <div class="stats-grid">
                 <div class="stat-item">
                     <i class="fas fa-users"></i>
-                    <span class="stat-number">10,000+</span>
+                    <span class="stat-number"><?php echo $nombreInscrits; ?></span>
                     <p>Aventuriers Satisfaits</p>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-map-marked-alt"></i>
-                    <span class="stat-number">50+</span>
+                    <span class="stat-number"><?php echo $nombreVoyages; ?></span>
                     <p>Sites d'Exception</p>
                 </div>
                 <div class="stat-item">
@@ -216,7 +223,7 @@ $meilleursVoyages = array_slice($voyages, 0, 3);
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-award"></i>
-                    <span class="stat-number">15+</span>
+                    <span class="stat-number">20+</span>
                     <p>Années d'Expérience</p>
                 </div>
             </div>

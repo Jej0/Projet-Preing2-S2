@@ -10,10 +10,6 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
 // Lire le fichier JSON des email
 $newsletter = json_decode(file_get_contents('../data/newsletter.json'),true);
 
-// Enregistrer l'email 
-
-
-
 // Compter le nombre d'utilisateurs inscrits
 $nombreInscrits = count($users);
 
@@ -196,7 +192,7 @@ foreach ($users as $user) {
 				<div class="benefit-item">
 					<i class="fas fa-medal"></i>
 					<h3>Expertise</h3>
-					<p>Plus de 15 ans d'expérience</p>
+					<p>Plus de 20 ans d'expérience</p>
 				</div>
 				<div class="benefit-item">
 					<i class="fas fa-hand-holding-heart"></i>
@@ -293,7 +289,7 @@ foreach ($users as $user) {
 		// Timer Cadeau
         function startCountdown() {
             let endDate = new Date();
-            endDate.setSeconds(endDate.getSeconds() + 300);
+            endDate.setSeconds(endDate.getSeconds() + 20);
 			let hasSwitched = false;
 
             function updateTimer() {
