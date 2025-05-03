@@ -11,64 +11,62 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 $username = $user['username'];
 $name = $user['information_personnelles']['prenom'] . ' ' . $user['information_personnelles']['nom'];
-$email = $user['email'];
-$phone = $user['telephone'] ?? 'Non renseigné';
+$email = $user['information_personnelles']['mail'];
+$phone = $user['information_personnelles']['telephone'] ?? 'Non renseigné';
 $status = 'Membre depuis ' . date('d/m/Y', strtotime($user['date']['inscription']));
-$nb_badge = 0;
+$isAdmin = $user['admin'] == 'true';
 
 // Données factices pour l'exemple (à remplacer par vos données réelles)
-$activities = $user['nb_activites'] ?? 0;
-$badges = $user['nb_badges'] ?? 0;
-$language = 'Français';
-$notifications = 'Activées';
-$isAdmin = $user['role'] === 'admin';
+//$activities = $user['nb_activites'] ?? 0;
+//$badges = $user['nb_badges'] ?? 0;
+//$language = 'Français';
+//$notifications = 'Activées';
+
+
 
 // Fonction pour vérifier les badges basés sur les conditions
-function getUserBadges($userData) {
+function getUserBadges($userData)
+{
     $badges = [];
     $currentDate = new DateTime();
-    
+
     // Badges d'anniversaire d'inscription
     $inscriptionDate = new DateTime($userData['date']['inscription']);
     $yearsSinceInscription = $currentDate->diff($inscriptionDate)->y;
-    
+
     for ($i = 1; $i <= min($yearsSinceInscription, 5); $i++) {
         $badges[] = [
             'icon' => 'fa-calendar',
-            'title' => 'Membre depuis '.$i.' an' . ($i > 1 ? 's' : ''),
-            'description' => 'Fidélité - Inscrit depuis '.$i.' an' . ($i > 1 ? 's' : ''),
+            'title' => 'Membre depuis ' . $i . ' an' . ($i > 1 ? 's' : ''),
+            'description' => 'Fidélité - Inscrit depuis ' . $i . ' an' . ($i > 1 ? 's' : ''),
         ];
-        $nb_badge ++;
     }
 
     // Badges de voyages
     $voyagesCount = count($userData['id_historique_voyages']);
-    
+
     if ($voyagesCount >= 1) {
         $badges[] = [
             'icon' => 'fa-map-marked-alt',
             'title' => 'Premier voyage',
             'description' => 'A effectué son premier voyage',
         ];
-        $nb_badge ++;
     }
-    
+
     if ($voyagesCount >= 5) {
         $badges[] = [
             'icon' => 'fa-map-marked-alt',
             'title' => 'Voyageur confirmé',
             'description' => 'A effectué 5 voyages',
         ];
-        $nb_badge ++;
     }
-    
+
     if ($voyagesCount >= 10) {
         $badges[] = [
             'icon' => 'fa-map-marked-alt',
             'title' => 'Voyageur expert',
             'description' => 'A effectué 10 voyages',
         ];
-        $nb_badge ++;
     }
 
     // Badges spéciaux
@@ -78,11 +76,10 @@ function getUserBadges($userData) {
             'title' => 'Contrat accepté',
             'description' => 'Vous avez signé le contrat',
         ];
-        $nb_badge ++;
     }
 
     $hasClimbedEverest = false; // À modifier pour vérifier si le user a fait le voyage
-    
+
     if ($hasClimbedEverest) {
         $badges[] = [
             'icon' => 'fa-mountain',
@@ -90,7 +87,6 @@ function getUserBadges($userData) {
             'description' => 'A réussi l\'ascension de l\'Everest',
             'date_obtained' => $userData['date']['connexion'] // Date approximative
         ];
-        $nb_badge ++;
     }
 
     return $badges;
@@ -118,36 +114,37 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
 <body>
     <!-- Navigation -->
-	<nav>
-		<!-- Logo et nom (gauche)-->
-		<div class="nav-left">
-			<a href="accueil.php" class="nav-brand">
-				<img src="assets/img/logo.png" alt="Logo">
-				Keep Yourself Safe
-			</a>
-		</div>
+    <nav>
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="accueil.php" class="nav-brand">
+                <img src="assets/img/logo.png" alt="Logo">
+                Keep Yourself Safe
+            </a>
+        </div>
 
-		<!-- Liens (centre)-->
-		<ul class="nav-links">
-			<li><a href="presentation.php">Présentation</a></li>
-			<li><a href="recherche.php">Rechercher</a></li>
-			<li><a href="mailto:contact@kys.fr">Contact</a></li>
-		</ul>
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.php">Présentation</a></li>
+            <li><a href="recherche.php">Rechercher</a></li>
+            <li><a href="mailto:contact@kys.fr">Contact</a></li>
+        </ul>
 
-		<!-- Profil et connexion(droite)-->
-		<div class="nav-right">
-			<?php if (!isset($_SESSION['user'])) { ?>
-				<a href="connexion.php" class="btn nav-btn">Se connecter</a>
-				<a href="inscription.php" class="btn nav-btn">S'inscrire</a>
-			<?php } ?>
-			<?php if (isset($_SESSION['user'])) { ?>
-				<a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
-				<a href="profile.php" class="profile-icon">
-					<i class="fas fa-user-circle"></i>
-				</a>
-			<?php } ?>
-		</div>
-	</nav>
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+            <?php if (!isset($_SESSION['user'])) { ?>
+                <a href="connexion.php" class="btn nav-btn">Se connecter</a>
+                <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
+            <?php } ?>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+                <a href="profile.php" class="profile-icon">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            <?php } ?>
+        </div>
+    </nav>
+
 
     <main class="profile-container">
         <section class="profile-header">
@@ -161,11 +158,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 <p class="profile-status"><?php echo $status; ?></p>
                 <div class="profile-stats">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo 'none'; ?></span>
+                        <span class="stat-number"><?php echo count($user['id_historique_voyages']); ?></span>
                         <span class="stat-label">Activités</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $nb_badge; ?></span>
+                        <span class="stat-number"><?php echo count($userBadges); ?></span>
                         <span class="stat-label">Badges</span>
                     </div>
                 </div>
@@ -174,12 +171,12 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
         <nav class="profile-nav">
             <ul>
-                <li class="active"><a href="#informations">Informations</a></li>
-                <li><a href="#activites">Activités</a></li>
-                <li><a href="#reservations">Réservations</a></li>
-                <li><a href="#badges">Badges</a></li>
+                <li><a class="btn" href="#informations">Informations</a></li>
+                <li><a class="btn" href="#activites">Activités</a></li>
+                <li><a class="btn" href="#reservations">Réservations</a></li>
+                <li><a class="btn" href="#badges">Badges</a></li>
                 <?php if ($isAdmin): ?>
-                    <li><a href="admin.php">Administrateur</a></li>
+                    <li><a class="btn" href="admin.php">Administrateur</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
@@ -233,7 +230,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 <a href="recherche.php" class="btn btn-base">Découvrir plus</a>
             </div>
             <div class="activities-grid">
-                    ??????
+                ??????
             </div>
         </section>
 
@@ -259,7 +256,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                     <?php foreach ($userBadges as $badge): ?>
                         <div class="badge-card">
                             <div class="badge-icon">
-                            <i class="fas <?= $badge['icon'] ?>"></i>
+                                <i class="fas <?= $badge['icon'] ?>"></i>
                             </div>
                             <h3><?php echo $badge['title']; ?></h3>
                             <p><?php echo $badge['description']; ?></p>
@@ -274,7 +271,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
 
 
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">

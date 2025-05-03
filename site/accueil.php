@@ -8,7 +8,7 @@ $voyages = json_decode(file_get_contents('../data/voyages.json'), true);
 $users = json_decode(file_get_contents('../data/users.json'), true);
 
 // Lire le fichier JSON des email
-$newsletter = json_decode(file_get_contents('../data/newsletter.json'),true);
+$newsletter = json_decode(file_get_contents('../data/newsletter.json'), true);
 
 // Compter le nombre d'utilisateurs inscrits
 $nombreInscrits = count($users);
@@ -159,10 +159,10 @@ foreach ($users as $user) {
 		<section class="featured-activities">
 			<h2>Activités du Moment</h2>
 			<div class="featured-grid">
-				<?php 
+				<?php
 				shuffle($voyages);
 				$random_voyages = array_slice($voyages, 0, 4);
-				
+
 				foreach ($random_voyages as $voyage): ?>
 					<div class="featured-card">
 						<img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" alt="<?php echo $voyage['titre']; ?>">
@@ -209,39 +209,39 @@ foreach ($users as $user) {
 
 		<!-- Section Promo -->
 		<section class="promo-section">
-				<div class="promo-badge">OFFRE LIMITÉE</div>
-				<h2 class="rating">Cadeau Mystère</h2>
+			<div class="promo-badge">OFFRE LIMITÉE</div>
+			<h2 class="rating">Cadeau Mystère</h2>
 
-				<div id="timeErreur" class="hidden">
-					<h3>Mince ! Votre cadeau s'est enfui.</h3>
-					<p>Merci de patienter pendant que nous essayons de rattraper votre cadeau:</p>
-				</div>
-				
-				<p id="debloquageText">Votre cadeau sera débloqué dans :</p>
+			<div id="timeErreur" class="hidden">
+				<h3>Mince ! Votre cadeau s'est enfui.</h3>
+				<p>Merci de patienter pendant que nous essayons de rattraper votre cadeau:</p>
+			</div>
 
-				<div class="countdown">
-					<div class="countdown-segment">
-						<span id="days">02</span>
-						jours
-					</div>
-					<div class="countdown-segment">
-						<span id="hours">18</span>
-						heures
-					</div>
-					<div class="countdown-segment">
-						<span id="minutes">45</span>
-						minutes
-					</div>
-					<div class="countdown-segment">
-						<span id="seconds">30</span>
-						secondes
-					</div>
-				</div>
+			<p id="debloquageText">Votre cadeau sera débloqué dans :</p>
 
-				<div class="gift-icon">
-					<i class="fas fa-gift"></i>
+			<div class="countdown">
+				<div class="countdown-segment">
+					<span id="days">02</span>
+					jours
 				</div>
-				<p class="gift-hint">Restez connecté pour découvrir votre surprise !</p>
+				<div class="countdown-segment">
+					<span id="hours">18</span>
+					heures
+				</div>
+				<div class="countdown-segment">
+					<span id="minutes">45</span>
+					minutes
+				</div>
+				<div class="countdown-segment">
+					<span id="seconds">30</span>
+					secondes
+				</div>
+			</div>
+
+			<div class="gift-icon">
+				<i class="fas fa-gift"></i>
+			</div>
+			<p class="gift-hint">Restez connecté pour découvrir votre surprise !</p>
 		</section>
 
 		<!-- Section Newsletter -->
@@ -249,7 +249,7 @@ foreach ($users as $user) {
 			<div id="newsletter">
 				<h2>Restez Informé</h2>
 				<p>Recevez nos meilleures offres et actualités</p>
-				
+
 				<form id="simpleNewsletterForm" class="newsletter-form">
 					<input type="email" id="simpleEmailInput" placeholder="Votre email" required>
 					<button type="submit" class="btn btn-base">S'inscrire</button>
@@ -287,46 +287,46 @@ foreach ($users as $user) {
 
 	<script>
 		// Timer Cadeau
-        function startCountdown() {
-            let endDate = new Date();
-            endDate.setSeconds(endDate.getSeconds() + 20);
+		function startCountdown() {
+			let endDate = new Date();
+			endDate.setSeconds(endDate.getSeconds() + 300);
 			let hasSwitched = false;
 
-            function updateTimer() {
-                const now = new Date();
-                let diff = endDate - now;
+			function updateTimer() {
+				const now = new Date();
+				let diff = endDate - now;
 
-                if (!hasSwitched && diff <= 3000) { 
-                    endDate = new Date();
-                    endDate.setDate(endDate.getDate() + 2);
-                    endDate.setHours(endDate.getHours() + 8);
-                    endDate.setMinutes(endDate.getMinutes() + 36);
-                    endDate.setSeconds(endDate.getSeconds() + 12);
+				if (!hasSwitched && diff <= 3000) {
+					endDate = new Date();
+					endDate.setDate(endDate.getDate() + 2);
+					endDate.setHours(endDate.getHours() + 8);
+					endDate.setMinutes(endDate.getMinutes() + 36);
+					endDate.setSeconds(endDate.getSeconds() + 12);
 					hasSwitched = true;
-                    diff = endDate - now; 
+					diff = endDate - now;
 
-                    document.getElementById('debloquageText').classList.add('hidden');
-                    document.getElementById('timeErreur').classList.remove('hidden');
-                }
+					document.getElementById('debloquageText').classList.add('hidden');
+					document.getElementById('timeErreur').classList.remove('hidden');
+				}
 
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+				document.getElementById('days').textContent = days.toString().padStart(2, '0');
+				document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+				document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+				document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
-                requestAnimationFrame(updateTimer);
-            }
+				requestAnimationFrame(updateTimer);
+			}
 
-            updateTimer();
-        }
+			updateTimer();
+		}
 
-        document.addEventListener('DOMContentLoaded', startCountdown);
-    </script>
+		document.addEventListener('DOMContentLoaded', startCountdown);
+	</script>
 	<script src="assets/js/accueil.js"></script>
 	<script src="assets/js/popup.js"></script>
 </body>
