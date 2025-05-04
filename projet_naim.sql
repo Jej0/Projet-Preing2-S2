@@ -585,22 +585,22 @@ CREATE TABLE `users` (
 --
 -- Déchargement des données de la table `users`
 --
+INSERT INTO users (id, login, email, password, role, firstname, lastname, registration_date, phone, language, notifications) VALUES
+(1,'admin1','','$2y$10$YourHashHere','admin','Admin','One','2025-03-22 15:45:03',NULL,'Français',1),
+(2,'admin2','','$2y$10$YourHashHere','admin','Admin','Two','2025-03-22 15:45:03',NULL,'Français',1),
+(3,'user1','','$2y$10$YourHashHere','user','User','One','2025-03-22 15:45:03',NULL,'Français',1),
+(4,'user2','','$2y$10$YourHashHere','user','User','Two','2025-03-22 15:45:03',NULL,'Français',1),
+(5,'user3','','$2y$10$YourHashHere','user','User','Three','2025-03-22 15:45:03',NULL,'Français',1),
+(11,'admin_john','','$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy','admin','John','Admin','2025-03-22 15:53:35',NULL,'Français',1),
+(12,'admin_jane','','$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy','admin','Jane','Admin','2025-03-22 15:53:35',NULL,'Français',1),
+(13,'alice_user','','$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy','user','Alice','User','2025-03-22 15:53:35',NULL,'Français',1),
+(14,'bob_user','','$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy','user','Bob','User','2025-03-22 15:53:35',NULL,'Français',1),
+(15,'charlie_user','','$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy','user','Charlie','User','2025-03-22 15:53:35',NULL,'Français',1),
+(16,'kahi','kaka1@gmail.com','$2y$10$cy4BbXm9r80MBgSavuKvyugquK8Uo/EEnqhG7w/BuAWxdIQ6.BeVG','user','brahim','mokhtari','2025-03-22 16:15:30',NULL,'Français',1),
+(17,'kahil78','kahil.mokhtari@gmail.com','$2y$10$9UR6LUL3uevK7MlUGkJASeUvG49YeW8lfiLvidVs8U/lTHldgLlyO','user','kahil','mokhtari','2025-03-22 16:18:33',NULL,'Français',1),
+(18,'press','azgg@gmail.com','$2y$10$vHoLjBE8wf3yZTqckFCuf.1bCrc2jxP1F0mCsK15HIfPuNV85a.Dy','banned','Ales','azffzf','2025-03-26 20:13:43',NULL,'Français',1),
+(19,'bbb','bbb@gmail.com','$2y$10$L8QopaNKH3lR3Nva/MB6Lu0v51434gVXSwneNzGJk.DuFsUXcfXhW','admin','bb','bbbb','2025-03-22 16:18:33',NULL,'Français',1);
 
-INSERT INTO `users` (`id`, `login`, `email`, `password`, `role`, `firstname`, `lastname`, `registration_date`) VALUES
-(1, 'admin1', '', '$2y$10$YourHashHere', 'admin', 'Admin', 'One', '2025-03-22 15:45:03'),
-(2, 'admin2', '', '$2y$10$YourHashHere', 'admin', 'Admin', 'Two', '2025-03-22 15:45:03'),
-(3, 'user1', '', '$2y$10$YourHashHere', 'user', 'User', 'One', '2025-03-22 15:45:03'),
-(4, 'user2', '', '$2y$10$YourHashHere', 'user', 'User', 'Two', '2025-03-22 15:45:03'),
-(5, 'user3', '', '$2y$10$YourHashHere', 'user', 'User', 'Three', '2025-03-22 15:45:03'),
-(11, 'admin_john', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'admin', 'John', 'Admin', '2025-03-22 15:53:35'),
-(12, 'admin_jane', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'admin', 'Jane', 'Admin', '2025-03-22 15:53:35'),
-(13, 'alice_user', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'user', 'Alice', 'User', '2025-03-22 15:53:35'),
-(14, 'bob_user', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'user', 'Bob', 'User', '2025-03-22 15:53:35'),
-(15, 'charlie_user', '', '$2y$10$8Qu8Hh6EYiYqvZGHBuuH8.PWqz.BI9tDH8Fz.FWGD5GHKoBrwq9Hy', 'user', 'Charlie', 'User', '2025-03-22 15:53:35'),
-(16, 'kahi', 'kaka1@gmail.com', '$2y$10$cy4BbXm9r80MBgSavuKvyugquK8Uo/EEnqhG7w/BuAWxdIQ6.BeVG', 'user', 'brahim', 'mokhtari', '2025-03-22 16:15:30'),
-(17, 'kahil78', 'kahil.mokhtari@gmail.com', '$2y$10$9UR6LUL3uevK7MlUGkJASeUvG49YeW8lfiLvidVs8U/lTHldgLlyO', 'user', 'kahil', 'mokhtari', '2025-03-22 16:18:33'),
-(18, 'press', 'azgg@gmail.com', '$2y$10$vHoLjBE8wf3yZTqckFCuf.1bCrc2jxP1F0mCsK15HIfPuNV85a.Dy', 'banned', 'Ales', 'azffzf', '2025-03-26 20:13:43'),
-(19, 'bbb', 'bbb@gmail.com', '$2y$10$L8QopaNKH3lR3Nva/MB6Lu0v51434gVXSwneNzGJk.DuFsUXcfXhW', 'admin', 'bb', 'bbbb', '2025-03-22 16:18:33');
 -- --------------------------------------------------------
 
 --

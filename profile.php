@@ -19,45 +19,37 @@ if (!isset($_SESSION['user'])) {
 $userObj = new User();
 
 // Récupérer les informations de l'utilisateur depuis la session
-$user = $_SESSION['user'];
-$userId = $user['id'];
-$username = htmlspecialchars($user['login']);
-$email = htmlspecialchars($user['email']);
+$user      = $_SESSION['user'];
+$userId    = $user['id'];
+$username  = htmlspecialchars($user['login']);
+$email     = htmlspecialchars($user['email']);
 $firstname = htmlspecialchars($user['firstname']);
-$lastname = htmlspecialchars($user['lastname']);
-$isAdmin = $user['role'] === 'admin';
+$lastname  = htmlspecialchars($user['lastname']);
+$isAdmin   = $user['role'] === 'admin';
 
-// Récupérer les statistiques (en supposant que getStats() est adapté à la nouvelle BD)
-
-
-
-
-// Récupérer les réservations en utilisant la nouvelle BD via une requête JOIN
-// La méthode getReservations doit retourner un tableau d'éléments contenant 'reservation' et 'voyage'
+// Récupérer les réservations (méthode existante)
 $userReservations = $userObj->getReservations($userId);
 
 // Définir des valeurs par défaut pour les autres informations
-$phone = "Non renseigné";
-$language = "Français";
-$notifications = "Activées";
-// $status = $points >= 1000 ? "Aventurier Expert" : "Aventurier Débutant";
-$avatar = "img/default-avatar.jpg";
+$phone         = htmlspecialchars($user['phone']        ?? "Non renseigné");
+$language      = htmlspecialchars($user['language']     ?? "Français");
+$notifications = ($user['notifications'] ?? 1) ? "Activées" : "Désactivées";
+$avatar = htmlspecialchars($user['avatar'] ?? "img/default-avatar.jpg");
 
 // Fonction pour récupérer les informations supplémentaires de l'utilisateur si disponibles (optionnel)
 function getUserDetails($username) {
     if (!file_exists(USERS_FILE)) {
         return null;
     }
-    
-    $data = file_get_contents(USERS_FILE);
+
+    $data  = file_get_contents(USERS_FILE);
     $users = json_decode($data, true) ?: [];
-    
+
     foreach ($users as $user) {
         if ($user['username'] === $username) {
             return $user;
         }
     }
-    
     return null;
 }
 
@@ -114,28 +106,10 @@ $userDetails = getUserDetails($username);
             <div class="profile-cover">
                 <div class="profile-avatar">
                     <img src="<?php echo $avatar; ?>" alt="Photo de profil" id="profile-image">
-                    <button class="edit-avatar">
-                        <i class="fas fa-camera"></i>
-                    </button>
                 </div>
             </div>
             <div class="profile-info">
                 <h1><?php echo $username; ?></h1>
-                <!-- <p class="profile-status"><?php echo $status; ?></p> -->
-                <div class="profile-stats">
-                    <!-- <div class="stat-item">
-                        <span class="stat-number"><?php echo $activities; ?></span>
-                        <span class="stat-label">Activités</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number"><?php echo $badges; ?></span>
-                        <span class="stat-label">Badges</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number"><?php echo $points; ?></span>
-                        <span class="stat-label">Points</span>
-                    </div> -->
-                </div>
             </div>
         </section>
 
@@ -156,9 +130,11 @@ $userDetails = getUserDetails($username);
         <section id="informations" class="profile-section">
             <div class="section-header">
                 <h2>Informations Personnelles</h2>
-                <button class="edit-btn"><i class="fas fa-edit"></i> Modifier</button>
+                <button id="edit-toggle" class="edit-btn"><i class="fas fa-edit"></i> Modifier</button>
             </div>
-            <div class="info-grid">
+
+            <!-- VUE STATIQUE -->
+            <div id="info-static" class="info-grid">
                 <div class="info-group">
                     <h3>Coordonnées</h3>
                     <div class="info-item">
@@ -194,6 +170,61 @@ $userDetails = getUserDetails($username);
                     </div>
                 </div>
             </div>
+
+            <!-- FORMULAIRE D'ÉDITION (caché au départ) -->
+            <form id="info-form" class="info-grid" action="scripts_php/update_profile.php" method="post" enctype="multipart/form-data" style="display:none">
+                <!-- avatar -->
+                <div class="info-group" style="grid-column:1 / -1;">
+                    <h3>Photo de Profil</h3>
+                    <div class="info-item">
+                        <i class="fas fa-image"></i>
+                        <div>
+                            <label>Choisir un avatar</label>
+                            <input type="file" name="avatar">
+                        </div>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <h3>Coordonnées</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" name="email" value="<?php echo $email; ?>" required>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <label>Téléphone</label>
+                            <input type="text" name="phone" value="<?php echo $phone; ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <h3>Préférences</h3>
+                    <div class="info-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <label>Langue</label>
+                            <input type="text" name="language" value="<?php echo $language; ?>">
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="notifications" <?php echo $notifications === 'Activées' ? 'checked' : ''; ?>>
+                                Recevoir les notifications
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div style="grid-column:1 / -1; text-align:right; margin-top:1rem">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" id="cancel-edit" class="btn btn-base">Annuler</button>
+                </div>
+            </form>
         </section>
 
         <!-- Section Activités -->
@@ -250,50 +281,46 @@ $userDetails = getUserDetails($username);
                     <div class="row">
                         <?php foreach ($userReservations as $item):
                             $reservation = $item['reservation'];
-                            $voyage = $item['voyage'];
+                            $voyage      = $item['voyage'];
                         ?>
                             <div class="col-md-6">
-
-
-
-                            <div class="reservation-card">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
-                <p class="card-text text-muted">
-                    <small>
-                        <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['date_debut']); ?> au <?php echo htmlspecialchars($voyage['date_fin']); ?>
-                        (<?php echo htmlspecialchars($voyage['duree']); ?>)
-                    </small>
-                </p>
-                <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
-                <div class="reservation-footer d-flex justify-content-between align-items-center">
-                    <div>
-                        <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
-                        <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
-                            <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier me-2">
-                            <i class="fas fa-edit"></i> Modifier
-                        </a>
-                        <?php if (!$reservation['paiement']): ?>
-                        <a href="http://localhost/process-payment.php?trip_id=<?php echo urlencode($voyage['id_voyage']); ?>&price=<?php echo urlencode($reservation['prix_total']); ?>" class="btn btn-primary">
-                            Payer la réservation
-                        </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                                
+                                <div class="reservation-card">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
+                                                <p class="card-text text-muted">
+                                                    <small>
+                                                        <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['date_debut']); ?> au <?php echo htmlspecialchars($voyage['date_fin']); ?>
+                                                        (<?php echo htmlspecialchars($voyage['duree']); ?>)
+                                                    </small>
+                                                </p>
+                                                <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
+                                                <div class="reservation-footer d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
+                                                        <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
+                                                            <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center">
+                                                        <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier me-2">
+                                                            <i class="fas fa-edit"></i> Modifier
+                                                        </a>
+                                                        <?php if (!$reservation['paiement']): ?>
+                                                        <a href="http://localhost/process-payment.php?trip_id=<?php echo urlencode($voyage['id_voyage']); ?>&price=<?php echo urlencode($reservation['prix_total']); ?>" class="btn btn-primary">
+                                                            Payer la réservation
+                                                        </a>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -353,29 +380,30 @@ $userDetails = getUserDetails($username);
 
     <!-- JavaScript pour les actions -->
     <script>
+    // Basculer vue statique <-> formulaire
+    document.getElementById('edit-toggle').addEventListener('click', () => {
+        document.getElementById('info-static').style.display = 'none';
+        document.getElementById('info-form').style.display   = 'grid';
+    });
+    document.getElementById('cancel-edit').addEventListener('click', () => {
+        document.getElementById('info-form').style.display   = 'none';
+        document.getElementById('info-static').style.display = 'grid';
+    });
+
+    // Fonctions liées aux réservations (inchangées)
     function modifyReservation(id) {
         window.location.href = `modifier-reservation.php?id=${id}`;
     }
-
     function cancelReservation(id) {
         if (confirm('Êtes-vous sûr de vouloir annuler cette réservation ?')) {
             fetch(`api/cancel-reservation.php?id=${id}`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    location.reload();
-                } else {
-                    alert('Erreur lors de l\'annulation de la réservation');
-                }
-            });
+            .then(r => r.json())
+            .then(d => d.success ? location.reload() : alert('Erreur lors de l\'annulation de la réservation'));
         }
     }
-
     function addReview(id) {
         window.location.href = `ajouter-avis.php?id=${id}`;
     }

@@ -98,6 +98,18 @@ class User {
         $stmt = $this->db->query("SELECT COUNT(*) FROM users");
         return $stmt->fetchColumn();
     }
+
+    // Récupérer un utilisateur par son identifiant (ajouté)
+    public function getById($id) {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            error_log("Erreur dans getById() : " . $e->getMessage());
+            throw $e;
+        }
+    }
     
     public function updateRole($userId, $newRole) {
         $stmt = $this->db->prepare("
@@ -237,4 +249,4 @@ class User {
         
     //     return $stats;
     // }
-} 
+}
