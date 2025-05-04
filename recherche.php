@@ -67,6 +67,7 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
     <!-- Titre du navigateur -->
     <title>KYS - Recherche</title>
     <!-- Lien vers le fichier CSS -->
+    <script src="sombre.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
