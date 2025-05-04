@@ -289,9 +289,12 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 </div>
             </div>
         </section>
+
+
+
         <section id="activites" class="profile-section">
             <div class="section-header">
-                <h2>Mes Activités Récentes</h2>
+                <h2>Mon Historique de Voyage</h2>
                 <a href="recherche.php" class="btn btn-base">Découvrir plus</a>
             </div>
             <div class="activities-grid">

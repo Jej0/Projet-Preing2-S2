@@ -111,10 +111,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" required>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required>
+                        <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+                    </div>
                 </div>
-
-                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect); ?>">
 
                 <div class="password-reset">
                     <a href="mot-de-passe-oublie.php">Mot de passe oublié ?</a>
@@ -124,6 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </main>
+
+    <script src="assets/js/connexion.js"></script>
 </body>
 
 </html>

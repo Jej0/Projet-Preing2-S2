@@ -1324,9 +1324,28 @@ input[type="password"] {
 
 
 
+/* Mot de passe */
+.password-container {
+    position: relative;
+}
 
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: var(--light-gray);
+}
 
+.password-input {
+    padding-right: 30px;
+    width: 100%;
+}
 
+.char-counter {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    text-align: right;
+}
 
 
 

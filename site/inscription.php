@@ -10,13 +10,47 @@ if (file_exists($usersFile)) {
 
 // Traitement du formulaire d'inscription
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $email = $_POST['email'] ?? '';
+    $username = trim($_POST['username'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirm-password'] ?? '';
 
     // Validation
     $errors = [];
+
+    // Validation du nom d'utilisateur
+    if (empty($username)) {
+        $errors[] = "Le nom d'utilisateur est requis.";
+    } elseif (strlen($username) < 3) {
+        $errors[] = "Le nom d'utilisateur doit contenir au moins 3 caractères.";
+    } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+        $errors[] = "Le nom d'utilisateur ne peut contenir que des lettres, chiffres et underscores.";
+    }
+
+    // Validation de l'email
+    if (empty($email)) {
+        $errors[] = "L'email est requis.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "L'email n'est pas valide.";
+    }
+
+    // Validation du mot de passe
+    if (empty($password)) {
+        $errors[] = "Le mot de passe est requis.";
+    } elseif (strlen($password) < 8) {
+        $errors[] = "Le mot de passe doit contenir au moins 8 caractères.";
+    } elseif (!preg_match('/[A-Z]/', $password)) {
+        $errors[] = "Le mot de passe doit contenir au moins une majuscule.";
+    } elseif (!preg_match('/[0-9]/', $password)) {
+        $errors[] = "Le mot de passe doit contenir au moins un chiffre.";
+    } elseif (!preg_match('/[^a-zA-Z0-9]/', $password)) {
+        $errors[] = "Le mot de passe doit contenir au moins un caractère spécial.";
+    }
+
+    // Vérification de la confirmation du mot de passe
+    if ($password !== $confirmPassword) {
+        $errors[] = "Les mots de passe ne correspondent pas.";
+    }
 
     // Vérifier si l'utilisateur existe déjà
     foreach ($users as $user) {
@@ -28,14 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors[] = "Cet email est déjà utilisé.";
             break;
         }
-    }
-
-    if ($password !== $confirmPassword) {
-        $errors[] = "Les mots de passe ne correspondent pas.";
-    }
-
-    if (strlen($password) < 8) {
-        $errors[] = "Le mot de passe doit contenir au moins 8 caractères.";
     }
 
     if (empty($errors)) {
@@ -88,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>KYS - Inscription</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
@@ -142,19 +169,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password">Mot de passe (min. 8 caractères) :</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" class="password-input" required maxlength="32" oninput="updateCharCounter('password', 'password-counter')">
+                        <i class="fas fa-eye password-toggle" id="password-toggle" onclick="togglePasswordVisibility('password', 'password-toggle')"></i>
+                    </div>
+                    <div class="char-counter" id="password-counter">32 caractères restants</div>
                 </div>
 
                 <div class="form-group">
                     <label for="confirm-password">Confirmer le mot de passe :</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password" name="confirm-password" class="password-input" required maxlength="32" oninput="updateCharCounter('confirm-password', 'confirm-password-counter')">
+                        <i class="fas fa-eye password-toggle" id="confirm-password-toggle" onclick="togglePasswordVisibility('confirm-password', 'confirm-password-toggle')"></i>
+                    </div>
+                    <div class="char-counter" id="confirm-password-counter">32 caractères restants</div>
                 </div>
 
                 <button type="submit" class="btn">S'inscrire</button>
             </form>
         </div>
     </main>
+
+    <script src="assets/js/inscription.js"></script>
 </body>
 
 </html>

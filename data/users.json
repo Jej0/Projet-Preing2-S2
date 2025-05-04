@@ -62,5 +62,27 @@
             101,
             103
         ]
+    },
+    {
+        "id_user": 3,
+        "username": "jordan",
+        "mot_de_passe": "$2y$12$LzC1Ko5lxVDUQ3.QIJFc0.Z3DY\/S\/QrfDDYuH.DaO6O5q1yTFMVgC",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "agagf@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2025-05-04",
+            "connexion": "2025-05-04"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
     }
 ]

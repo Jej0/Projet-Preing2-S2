@@ -281,7 +281,7 @@ $nombreVoyages = count($voyages);
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
-
+    <script src="assets/js/popup.js"></script>
 </body>
 
 </html>
