@@ -10,19 +10,8 @@ if (!isset($_SESSION['user'])) {
 // Charger les données utilisateur depuis la session
 $user = $_SESSION['user'];
 $username = $user['username'];
-$name = $user['information_personnelles']['prenom'] . ' ' . $user['information_personnelles']['nom'];
-$email = $user['information_personnelles']['mail'];
-$phone = $user['information_personnelles']['telephone'] ?? 'Non renseigné';
 $status = 'Membre depuis ' . date('d/m/Y', strtotime($user['date']['inscription']));
 $isAdmin = $user['admin'] == 'true';
-
-// Données factices pour l'exemple (à remplacer par vos données réelles)
-//$activities = $user['nb_activites'] ?? 0;
-//$badges = $user['nb_badges'] ?? 0;
-//$language = 'Français';
-//$notifications = 'Activées';
-
-
 
 // Fonction pour vérifier les badges basés sur les conditions
 function getUserBadges($userData)
@@ -145,7 +134,6 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         </div>
     </nav>
 
-
     <main class="profile-container">
         <section class="profile-header">
             <div class="profile-cover">
@@ -184,46 +172,123 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         <section id="informations" class="profile-section">
             <div class="section-header">
                 <h2>Informations Personnelles</h2>
-                <button class="edit-btn"><i class="fas fa-edit"></i> Modifier</button>
+                <button id="submit-all-changes" class="btn hidden"><i class="fas fa-save"></i> Soumettre les modifications</button>
             </div>
             <div class="info-grid">
+                <!-- Groupe Identité -->
                 <div class="info-group">
-                    <h3>Coordonnées</h3>
+                    <h3><i class="fas fa-id-card"></i> Identité</h3>
+
+                    <!-- Champ Nom -->
                     <div class="info-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-signature"></i>
                         <div>
-                            <label>Email</label>
-                            <p><?php echo 'none'; ?></p>
+                            <label>Nom</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['nom']) ? htmlspecialchars($user['information_personnelles']['nom']) : 'Non renseigné' ?></p>
+                                <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['nom'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
+
+                    <!-- Champ Prénom -->
                     <div class="info-item">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-user-tag"></i>
                         <div>
-                            <label>Téléphone</label>
-                            <p><?php echo 'none'; ?></p>
+                            <label>Prénom</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['prenom']) ? htmlspecialchars($user['information_personnelles']['prenom']) : 'Non renseigné' ?></p>
+                                <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['prenom'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Champ Âge -->
+                    <div class="info-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <div>
+                            <label>Âge</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['naissance']) ? htmlspecialchars($user['information_personnelles']['naissance']) : 'Non renseigné' ?></p>
+                                <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['naissance'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Groupe Coordonnées -->
                 <div class="info-group">
-                    <h3>Préférences</h3>
+                    <h3><i class="fas fa-address-book"></i> Coordonnées</h3>
+
+                    <!-- Champ Email -->
                     <div class="info-item">
-                        <i class="fas fa-language"></i>
+                        <i class="fas fa-at"></i>
                         <div>
-                            <label>Langue</label>
-                            <p><?php echo 'none'; ?></p>
+                            <label>Email</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= $user['information_personnelles']['mail'] ?></p>
+                                <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['mail'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
+
+                    <!-- Champ Téléphone -->
                     <div class="info-item">
-                        <i class="fas fa-bell"></i>
+                        <i class="fas fa-mobile-alt"></i>
                         <div>
-                            <label>Notifications</label>
-                            <p><?php echo 'none'; ?></p>
+                            <label>Téléphone</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['telephone']) ? htmlspecialchars($user['information_personnelles']['telephone']) : 'Non renseigné' ?></p>
+                                <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['telephone'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
+
+                    <!-- Champ Adresse -->
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <label>Adresse</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['adresse']) ? htmlspecialchars($user['information_personnelles']['adresse']) : 'Non renseigné' ?></p>
+                                <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['adresse'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-
         <section id="activites" class="profile-section">
             <div class="section-header">
                 <h2>Mes Activités Récentes</h2>
@@ -268,10 +333,6 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             </div>
         </section>
     </main>
-
-
-
-
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -296,6 +357,182 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitAllBtn = document.getElementById('submit-all-changes');
+            let modifiedFields = new Map();
+
+            // Gestion de l'édition des champs
+            document.querySelectorAll('.edit-field-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const fieldItem = this.closest('.info-item');
+                    const wrapper = fieldItem.querySelector('.field-wrapper');
+                    const valueEl = wrapper.querySelector('.field-value');
+                    const inputEl = wrapper.querySelector('.field-input');
+                    const actionsEl = wrapper.querySelector('.field-actions');
+
+                    // Activer le mode édition
+                    valueEl.classList.add('hidden');
+                    inputEl.classList.remove('hidden');
+                    actionsEl.classList.remove('hidden');
+                    this.classList.add('hidden');
+
+                    // Stocker la valeur originale
+                    if (!inputEl.dataset.originalValue) {
+                        inputEl.dataset.originalValue = inputEl.value;
+                    }
+                });
+            });
+
+            // Gestion des annulations
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const fieldItem = this.closest('.info-item');
+                    resetField(fieldItem);
+                });
+            });
+
+            // Gestion des validations
+            document.querySelectorAll('.save-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const fieldItem = this.closest('.info-item');
+                    const wrapper = fieldItem.querySelector('.field-wrapper');
+                    const valueEl = wrapper.querySelector('.field-value');
+                    const inputEl = wrapper.querySelector('.field-input');
+                    const editBtn = fieldItem.querySelector('.edit-field-btn');
+                    const fieldName = fieldItem.querySelector('label').textContent.trim().toLowerCase();
+
+                    // Validation du champ
+                    if (!validateField(fieldName, inputEl.value)) {
+                        return;
+                    }
+
+                    // Mettre à jour la valeur affichée
+                    valueEl.textContent = inputEl.value || 'Non renseigné';
+
+                    // Désactiver le mode édition
+                    valueEl.classList.remove('hidden');
+                    inputEl.classList.add('hidden');
+                    this.closest('.field-actions').classList.add('hidden');
+                    editBtn.classList.remove('hidden');
+
+                    // Marquer comme modifié seulement si la valeur a changé
+                    if (inputEl.value !== inputEl.dataset.originalValue) {
+                        modifiedFields.set(fieldItem, {
+                            name: getFieldKey(fieldName),
+                            value: inputEl.value
+                        });
+                    } else {
+                        modifiedFields.delete(fieldItem);
+                    }
+
+                    updateSubmitButton();
+                });
+            });
+
+            // Fonction pour réinitialiser un champ
+            function resetField(fieldItem) {
+                const wrapper = fieldItem.querySelector('.field-wrapper');
+                const valueEl = wrapper.querySelector('.field-value');
+                const inputEl = wrapper.querySelector('.field-input');
+                const actionsEl = wrapper.querySelector('.field-actions');
+                const editBtn = fieldItem.querySelector('.edit-field-btn');
+
+                // Revenir à la valeur originale
+                inputEl.value = inputEl.dataset.originalValue;
+
+                // Désactiver le mode édition
+                valueEl.classList.remove('hidden');
+                inputEl.classList.add('hidden');
+                actionsEl.classList.add('hidden');
+                editBtn.classList.remove('hidden');
+
+                // Retirer des modifications si présent
+                modifiedFields.delete(fieldItem);
+                updateSubmitButton();
+            }
+
+            // Validation des champs
+            function validateField(fieldName, value) {
+                const validations = {
+                    'nom': v => v === '' || v.length <= 50,
+                    'prénom': v => v === '' || v.length <= 50,
+                    'âge': v => v === '' || (/^\d+$/.test(v) && parseInt(v) > 0 && parseInt(v) < 120),
+                    'email': v => v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+                    'téléphone': v => v === '' || /^[\d\s+-]{10,15}$/.test(v),
+                    'adresse': v => v === '' || v.length <= 255
+                };
+
+                if (!validations[fieldName](value)) {
+                    alert(`Format invalide pour le champ ${fieldName}`);
+                    return false;
+                }
+                return true;
+            }
+
+            // Conversion des noms de champs frontend -> backend
+            function getFieldKey(fieldName) {
+                const fieldMap = {
+                    'nom': 'nom',
+                    'prénom': 'prenom',
+                    'âge': 'naissance',
+                    'email': 'mail',
+                    'téléphone': 'telephone',
+                    'adresse': 'adresse'
+                };
+                return fieldMap[fieldName] || fieldName;
+            }
+
+            // Mise à jour du bouton de soumission
+            function updateSubmitButton() {
+                submitAllBtn.classList.toggle('hidden', modifiedFields.size === 0);
+            }
+
+            // Soumission finale des modifications
+            submitAllBtn.addEventListener('click', async function() {
+                if (modifiedFields.size === 0) return;
+
+                const formData = new FormData();
+                formData.append('user_id', <?= $user['id_user'] ?>);
+
+                // Ajouter les champs modifiés
+                modifiedFields.forEach((fieldData, fieldItem) => {
+                    formData.append(fieldData.name, fieldData.value);
+                });
+
+                try {
+                    const response = await fetch('../scripts_php/update_profile.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Erreur serveur');
+                    }
+
+                    if (data.success) {
+                        // Mettre à jour les valeurs originales
+                        modifiedFields.forEach((fieldData, fieldItem) => {
+                            const inputEl = fieldItem.querySelector('.field-input');
+                            inputEl.dataset.originalValue = inputEl.value;
+                        });
+
+                        modifiedFields.clear();
+                        updateSubmitButton();
+                        alert('Modifications sauvegardées avec succès!');
+                    } else {
+                        throw new Error(data.message || 'Erreur lors de la sauvegarde');
+                    }
+                } catch (error) {
+                    console.error('Erreur:', error);
+                    alert('Erreur: ' + error.message);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
