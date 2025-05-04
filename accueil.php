@@ -42,7 +42,9 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<meta name="description" content="Keep Yourself Safe vous offre des aventures extrêmes et inoubliables en toute sécurité. Nos experts vous trouvent les meilleurs plans et activités pour vous faire sentir vivant. Planifiez dès maintenant !">
 	<meta name="keywords" content="vacances, sport, extrême, adrénaline, destinations, aventure, sensations fortes, séjour">
 	<title>KYS - Accueil</title>
+	<script src="sombre.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -50,6 +52,9 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<!-- Navigation -->
 	<nav>
 		<div class="nav-left">
+
+
+
 			<a href="accueil.php" class="nav-brand">
 				<img src="img/logo.png" alt="Logo">
 				Keep Yourself Safe
@@ -61,6 +66,11 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			<li><a href="mailto:contact@kys.fr">Contact</a></li>
 		</ul>
 		<div class="nav-right">
+
+			<button id="theme-toggle" class="nav-btn">
+				<i class="fa-solid fa-moon"></i>
+			</button>
+			
 			<?php if (!isset($_SESSION['user'])): ?>
 				<a href="connexion.php" class="btn nav-btn">Se connecter</a>
 				<a href="inscription.php" class="btn nav-btn">S'inscrire</a>

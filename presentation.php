@@ -35,6 +35,8 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Ajout des icônes Font Awesome -->
+    <script src="sombre.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -56,6 +58,11 @@ $meilleursVoyages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </ul>
         <!-- Profil et connexion (droite)-->
         <div class="nav-right">
+
+        <button id="theme-toggle" class="nav-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>

@@ -84,6 +84,7 @@ $userDetails = getUserDetails($username);
     <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Ajout des icônes Font Awesome -->
+    <script src="sombre.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>

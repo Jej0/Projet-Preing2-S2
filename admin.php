@@ -103,6 +103,9 @@ $newUsersThisMonth = $pdo->query("SELECT COUNT(*) FROM users WHERE MONTH(registr
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
         <div class="nav-right">
+            <button id="theme-toggle" class="nav-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>

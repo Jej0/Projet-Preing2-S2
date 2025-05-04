@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <script src="sombre.js"></script>
     <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
