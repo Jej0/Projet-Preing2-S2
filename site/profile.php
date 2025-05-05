@@ -13,6 +13,63 @@ $username = $user['username'];
 $status = 'Membre depuis ' . date('d/m/Y', strtotime($user['date']['inscription']));
 $isAdmin = $user['admin'] == 'true';
 
+// Chargement des données JSON
+$users = json_decode(file_get_contents('../data/users.json'), true);
+$reservations = json_decode(file_get_contents('../data/reservation.json'), true);
+$voyages = json_decode(file_get_contents('../data/voyages.json'), true);
+
+// Utilisateur connecté
+$currentUser = $_SESSION['user'];
+$userId = $currentUser['id_user'];
+
+// Récupérer les réservations de l'utilisateur
+$userReservations = [];
+foreach ($reservations as $reservation) {
+    if ($reservation['id_utilisateur'] == $userId) {
+        // Trouver le voyage correspondant
+        foreach ($voyages as $voyage) {
+            if ($voyage['id_voyage'] == $reservation['id_voyage']) {
+                $userReservations[] = [
+                    'reservation' => $reservation,
+                    'voyage' => $voyage
+                ];
+                break;
+            }
+        }
+    }
+}
+
+$historiqueVoyages = [];
+$allVoyages = [
+    [
+        "id_reservation" => 102,
+        "id_utilisateur" => 2,
+        "id_voyage" => 2,
+        "date_reservation" => "2025-03-25",
+        "options" => [/*...*/],
+        "prix_total" => 2500
+    ],
+    [
+        "id_reservation" => 104,
+        "id_utilisateur" => 2,
+        "id_voyage" => 5,
+        "date_reservation" => "2025-03-26",
+        "options" => [/*...*/],
+        "prix_total" => 8120
+    ]
+];
+
+if (file_exists('../data/historique_voyages.json')) {
+    $allVoyages = json_decode(file_get_contents('../data/historique_voyages.json'), true);
+    
+    // Filtrer seulement les voyages de cet utilisateur
+    if (!empty($user['id_historique_voyages'])) {
+        $historiqueVoyages = array_filter($allVoyages, function($voyage) use ($user) {
+            return in_array($voyage['id_reservation'], $user['id_historique_voyages']);
+        });
+    }
+}
+
 // Fonction pour vérifier les badges basés sur les conditions
 function getUserBadges($userData)
 {
@@ -290,27 +347,96 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             </div>
         </section>
 
-
-
-        <section id="activites" class="profile-section">
+        <section id="historique" class="profile-section">
             <div class="section-header">
                 <h2>Mon Historique de Voyage</h2>
-                <a href="recherche.php" class="btn btn-base">Découvrir plus</a>
+                <?php if (count($historiqueVoyages) > 3): ?>
+                    <button id="show-all-btn" class="btn btn-base">Voir tout</button>
+                <?php endif; ?>
             </div>
-            <div class="activities-grid">
-                ??????
-            </div>
+            
+            <?php if (!empty($historiqueVoyages)): ?>
+                <div class="activities-grid" id="voyages-container">
+                    <?php foreach (array_slice($historiqueVoyages, 0, 3) as $voyage): ?>
+                        <div class="activity-card">
+                            <div class="activity-detail-card">
+                                <div class="activity-header">
+                                    <i class="fas fa-suitcase"></i>
+                                    <h3>Réservation #<?= $voyage['id_reservation'] ?></h3>
+                                </div>
+                                <ul class="activity-list">
+                                    <li><strong>Date:</strong> <?= $voyage['date_reservation'] ?></li>
+                                    <li><strong>Prix total:</strong> <?= $voyage['prix_total'] ?> €</li>
+                                </ul>
+                                <a href="details_voyage.php?id=<?= $voyage['id_reservation'] ?>" class="btn btn-base">Voir détails</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <p class="no-data-message">Aucun voyage dans votre historique.</p>
+            <?php endif; ?>
         </section>
 
-        <section id="reservations" class="profile-section">
-            <div class="section-header">
-                <h2>Mes Réservations</h2>
-            </div>
-            <div class="reservations-list">
-                ?????
-            </div>
-        </section>
 
+
+
+        <div class="reservations-container">
+        <h1 class="reservations-title">Mes Réservations</h1>
+
+        <?php if (empty($userReservations)): ?>
+            <div class="empty-state">
+                <h2><i class="far fa-calendar-check"></i> Vous n'avez aucune réservation</h2>
+                <p class="lead">Parcourez nos voyages et réservez votre prochaine aventure !</p>
+                <a href="recherche.php" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Voir les voyages disponibles
+                </a>
+            </div>
+        <?php else: ?>
+            <div class="row">
+                <?php foreach ($userReservations as $item):
+                    $reservation = $item['reservation'];
+                    $voyage = $item['voyage'];
+                ?>
+                    <div class="col-md-6">
+                        <div class="reservation-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
+                                        <p class="card-text text-muted">
+                                            <small>
+                                                <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['dates']['debut']); ?> au <?php echo htmlspecialchars($voyage['dates']['fin']); ?>
+                                                (<?php echo htmlspecialchars($voyage['dates']['duree']); ?>)
+                                            </small>
+                                        </p>
+                                        <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
+
+                                        <div class="reservation-footer">
+                                            <div>
+                                                <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
+                                                <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
+                                                    <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier">
+                                                    <i class="fas fa-edit"></i> Modifier
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
 
 
 
@@ -536,6 +662,46 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showAllBtn = document.getElementById('show-all-btn');
+            if (!showAllBtn) return;
+
+            const voyagesContainer = document.getElementById('voyages-container');
+            const allVoyages = <?= json_encode($historiqueVoyages) ?>;
+            let showAll = false;
+
+            showAllBtn.addEventListener('click', function() {
+                showAll = !showAll;
+                this.textContent = showAll ? 'Voir moins' : 'Voir tout';
+                
+                voyagesContainer.innerHTML = '';
+                const voyagesToShow = showAll ? allVoyages : allVoyages.slice(0, 3);
+                
+                voyagesToShow.forEach(voyage => {
+                    
+                    const card = document.createElement('div');
+                    card.className = 'activity-card';
+                    card.innerHTML = `
+                        <div class="activity-detail-card">
+                            <div class="activity-header">
+                                <i class="fas fa-suitcase"></i>
+                                <div>
+                                    <h3>Réservation #${voyage.id_reservation}</h3>
+                                </div>
+                            </div>
+                            <ul class="activity-list">
+                                <li><strong>Date:</strong> ${voyage.date_reservation}</li>
+                                <li><strong>Prix total:</strong> ${voyage.prix_total} €</li>
+                            </ul>
+                            <a href="details_voyage.php?id=${voyage.id_reservation}" class="btn btn-base">Voir détails</a>
+                        </div>
+                    `;
+                    voyagesContainer.appendChild(card);
+                });
+            });
+        });
+        </script>
 </body>
 
 </html>

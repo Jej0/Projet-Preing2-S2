@@ -637,11 +637,13 @@ input[type="date"] {
     gap: 25px;
 }
 
-/* =========================== Recherche Cartes d'activité =========================== */
+/* =========================== Recherche Cartes d'activité(recherche & profile historique) =========================== */
 .activity-card {
     background: var(--white);
     border-radius: 15px;
+    border: 1px solid var(--light-gray);
     overflow: hidden;
+    position: relative;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
@@ -1029,7 +1031,7 @@ input[type="password"] {
 
 
 
-/* Conteneur principal profile*/
+/* ====== Conteneur principal profile*/
 .profile-container {
     max-width: 1200px;
     margin: 32px auto;
@@ -1243,56 +1245,71 @@ input[type="password"] {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Grille d'activités */
+/* ===== Grille d'activités */
 .activities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.activity-card {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.activity-detail-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
 }
 
-.activity-card:hover {
-    transform: translateY(-5px);
+.activity-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.activity-date {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+.activity-header i {
+    font-size: 28px;
+    color: var(--blue);
+    background: var(--white-blueish);
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.activity-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.activity-header p {
+    margin: 5px 0 0;
+    color: var(--light-gray);
     font-size: 0.9rem;
 }
+
+.activity-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.activity-list li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Réservations */
 .reservation-card {
@@ -1318,13 +1335,50 @@ input[type="password"] {
     gap: 10px;
 }
 
+/* Activities Detail Section */
+.activities-detail {
+    padding: 80px 20px;
+    background: #f9f9f9;
+}
 
 
 
 
 
 
-/* Mot de passe */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==== Mot de passe */
 .password-container {
     position: relative;
 }
@@ -1454,62 +1508,7 @@ footer {
     padding: 0 20px;
 }
 
-/* Activities Detail Section */
-.activities-detail {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
 
-.activities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-}
-
-.activity-detail-card {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.activity-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.activity-header i {
-    font-size: 2rem;
-    color: var(--blue);
-}
-
-.activity-list {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.activity-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.activity-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background: var(--blue);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.activity-link:hover {
-    background: #0056b3;
-}
 
 /* Footer Styles */
 footer {
@@ -2045,23 +2044,9 @@ footer {
 
 
 
-.activities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
 
-.activity-card {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-}
 
-.activity-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
+
 
 .activity-image {
     position: relative;
@@ -2074,16 +2059,7 @@ footer {
     object-fit: cover;
 }
 
-.activity-date {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-}
+
 
 .activity-content {
     padding: 20px;

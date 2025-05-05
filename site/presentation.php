@@ -20,7 +20,6 @@ $nombreInscrits = count($users);
 $nombreVoyages = count($voyages);
 ?>
 
-
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -110,7 +109,7 @@ $nombreVoyages = count($voyages);
                     <h3>Axel ATAGAN</h3>
                 </div>
                 <div class="fondateur-card">
-                    <img src="assets/img/testimonial2.jpg" alt="image fondateur">
+                    <img src="assets/img/testimonial1.jpg" alt="image fondateur">
                     <h3>Naïm LACHGAR-BOUACHRA</h3>
                 </div>
             </div>
