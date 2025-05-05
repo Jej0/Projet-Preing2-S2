@@ -34,3 +34,44 @@ document.getElementById("simpleNewsletterForm").addEventListener("submit", funct
         messageElement.style.color = "red";
     });
 });
+
+// Timer Cadeau
+function startCountdown() {
+    let endDate = new Date();
+    endDate.setSeconds(endDate.getSeconds() + 300);
+    let hasSwitched = false;
+
+    function updateTimer() {
+        const now = new Date();
+        let diff = endDate - now;
+
+        if (!hasSwitched && diff <= 3000) {
+            endDate = new Date();
+            endDate.setDate(endDate.getDate() + 2);
+            endDate.setHours(endDate.getHours() + 8);
+            endDate.setMinutes(endDate.getMinutes() + 36);
+            endDate.setSeconds(endDate.getSeconds() + 12);
+            hasSwitched = true;
+            diff = endDate - now;
+
+            document.getElementById('debloquageText').classList.add('hidden');
+            document.getElementById('timeErreur').classList.remove('hidden');
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+        requestAnimationFrame(updateTimer);
+    }
+
+    updateTimer();
+}
+
+document.addEventListener('DOMContentLoaded', startCountdown);

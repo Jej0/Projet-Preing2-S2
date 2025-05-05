@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Elements du formulaire
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments du formulaire
     const form = document.getElementById('register-form');
     const usernameInput = document.getElementById('username');
     const emailInput = document.getElementById('email');
@@ -7,8 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPasswordInput = document.getElementById('confirm-password');
     const passwordToggle = document.getElementById('password-toggle');
     const confirmPasswordToggle = document.getElementById('confirm-password-toggle');
+    const passwordCounter = document.getElementById('password-counter');
+    const confirmPasswordCounter = document.getElementById('confirm-password-counter');
 
-    // Fonctions de validation
+    // Initialisation des compteurs
+    updateCharCounter('password', 'password-counter');
+    updateCharCounter('confirm-password', 'confirm-password-counter');
+
+    // Fonction de validation du nom d'utilisateur
     function validateUsername() {
         const regex = /^[a-zA-Z0-9_]{3,}$/;
         if (!regex.test(usernameInput.value)) {
@@ -19,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
+    // Fonction de validation de l'email
     function validateEmail() {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!regex.test(emailInput.value)) {
@@ -29,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
+    // Fonction de validation du mot de passe
     function validatePassword() {
         const password = passwordInput.value;
         const requirements = {
@@ -52,12 +60,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
+    // Fonction de vérification de la correspondance des mots de passe
     function validatePasswordMatch() {
         const match = passwordInput.value === confirmPasswordInput.value;
         const matchElement = document.getElementById('password-match');
 
         if (confirmPasswordInput.value) {
-            matchElement.textContent = match ? "Les mots de passe correspondent" : "Les mots de passe ne correspondent pas";
+            matchElement.textContent = match ? "✓ Les mots de passe correspondent" : "✗ Les mots de passe ne correspondent pas";
             matchElement.style.color = match ? 'green' : 'red';
         } else {
             matchElement.textContent = "";
@@ -71,29 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
-    // Gestionnaires d'événements
-    usernameInput.addEventListener('input', validateUsername);
-    emailInput.addEventListener('input', validateEmail);
-    passwordInput.addEventListener('input', function () {
-        validatePassword();
-        updateCharCounter('password', 'password-counter');
-        if (confirmPasswordInput.value) validatePasswordMatch();
-    });
-    confirmPasswordInput.addEventListener('input', validatePasswordMatch);
-
     // Fonction pour basculer la visibilité du mot de passe
-    function togglePasswordVisibility(inputId, iconId) {
-        const input = document.getElementById(inputId);
-        const icon = document.getElementById(iconId);
-
+    function togglePasswordVisibility(input, icon) {
         if (input.type === 'password') {
             input.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
         } else {
             input.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
         }
     }
 
@@ -101,19 +95,41 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCharCounter(inputId, counterId) {
         const input = document.getElementById(inputId);
         const counter = document.getElementById(counterId);
-        const maxLength = input.maxLength;
+        
+        if (!input || !counter) return;
+        
+        const maxLength = parseInt(input.getAttribute('maxlength')) || 32;
         const remaining = maxLength - input.value.length;
-
+        
         counter.textContent = remaining + " caractère(s) restant(s)";
-        counter.style.color = remaining < 5 ? '#ff0000' : '#666';
+        counter.style.color = remaining < 5 ? 'red' : '#666';
     }
 
-    // Écouteurs pour les boutons d'affichage du mot de passe
-    passwordToggle.addEventListener('click', () => togglePasswordVisibility('password', 'password-toggle'));
-    confirmPasswordToggle.addEventListener('click', () => togglePasswordVisibility('confirm-password', 'confirm-password-toggle'));
+    // Écouteurs d'événements
+    usernameInput.addEventListener('input', validateUsername);
+    emailInput.addEventListener('input', validateEmail);
+    
+    passwordInput.addEventListener('input', function() {
+        updateCharCounter('password', 'password-counter');
+        validatePassword();
+        if (confirmPasswordInput.value) validatePasswordMatch();
+    });
+    
+    confirmPasswordInput.addEventListener('input', function() {
+        updateCharCounter('confirm-password', 'confirm-password-counter');
+        validatePasswordMatch();
+    });
+
+    passwordToggle.addEventListener('click', function() {
+        togglePasswordVisibility(passwordInput, passwordToggle);
+    });
+
+    confirmPasswordToggle.addEventListener('click', function() {
+        togglePasswordVisibility(confirmPasswordInput, confirmPasswordToggle);
+    });
 
     // Validation du formulaire avant soumission
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', function(event) {
         if (!validateUsername() || !validateEmail() || !validatePassword() || !validatePasswordMatch()) {
             event.preventDefault();
             // Forcer l'affichage des messages d'erreur

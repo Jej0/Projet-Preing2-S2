@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form action="inscription.php" method="POST">
+            <form action="inscription.php" method="POST" id="register-form">
                 <div class="form-group">
                     <label for="username">Nom d'utilisateur :</label>
                     <input type="text" id="username" name="username" required>
@@ -175,8 +175,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="fas fa-eye password-toggle" id="password-toggle" onclick="togglePasswordVisibility('password', 'password-toggle')"></i>
                     </div>
                     <div class="char-counter" id="password-counter">32 caractères restants</div>
+                    <div class="password-rules">
+                        <p>Le mot de passe doit contenir :</p>
+                        <ul>
+                            <li id="req-length">8 caractères minimum</li>
+                            <li id="req-uppercase">1 majuscule</li>
+                            <li id="req-number">1 chiffre</li>
+                            <li id="req-special">1 caractère spécial</li>
+                        </ul>
+                        <p id="password-match" style="margin-top: 5px;"></p>
+                    </div>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="confirm-password">Confirmer le mot de passe :</label>
                     <div class="password-container">
