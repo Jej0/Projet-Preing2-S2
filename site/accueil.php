@@ -70,8 +70,8 @@ foreach ($users as $user) {
 			<h3>Bienvenue sur notre site !</h3>
 			<p>Ce site propose des voyages avec des activités extrêmes. Il est donc réservé aux personnes majeures.</p>
 			<div class="popup-buttons">
-				<button id="acceptBtn" class="btn btn-base">J'ai +18 ans</button>
-				<button id="rejectBtn" class="btn btn-base">Quitter le site</button>
+				<button id="acceptBtn" class="btn button btn-base">J'ai +18 ans</button>
+				<button id="rejectBtn" class="btn button btn-base">Quitter le site</button>
 			</div>
 		</div>
 	</div>
@@ -252,7 +252,7 @@ foreach ($users as $user) {
 
 				<form id="simpleNewsletterForm" class="newsletter-form">
 					<input type="email" id="simpleEmailInput" placeholder="Votre email" required>
-					<button type="submit" class="btn btn-base">S'inscrire</button>
+					<button type="submit" class="btn button btn-base">S'inscrire</button>
 				</form>
 				<p id="simpleMessage"></p>
 			</div>

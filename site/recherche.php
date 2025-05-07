@@ -126,7 +126,7 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                                         <i class="fas fa-calendar"></i>
                                         <input type="date" name="date" value="<?= htmlspecialchars(isset($_GET['date']) ? $_GET['date'] : '') ?>">
                                     </div>
-                                    <button type="submit" class="btn search-submit">Rechercher</button>
+                                    <button type="submit" class="btn button search-submit">Rechercher</button>
                                 </div>
                             </div>
                         </div>
@@ -140,9 +140,9 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                 <div class="filter-group">
                     <label>Contrat</label>
                     <div class="filter-options">
-                        <button class="btn filter-option active">Tous</button>
-                        <button class="btn filter-option">Oui</button>
-                        <button class="btn filter-option">Non</button>
+                        <button class="btn button filter-option active">Tous</button>
+                        <button class="btn button filter-option">Oui</button>
+                        <button class="btn button filter-option">Non</button>
                     </div>
                 </div>
                 <div class="filter-group">
@@ -158,9 +158,9 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                 <div class="filter-group">
                     <label>Durée</label>
                     <div class="filter-options">
-                        <button class="btn filter-option active">Tous</button>
-                        <button class="btn filter-option">Long</button>
-                        <button class="btn filter-option">Cours</button>
+                        <button class="btn button filter-option active">Tous</button>
+                        <button class="btn button filter-option">Long</button>
+                        <button class="btn button filter-option">Cours</button>
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@ $filteredVoyages = array_filter($voyages, function ($voyage) use ($searchTerm, $
                                     <span class="badge populaires">Populaires</span>
                                 <?php endif; ?>
                             </div>
-                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                            <button class="favorite-btn button"><i class="far fa-heart"></i></button>
                         </div>
                         <div class="activity-content">
                             <h3><?php echo $voyage['titre']; ?></h3>

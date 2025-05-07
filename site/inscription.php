@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="char-counter" id="confirm-password-counter">32 caractères restants</div>
                 </div>
 
-                <button type="submit" class="btn">S'inscrire</button>
+                <button type="submit" class="btn button">S'inscrire</button>
             </form>
         </div>
     </main>

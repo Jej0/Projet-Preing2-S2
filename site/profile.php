@@ -229,7 +229,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         <section id="informations" class="profile-section">
             <div class="section-header">
                 <h2>Informations Personnelles</h2>
-                <button id="submit-all-changes" class="btn hidden"><i class="fas fa-save"></i> Soumettre les modifications</button>
+                <button id="submit-all-changes" class="btn button hidden"><i class="fas fa-save"></i> Soumettre les modifications</button>
             </div>
             <div class="info-grid">
                 <!-- Groupe Identité -->
@@ -245,11 +245,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= !empty($user['information_personnelles']['nom']) ? htmlspecialchars($user['information_personnelles']['nom']) : 'Non renseigné' ?></p>
                                 <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['nom'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
 
@@ -262,11 +262,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= !empty($user['information_personnelles']['prenom']) ? htmlspecialchars($user['information_personnelles']['prenom']) : 'Non renseigné' ?></p>
                                 <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['prenom'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
 
@@ -279,11 +279,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= !empty($user['information_personnelles']['naissance']) ? htmlspecialchars($user['information_personnelles']['naissance']) : 'Non renseigné' ?></p>
                                 <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['naissance'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
                 </div>
@@ -301,11 +301,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= $user['information_personnelles']['mail'] ?></p>
                                 <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['mail'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
 
@@ -318,11 +318,11 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= !empty($user['information_personnelles']['telephone']) ? htmlspecialchars($user['information_personnelles']['telephone']) : 'Non renseigné' ?></p>
                                 <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['telephone'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
 
@@ -335,17 +335,54 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                                 <p class="field-value"><?= !empty($user['information_personnelles']['adresse']) ? htmlspecialchars($user['information_personnelles']['adresse']) : 'Non renseigné' ?></p>
                                 <input type="email" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['adresse'] ?? '') ?>">
                                 <div class="field-actions hidden">
-                                    <button class="btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn cancel-btn"><i class="fas fa-times"></i></button>
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
-                            <button class="btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+
+            <div class="info-grid">
+                <!-- Groupe Contrat & Photo de profile -->
+                <div class="info-group">
+                    <h3><i class="fas fa-id-card"></i> Contrat & Photo de profile</h3>
+
+                    <!-- Champ Nom -->
+                    <div class="info-item">
+                        <i class="fas fa-signature"></i>
+                        <div>
+                            <label>Photo de Profile</label>
+                            <div class="field-wrapper">
+                                <p class="field-value"><?= !empty($user['information_personnelles']['nom']) ? htmlspecialchars($user['information_personnelles']['nom']) : 'Non renseigné' ?></p>
+                                <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['nom'] ?? '') ?>">
+                                <div class="field-actions hidden">
+                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
+                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <section id="historique" class="profile-section">
             <div class="section-header">

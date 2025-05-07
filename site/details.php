@@ -447,13 +447,13 @@ if ($existingReservation) {
 
             <div class="actions-container">
                 <div>
-                    <button type="submit" name="cancel" class="btn-action btn-cancel <?php echo ($existingReservation && $existingReservation['paiement']) ? 'btn-disabled' : ''; ?>"
+                    <button type="submit" name="cancel" class="btn-action button btn-cancel <?php echo ($existingReservation && $existingReservation['paiement']) ? 'btn-disabled' : ''; ?>"
                         <?php echo ($existingReservation && $existingReservation['paiement']) ? 'disabled' : ''; ?>>
                         <i class="fas fa-times"></i> Annuler
                     </button>
                 </div>
                 <div>
-                    <button type="submit" name="save" class="btn-action btn-save <?php echo ($existingReservation && $existingReservation['paiement']) ? 'btn-disabled' : ''; ?>"
+                    <button type="submit" name="save" class="btn-action button btn-save <?php echo ($existingReservation && $existingReservation['paiement']) ? 'btn-disabled' : ''; ?>"
                         <?php echo ($existingReservation && $existingReservation['paiement']) ? 'disabled' : ''; ?>>
                         <i class="fas fa-save"></i> Sauvegarder
                     </button>

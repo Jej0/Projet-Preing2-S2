@@ -248,7 +248,7 @@ nav {
     border-radius: 10px;
 }
 
-button {
+.button {
     background-color: var(--light-blue);
     padding: 10px;
     border: none;
@@ -285,11 +285,8 @@ button {
 }
 
 .edit-profile-btn {
-    background: transparent;
     border: 2px solid var(--blue);
-    color: var(--blue);
-    padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 
@@ -321,9 +318,9 @@ button:hover {
     background: white;
 }
 
-.edit-profile-btn:hover {
+.edit-profile-btn:hover i{
     background: var(--blue);
-    color: white;
+    color: var(--white);
 }
 
 /* =========================== Section Fondateur =========================== */
