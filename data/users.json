@@ -2,7 +2,7 @@
     {
         "id_user": 1,
         "username": "Strasox",
-        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9/4HMmNrvCWVjES/iB.2fEhTdvu",
+        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": true,
         "newsletter": true,
         "information_personnelles": {
@@ -24,7 +24,7 @@
     {
         "id_user": 2,
         "username": "florian",
-        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9/4HMmNrvCWVjES/iB.2fEhTdvu",
+        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": false,
         "newsletter": true,
         "information_personnelles": {
@@ -38,7 +38,7 @@
         },
         "date": {
             "inscription": "2011-03-25",
-            "connexion": "2025-05-07 14:07:02"
+            "connexion": "2025-05-12"
         },
         "id_historique_voyages": [
             101,
@@ -56,7 +56,7 @@
     {
         "id_user": 3,
         "username": "jordan",
-        "mot_de_passe": "$2y$12$LzC1Ko5lxVDUQ3.QIJFc0.Z3DY/S/QrfDDYuH.DaO6O5q1yTFMVgC",
+        "mot_de_passe": "$2y$12$LzC1Ko5lxVDUQ3.QIJFc0.Z3DY\/S\/QrfDDYuH.DaO6O5q1yTFMVgC",
         "admin": false,
         "newsletter": true,
         "information_personnelles": {

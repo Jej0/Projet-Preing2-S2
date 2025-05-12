@@ -195,7 +195,18 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         <section class="profile-header">
             <div class="profile-cover">
                 <div class="profile-avatar">
-                    <img src="assets/img/testimonial2.jpg" alt="Photo de profil">
+                    <?php
+                    $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                    $defaultPicturePath = 'assets/img/placeholder.png';
+
+                    // Vérification plus robuste
+                    $actualProfilePath = realpath($profilePicturePath);
+                    ?>
+                    <img src="<?=  file_exists($actualProfilePath) ? 
+                            '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
+                            $defaultPicturePath ?>" 
+                        alt="Photo de profil" 
+                        class="profile-avatar-img">
                 </div>
             </div>
             <div class="profile-info">
@@ -217,7 +228,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         <nav class="profile-nav">
             <ul>
                 <li><a class="btn" href="#informations">Informations</a></li>
-                <li><a class="btn" href="#activites">Activités</a></li>
+                <li><a class="btn" href="#activites">Historique</a></li>
                 <li><a class="btn" href="#reservations">Réservations</a></li>
                 <li><a class="btn" href="#badges">Badges</a></li>
                 <?php if ($isAdmin): ?>
@@ -347,27 +358,79 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             </div>
 
 
-            <div class="info-grid">
-                <!-- Groupe Contrat & Photo de profile -->
-                <div class="info-group">
-                    <h3><i class="fas fa-id-card"></i> Contrat & Photo de profile</h3>
 
-                    <!-- Champ Nom -->
+
+
+
+            <div class="info-grid">
+                <!-- Groupe Photo de profile -->
+                <div class="info-group">
+                    <h3><i class="fas fa-portrait"></i> Photo de profile</h3>
+
+                    <!-- Champ Photo de Profile -->
                     <div class="info-item">
-                        <i class="fas fa-signature"></i>
+                        <i class="fas fa-camera"></i>
                         <div>
                             <label>Photo de Profile</label>
                             <div class="field-wrapper">
-                                <p class="field-value"><?= !empty($user['information_personnelles']['nom']) ? htmlspecialchars($user['information_personnelles']['nom']) : 'Non renseigné' ?></p>
-                                <input type="text" class="field-input hidden" value="<?= htmlspecialchars($user['information_personnelles']['nom'] ?? '') ?>">
-                                <div class="field-actions hidden">
-                                    <button class="btn edit-profile-btn save-btn"><i class="fas fa-check"></i></button>
-                                    <button class="btn edit-profile-btn cancel-btn"><i class="fas fa-times"></i></button>
+                                <div class="profile-picture-container">
+                                    <?php
+                                        $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                                        $defaultPicturePath = 'assets/img/placeholder.png';
+
+                                        // Vérification plus robuste
+                                        $actualProfilePath = realpath($profilePicturePath);
+                                        ?>
+                                        <img src="<?=  file_exists($actualProfilePath) ? 
+                                                '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
+                                                $defaultPicturePath ?>" 
+                                            alt="Photo de profil" 
+                                            class="profile-picture"
+                                            id="profile-picture-preview">
+                                    <form method="POST" action="../scripts_php/upload_profile_picture.php" enctype="multipart/form-data" class="upload-form">
+                                        <input type="file" id="profile-picture-input" name="profile_picture" accept="image/jpeg,image/png" class="hidden">
+                                        <label for="profile-picture-input" class="btn btn-upload">
+                                            <i class="fas fa-upload"></i> Changer la photo
+                                        </label>
+                                        <button type="submit" class="btn btn-save hidden">Enregistrer</button>
+                                    </form>
                                 </div>
                             </div>
-                            <button class="btn edit-profile-btn edit-field-btn"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
+                </div>
+
+
+
+
+
+
+
+
+                
+                <!-- Groupe Contrat -->
+                <div class="info-group">
+                    <h3><i class="fas fa-book-dead"></i> Contrat</h3>
+
+                    <!-- Champ Contrat -->
+                    <div class="info-item">
+                        <i class="fas fa-file-signature"></i>
+                        <div>
+                            <label>Statut du Contrat</label>
+                            <div class="field-wrapper">
+                                <?php if ($user['information_personnelles']['contrat']): ?>
+                                    <p>Contrat signé</p>
+                                <?php else: ?>
+                                    <p>Contrat non signé</p>
+                                    <a href="contrat.php" class="btn btn-sign-contract edit-profile-btn edit-field-btn">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
@@ -738,7 +801,62 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 });
             });
         });
-        </script>
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Gestion de l'upload de photo de profil
+    const profilePictureInput = document.getElementById('profile-picture-input');
+    const profilePicturePreview = document.getElementById('profile-picture-preview');
+    const uploadForm = document.querySelector('.upload-form');
+    const saveButton = document.querySelector('.btn-save');
+
+    profilePictureInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                profilePicturePreview.src = event.target.result;
+                saveButton.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    uploadForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        try {
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Rafraîchir l'image pour éviter le cache
+                profilePicturePreview.src = 'profile_pictures/<?= $user['username'] ?>.jpg?' + data.timestamp;
+                saveButton.classList.add('hidden');
+                
+                // Afficher un message de succès
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert alert-success';
+                alertDiv.textContent = 'Photo de profil mise à jour avec succès!';
+                uploadForm.appendChild(alertDiv);
+                
+                setTimeout(() => alertDiv.remove(), 3000);
+            } else {
+                throw new Error(data.message || 'Erreur lors de la mise à jour');
+            }
+        } catch (error) {
+            console.error('Erreur:', error);
+            alert('Erreur: ' + error.message);
+        }
+    });
+});
+    </script>
 </body>
 
 </html>

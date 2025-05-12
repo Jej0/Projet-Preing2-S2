@@ -1221,6 +1221,43 @@ input[type="password"] {
 
 
 
+/* ==== Contrat */
+.contract-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contract-header p {
+    font-style: italic;
+    color: var(--light-gray);
+}
+
+.contrat-ul-marge{
+    padding-left: 20px;
+}
+
+.contrat-ul-marge li{
+    margin-bottom: 8px;
+}
+
+.acceptance-box {
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.5);
+}
 
 
 
@@ -1230,12 +1267,45 @@ input[type="password"] {
 
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
+/* Styles pour la photo de profil */
+.profile-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
 
+.profile-picture {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--white);
+}
 
+.btn-save {
+    background-color: #1cc88a;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
 
-
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
 
 
 
