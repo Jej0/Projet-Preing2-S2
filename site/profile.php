@@ -196,17 +196,16 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             <div class="profile-cover">
                 <div class="profile-avatar">
                     <?php
-                    $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
-                    $defaultPicturePath = 'assets/img/placeholder.png';
-
-                    // Vérification plus robuste
-                    $actualProfilePath = realpath($profilePicturePath);
+                        $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                        $defaultPicturePath = 'assets/img/placeholder.png';
+                        $actualProfilePath = realpath($profilePicturePath);
                     ?>
-                    <img src="<?=  file_exists($actualProfilePath) ? 
+                    <img src="<?= file_exists($actualProfilePath) ? 
                             '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
                             $defaultPicturePath ?>" 
                         alt="Photo de profil" 
-                        class="profile-avatar-img">
+                        class="profile-avatar-img"
+                        id="header-profile-picture"> <!-- Ajout d'un ID unique -->
                 </div>
             </div>
             <div class="profile-info">
@@ -362,39 +361,35 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
 
 
-            <div class="info-grid">
-                <!-- Groupe Photo de profile -->
-                <div class="info-group">
-                    <h3><i class="fas fa-portrait"></i> Photo de profile</h3>
 
-                    <!-- Champ Photo de Profile -->
+
+            <div class="info-grid">
+                <!-- Groupe Photo de profil -->
+                <div class="info-group">
+                    <h3><i class="fas fa-portrait"></i> Photo de profil</h3>
+
+                    <!-- Champ Photo de Profil -->
                     <div class="info-item">
                         <i class="fas fa-camera"></i>
                         <div>
-                            <label>Photo de Profile</label>
+                            <label>Photo de Profil</label>
                             <div class="field-wrapper">
-                                <div class="profile-picture-container">
-                                    <?php
-                                        $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
-                                        $defaultPicturePath = 'assets/img/placeholder.png';
-
-                                        // Vérification plus robuste
-                                        $actualProfilePath = realpath($profilePicturePath);
-                                        ?>
-                                        <img src="<?=  file_exists($actualProfilePath) ? 
-                                                '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
-                                                $defaultPicturePath ?>" 
-                                            alt="Photo de profil" 
-                                            class="profile-picture"
-                                            id="profile-picture-preview">
-                                    <form method="POST" action="../scripts_php/upload_profile_picture.php" enctype="multipart/form-data" class="upload-form">
-                                        <input type="file" id="profile-picture-input" name="profile_picture" accept="image/jpeg,image/png" class="hidden">
-                                        <label for="profile-picture-input" class="btn btn-upload">
-                                            <i class="fas fa-upload"></i> Changer la photo
-                                        </label>
-                                        <button type="submit" class="btn btn-save hidden">Enregistrer</button>
-                                    </form>
-                                </div>
+                                <?php
+                                    $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                                    $defaultPicturePath = 'assets/img/placeholder.png';
+                                    $actualProfilePath = realpath($profilePicturePath);
+                                ?>
+                                <img src="<?= file_exists($actualProfilePath) ? 
+                                        '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
+                                        $defaultPicturePath ?>" 
+                                    alt="Photo de profil" 
+                                    class="profile-picture"
+                                    id="profile-picture-preview">
+                                <form method="POST" action="../scripts_php/upload_profile_picture.php" enctype="multipart/form-data" class="upload-form">
+                                    <input type="file" id="profile-picture-input" name="profile_picture" accept="image/jpeg,image/png" class="hidden">
+                                    <label for="profile-picture-input" class="btn edit-profile-btn edit-field-btn btn-upload"><i class="fas fa-upload"></i></label>
+                                    <button type="submit" class="btn btn-save hidden">Enregistrer</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -804,26 +799,47 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
     </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-    // Gestion de l'upload de photo de profil
+    // Éléments du formulaire
     const profilePictureInput = document.getElementById('profile-picture-input');
     const profilePicturePreview = document.getElementById('profile-picture-preview');
+    const headerProfilePicture = document.getElementById('header-profile-picture'); // Nouvel élément
     const uploadForm = document.querySelector('.upload-form');
     const saveButton = document.querySelector('.btn-save');
 
+    // Fonction pour mettre à jour toutes les images de profil
+    function updateAllProfilePictures(newSrc) {
+        // Mettre à jour l'image dans le formulaire
+        if (profilePicturePreview) {
+            profilePicturePreview.src = newSrc;
+        }
+        
+        // Mettre à jour l'image dans l'en-tête si elle existe
+        if (headerProfilePicture) {
+            headerProfilePicture.src = newSrc;
+        }
+    }
+
+    // Prévisualisation de la nouvelle image
     profilePictureInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function(event) {
-                profilePicturePreview.src = event.target.result;
+                // Afficher la prévisualisation
+                updateAllProfilePictures(event.target.result);
                 saveButton.classList.remove('hidden');
             };
             reader.readAsDataURL(file);
         }
     });
 
+    // Soumission du formulaire
     uploadForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        
+        // Afficher un indicateur de chargement
+        saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+        saveButton.disabled = true;
         
         const formData = new FormData(this);
         
@@ -836,25 +852,79 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             const data = await response.json();
             
             if (data.success) {
-                // Rafraîchir l'image pour éviter le cache
-                profilePicturePreview.src = 'profile_pictures/<?= $user['username'] ?>.jpg?' + data.timestamp;
+                // Mise à jour des images avec cache-busting
+                const newSrc = '../data/profile_picture/<?= $user['username'] ?>.jpg?' + Date.now();
+                updateAllProfilePictures(newSrc);
+                
+                // Réinitialiser le bouton
+                saveButton.innerHTML = 'Enregistrer';
                 saveButton.classList.add('hidden');
+                saveButton.disabled = false;
                 
-                // Afficher un message de succès
-                const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert alert-success';
-                alertDiv.textContent = 'Photo de profil mise à jour avec succès!';
-                uploadForm.appendChild(alertDiv);
-                
-                setTimeout(() => alertDiv.remove(), 3000);
+                // Message de succès
+                showAlert('success', 'Photo mise à jour avec succès');
             } else {
                 throw new Error(data.message || 'Erreur lors de la mise à jour');
             }
         } catch (error) {
             console.error('Erreur:', error);
-            alert('Erreur: ' + error.message);
+            showAlert('error', error.message);
+            
+            // Réinitialiser le bouton en cas d'erreur
+            saveButton.innerHTML = 'Enregistrer';
+            saveButton.disabled = false;
         }
     });
+
+    // Fonction pour afficher les messages d'alerte
+    function showAlert(type, message) {
+        // Supprimer les anciennes alertes
+        const oldAlerts = uploadForm.querySelectorAll('.upload-alert');
+        oldAlerts.forEach(alert => alert.remove());
+        
+        // Créer la nouvelle alerte
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `upload-alert alert-${type}`;
+        alertDiv.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i> 
+            ${message}
+        `;
+        
+        // Styles de base pour les alertes
+        const alertStyles = `
+            .upload-alert {
+                padding: 10px 15px;
+                border-radius: 5px;
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .alert-success {
+                background-color: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+            }
+            .alert-error {
+                background-color: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+            }
+        `;
+        
+        // Ajouter les styles si nécessaire
+        if (!document.getElementById('alert-styles')) {
+            const styleTag = document.createElement('style');
+            styleTag.id = 'alert-styles';
+            styleTag.textContent = alertStyles;
+            document.head.appendChild(styleTag);
+        }
+        
+        uploadForm.appendChild(alertDiv);
+        
+        // Supprimer après 5 secondes
+        setTimeout(() => alertDiv.remove(), 5000);
+    }
 });
     </script>
 </body>
