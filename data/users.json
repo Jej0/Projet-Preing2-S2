@@ -2,7 +2,7 @@
     {
         "id_user": 1,
         "username": "Strasox",
-        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9/4HMmNrvCWVjES/iB.2fEhTdvu",
+        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": true,
         "newsletter": true,
         "information_personnelles": {
@@ -24,7 +24,7 @@
     {
         "id_user": 2,
         "username": "florian",
-        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9/4HMmNrvCWVjES/iB.2fEhTdvu",
+        "mot_de_passe": "$2y$12$eu3X25vkfldg.wjc7sWHX.Vuai9\/4HMmNrvCWVjES\/iB.2fEhTdvu",
         "admin": true,
         "newsletter": true,
         "information_personnelles": {
@@ -56,7 +56,7 @@
     {
         "id_user": 3,
         "username": "jordan",
-        "mot_de_passe": "$2y$12$LzC1Ko5lxVDUQ3.QIJFc0.Z3DY/S/QrfDDYuH.DaO6O5q1yTFMVgC",
+        "mot_de_passe": "$2y$12$LzC1Ko5lxVDUQ3.QIJFc0.Z3DY\/S\/QrfDDYuH.DaO6O5q1yTFMVgC",
         "admin": false,
         "newsletter": true,
         "information_personnelles": {
@@ -71,6 +71,28 @@
         "date": {
             "inscription": "2025-05-04",
             "connexion": "2025-05-04"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
+    },
+    {
+        "id_user": 4,
+        "username": "test",
+        "mot_de_passe": "$2y$12$cwOrmLUMFkOpnv\/MD5zmLefBEORYjbqqpfo0urdTBsxQ8QVWAFA\/q",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "test@cyu.fr",
+            "adresse": "",
+            "telephone": "",
+            "contrat": true
+        },
+        "date": {
+            "inscription": "2025-05-16",
+            "connexion": "2025-05-16"
         },
         "id_historique_voyages": [],
         "id_reservation": []

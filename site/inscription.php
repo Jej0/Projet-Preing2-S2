@@ -3,9 +3,18 @@ session_start();
 
 // Charger les utilisateurs existants
 $usersFile = '../data/users.json';
+$newsletterFile = '../data/newsletter.json';
 $users = [];
 if (file_exists($usersFile)) {
     $users = json_decode(file_get_contents($usersFile), true);
+}
+$newsletterEmails = [];
+// Charger les emails newsletter
+if (file_exists($newsletterFile)) {
+    $newsletterEmails = json_decode(file_get_contents($newsletterFile), true);
+    if (!is_array($newsletterEmails)) {
+        $newsletterEmails = []; // S'assurer que c'est un tableau
+    }
 }
 
 // Traitement du formulaire d'inscription
@@ -92,6 +101,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Ajouter le nouvel utilisateur
         $users[] = $newUser;
         file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
+
+        // Ajouter à la newsletter si pas déjà présent
+        if (!in_array($email, $newsletterEmails)) {
+            $newsletterEmails[] = $email;
+            file_put_contents($newsletterFile, json_encode($newsletterEmails, JSON_PRETTY_PRINT));
+        }
 
         // Connecter l'utilisateur
         $_SESSION['user'] = $newUser;
