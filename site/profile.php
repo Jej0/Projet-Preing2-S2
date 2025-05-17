@@ -655,6 +655,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                         modifiedFields.delete(fieldItem);
                     }
 
+                    // Correction : Toujours vérifier s'il reste des modifications à valider
                     updateSubmitButton();
                 });
             });
@@ -678,6 +679,8 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
                 // Retirer des modifications si présent
                 modifiedFields.delete(fieldItem);
+
+                // Correction : Toujours vérifier s'il reste des modifications à valider
                 updateSubmitButton();
             }
 
@@ -717,43 +720,50 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 submitAllBtn.classList.toggle('hidden', modifiedFields.size === 0);
             }
 
-            // Soumission finale des modifications
+            // Soumission finale des modifications (AJAX)
             submitAllBtn.addEventListener('click', async function() {
                 if (modifiedFields.size === 0) return;
 
-                const formData = new FormData();
-                formData.append('user_id', <?= $user['id_user'] ?>);
+                const payload = {
+                    user_id: <?= json_encode($user['id_user']) ?>
+                };
 
                 // Ajouter les champs modifiés
                 modifiedFields.forEach((fieldData, fieldItem) => {
-                    formData.append(fieldData.name, fieldData.value);
+                    payload[fieldData.name] = fieldData.value;
                 });
 
                 try {
                     const response = await fetch('../scripts_php/update_profile.php', {
                         method: 'POST',
-                        body: formData
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        credentials: 'include', // Important pour la session
+                        body: JSON.stringify(payload)
                     });
+
+                    // Vérification du code HTTP AVANT de parser le JSON
+                    if (response.status === 401) {
+                        alert('Erreur: Vous devez être connecté pour modifier votre profil.');
+                        return;
+                    }
 
                     const data = await response.json();
 
-                    if (!response.ok) {
-                        throw new Error(data.message || 'Erreur serveur');
-                    }
-
-                    if (data.success) {
-                        // Mettre à jour les valeurs originales
-                        modifiedFields.forEach((fieldData, fieldItem) => {
-                            const inputEl = fieldItem.querySelector('.field-input');
-                            inputEl.dataset.originalValue = inputEl.value;
-                        });
-
-                        modifiedFields.clear();
-                        updateSubmitButton();
-                        alert('Modifications sauvegardées avec succès!');
-                    } else {
+                    if (!response.ok || !data.success) {
                         throw new Error(data.message || 'Erreur lors de la sauvegarde');
                     }
+
+                    // Mettre à jour les valeurs originales
+                    modifiedFields.forEach((fieldData, fieldItem) => {
+                        const inputEl = fieldItem.querySelector('.field-input');
+                        inputEl.dataset.originalValue = inputEl.value;
+                    });
+
+                    modifiedFields.clear();
+                    updateSubmitButton();
+                    alert('Modifications sauvegardées avec succès!');
                 } catch (error) {
                     console.error('Erreur:', error);
                     alert('Erreur: ' + error.message);

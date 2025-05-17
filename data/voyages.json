@@ -1606,7 +1606,9 @@
         ],
         "liste_personnes": {
             "max": 10,
-            "id_reservation": []
+            "id_reservation": [
+                105
+            ]
         },
         "prix_total": 3500,
         "statut": "disponible"
