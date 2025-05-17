@@ -96,5 +96,29 @@
         },
         "id_historique_voyages": [],
         "id_reservation": []
+    },
+    {
+        "id_user": 5,
+        "username": "GROS",
+        "mot_de_passe": "$2y$12$AbQLisqcN5X.fDUj8d1aMe4kez5ygK55JvwFmvmXu4gktvZONA8Oa",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "grostas@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": true
+        },
+        "date": {
+            "inscription": "2025-05-17",
+            "connexion": "2025-05-17"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": [
+            104
+        ]
     }
 ]

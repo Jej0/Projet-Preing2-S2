@@ -128,7 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Inscrivez-vous pour sauvegarder et planifier votre voyage.">
     <title>KYS - Inscription</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+	<script src="assets/js/sombre.js"></script>
 
 </head>
 
@@ -146,6 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
         <div class="nav-right">
+			<button id="theme-toggle" class="nav-btn">
+				<i class="fa-solid fa-moon"></i>
+			</button>
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>

@@ -46,7 +46,8 @@ foreach ($reservations as $reservation) {
     <meta name="description" content="Details des réservation.">
     <title>KYS - Réservation</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+	<script src="assets/js/sombre.js"></script>
 </head>
 
 <body>
@@ -63,6 +64,9 @@ foreach ($reservations as $reservation) {
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
         <div class="nav-right">
+			<button id="theme-toggle" class="nav-btn">
+				<i class="fa-solid fa-moon"></i>
+			</button>
             <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
             <a href="profile.php" class="profile-icon">
                 <i class="fas fa-user-circle"></i>

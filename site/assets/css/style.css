@@ -29,6 +29,117 @@
     --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* === Mode Sombre Complet === */
+html[data-theme="dark"] {
+    /* Couleurs de base */
+    --beige: #1a1a1a;
+    --white-blueish: #2d2d2d;
+    --text-dark: #ffffff;
+    --white: #2d2d2d;
+    --light-blue: #4a90e2;
+    --blue: #1e88e5;
+    --light-gray: #858585;
+    --text-color: #e0e0e0;
+    --dark-bg: #121212;
+    --dark-card-bg: #242424;
+    --dark-border: #404040;
+
+    /* Backgrounds */
+    background-color: var(--dark-bg) !important;
+
+    /* Texte */
+    color: var(--text-color);
+}
+
+html[data-theme="dark"] body {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg) 100%);
+    color: var(--text-color);
+}
+
+/* Composants communs */
+html[data-theme="dark"] .destination-card,
+html[data-theme="dark"] .fondateur-card,
+html[data-theme="dark"] .temoignage-card,
+html[data-theme="dark"] .faq-card,
+html[data-theme="dark"] .profile-section,
+html[data-theme="dark"] .activity-card,
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .benefit-item,
+html[data-theme="dark"] .form-container,
+html[data-theme="dark"] .search-box,
+html[data-theme="dark"] .advanced-filters {
+    background: var(--dark-card-bg) !important;
+    border-color: var(--dark-border) !important;
+    color: var(--text-color) !important;
+}
+
+/* Navigation */
+html[data-theme="dark"] nav {
+    background: rgba(25, 25, 25, 0.95) !important;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+/* Liens et boutons */
+html[data-theme="dark"] a,
+html[data-theme="dark"] .btn-transparent {
+    color: var(--text-color) !important;
+}
+
+html[data-theme="dark"] .nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Formulaires */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .search-group input,
+html[data-theme="dark"] .sort-select {
+    background: var(--dark-card-bg) !important;
+    border-color: var(--dark-border) !important;
+    color: var(--text-color) !important;
+}
+
+/* Tableaux */
+html[data-theme="dark"] .admin-table th,
+html[data-theme="dark"] .admin-table td {
+    border-color: var(--dark-border) !important;
+}
+
+/* Footer */
+html[data-theme="dark"] footer {
+    background: var(--dark-card-bg) !important;
+    border-top: 1px solid var(--dark-border);
+}
+
+/* Icônes */
+html[data-theme="dark"] .social-links a {
+    color: var(--text-color) !important;
+}
+
+/* Overrides spécifiques */
+html[data-theme="dark"] .rating {
+    color: var(--yellow) !important;
+}
+
+html[data-theme="dark"] .price-block .price {
+    color: var(--light-blue) !important;
+}
+
+/* Transitions */
+body,
+nav,
+.card,
+button,
+input,
+select,
+textarea {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+
 * {
     margin: 0;
     padding: 0;
