@@ -27,23 +27,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    if ($foundUser && password_verify($password, $foundUser['mot_de_passe'])) {
-        // Mettre à jour la date de connexion
-        $foundUser['date']['connexion'] = date('Y-m-d');
+    if ($foundUser) {
+        // Si l'utilisateur est banni ET n'est pas admin, on bloque la connexion
+        if (!empty($foundUser['banni']) && empty($foundUser['admin'])) {
+            $error = "Votre compte a été banni. Veuillez contacter l'administrateur.";
+        } elseif (password_verify($password, $foundUser['mot_de_passe'])) {
+            // Mettre à jour la date de connexion
+            $foundUser['date']['connexion'] = date('Y-m-d');
 
-        // Mettre à jour le fichier users.json
-        foreach ($users as &$u) {
-            if ($u['id_user'] === $foundUser['id_user']) {
-                $u = $foundUser;
-                break;
+            // Mettre à jour le fichier users.json
+            foreach ($users as &$u) {
+                if ($u['id_user'] === $foundUser['id_user']) {
+                    $u = $foundUser;
+                    break;
+                }
             }
-        }
-        file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
+            file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
 
-        // Connecter l'utilisateur
-        $_SESSION['user'] = $foundUser;
-        header('Location: ' . $redirect);
-        exit();
+            // Connecter l'utilisateur
+            $_SESSION['user'] = $foundUser;
+            header('Location: ' . $redirect);
+            exit();
+        } else {
+            $error = "Nom d'utilisateur ou mot de passe incorrect.";
+        }
     } else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }

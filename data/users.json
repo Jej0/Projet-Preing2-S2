@@ -16,7 +16,7 @@
         },
         "date": {
             "inscription": "2024-05-30",
-            "connexion": "2025-05-07"
+            "connexion": "2025-05-17"
         },
         "id_historique_voyages": [],
         "id_reservation": []
@@ -51,7 +51,8 @@
         "id_reservation": [
             101,
             103
-        ]
+        ],
+        "banni": true
     },
     {
         "id_user": 3,

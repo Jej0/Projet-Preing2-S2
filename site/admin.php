@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (
+    !isset($_SESSION['user']) ||
+    empty($_SESSION['user']['admin']) ||
+    $_SESSION['user']['admin'] !== true
+) {
+    header('Location: accueil.php');
+    exit();
+}
+$users = json_decode(file_get_contents('../data/users.json'), true);
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -28,6 +40,44 @@
     <!-- Ajout des icônes Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
 	<script src="assets/js/sombre.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.ban-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const userId = this.getAttribute('data-user-id');
+                const button = this;
+                const isBanned = button.getAttribute('data-banned') === '1';
+                if (!userId) return;
+                button.disabled = true;
+                fetch('ban_user.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({id_user: userId, ban: !isBanned})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        if (isBanned) {
+                            button.textContent = 'Bannir';
+                            button.setAttribute('data-banned', '0');
+                        } else {
+                            button.textContent = 'Banni';
+                            button.setAttribute('data-banned', '1');
+                        }
+                        button.disabled = false;
+                    } else {
+                        button.textContent = 'Erreur';
+                        button.disabled = false;
+                    }
+                })
+                .catch(() => {
+                    button.textContent = 'Erreur';
+                    button.disabled = false;
+                });
+            });
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -63,7 +113,8 @@
             <?php if (isset($_SESSION['user'])) { ?>
                 <a href="profile.php" class="profile-icon">
                     <i class="fas fa-user-circle"></i>
-                <?php } ?>
+                </a>
+            <?php } ?>
         </div>
     </nav>
 
@@ -72,12 +123,7 @@
         <!-- En-tête Admin -->
         <div class="admin-header">
             <h1>Tableau de bord Administrateur</h1>
-            <div class="admin-badges">
-                <div class="admin-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    Super Admin
-                </div>
-            </div>
+
         </div>
 
         <!-- Statistiques -->
@@ -119,16 +165,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Johnny HALLYDAY</td>
-                        <td>allumerlefeu@gmail.com</td>
-                        <td><span class="role-user">Utilisateur</span></td>
-                        <td>
-                            <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-supprimer"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <!-- Plus de lignes... -->
+                    <?php foreach ($users as $user): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($user['information_personnelles']['prenom'] . ' ' . $user['information_personnelles']['nom']) ?: htmlspecialchars($user['username']) ?></td>
+                            <td><?= htmlspecialchars($user['information_personnelles']['mail']) ?></td>
+                            <td>
+                                <span class="role-user">
+                                    <?= $user['admin'] ? 'Admin' : 'Utilisateur' ?>
+                            </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-supprimer ban-btn"
+                                    style="padding: 8px 18px; border-radius: 8px; font-weight: bold; font-size: 1rem; border: none; transition: background 0.2s, color 0.2s;"
+                                    data-user-id="<?= $user['id_user'] ?>"
+                                    data-banned="<?= !empty($user['banni']) ? '1' : '0' ?>">
+                                    <?= !empty($user['banni']) ? 'Banni' : 'Bannir' ?>
+                                </button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>
