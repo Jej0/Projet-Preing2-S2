@@ -3,12 +3,12 @@ Architecture du projet :
 │
 ├── /data/ (Ici tout les document json / donné d'utilisateur 
 │	├── profile_picture/ (dossier)
-│   │   └── [nom_utilisateur].jpg
-│   ├── historique_voyages.json
-│   ├── newsletter.json
-│   ├── reservation.json
-│   ├── users.json
-│   └── voyages.json
+│   	│   └── [nom_utilisateur].jpg
+│   	├── historique_voyages.json
+│   	├── newsletter.json
+│   	├── reservation.json
+│   	├── users.json
+│   	└── voyages.json
 │
 ├── /scripts_php/ (Ici les scripts en php) 
 │   ├── deconnexion.php
@@ -27,17 +27,17 @@ Architecture du projet :
 	│   │   ├── [Autre].png
 	│   │   └── [Photo voyages].jpg
 	│   └── /js/ (Tout les fichier java script, bien souvent 1 par page avec le nom de la page)
-	│		├── accueil.js
+	│	├── accueil.js
 	│       ├── connexion.js
-	│		├── inscription.js
+	│	├── inscription.js
 	│       ├── popup.js
 	│       └── profile.js
-    ├── accueil.php
-    ├── admin.php
-    ├── connexion.php
-    ├── contrat.php
-    ├── details.php
+	├── accueil.php
+	├── admin.php
+	├── connexion.php
+	├── contrat.php
+	├── details.php
 	├── inscription.php
-    ├── presentation.php
-    ├── profile.php
-    └── recherche.php
+	├── presentation.php
+	├── profile.php
+	└── recherche.php
