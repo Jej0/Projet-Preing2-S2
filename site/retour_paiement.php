@@ -21,6 +21,5 @@ if ($statut === 'accepted') {
 } else {
     // ❌ Afficher un message d'erreur et des boutons de retour
     echo "❌ Paiement refusé. Veuillez réessayer.";
-    echo '<br><a href="page_paiement.php">Retour au paiement</a>';
-    echo '<br><a href="recapitulatif.php">Modifier le voyage</a>';
+    echo '<br><a href="recap.php?id=' . $_GET['id'] . '">Modifier le voyage</a>';
 }
