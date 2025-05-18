@@ -233,84 +233,67 @@ if ($existingReservation) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <meta name="title" content="Keep Yourself Safe">
+    <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
+    <meta name="description" content="Les details du voyages">
     <title>KYS - Details</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        .option-section {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-        }
-
-        .option-group {
-            margin-bottom: 15px;
-        }
-
-        .option-select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ced4da;
-        }
-
-        .price-display {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-        }
-
-        .dynamic-price {
-            color: #007bff;
-        }
-
-        .etape-card {
-            margin-bottom: 30px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 20px;
-        }
-
-        .actions-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-
-        .btn-save {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .btn-save:hover {
-            background-color: #218838;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav>
-        <!-- Votre navigation existante -->
+        <!-- Logo et nom (gauche)-->
+        <div class="nav-left">
+            <a href="accueil.php" class="nav-brand">
+                <img src="assets/img/logo.png" alt="Logo">
+                Keep Yourself Safe
+            </a>
+        </div>
+
+        <!-- Liens (centre)-->
+        <ul class="nav-links">
+            <li><a href="presentation.php">Présentation</a></li>
+            <li><a href="recherche.php">Rechercher</a></li>
+            <li><a href="mailto:contact@kys.fr">Contact</a></li>
+        </ul>
+
+        <!-- Profil et connexion(droite)-->
+        <div class="nav-right">
+
+            <button id="theme-toggle" class="nav-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <?php if (!isset($_SESSION['user'])) { ?>
+                <a href="connexion.php" class="btn nav-btn">Se connecter</a>
+                <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
+            <?php } ?>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <a href="../scripts_php/deconnexion.php" class="btn nav-btn">Déconnexion</a>
+                <a href="profile.php" class="profile-icon">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            <?php } ?>
+        </div>
     </nav>
 
     <div class="voyage-details-container">
         <div class="voyage-header">
+            <div class="col-md-4">
+                <img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+            </div>
             <h1><?php echo htmlspecialchars($voyage['titre']); ?></h1>
             <p class="lead"><?php echo htmlspecialchars($voyage['description']); ?></p>
+            <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['dates']['debut']); ?> au <?php echo htmlspecialchars($voyage['dates']['fin']); ?>
+            (<?php echo htmlspecialchars($voyage['dates']['duree']); ?>)
 
             <div class="price-display">
                 Prix total estimé: <span class="dynamic-price" id="total-price"><?php echo number_format($prixTotalAffichage, 0, ',', ' '); ?></span> €
             </div>
 
-            <div class="voyage-badges">
+            <div>
                 <?php foreach ($voyage['specificites'] as $spec): ?>
                     <span class="voyage-badge"><?php echo htmlspecialchars($spec); ?></span>
                 <?php endforeach; ?>
@@ -324,7 +307,7 @@ if ($existingReservation) {
         </div>
 
         <form method="post" id="voyage-form">
-            <h2 class="mb-4">Étapes du voyage</h2>
+            <h2 class="mb-4">Étapes du voyage</h2><br>
 
             <?php foreach ($voyage['etapes'] as $etape): ?>
                 <div class="etape-card" data-etape-id="<?php echo $etape['id_etape']; ?>">
@@ -348,163 +331,52 @@ if ($existingReservation) {
             <?php endforeach; ?>
 
             <div class="actions-container">
-                <button type="submit" name="save" class="btn-save">
+                <button type="submit" name="save" class="btn btn-save">
                     <i class="fas fa-save"></i> Sauvegarder et continuer
                 </button>
             </div>
         </form>
     </div>
 
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Keep Yourself Safe</h3>
+                <p>L'aventure en toute sécurité.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@kys.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const voyageId = <?php echo $voyageId; ?>;
-            const reservationId = <?php echo $existingReservation ? $existingReservation['id_reservation'] : 'null'; ?>;
-            const basePrice = <?php echo $voyage['prix_total']; ?>;
-            let currentOptions = {};
-            let currentTotalPrice = <?php echo $prixTotalAffichage; ?>;
-
-            // Charger les options initiales si réservation existante
-            <?php if ($existingReservation): ?>
-                currentOptions = <?php echo json_encode($existingReservation['options']); ?>;
-            <?php endif; ?>
-
-            // Fonction pour charger les options d'une étape
-            function loadOptionsForEtape(etapeId) {
-                fetch(`../scripts_php/get_options.php?voyage_id=${voyageId}&etape_id=${etapeId}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const container = document.querySelector(`#options-${etapeId}`);
-                        if (!container) return;
-
-                        container.innerHTML = '';
-
-                        // Si pas d'options disponibles
-                        if (!data.success || !data.options || Object.keys(data.options).length === 0) {
-                            container.innerHTML = `
-                            <div class="voyage-alert">
-                                <i class="fas fa-info-circle"></i> Aucune option disponible pour cette étape.
-                            </div>
-                        `;
-                            return;
-                        }
-
-                        // Pour chaque type d'option (activité, hébergement, etc.)
-                        const optionTypes = {
-                            'activite': 'Activités',
-                            'hebergement': 'Hébergements',
-                            'restauration': 'Restauration',
-                            'transport': 'Transports'
-                        };
-
-                        let hasOptions = false;
-
-                        Object.entries(optionTypes).forEach(([optionType, displayName]) => {
-                            if (data.options[optionType] && data.options[optionType].length > 0) {
-                                hasOptions = true;
-                                const group = document.createElement('div');
-                                group.className = 'option-subgroup';
-                                group.innerHTML = `
-                                <h5>${displayName}</h5>
-                                <select class="option-select" 
-                                        data-option-type="${optionType}" 
-                                        data-etape-id="${etapeId}"
-                                        name="${optionType}_${etapeId}">
-                                    <option value="">Aucune sélection</option>
-                                </select>
-                            `;
-
-                                const select = group.querySelector('select');
-
-                                // Remplir les options
-                                data.options[optionType].forEach(option => {
-                                    const opt = document.createElement('option');
-                                    opt.value = option.id_option;
-                                    opt.textContent = `${option.nom} - ${option.description} (${option.prix_par_personne} €)`;
-                                    opt.dataset.price = option.prix_par_personne;
-                                    select.appendChild(opt);
-                                });
-
-                                // Sélectionner l'option actuelle si elle existe
-                                const currentOption = currentOptions[`etape_${etapeId}`]?.[optionType];
-                                if (currentOption) {
-                                    select.value = currentOption;
-                                }
-
-                                // Écouter les changements
-                                select.addEventListener('change', updatePrice);
-
-                                container.appendChild(group);
-                            }
-                        });
-
-                        if (!hasOptions) {
-                            container.innerHTML = `
-                            <div class="voyage-alert">
-                                <i class="fas fa-info-circle"></i> Aucune option disponible pour cette étape.
-                            </div>
-                        `;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error loading options:', error);
-                        const container = document.querySelector(`#options-${etapeId}`);
-                        if (container) {
-                            container.innerHTML = `
-                            <div class="voyage-alert alert-danger">
-                                <i class="fas fa-exclamation-triangle"></i> Erreur lors du chargement des options.
-                            </div>
-                        `;
-                        }
-                    });
-            }
-
-            // Fonction pour mettre à jour le prix total
-            function updatePrice() {
-                let newTotalPrice = basePrice;
-                const options = {};
-
-                // Récupérer toutes les options sélectionnées et calculer le prix
-                document.querySelectorAll('.option-select').forEach(select => {
-                    const etapeId = select.dataset.etapeId;
-                    const optionType = select.dataset.optionType;
-
-                    if (!options[`etape_${etapeId}`]) {
-                        options[`etape_${etapeId}`] = {};
-                    }
-
-                    if (select.value) {
-                        options[`etape_${etapeId}`][optionType] = parseInt(select.value);
-
-                        // Ajouter le prix de l'option sélectionnée
-                        const selectedOption = select.options[select.selectedIndex];
-                        if (selectedOption && selectedOption.dataset.price) {
-                            newTotalPrice += parseInt(selectedOption.dataset.price);
-                        }
-                    }
-                });
-
-                // Mettre à jour l'affichage
-                document.getElementById('total-price').textContent =
-                    new Intl.NumberFormat('fr-FR').format(newTotalPrice);
-                currentTotalPrice = newTotalPrice;
-            }
-
-            // Charger les options pour chaque étape
-            document.querySelectorAll('.etape-card').forEach(card => {
-                const etapeId = card.dataset.etapeId;
-                loadOptionsForEtape(etapeId);
+            initVoyageOptions({
+                voyageId: <?php echo $voyageId; ?>,
+                reservationId: <?php echo $existingReservation ? $existingReservation['id_reservation'] : 'null'; ?>,
+                basePrice: <?php echo $voyage['prix_total']; ?>,
+                currentTotalPrice: <?php echo $prixTotalAffichage; ?>,
+                currentOptions: <?php echo $existingReservation ? json_encode($existingReservation['options']) : '{}'; ?>
             });
-
-            // Initialiser le prix avec la valeur calculée par PHP
-            document.getElementById('total-price').textContent =
-                new Intl.NumberFormat('fr-FR').format(currentTotalPrice);
         });
     </script>
+    <script src="assets/js/voyage-options.js"></script>
+    <script src="assets/js/sombre.js"></script>
 </body>
 
 </html>

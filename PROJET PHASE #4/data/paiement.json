@@ -1,0 +1,12 @@
+[
+    {
+        "transaction": "b270da054050c17fb537400c",
+        "montant": "10000.00",
+        "vendeur": "MI-4_H",
+        "statut": "accepted",
+        "date": "2025-05-18 18:44:50",
+        "reservation_id": "106",
+        "user_id": 2,
+        "control": "fb8cc399fc2772c23a74349602058a8b"
+    }
+]

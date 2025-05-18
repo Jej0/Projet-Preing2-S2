@@ -1,0 +1,366 @@
+[
+    {
+        "id_reservation": 101,
+        "id_utilisateur": 2,
+        "id_voyage": 2,
+        "date_reservation": "2025-03-25",
+        "options": {
+            "etape_1": {
+                "activite": 1,
+                "hebergement": null,
+                "restauration": 8,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": 25,
+                "hebergement": null,
+                "restauration": 32,
+                "transport": null
+            }
+        },
+        "prix_total": 2770,
+        "paiement": true
+    },
+    {
+        "id_reservation": 103,
+        "id_utilisateur": 2,
+        "id_voyage": 5,
+        "date_reservation": "2025-03-26",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": 7
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": 12
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_5": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_6": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 8060,
+        "paiement": false
+    },
+    {
+        "id_reservation": 104,
+        "id_utilisateur": 5,
+        "id_voyage": 4,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 5000,
+        "paiement": false
+    },
+    {
+        "id_reservation": 105,
+        "id_utilisateur": 2,
+        "id_voyage": 6,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 3500,
+        "paiement": false
+    },
+    {
+        "id_reservation": 106,
+        "id_utilisateur": 2,
+        "id_voyage": 1,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_5": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 10000,
+        "paiement": true
+    },
+    {
+        "id_reservation": 107,
+        "id_utilisateur": 4,
+        "id_voyage": 2,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 2500,
+        "paiement": false
+    },
+    {
+        "id_reservation": 108,
+        "id_utilisateur": 4,
+        "id_voyage": 15,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": 2,
+                "hebergement": 3,
+                "restauration": 6,
+                "transport": 8
+            },
+            "etape_2": {
+                "activite": 9,
+                "hebergement": 10,
+                "restauration": 11,
+                "transport": 12
+            },
+            "etape_3": {
+                "activite": 13,
+                "hebergement": 14,
+                "restauration": 15,
+                "transport": 16
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_5": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_6": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            }
+        },
+        "prix_total": 9110,
+        "paiement": false
+    },
+    {
+        "id_reservation": 109,
+        "id_utilisateur": 4,
+        "id_voyage": 9,
+        "date_reservation": "2025-05-17",
+        "options": {
+            "etape_1": {
+                "activite": 1,
+                "hebergement": null,
+                "restauration": 6,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": 18,
+                "transport": 19
+            }
+        },
+        "prix_total": 1945,
+        "paiement": true
+    },
+    {
+        "id_reservation": 110,
+        "id_utilisateur": 2,
+        "id_voyage": 10,
+        "date_reservation": "2025-05-18",
+        "options": {
+            "etape_1": {
+                "activite": 1,
+                "hebergement": 3,
+                "restauration": 6,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": 9,
+                "hebergement": null,
+                "restauration": null,
+                "transport": 12
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_5": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_6": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": 16
+            }
+        },
+        "prix_total": 4285,
+        "paiement": false
+    },
+    {
+        "id_reservation": 111,
+        "id_utilisateur": 2,
+        "id_voyage": 14,
+        "date_reservation": "2025-05-18",
+        "options": {
+            "etape_1": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_2": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_3": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": null
+            },
+            "etape_4": {
+                "activite": null,
+                "hebergement": null,
+                "restauration": null,
+                "transport": 24
+            }
+        },
+        "prix_total": 2215,
+        "paiement": false
+    }
+]

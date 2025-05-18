@@ -48,11 +48,26 @@ $nombreVoyages = count($voyages);
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- Ajout des icônes Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-	<script src="assets/js/sombre.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+    <script src="assets/js/sombre.js"></script>
 </head>
 
 <body>
+    <!-- Pop-up de bienvenue -->
+    <div id="welcomePopup" class="popup-container">
+        <div class="popup-content">
+            <h3>Bienvenue sur notre site !</h3>
+            <p>Ce site propose des voyages avec des activités extrêmes. Il est donc réservé aux personnes majeures.</p>
+            <div class="popup-buttons">
+                <button id="acceptBtn" class="btn button btn-base">J'ai +18 ans</button>
+                <button id="rejectBtn" class="btn button btn-base">Quitter le site</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flou d'arrière-plan -->
+    <div id="backgroundBlur" class="background-blur"></div>
+
     <!-- Haut de page -->
 
     <!-- Navigation -->
@@ -74,9 +89,9 @@ $nombreVoyages = count($voyages);
 
         <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-			<button id="theme-toggle" class="nav-btn">
-				<i class="fa-solid fa-moon"></i>
-			</button>
+            <button id="theme-toggle" class="nav-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>

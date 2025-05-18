@@ -61,10 +61,10 @@ $allVoyages = [
 
 if (file_exists('../data/historique_voyages.json')) {
     $allVoyages = json_decode(file_get_contents('../data/historique_voyages.json'), true);
-    
+
     // Filtrer seulement les voyages de cet utilisateur
     if (!empty($user['id_historique_voyages'])) {
-        $historiqueVoyages = array_filter($allVoyages, function($voyage) use ($user) {
+        $historiqueVoyages = array_filter($allVoyages, function ($voyage) use ($user) {
             return in_array($voyage['id_reservation'], $user['id_historique_voyages']);
         });
     }
@@ -124,22 +124,11 @@ function getUserBadges($userData)
         ];
     }
 
-    $hasClimbedEverest = false; // À modifier pour vérifier si le user a fait le voyage
-
-    if ($hasClimbedEverest) {
-        $badges[] = [
-            'icon' => 'fa-mountain',
-            'title' => 'Ascension de l\'Everest',
-            'description' => 'A réussi l\'ascension de l\'Everest',
-            'date_obtained' => $userData['date']['connexion'] // Date approximative
-        ];
-    }
-
     return $badges;
 }
 
 // Récupérer les badges de l'utilisateur en vérifiant les conditions
-$userBadges = getUserBadges($user); // $userData doit contenir les données de l'utilisateur
+$userBadges = getUserBadges($user);
 
 ?>
 
@@ -155,8 +144,8 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
     <meta name="description" content="Votre profil d'utilisateur">
     <title>KYS - Profil de <?php echo $username; ?></title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-	<script src="assets/js/sombre.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+    <script src="assets/js/sombre.js"></script>
 </head>
 
 <body>
@@ -179,9 +168,9 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
 
         <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-			<button id="theme-toggle" class="nav-btn">
-				<i class="fa-solid fa-moon"></i>
-			</button>
+            <button id="theme-toggle" class="nav-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
@@ -200,14 +189,14 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             <div class="profile-cover">
                 <div class="profile-avatar">
                     <?php
-                        $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
-                        $defaultPicturePath = 'assets/img/placeholder.png';
-                        $actualProfilePath = realpath($profilePicturePath);
+                    $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                    $defaultPicturePath = 'assets/img/placeholder.png';
+                    $actualProfilePath = realpath($profilePicturePath);
                     ?>
-                    <img src="<?= file_exists($actualProfilePath) ? 
-                            '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
-                            $defaultPicturePath ?>" 
-                        alt="Photo de profil" 
+                    <img src="<?= file_exists($actualProfilePath) ?
+                                    '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) :
+                                    $defaultPicturePath ?>"
+                        alt="Photo de profil"
                         class="profile-avatar-img"
                         id="header-profile-picture"> <!-- Ajout d'un ID unique -->
                 </div>
@@ -379,14 +368,14 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                             <label>Photo de Profil</label>
                             <div class="field-wrapper">
                                 <?php
-                                    $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
-                                    $defaultPicturePath = 'assets/img/placeholder.png';
-                                    $actualProfilePath = realpath($profilePicturePath);
+                                $profilePicturePath = '../data/profile_picture/' . $user['username'] . '.jpg';
+                                $defaultPicturePath = 'assets/img/placeholder.png';
+                                $actualProfilePath = realpath($profilePicturePath);
                                 ?>
-                                <img src="<?= file_exists($actualProfilePath) ? 
-                                        '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) : 
-                                        $defaultPicturePath ?>" 
-                                    alt="Photo de profil" 
+                                <img src="<?= file_exists($actualProfilePath) ?
+                                                '../data/profile_picture/' . $user['username'] . '.jpg?' . filemtime($actualProfilePath) :
+                                                $defaultPicturePath ?>"
+                                    alt="Photo de profil"
                                     class="profile-picture"
                                     id="profile-picture-preview">
                                 <form method="POST" action="../scripts_php/upload_profile_picture.php" enctype="multipart/form-data" class="upload-form">
@@ -399,14 +388,6 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-                
                 <!-- Groupe Contrat -->
                 <div class="info-group">
                     <h3><i class="fas fa-book-dead"></i> Contrat</h3>
@@ -432,20 +413,6 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             </div>
         </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <section id="historique" class="profile-section">
             <div class="section-header">
                 <h2>Mon Historique de Voyage</h2>
@@ -453,7 +420,7 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                     <button id="show-all-btn" class="btn btn-base">Voir tout</button>
                 <?php endif; ?>
             </div>
-            
+
             <?php if (!empty($historiqueVoyages)): ?>
                 <div class="activities-grid" id="voyages-container">
                     <?php foreach (array_slice($historiqueVoyages, 0, 3) as $voyage): ?>
@@ -477,65 +444,63 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             <?php endif; ?>
         </section>
 
-
-
-
-        <div class="reservations-container">
-        <h1 class="reservations-title">Mes Réservations</h1>
-
-        <?php if (empty($userReservations)): ?>
-            <div class="empty-state">
-                <h2><i class="far fa-calendar-check"></i> Vous n'avez aucune réservation</h2>
-                <p class="lead">Parcourez nos voyages et réservez votre prochaine aventure !</p>
-                <a href="recherche.php" class="btn btn-primary">
-                    <i class="fas fa-search"></i> Voir les voyages disponibles
-                </a>
+        <div class="profile-section">
+            <div class="section-header">
+                <h2>Mes Réservations</h2>
             </div>
-        <?php else: ?>
-            <div class="row">
-                <?php foreach ($userReservations as $item):
-                    $reservation = $item['reservation'];
-                    $voyage = $item['voyage'];
-                ?>
-                    <div class="col-md-6">
-                        <div class="reservation-card">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="https://source.unsplash.com/random/300x200/?mountain,travel,<?php echo urlencode($voyage['titre']); ?>" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
-                                        <p class="card-text text-muted">
-                                            <small>
-                                                <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['dates']['debut']); ?> au <?php echo htmlspecialchars($voyage['dates']['fin']); ?>
-                                                (<?php echo htmlspecialchars($voyage['dates']['duree']); ?>)
-                                            </small>
-                                        </p>
-                                        <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
+            <?php if (empty($userReservations)): ?>
+                <div class="empty-state">
+                    <h2><i class="far fa-calendar-check"></i> Vous n'avez aucune réservation</h2>
+                    <p>Parcourez nos voyages et réservez votre prochaine aventure !</p>
+                    <a href="recherche.php" class="btn btn-base">
+                        <i class="fas fa-search"></i> Voir les voyages disponibles
+                    </a>
+                </div>
+            <?php else: ?>
+                <div class="row">
+                    <?php foreach ($userReservations as $item):
+                        $reservation = $item['reservation'];
+                        $voyage = $item['voyage'];
+                    ?>
+                        <div class="col-md-6">
+                            <div class="reservation-card">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="assets/img/<?php echo $voyage['id_voyage']; ?>.jpg" class="voyage-image" alt="<?php echo htmlspecialchars($voyage['titre']); ?>">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php echo htmlspecialchars($voyage['titre']); ?></h5>
+                                            <p class="card-text text-muted">
+                                                <small>
+                                                    <i class="far fa-calendar-alt"></i> Du <?php echo htmlspecialchars($voyage['dates']['debut']); ?> au <?php echo htmlspecialchars($voyage['dates']['fin']); ?>
+                                                    (<?php echo htmlspecialchars($voyage['dates']['duree']); ?>)
+                                                </small>
+                                            </p>
+                                            <p class="card-text"><?php echo htmlspecialchars(substr($voyage['description'], 0, 100)); ?>...</p>
 
-                                        <div class="reservation-footer">
-                                            <div>
-                                                <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
-                                                <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
-                                                    <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn-modifier">
-                                                    <i class="fas fa-edit"></i> Modifier
-                                                </a>
+                                            <div class="reservation-footer">
+                                                <div>
+                                                    <span class="reservation-badge price"><?php echo number_format($reservation['prix_total'], 0, ',', ' '); ?> €</span>
+                                                    <span class="reservation-badge <?php echo $reservation['paiement'] ? 'paid' : 'pending'; ?> ms-2">
+                                                        <?php echo $reservation['paiement'] ? '<i class="fas fa-check-circle"></i> Payé' : '<i class="fas fa-clock"></i> En attente'; ?>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservation['id_reservation']; ?>" class="btn btn-base">
+                                                        <i class="fas fa-edit"></i> Modifier
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-    </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
 
 
 
@@ -783,12 +748,12 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
             showAllBtn.addEventListener('click', function() {
                 showAll = !showAll;
                 this.textContent = showAll ? 'Voir moins' : 'Voir tout';
-                
+
                 voyagesContainer.innerHTML = '';
                 const voyagesToShow = showAll ? allVoyages : allVoyages.slice(0, 3);
-                
+
                 voyagesToShow.forEach(voyage => {
-                    
+
                     const card = document.createElement('div');
                     card.className = 'activity-card';
                     card.innerHTML = `
@@ -812,100 +777,100 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
         });
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Éléments du formulaire
-    const profilePictureInput = document.getElementById('profile-picture-input');
-    const profilePicturePreview = document.getElementById('profile-picture-preview');
-    const headerProfilePicture = document.getElementById('header-profile-picture'); // Nouvel élément
-    const uploadForm = document.querySelector('.upload-form');
-    const saveButton = document.querySelector('.btn-save');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Éléments du formulaire
+            const profilePictureInput = document.getElementById('profile-picture-input');
+            const profilePicturePreview = document.getElementById('profile-picture-preview');
+            const headerProfilePicture = document.getElementById('header-profile-picture'); // Nouvel élément
+            const uploadForm = document.querySelector('.upload-form');
+            const saveButton = document.querySelector('.btn-save');
 
-    // Fonction pour mettre à jour toutes les images de profil
-    function updateAllProfilePictures(newSrc) {
-        // Mettre à jour l'image dans le formulaire
-        if (profilePicturePreview) {
-            profilePicturePreview.src = newSrc;
-        }
-        
-        // Mettre à jour l'image dans l'en-tête si elle existe
-        if (headerProfilePicture) {
-            headerProfilePicture.src = newSrc;
-        }
-    }
+            // Fonction pour mettre à jour toutes les images de profil
+            function updateAllProfilePictures(newSrc) {
+                // Mettre à jour l'image dans le formulaire
+                if (profilePicturePreview) {
+                    profilePicturePreview.src = newSrc;
+                }
 
-    // Prévisualisation de la nouvelle image
-    profilePictureInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                // Afficher la prévisualisation
-                updateAllProfilePictures(event.target.result);
-                saveButton.classList.remove('hidden');
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Soumission du formulaire
-    uploadForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Afficher un indicateur de chargement
-        saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        saveButton.disabled = true;
-        
-        const formData = new FormData(this);
-        
-        try {
-            const response = await fetch(this.action, {
-                method: 'POST',
-                body: formData
-            });
-            
-            const data = await response.json();
-            
-            if (data.success) {
-                // Mise à jour des images avec cache-busting
-                const newSrc = '../data/profile_picture/<?= $user['username'] ?>.jpg?' + Date.now();
-                updateAllProfilePictures(newSrc);
-                
-                // Réinitialiser le bouton
-                saveButton.innerHTML = 'Enregistrer';
-                saveButton.classList.add('hidden');
-                saveButton.disabled = false;
-                
-                // Message de succès
-                showAlert('success', 'Photo mise à jour avec succès');
-            } else {
-                throw new Error(data.message || 'Erreur lors de la mise à jour');
+                // Mettre à jour l'image dans l'en-tête si elle existe
+                if (headerProfilePicture) {
+                    headerProfilePicture.src = newSrc;
+                }
             }
-        } catch (error) {
-            console.error('Erreur:', error);
-            showAlert('error', error.message);
-            
-            // Réinitialiser le bouton en cas d'erreur
-            saveButton.innerHTML = 'Enregistrer';
-            saveButton.disabled = false;
-        }
-    });
 
-    // Fonction pour afficher les messages d'alerte
-    function showAlert(type, message) {
-        // Supprimer les anciennes alertes
-        const oldAlerts = uploadForm.querySelectorAll('.upload-alert');
-        oldAlerts.forEach(alert => alert.remove());
-        
-        // Créer la nouvelle alerte
-        const alertDiv = document.createElement('div');
-        alertDiv.className = `upload-alert alert-${type}`;
-        alertDiv.innerHTML = `
+            // Prévisualisation de la nouvelle image
+            profilePictureInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        // Afficher la prévisualisation
+                        updateAllProfilePictures(event.target.result);
+                        saveButton.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Soumission du formulaire
+            uploadForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Afficher un indicateur de chargement
+                saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+                saveButton.disabled = true;
+
+                const formData = new FormData(this);
+
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        // Mise à jour des images avec cache-busting
+                        const newSrc = '../data/profile_picture/<?= $user['username'] ?>.jpg?' + Date.now();
+                        updateAllProfilePictures(newSrc);
+
+                        // Réinitialiser le bouton
+                        saveButton.innerHTML = 'Enregistrer';
+                        saveButton.classList.add('hidden');
+                        saveButton.disabled = false;
+
+                        // Message de succès
+                        showAlert('success', 'Photo mise à jour avec succès');
+                    } else {
+                        throw new Error(data.message || 'Erreur lors de la mise à jour');
+                    }
+                } catch (error) {
+                    console.error('Erreur:', error);
+                    showAlert('error', error.message);
+
+                    // Réinitialiser le bouton en cas d'erreur
+                    saveButton.innerHTML = 'Enregistrer';
+                    saveButton.disabled = false;
+                }
+            });
+
+            // Fonction pour afficher les messages d'alerte
+            function showAlert(type, message) {
+                // Supprimer les anciennes alertes
+                const oldAlerts = uploadForm.querySelectorAll('.upload-alert');
+                oldAlerts.forEach(alert => alert.remove());
+
+                // Créer la nouvelle alerte
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `upload-alert alert-${type}`;
+                alertDiv.innerHTML = `
             <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i> 
             ${message}
         `;
-        
-        // Styles de base pour les alertes
-        const alertStyles = `
+
+                // Styles de base pour les alertes
+                const alertStyles = `
             .upload-alert {
                 padding: 10px 15px;
                 border-radius: 5px;
@@ -925,21 +890,21 @@ $userBadges = getUserBadges($user); // $userData doit contenir les données de l
                 border: 1px solid #f5c6cb;
             }
         `;
-        
-        // Ajouter les styles si nécessaire
-        if (!document.getElementById('alert-styles')) {
-            const styleTag = document.createElement('style');
-            styleTag.id = 'alert-styles';
-            styleTag.textContent = alertStyles;
-            document.head.appendChild(styleTag);
-        }
-        
-        uploadForm.appendChild(alertDiv);
-        
-        // Supprimer après 5 secondes
-        setTimeout(() => alertDiv.remove(), 5000);
-    }
-});
+
+                // Ajouter les styles si nécessaire
+                if (!document.getElementById('alert-styles')) {
+                    const styleTag = document.createElement('style');
+                    styleTag.id = 'alert-styles';
+                    styleTag.textContent = alertStyles;
+                    document.head.appendChild(styleTag);
+                }
+
+                uploadForm.appendChild(alertDiv);
+
+                // Supprimer après 5 secondes
+                setTimeout(() => alertDiv.remove(), 5000);
+            }
+        });
     </script>
 </body>
 

@@ -38,45 +38,50 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- Ajout des icônes Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-	<script src="assets/js/sombre.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+    <script src="assets/js/sombre.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.ban-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                const userId = this.getAttribute('data-user-id');
-                const button = this;
-                const isBanned = button.getAttribute('data-banned') === '1';
-                if (!userId) return;
-                button.disabled = true;
-                fetch('ban_user.php', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id_user: userId, ban: !isBanned})
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        if (isBanned) {
-                            button.textContent = 'Bannir';
-                            button.setAttribute('data-banned', '0');
-                        } else {
-                            button.textContent = 'Banni';
-                            button.setAttribute('data-banned', '1');
-                        }
-                        button.disabled = false;
-                    } else {
-                        button.textContent = 'Erreur';
-                        button.disabled = false;
-                    }
-                })
-                .catch(() => {
-                    button.textContent = 'Erreur';
-                    button.disabled = false;
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.ban-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const userId = this.getAttribute('data-user-id');
+                    const button = this;
+                    const isBanned = button.getAttribute('data-banned') === '1';
+                    if (!userId) return;
+                    button.disabled = true;
+                    fetch('../scripts_php/ban_user.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id_user: userId,
+                                ban: !isBanned
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                if (isBanned) {
+                                    button.textContent = 'Bannir';
+                                    button.setAttribute('data-banned', '0');
+                                } else {
+                                    button.textContent = 'Banni';
+                                    button.setAttribute('data-banned', '1');
+                                }
+                                button.disabled = false;
+                            } else {
+                                button.textContent = 'Erreur';
+                                button.disabled = false;
+                            }
+                        })
+                        .catch(() => {
+                            button.textContent = 'Erreur';
+                            button.disabled = false;
+                        });
                 });
             });
         });
-    });
     </script>
 </head>
 
@@ -88,7 +93,7 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
         <!-- Logo et nom (gauche)-->
         <div class="nav-left">
             <a href="accueil.php" class="nav-brand">
-                <img src="img/logo.png" alt="Logo">
+                <img src="assets/img/logo.png" alt="Logo">
                 Keep Yourself Safe
             </a>
         </div>
@@ -104,8 +109,9 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
         <div class="nav-right">
 
             <button id="theme-toggle" class="nav-btn">
-				<i class="fa-solid fa-moon"></i>
-			</button>
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
@@ -172,7 +178,7 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
                             <td>
                                 <span class="role-user">
                                     <?= $user['admin'] ? 'Admin' : 'Utilisateur' ?>
-                            </span>
+                                </span>
                             </td>
                             <td>
                                 <button class="btn btn-supprimer ban-btn"

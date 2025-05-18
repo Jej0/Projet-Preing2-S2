@@ -134,9 +134,9 @@ button,
 input,
 select,
 textarea {
-    transition: background-color 0.3s ease, 
-                color 0.3s ease, 
-                border-color 0.3s ease;
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
@@ -429,7 +429,7 @@ button:hover {
     background: white;
 }
 
-.edit-profile-btn:hover i{
+.edit-profile-btn:hover i {
     background: var(--blue);
     color: var(--white);
 }
@@ -951,195 +951,7 @@ input[type="date"] {
     grid-column: 1 / -1;
 }
 
-
-
-
-
-
-
-
-
-
-
-/* Section Avantages */
-.benefits {
-    padding: 80px 20px;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-}
-
-.benefit-item {
-    text-align: center;
-    padding: 30px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-}
-
-.benefit-item i {
-    font-size: 2.5rem;
-    color: var(--blue);
-    margin-bottom: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Section Promo */
-.promo-section {
-    background: var(--dark-bg);
-    padding: 60px 20px;
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-.promo-badge {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--dark-bg);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* Compte à rebours */
-.countdown {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.countdown-segment {
-    background: var(--light-gray);
-    padding: 15px 10px;
-    border-radius: 8px;
-}
-
-.countdown span {
-    display: block;
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-/* Cadeau */
-.gift-icon {
-    font-size: 42px;
-    color: var(--yellow);
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-/* Animation */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .countdown {
-        gap: 8px;
-    }
-
-    .countdown-segment {
-        min-width: 60px;
-        padding: 10px 5px;
-    }
-
-    .countdown span {
-        font-size: 1.8rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-/* Style des champs de texte */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin: 0px 0px 25px 0px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-/* Autre spécial */
-/* Dans recherche */
-.tab-btn {
-    padding: 10px 20px;
-    border: none;
-    background: none;
-    color: var(--light-gray);
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.tab-btn.active {
-    color: var(--blue);
-    border-bottom: 2px solid var(--blue);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ====== Conteneur principal profile*/
+/* =========================== Conteneur principal profile =========================== */
 .profile-container {
     max-width: 1200px;
     margin: 32px auto;
@@ -1319,20 +1131,7 @@ input[type="password"] {
     margin-bottom: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==== Contrat */
+/* =========================== Contrat =========================== */
 .contract-header {
     text-align: center;
     margin-bottom: 40px;
@@ -1343,11 +1142,11 @@ input[type="password"] {
     color: var(--light-gray);
 }
 
-.contrat-ul-marge{
+.contrat-ul-marge {
     padding-left: 20px;
 }
 
-.contrat-ul-marge li{
+.contrat-ul-marge li {
     margin-bottom: 8px;
 }
 
@@ -1370,43 +1169,110 @@ input[type="password"] {
     transform: scale(1.5);
 }
 
-
-
-
-
-
-
-
-
-/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
-
-/* Styles pour la photo de profil */
-.profile-picture {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--white);
+/* =========================== Newsletter =========================== */
+.newsletter {
+    padding: 80px;
+    text-align: center;
 }
 
-.btn-save {
-    background-color: #1cc88a;
-    color: white;
-    padding: 8px 15px;
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 30px auto 0;
+    align-items: center;
+}
+
+.newsletter-form input {
+    padding: 15px;
+    border: none;
     border-radius: 5px;
-    margin-top: 10px;
+    font-size: 1rem;
 }
 
+/* =========================== Section Avantages =========================== */
+.benefits {
+    padding: 80px 20px;
+}
 
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
 
+.benefit-item {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
 
+.benefit-item i {
+    font-size: 2.5rem;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
 
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
 
+/* =========================== Section Promo =========================== */
+.promo-section {
+    background: var(--dark-bg);
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
 
+.promo-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark-bg);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
+/* =========================== Compte à rebours =========================== */
+.countdown {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
 
+.countdown-segment {
+    background: var(--light-gray);
+    padding: 15px 10px;
+    border-radius: 8px;
+}
 
-/* ===== Grille d'activités */
+.countdown span {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Cadeau */
+.gift-icon {
+    font-size: 42px;
+    color: var(--yellow);
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+/* =========================== Grille d'activités =========================== */
 .activities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1414,7 +1280,7 @@ input[type="password"] {
 }
 
 .activity-detail-card {
-    background: white;
+    background: var(--white);
     border-radius: 15px;
     padding: 25px;
     box-shadow: var(--shadow);
@@ -1457,89 +1323,7 @@ input[type="password"] {
     justify-content: space-between;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Réservations */
-.reservation-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.status-badge {
-    background: var(--green);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.reservation-actions {
-    display: flex;
-    gap: 10px;
-}
-
-/* Activities Detail Section */
-.activities-detail {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==== Mot de passe */
+/* =========================== Mot de passe =========================== */
 .password-container {
     position: relative;
 }
@@ -1562,6 +1346,255 @@ input[type="password"] {
     text-align: right;
 }
 
+/* =========================== Styles pour modifier la photo de profil =========================== */
+.profile-picture {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--white);
+}
+
+.btn-save {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+/* =========================== Mes Réservations =========================== */
+.empty-state {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.empty-state h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.reservation-card {
+    background: linear-gradient(135deg, var(--white-blueish) 0%, var(--beige) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--blue);
+}
+
+.reservation-card:hover {
+    transform: translateY(-5px);
+}
+
+.voyage-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.reservation-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.reservation-badge.price {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.reservation-badge.paid {
+    background: var(--green);
+    color: var(--white);
+}
+
+.reservation-badge.pending {
+    background: var(--yellow);
+    color: var(--text-dark);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.reservation-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+/* =========================== Détails Voyage =========================== */
+.voyage-details-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.voyage-header {
+    background: var(--white);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.voyage-header h1 {
+    margin-bottom: 1rem;
+}
+
+.voyage-header .lead {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.price-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--white-blueish);
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.voyage-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: var(--blue);
+    color: var(--white);
+}
+
+.voyage-alert {
+    margin: 1rem 0;
+}
+
+.alert {
+    color: var(--bred);
+}
+
+.etape-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.option-section h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.option-section h5 {
+    color: var(--blue);
+    margin: 1rem 0 0.5rem;
+}
+
+.option-group {
+    margin-bottom: 15px;
+}
+
+.option-select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--light-gray);
+}
+
+.dynamic-price {
+    color: var(--blue);
+}
+
+.actions-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* =========================== Récapitulatif voyages =========================== */
+.recap-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.price-summary {
+    background-color: var(--white-blueish);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.total-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--green);
+}
+
+.etape-options {
+    background: linear-gradient(135deg, var(--white-blueish) 0%, var(--beige) 100%);
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+}
+
+.option-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.payment-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-modifier {
+    background-color: var(--light-gray);
+    color: var(--white);
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.paid-badge {
+    color: var(--green);
+    font-weight: bold;
+}
 
 
 
@@ -1572,6 +1605,49 @@ input[type="password"] {
 
 
 
+
+
+
+
+
+
+/* Style des champs de texte */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin: 0px 0px 25px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Autre spécial */
+/* Dans recherche */
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+}
+
+
+
+
+
+
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
 
@@ -1786,31 +1862,7 @@ footer {
 
 
 
-/* Newsletter */
-.newsletter {
-    padding: 80px;
-    text-align: center;
-}
 
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 30px auto 0;
-    align-items: center;
-}
-
-.newsletter-form input {
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-/* Hover Effects */
-.benefit-item:hover {
-    transform: translateY(-5px);
-}
 
 
 
@@ -1930,256 +1982,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Mes Réservations */
-.reservations-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
 
-.reservations-title {
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.reservations-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100px;
-    height: 3px;
-    background: var(--blue);
-}
-
-.empty-state {
-    background: white;
-    padding: 3rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.empty-state h2 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.empty-state p {
-    color: var(--light-gray);
-    margin-bottom: 1.5rem;
-}
-
-.reservation-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border-left: 4px solid var(--blue);
-}
-
-.reservation-card:hover {
-    transform: translateY(-5px);
-}
-
-.voyage-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.reservation-badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.reservation-badge.price {
-    background: var(--blue);
-    color: white;
-}
-
-.reservation-badge.paid {
-    background: var(--green);
-    color: white;
-}
-
-.reservation-badge.pending {
-    background: var(--yellow);
-    color: var(--text-dark);
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.card-title {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-}
-
-.card-text {
-    color: var(--light-gray);
-    margin-bottom: 1rem;
-}
-
-.reservation-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.btn-modifier {
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: var(--transition);
-    border: 1px solid var(--blue);
-    color: var(--blue);
-    background: transparent;
-}
-
-.btn-modifier:hover {
-    background: var(--blue);
-    color: white;
-}
-
-/* Détails Voyage */
-.voyage-details-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
-
-.voyage-header {
-    background: white;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-}
-
-.voyage-header h1 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.voyage-header .lead {
-    color: var(--light-gray);
-    margin-bottom: 1.5rem;
-}
-
-.voyage-badges {
-    display: flex;
-    gap: 10px;
-    margin: 1rem 0;
-}
-
-.voyage-badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    background: var(--blue);
-    color: white;
-}
-
-.etape-card {
-    background: white;
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--blue);
-    transition: var(--transition);
-}
-
-.etape-card:hover {
-    transform: translateY(-5px);
-}
-
-.option-section {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin: 1.5rem 0;
-}
-
-.option-section h4 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.option-section h5 {
-    color: var(--blue);
-    margin: 1rem 0 0.5rem;
-}
-
-.form-check {
-    margin-bottom: 0.5rem;
-}
-
-.form-check-label {
-    cursor: pointer;
-}
-
-.actions-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
-
-.btn-action {
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: var(--transition);
-}
-
-.btn-save {
-    background: var(--blue);
-    color: white;
-}
-
-.btn-save:hover {
-    background: #0056b3;
-}
-
-.btn-cancel {
-    background: var(--red);
-    color: white;
-}
-
-.btn-cancel:hover {
-    background: var(--bred);
-}
-
-.btn-payer {
-    background: var(--green);
-    color: white;
-    margin-left: 10px;
-}
-
-.btn-payer:hover {
-    background: #218838;
-}
-
-.btn-disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
-}
-
-.voyage-alert {
-    margin: 1rem 0;
-}
-
-.alert {
-    color: var(--bred);
-}
 
 
 
@@ -2245,47 +2048,10 @@ footer {
     gap: 15px;
 }
 
-.reservation-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 15px;
-    transition: var(--transition);
-    flex-wrap: wrap;
-    gap: 15px;
-}
 
-.reservation-card:hover {
-    background: #e9ecef;
-}
 
 .reservation-status {
     flex: 0 0 100px;
-}
-
-.status-badge {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.status-badge.upcoming {
-    background: var(--yellow);
-    color: var(--text-dark);
-}
-
-.status-badge.completed {
-    background: var(--green);
-    color: white;
-}
-
-.status-badge.cancelled {
-    background: var(--red);
-    color: white;
 }
 
 .reservation-details {
@@ -2307,11 +2073,7 @@ footer {
     gap: 8px;
 }
 
-.reservation-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+
 
 
 
@@ -2336,6 +2098,20 @@ footer {
 
     100% {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 
@@ -2383,6 +2159,19 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .countdown-segment {
+        min-width: 60px;
+        padding: 10px 5px;
+    }
+
+    .countdown span {
+        font-size: 1.8rem;
     }
 
     .fondateur-grid,
@@ -2498,10 +2287,6 @@ footer {
 
     .reservation-status {
         flex: 0 0 auto;
-    }
-
-    .reservation-actions {
-        justify-content: center;
     }
 }
 
