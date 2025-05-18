@@ -148,5 +148,93 @@
         },
         "id_historique_voyages": [],
         "id_reservation": []
+    },
+    {
+        "id_user": 7,
+        "username": "Johnny",
+        "mot_de_passe": "$2y$12$51teOzo7Bd7kmrhprCXu.u1fwY7YcuzHxqkYx6VeFb8DhSUl2gb9a",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "jhonny@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2025-05-18",
+            "connexion": "2025-05-18"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
+    },
+    {
+        "id_user": 8,
+        "username": "Jean",
+        "mot_de_passe": "$2y$12$1f7MJF8GomtjfWEgvHdLTuWNgLBHrmP\/l1sOiWqhqxlfI.WAQCfz.",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "jean@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2025-05-18",
+            "connexion": "2025-05-18"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
+    },
+    {
+        "id_user": 9,
+        "username": "Michel",
+        "mot_de_passe": "$2y$12$.zTN1tDo8sKoXC.06JsDEOlCvhK\/CuhILa0yoFewg0ArVBIZYt3cC",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "michel@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2025-05-18",
+            "connexion": "2025-05-18"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
+    },
+    {
+        "id_user": 10,
+        "username": "Chris",
+        "mot_de_passe": "$2y$12$L3AQujaxoVaOZO\/TZ0EhE.GU7OdMoYOt5\/LbTLTJgtTUoorlCMWpG",
+        "admin": false,
+        "newsletter": true,
+        "information_personnelles": {
+            "nom": "",
+            "prenom": "",
+            "naissance": "",
+            "mail": "chris@gmail.com",
+            "adresse": "",
+            "telephone": "",
+            "contrat": false
+        },
+        "date": {
+            "inscription": "2025-05-18",
+            "connexion": "2025-05-18"
+        },
+        "id_historique_voyages": [],
+        "id_reservation": []
     }
 ]
