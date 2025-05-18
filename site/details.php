@@ -53,6 +53,9 @@ foreach ($reservations as $res) {
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['save'])) {
+        // Vérifier si c'est une nouvelle réservation
+        $isNewReservation = !$existingReservation;
+
         // Sauvegarder les options
         $options = [];
         foreach ($voyage['etapes'] as $etape) {
@@ -66,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Calculer le nouveau prix total
+        $prixTotal = $voyage['prix_total']; // Initialisation du prix total
         $prixOptions = 0;
         foreach ($voyage['etapes'] as $etape) {
             $etapeId = $etape['id_etape'];
@@ -112,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        $prixTotal = $voyage['prix_total'] + $prixOptions;
+        $prixTotal += $prixOptions; // Ajout des options au prix total
 
         if ($existingReservation) {
             // Mise à jour de la réservation existante
@@ -121,6 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $res['options'] = $options;
                     $res['prix_total'] = $prixTotal;
                     break;
+                }
+            }
+
+            // Si c'était une nouvelle réservation, mettre à jour l'utilisateur
+            if ($isNewReservation) {
+                foreach ($users as &$user) {
+                    if ($user['id_user'] == $userId) {
+                        $user['id_reservation'][] = $existingReservation['id_reservation'];
+                        file_put_contents('../data/users.json', json_encode($users, JSON_PRETTY_PRINT));
+                        break;
+                    }
                 }
             }
         } else {
@@ -139,6 +154,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $reservations[] = $newReservation;
             $existingReservation = $newReservation;
+
+            // Mettre à jour l'utilisateur avec la nouvelle réservation
+            foreach ($users as &$user) {
+                if ($user['id_user'] == $userId) {
+                    $user['id_reservation'][] = $newReservationId;
+                    file_put_contents('../data/users.json', json_encode($users, JSON_PRETTY_PRINT));
+                    break;
+                }
+            }
         }
 
         // Sauvegarder les modifications
@@ -337,6 +361,7 @@ if ($existingReservation) {
             const reservationId = <?php echo $existingReservation ? $existingReservation['id_reservation'] : 'null'; ?>;
             const basePrice = <?php echo $voyage['prix_total']; ?>;
             let currentOptions = {};
+            let currentTotalPrice = <?php echo $prixTotalAffichage; ?>;
 
             // Charger les options initiales si réservation existante
             <?php if ($existingReservation): ?>
@@ -345,7 +370,7 @@ if ($existingReservation) {
 
             // Fonction pour charger les options d'une étape
             function loadOptionsForEtape(etapeId) {
-                fetch(`../scripts_php/get_options.php?etape_id=${etapeId}`)
+                fetch(`../scripts_php/get_options.php?voyage_id=${voyageId}&etape_id=${etapeId}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -353,15 +378,20 @@ if ($existingReservation) {
                         return response.json();
                     })
                     .then(data => {
-                        if (!data.success) {
-                            console.error('Failed to load options for etape', etapeId);
-                            return;
-                        }
-
                         const container = document.querySelector(`#options-${etapeId}`);
                         if (!container) return;
 
                         container.innerHTML = '';
+
+                        // Si pas d'options disponibles
+                        if (!data.success || !data.options || Object.keys(data.options).length === 0) {
+                            container.innerHTML = `
+                            <div class="voyage-alert">
+                                <i class="fas fa-info-circle"></i> Aucune option disponible pour cette étape.
+                            </div>
+                        `;
+                            return;
+                        }
 
                         // Pour chaque type d'option (activité, hébergement, etc.)
                         const optionTypes = {
@@ -371,19 +401,22 @@ if ($existingReservation) {
                             'transport': 'Transports'
                         };
 
+                        let hasOptions = false;
+
                         Object.entries(optionTypes).forEach(([optionType, displayName]) => {
                             if (data.options[optionType] && data.options[optionType].length > 0) {
+                                hasOptions = true;
                                 const group = document.createElement('div');
                                 group.className = 'option-subgroup';
                                 group.innerHTML = `
-                                    <h5>${displayName}</h5>
-                                    <select class="option-select" 
-                                            data-option-type="${optionType}" 
-                                            data-etape-id="${etapeId}"
-                                            name="${optionType}_${etapeId}">
-                                        <option value="">Aucune sélection</option>
-                                    </select>
-                                `;
+                                <h5>${displayName}</h5>
+                                <select class="option-select" 
+                                        data-option-type="${optionType}" 
+                                        data-etape-id="${etapeId}"
+                                        name="${optionType}_${etapeId}">
+                                    <option value="">Aucune sélection</option>
+                                </select>
+                            `;
 
                                 const select = group.querySelector('select');
 
@@ -392,6 +425,7 @@ if ($existingReservation) {
                                     const opt = document.createElement('option');
                                     opt.value = option.id_option;
                                     opt.textContent = `${option.nom} - ${option.description} (${option.prix_par_personne} €)`;
+                                    opt.dataset.price = option.prix_par_personne;
                                     select.appendChild(opt);
                                 });
 
@@ -407,17 +441,34 @@ if ($existingReservation) {
                                 container.appendChild(group);
                             }
                         });
+
+                        if (!hasOptions) {
+                            container.innerHTML = `
+                            <div class="voyage-alert">
+                                <i class="fas fa-info-circle"></i> Aucune option disponible pour cette étape.
+                            </div>
+                        `;
+                        }
                     })
                     .catch(error => {
                         console.error('Error loading options:', error);
+                        const container = document.querySelector(`#options-${etapeId}`);
+                        if (container) {
+                            container.innerHTML = `
+                            <div class="voyage-alert alert-danger">
+                                <i class="fas fa-exclamation-triangle"></i> Erreur lors du chargement des options.
+                            </div>
+                        `;
+                        }
                     });
             }
 
             // Fonction pour mettre à jour le prix total
             function updatePrice() {
+                let newTotalPrice = basePrice;
                 const options = {};
 
-                // Récupérer toutes les options sélectionnées
+                // Récupérer toutes les options sélectionnées et calculer le prix
                 document.querySelectorAll('.option-select').forEach(select => {
                     const etapeId = select.dataset.etapeId;
                     const optionType = select.dataset.optionType;
@@ -428,38 +479,19 @@ if ($existingReservation) {
 
                     if (select.value) {
                         options[`etape_${etapeId}`][optionType] = parseInt(select.value);
+
+                        // Ajouter le prix de l'option sélectionnée
+                        const selectedOption = select.options[select.selectedIndex];
+                        if (selectedOption && selectedOption.dataset.price) {
+                            newTotalPrice += parseInt(selectedOption.dataset.price);
+                        }
                     }
                 });
 
-                // Envoyer les options au serveur pour calcul
-                fetch('../scripts_php/calculate_price.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            voyage_id: voyageId,
-                            options: options,
-                            reservation_id: reservationId
-                        })
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data.success) {
-                            document.getElementById('total-price').textContent =
-                                new Intl.NumberFormat('fr-FR').format(data.total_price);
-                        } else {
-                            console.error('Failed to calculate price');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error updating price:', error);
-                    });
+                // Mettre à jour l'affichage
+                document.getElementById('total-price').textContent =
+                    new Intl.NumberFormat('fr-FR').format(newTotalPrice);
+                currentTotalPrice = newTotalPrice;
             }
 
             // Charger les options pour chaque étape
@@ -468,8 +500,9 @@ if ($existingReservation) {
                 loadOptionsForEtape(etapeId);
             });
 
-            // Initialiser le prix
-            updatePrice();
+            // Initialiser le prix avec la valeur calculée par PHP
+            document.getElementById('total-price').textContent =
+                new Intl.NumberFormat('fr-FR').format(currentTotalPrice);
         });
     </script>
 </body>

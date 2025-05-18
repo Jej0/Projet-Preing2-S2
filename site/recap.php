@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+require('../scripts_php/getapikey.php');
+
+
+
+
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
     header("Location: connexion.php");
@@ -126,6 +131,19 @@ foreach ($voyage['etapes'] as $etape) {
         $optionsDetails[] = $etapeDetails;
     }
 }
+
+$vendeur = "MI-4_H"; // Remplace par ton vrai code vendeur
+$api_key = getAPIKey($vendeur);
+
+$transaction = bin2hex(random_bytes(12)); // Génération d'un ID de transaction unique
+$montant = number_format($reservation['prix_total'], 2, '.', '');
+$retour = 'http://localhost:3000/site/retour_paiement.php?id=' . $_GET['id'];
+$control = md5($api_key
+    . "#" . $transaction
+    . "#" . $montant
+    . "#" . $vendeur
+    . "#" . $retour . "#");
+
 ?>
 
 <!DOCTYPE html>
@@ -237,9 +255,14 @@ foreach ($voyage['etapes'] as $etape) {
                 <a href="details.php?id=<?php echo $voyage['id_voyage']; ?>&reservation=<?php echo $reservationId; ?>" class="btn-modifier">
                     <i class="fas fa-edit"></i> Modifier les options
                 </a>
-                <a href="paiement.php?id=<?php echo $reservationId; ?>" class="btn-payer">
-                    <i class="fas fa-credit-card"></i> Payer maintenant
-                </a>
+                <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
+                    <input type="hidden" name="transaction" value="<?php echo $transaction; ?>">
+                    <input type="hidden" name="montant" value="<?php echo $montant; ?>">
+                    <input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>">
+                    <input type="hidden" name="retour" value="<?php echo htmlspecialchars($retour); ?>">
+                    <input type="hidden" name="control" value="<?php echo $control; ?>">
+                    <button type="submit" class="btn-payer"><i class="fas fa-credit-card"></i>Valider et payer</button>
+                </form>
             <?php else: ?>
                 <p class="paid-badge"><i class="fas fa-check-circle"></i> Déjà payé</p>
             <?php endif; ?>
@@ -248,31 +271,3 @@ foreach ($voyage['etapes'] as $etape) {
 </body>
 
 </html>
-
-
-<?php
-require('../scripts_php/getapikey.php');
-
-$vendeur = "MI-4_H"; // Remplace par ton vrai code vendeur
-$api_key = getAPIKey($vendeur);
-
-$transaction = bin2hex(random_bytes(12)); // Génération d'un ID de transaction unique
-$montant = number_format($reservation['prix_total'], 2, '.', '');
-$retour = 'http://localhost/retour_paiement.php?session=s';
-$control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
-?>
-
-<h2>Résumé du voyage</h2>
-<p><strong>Destination :</strong> <?= htmlspecialchars($voyage['titre']) ?></p>
-<p><strong>Départ :</strong> <?= htmlspecialchars($voyage['date_depart']) ?></p>
-<p><strong>Retour :</strong> <?= htmlspecialchars($voyage['date_retour']) ?></p>
-<p><strong>Prix total :</strong> <?= $montant ?> €</p>
-
-<form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
-    <input type="hidden" name="transaction" value="<?php echo $transaction; ?>">
-    <input type="hidden" name="montant" value="<?php echo $montant; ?>">
-    <input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>">
-    <input type="hidden" name="retour" value="<?php echo htmlspecialchars($retour); ?>">
-    <input type="hidden" name="control" value="<?php echo $control; ?>">
-    <button type="submit" class="btn-pay">Valider et payer</button>
-</form>
