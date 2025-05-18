@@ -153,7 +153,7 @@
         "id_user": 7,
         "username": "Johnny",
         "mot_de_passe": "$2y$12$51teOzo7Bd7kmrhprCXu.u1fwY7YcuzHxqkYx6VeFb8DhSUl2gb9a",
-        "admin": false,
+        "admin": true,
         "newsletter": true,
         "information_personnelles": {
             "nom": "",
