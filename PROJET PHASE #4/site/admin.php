@@ -9,65 +9,46 @@ if (
     exit();
 }
 $users = json_decode(file_get_contents('../data/users.json'), true);
+
+// Tri des utilisateurs par nom
+usort($users, function ($a, $b) {
+    $nameA = $a['information_personnelles']['nom'] ?? $a['username'];
+    $nameB = $b['information_personnelles']['nom'] ?? $b['username'];
+    return strcmp($nameA, $nameB);
+});
 ?>
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
-    <!--Information de la page web-->
     <meta charset="UTF-8">
-
-    <!-- Optimisation pour le telephone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-
-    <!-- Titre du site -->
     <meta name="title" content="Keep Yourself Safe">
-
-    <!-- Nom de l'agence et auteur du site -->
     <meta name="author" content="Keep Yourself Safe | Alex MIKOLAJEWSKI | Axel ATAGAN | Naïm LACHGAR-BOUACHRA">
-
-    <!-- Description du site -->
     <meta name="description" content="⚠️Page Administrateur du site Keep Yourself Safe.⚠️">
-
-    <!-- Titre du navigateur -->
     <title>KYS - Admin</title>
-
-    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <!-- Ajout des icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
-    <!-- Haut de page -->
-
-    <!-- Navigation -->
     <nav>
-        <!-- Logo et nom (gauche)-->
         <div class="nav-left">
             <a href="accueil.php" class="nav-brand">
                 <img src="assets/img/logo.png" alt="Logo">
                 Keep Yourself Safe
             </a>
         </div>
-
-        <!-- Liens (centre)-->
         <ul class="nav-links">
             <li><a href="presentation.php">Présentation</a></li>
             <li><a href="recherche.php">Rechercher</a></li>
             <li><a href="mailto:contact@kys.fr">Contact</a></li>
         </ul>
-
-        <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-
             <button id="theme-toggle" class="nav-btn">
                 <i class="fa-solid fa-moon"></i>
             </button>
-
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
@@ -80,97 +61,69 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
         </div>
     </nav>
 
-    <!-- Contenu-->
     <main class="admin-container">
-        <!-- En-tête Admin -->
         <div class="admin-header">
             <h1>Tableau de bord Administrateur</h1>
-
-        </div>
-
-        <!-- Statistiques -->
-        <div class="admin-stats-grid">
-            <div class="stat-card">
-                <i class="fas fa-users"></i>
-                <h3>1,234</h3>
-                <p>Utilisateurs inscrits</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-hiking"></i>
-                <h3>89</h3>
-                <p>Activités en ligne</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-euro-sign"></i>
-                <h3>15,230€</h3>
-                <p>CA ce mois</p>
+            <div class="admin-stats">
+                <span class="admin-stat-item"><i class="fas fa-users"></i> <?= count($users) ?> utilisateurs</span>
+                <span class="admin-stat-item"><i class="fas fa-ban"></i> <?= count(array_filter($users, fn($u) => !empty($u['banni']))) ?> bannis</span>
             </div>
         </div>
 
-        <!-- Gestion utilisateurs -->
         <section class="admin-section">
             <h2>Gestion des utilisateurs</h2>
             <div class="search-bar">
-                <input type="text" placeholder="Rechercher un utilisateur...">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+                <input type="text" id="user-search" placeholder="Rechercher un utilisateur..." onkeyup="searchUsers()">
             </div>
 
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th>Rôle</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user): ?>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
                         <tr>
-                            <td><?= htmlspecialchars($user['information_personnelles']['prenom'] . ' ' . $user['information_personnelles']['nom']) ?: htmlspecialchars($user['username']) ?></td>
-                            <td><?= htmlspecialchars($user['information_personnelles']['mail']) ?></td>
-                            <td>
-                                <span class="role-user">
-                                    <?= $user['admin'] ? 'Admin' : 'Utilisateur' ?>
-                                </span>
-                            </td>
-                            <td>
-                                <button class="btn btn-supprimer ban-btn"
-                                    style="padding: 8px 18px; border-radius: 8px; font-weight: bold; font-size: 1rem; border: none; transition: background 0.2s, color 0.2s;"
-                                    data-user-id="<?= $user['id_user'] ?>"
-                                    data-banned="<?= !empty($user['banni']) ? '1' : '0' ?>">
-                                    <?= !empty($user['banni']) ? 'Banni' : 'Bannir' ?>
-                                </button>
-                            </td>
+                            <th>Nom <i class="fas fa-sort sort-icon" onclick="sortTable(0)"></i></th>
+                            <th>Email <i class="fas fa-sort sort-icon" onclick="sortTable(1)"></i></th>
+                            <th>Rôle</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </section>
+                    </thead>
+                    <tbody id="user-table-body">
+                        <?php foreach (array_slice($users, 0, 10) as $user): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($user['information_personnelles']['prenom'] . ' ' . $user['information_personnelles']['nom']) ?: htmlspecialchars($user['username']) ?></td>
+                                <td><?= htmlspecialchars($user['information_personnelles']['mail']) ?></td>
+                                <td>
+                                    <span class="role-badge <?= $user['admin'] ? 'role-admin' : 'role-user' ?>">
+                                        <?= $user['admin'] ? 'Admin' : 'Utilisateur' ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-badge <?= !empty($user['banni']) ? 'status-banned' : 'status-active' ?>">
+                                        <?= !empty($user['banni']) ? 'Banni' : 'Actif' ?>
+                                    </span>
+                                </td>
+                                <td class="actions-cell">
+                                    <button class="btn btn-action ban-btn <?= !empty($user['banni']) ? 'btn-unban' : 'btn-ban' ?>"
+                                        data-user-id="<?= $user['id_user'] ?>"
+                                        data-banned="<?= !empty($user['banni']) ? '1' : '0' ?>">
+                                        <i class="fas <?= !empty($user['banni']) ? 'fa-unlock' : 'fa-ban' ?>"></i>
+                                        <?= !empty($user['banni']) ? 'Débannir' : 'Bannir' ?>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
 
-        <!-- Panel de contrôle -->
-        <section class="admin-section">
-            <h2>Actions rapides</h2>
-            <div class="quick-actions">
-                <button class="action-card">
-                    <i class="fas fa-plus-circle"></i>
-                    Ajouter une activité
-                </button>
-                <button class="action-card">
-                    <i class="fas fa-file-invoice"></i>
-                    Générer rapport
-                </button>
-                <button class="action-card">
-                    <i class="fas fa-bell"></i>
-                    Envoyer notification
-                </button>
+            <div class="pagination">
+                <button id="prev-page" class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <span id="page-info">Page 1 sur <?= ceil(count($users) / 10) ?></span>
+                <button id="next-page" class="page-btn" <?= count($users) <= 10 ? 'disabled' : '' ?>><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">

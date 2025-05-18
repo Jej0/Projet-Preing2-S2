@@ -602,10 +602,6 @@ button:hover {
     color: var(--blue);
 }
 
-.stat-item {
-    text-align: center;
-}
-
 /* =========================== FAQ =========================== */
 .faq {
     padding: 80px 20px 40px;
@@ -1596,69 +1592,183 @@ input[type="date"] {
     font-weight: bold;
 }
 
+/* =========================== Page Admin =========================== */
+.admin-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
 
+.admin-header {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.admin-stats {
+    display: flex;
+    gap: 20px;
+}
 
+.admin-stat-item {
+    background: var(--blue);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
 
+.search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+}
 
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
 
-
-
-
-
-
-
-
-
-/* Style des champs de texte */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin: 0px 0px 25px 0px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.admin-table {
     width: 100%;
-    box-sizing: border-box;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: left;
+}
 
-/* Autre spécial */
-/* Dans recherche */
-.tab-btn {
-    padding: 10px 20px;
+.admin-table th {
+    background: var(--white-blueish);
+}
+
+.role-user {
+    background: var(--green);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.role-badge,
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.role-admin {
+    background: var(--yellow);
+    color: var(--text-dark);
+}
+
+.role-user {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.status-active {
+    background: var(--green);
+    color: var(--white);
+}
+
+.status-banned {
+    background: var(--red);
+    color: var(--white);
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     border: none;
-    background: none;
-    color: var(--light-gray);
     cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
+    transition: all 0.2s;
 }
 
-.tab-btn.active {
-    color: var(--blue);
-    border-bottom: 2px solid var(--blue);
+.btn-ban {
+    background: var(--orange);
+    color: var(--white);
 }
 
+.btn-unban {
+    background: var(--green);
+    color: var(--white);
+}
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.page-btn {
+    background: var(--light-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
 
+.page-btn:hover:not(:disabled) {
+    background: var(--green);
+    color: var(--white);
+}
 
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
+.sort-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
 
-/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+.sort-icon:hover {
+    opacity: 1;
+}
 
-
-
-
-
-
-
-
-
-
-/* Formulaire */
+/* =========================== Formulaire =========================== */
 
 /* Style du conteneur pour le formulaire */
 .form-container {
@@ -1714,19 +1824,51 @@ input[type="password"] {
     text-decoration: underline;
 }
 
-/* Styles pour la page de présentation */
+/* =========================== Styles pour la page de présentation =========================== */
 .presentation-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.engagement-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    text-align: center;
-    margin: 40px 0;
+
+
+
+
+
+
+
+
+
+
+/* Style des champs de texte */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin: 0px 0px 25px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Autre spécial */
+/* Dans recherche */
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
 }
 
 /* Style du footer */
@@ -1856,173 +1998,6 @@ footer {
     margin: 15px 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Page Admin */
-.admin-container {
-    max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
-
-.admin-header {
-    background: var(--snow-white);
-    padding: 2rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.admin-badge {
-    background: var(--blue);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.admin-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.stat-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-}
-
-.stat-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.admin-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.admin-table th,
-.admin-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--mountain-grey);
-}
-
-.admin-table th {
-    background: var(--light-bg);
-}
-
-.role-user {
-    background: var(--green);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
-
-.quick-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.action-card {
-    color: var(--blue);
-    background: white;
-    padding: 2rem;
-    border: none;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    cursor: pointer;
-    text-align: center;
-}
-
-.action-card:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.action-card i {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.activity-image {
-    position: relative;
-    height: 180px;
-}
-
-.activity-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-
 .activity-content {
     padding: 20px;
 }
@@ -2048,8 +2023,6 @@ footer {
     gap: 15px;
 }
 
-
-
 .reservation-status {
     flex: 0 0 100px;
 }
@@ -2072,10 +2045,6 @@ footer {
     align-items: center;
     gap: 8px;
 }
-
-
-
-
 
 /* -------------------------------- Animations --------------------------------*/
 
