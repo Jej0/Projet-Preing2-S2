@@ -39,50 +39,6 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
 
     <!-- Ajout des icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-    <script src="assets/js/sombre.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.ban-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    const userId = this.getAttribute('data-user-id');
-                    const button = this;
-                    const isBanned = button.getAttribute('data-banned') === '1';
-                    if (!userId) return;
-                    button.disabled = true;
-                    fetch('../scripts_php/ban_user.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                id_user: userId,
-                                ban: !isBanned
-                            })
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.success) {
-                                if (isBanned) {
-                                    button.textContent = 'Bannir';
-                                    button.setAttribute('data-banned', '0');
-                                } else {
-                                    button.textContent = 'Banni';
-                                    button.setAttribute('data-banned', '1');
-                                }
-                                button.disabled = false;
-                            } else {
-                                button.textContent = 'Erreur';
-                                button.disabled = false;
-                            }
-                        })
-                        .catch(() => {
-                            button.textContent = 'Erreur';
-                            button.disabled = false;
-                        });
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -239,7 +195,8 @@ $users = json_decode(file_get_contents('../data/users.json'), true);
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
-
+    <script src="assets/js/sombre.js"></script>
+    <script src="assets/js/admin.js"></script>
 </body>
 
 </html>

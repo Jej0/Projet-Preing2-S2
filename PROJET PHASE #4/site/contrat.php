@@ -17,7 +17,7 @@ if ($_SESSION['user']['information_personnelles']['contrat'] ?? false) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
     // Lecture du fichier JSON
     $usersData = json_decode(file_get_contents('../data/users.json'), true);
-    
+
     // Mise à jour du statut contrat
     foreach ($usersData as &$user) {
         if ($user['username'] === $_SESSION['user']['username']) {
@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
             break;
         }
     }
-    
+
     // Sauvegarde des modifications
     file_put_contents('../data/users.json', json_encode($usersData, JSON_PRETTY_PRINT));
-    
+
     // Redirection vers le profil
     header("Location: profile.php");
     exit();
@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
 <!DOCTYPE html>
 
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
     <meta name="description" content="Contrat à signer">
     <title>KYS - Contrat</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-	<script src="assets/js/sombre.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -71,9 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
 
         <!-- Profil et connexion(droite)-->
         <div class="nav-right">
-			<button id="theme-toggle" class="nav-btn">
-				<i class="fa-solid fa-moon"></i>
-			</button>
+            <button id="theme-toggle" class="nav-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <?php if (!isset($_SESSION['user'])) { ?>
                 <a href="connexion.php" class="btn nav-btn">Se connecter</a>
                 <a href="inscription.php" class="btn nav-btn">S'inscrire</a>
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
             <?php } ?>
         </div>
     </nav>
-    
+
     <div class="presentation-container">
         <div class="contract-header">
             <h1>CONDITIONS GÉNÉRALES DE SERVICE</h1>
@@ -315,12 +316,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_terms'])) {
             <p>&copy; 2025 Keep Yourself Safe. Tous droits réservés.</p>
         </div>
     </footer>
-    <script>
-        document.getElementById('accept_terms').addEventListener('change', function() {
-            if(this.checked) {
-                document.getElementById('contractForm').submit();
-            }
-        });
-    </script>
+    <script src="assets/js/contrat.js"></script>
+    <script src="assets/js/sombre.js"></script>
 </body>
+
 </html>

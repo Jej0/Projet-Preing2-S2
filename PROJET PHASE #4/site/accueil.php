@@ -61,7 +61,6 @@ foreach ($users as $user) {
 
 	<!-- Liens vers icônes Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-	<script src="assets/js/sombre.js"></script>
 </head>
 
 <body>
@@ -292,6 +291,7 @@ foreach ($users as $user) {
 	</footer>
 	<script src="assets/js/accueil.js"></script>
 	<script src="assets/js/popup.js"></script>
+	<script src="assets/js/sombre.js"></script>
 </body>
 
 </html>

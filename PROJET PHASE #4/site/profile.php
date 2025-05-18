@@ -145,7 +145,6 @@ $userBadges = getUserBadges($user);
     <title>KYS - Profil de <?php echo $username; ?></title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Très bien mais comment ça marche ? -->
-    <script src="assets/js/sombre.js"></script>
 </head>
 
 <body>
@@ -906,6 +905,7 @@ $userBadges = getUserBadges($user);
             }
         });
     </script>
+    <script src="assets/js/sombre.js"></script>
 </body>
 
 </html>
